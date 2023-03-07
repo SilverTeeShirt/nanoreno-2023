@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.0"
+define config.version = "0.1"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -84,13 +84,15 @@ define config.intra_transition = dissolve
 
 ## A transition that is used after a game has been loaded.
 
-define config.after_load_transition = None
-
+define config.after_load_transition = dissolve
 
 ## Used when entering the main menu after the game has ended.
 
-define config.end_game_transition = None
+define config.end_game_transition = dissolve
 
+## Used when entering the main menu from the splashscreen.
+
+define config.end_splash_transition = dissolve
 
 ## A variable to set the transition used when the game starts does not exist.
 ## Instead, use a with statement after showing the initial scene.
@@ -120,7 +122,7 @@ define config.window_hide_transition = Dissolve(.2)
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 0
+default preferences.text_cps = 45
 
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0
@@ -186,8 +188,17 @@ init python:
 
     ## To archive files, classify them as 'archive'.
 
-    # build.classify('game/**.png', 'archive')
-    # build.classify('game/**.jpg', 'archive')
+    build.archive("scriptsarchive", "all")
+    build.archive("imagesarchive", "all")
+    build.archive("audioarchive", "all")
+
+    build.classify('game/**.png', 'imagesarchive')
+    build.classify('game/**.jpg', 'imagesarchive')
+    build.classify('game/**.rpy', 'scriptsarchive')
+    build.classify('game/**.rpyc', 'scriptsarchive')
+    build.classify('game/**.ttf', 'scriptsarchive')
+    build.classify('game/**.ogg', 'audioarchive')
+    build.classify('game/**.mp3', 'audioarchive')
 
     ## Files matching documentation patterns are duplicated in a mac app build,
     ## so they appear in both the app and the zip file.

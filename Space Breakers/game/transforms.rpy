@@ -11,6 +11,9 @@ transform rightcenter:
     xalign 0.6 yalign 1.0
 
 ## Normal
+transform zoomnorm:
+    zoom .625 yalign 1.0
+
 transform wiggle:
     ease 0.1 yoffset 20
     ease 0.1 yoffset 0
