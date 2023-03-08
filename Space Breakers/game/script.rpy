@@ -41,13 +41,13 @@ menu:
      "Where am I?":
         label start_whereami:
         r "W-Where am I?"
-        m "Seriously? Did the cold sleep scamble your brain?."
+        m "Seriously? Did the cold sleep scramble your brain?"
         m "You're on a salvager ship hurtling through space and you're late for a team meeting."
         r "R-right!"
      "Who am I?":
         label start_whoami:
         r "W-Who am I?"
-        m "Seriously? Did the cold sleep scamble your brain?."
+        m "Seriously? Did the cold sleep scramble your brain?"
         m "You're our softest squishiest newiest rookie human and you're late for a team meeting."
         r "R-right!"
      "...":
