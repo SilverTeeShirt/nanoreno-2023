@@ -32,8 +32,45 @@ show marnie normal with dissolve:
     center
 m "Newbie, wake up!"
 dd "Standing above you, having pressed the emergency thaw button, is Marnie."
-r "What?"
-m "C’mon, Newbie! Captain Otus wants everyone on the bridge, something big has appeared on the scanners!"
+
+menu:
+     "I'm awake!":
+        label start_awake:
+        r "I'm awake, I'm awake!"
+        m "Good. Sometimes you humans can be so fickle."
+     "Where am I?":
+        label start_whereami:
+        r "W-Where am I?"
+        m "Seriously? Did the cold sleep scamble your brain?."
+        m "You're on a salvager ship hurtling through space and you're late for a team meeting."
+        r "R-right!"
+     "Who am I?":
+        label start_whoami:
+        r "W-Who am I?"
+        m "Seriously? Did the cold sleep scamble your brain?."
+        m "You're our softest squishiest newiest rookie human and you're late for a team meeting."
+        r "R-right!"
+     "...":
+        r "..."
+        m "Hmmmmm... There does't look like there's anything wrong with you."
+        m "Your vitals should be fine... "
+        m "Hey are you awake yet?"
+        menu:
+             "I'm awake!":
+                jump start_awake
+             "Where am I?":
+                jump start_whoami
+             "Who am I?":
+                jump start_whereami
+             "...":
+                r "..."
+                m "..."
+                show marnie with vpunch
+                m "I know you're awake! Stop being lazy!"
+                r "Ow! OK I'm awake!"
+
+m "Anyways the Captain wants everyone on the bridge pronto."
+r "Y-Yes Ma'm!"
 hide marnie with dissolve
 dd "With this, Marnie leaves the room, and you begin to get out of the Cold Sleep pod, brushing down your jumpsuit."
 dd "You grab a SuperValue protein bar, some trihydrated milk and try to ignore the lack of taste as you make your way to the bridge."
