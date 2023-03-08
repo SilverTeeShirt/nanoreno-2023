@@ -48,7 +48,7 @@ menu:
         label start_whoami:
         r "W-Who am I?"
         m "Seriously? Did the cold sleep scramble your brain?"
-        m "You're our softest squishiest newiest rookie human and you're late for a team meeting."
+        m "You're our softest squishiest newest rookie human and you're late for a team meeting."
         r "R-right!"
      "...":
         r "..."
