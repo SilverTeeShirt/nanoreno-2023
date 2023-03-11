@@ -22,10 +22,10 @@ show bg_ship1
 show bgblack
 pause 1.5
 qq "Hey..."
-qq "Hey rookie!"
+qq "Hey Rookie!"
 play sound heartbeat volume 0.2
 hide bgblack with dissolveslow
-dd "You awaken to the sound of your heart beginning to pump again, as you stir from the cold sleep."
+dd "You awaken to the sound of your heart beginning to pump again, as you stir from the Cold Sleep."
 show bgblack with dissolve:
     alpha 0.75
 hide bgblack with dissolve
@@ -36,40 +36,43 @@ show marnie normal with dissolve:
     center
 dd "Standing above you, having pressed the emergency thaw button, is Marnie."
 play sound heartbeat volume 0.2
-m "Come on rookie, wake up!"
+m "Come on Rookie, wake up!"
 menu(screen ='choice'):
-    "I'm awake":
+    "I'm awake!":
         label start_awake:
-        r "Yup, I'm awake! I'm awake!"
-        m "Alright good. I was worried you would take awhile to thaw."
-        m "I can never tell how long you humans take in there."
+        r "I'm awake! I'm awake!"
+        m "Alright good. I was worried when you didn't respond right away."
+        m "I can never tell how long you humans take in there..."
     "Where am I?":
         label start_whereami:
-        r "Where am I?"
-        m "Seriously? Don't tell me the cold sleep messed with your memory..."
+        r "W-Where am I?"
+        m "Seriously? Don't tell me the Cold Sleep messed with your memory..."
         m "I thought they fixed that issue..."
         m "Well what do you remember?"
         menu(screen ='choice'):
             "I'm a salvager":
-                r "That I'm a rookie space salvager?"
+                r "That I'm a Rookie space salvager?"
                 m "Correct!{w=0.25} And...?"
-                r "Um... You're Marnie?"
-                m "Yup! All I needed to hear."
-                m "Your vitals are fine."
+                r "Um...{w=0.25} You're Marnie?"
+                m "Yup!{w=0.25} All I needed to hear."
+                m "You should be fine."
+                r "R-Right..."
             "I don't know":
-                r "Oh no! {size=+04}I don't know anything!{/size}"
+                r "Oh no!{w=0.25} {size=+06}I don't know anything!!!{/size}"
                 m "..."
-                show marnie with vpunch
+                r "..."
+                m "..."
+                show marnie with vpunchnowait
                 play sound smack
-                r "{size=+04}OW!{/size}"
-                m "Stop messing around! Your vitals are perfect!"
-        r "R-right..."
+                r "{size=+06}OW!{/size}"
+                m "Stop messing around!"
+                r "S-Sorry!"
     "...":
         r "..."
-        m "Hmmmmm... Can you hear me?."
-        m "Maybe something went wrong..."
+        m "Hmmmmm... Can you hear me?"
+        m "Maybe something went wrong with the Cold Sleep pod again..."
         m "..."
-        m "{size=+04}Hey Rookie!{/size}"
+        m "{size=+06}Hey Rookie!{/size}"
         menu:
             "I'm awake!":
                 jump start_awake
@@ -78,152 +81,169 @@ menu(screen ='choice'):
             "...":
                 r "..."
                 m "..."
-                show marnie with vpunch
+                show marnie with vpunchnowait
                 play sound smack
-                r "{size=+04}OW!{/size}"
-                m "Stop messing around! Your vitals are perfect!"
+                r "{size=+06}OW!{/size}"
+                m "Stop messing around!"
                 r "Sorry! I'm awake now!"
-
 m "Anyways the captain wants everyone on the bridge."
 m "Just freshen up and meet everyone there."
-r "Y-Yes Ma'am!"
+r "Yes Marnie!"
 hide marnie with dissolve
 dd "With this, Marnie leaves the room, and you begin to get out of the Cold Sleep pod, brushing down your jumpsuit."
-
-$roommanager.setuproom(0)
-
-label showerchoice:
+r "My head IS a little foggy though... Maybe I should take look around a bit."
 
 #LET PLAYER DO THINGS HERE
+$roommanager.setuproom(0)
+label showerchoice:
+dd "A narrow sonic shower sits uncomfortably in the corner of this room."
 menu(screen ='choice'):
-    "shower":
-        dd "You shower in the sonic shower"
+    "take a shower":
+        #play sound shower
+        dd "You hop in and turn the dial. A wave of ultra sonic pulses hits you all over."
+        r "Ahhh! I don't think I can ever get used to this!"
+        $ shower = True
     "leave":
-        dd "You head to the bridge"
+        dd "You head to the bridge."
 #LET PLAYER DO THINGS HERE
 
 scene bg_ship2 with fade
 show marnie normal with dissolve:
     zoomnorm
     leftish
-
 if shower == True:
-    m "Jeez Took you long enough."
-m "Jeez Rookie I told you to freshen up."
+    m "Jeez Rookie,{w=0.25} took you long enough."
+else:
+    m "Oof Rookie,{w=0.25} you still smell a bit funny."
 show gelato normal with dissolve:
     zoomnorm
     rightish
     wiggle
-
-g "intro~!"
-
-r "Morning?{w=0.25} "
+if shower == True:
+    g "Hey there human salvager!"
+else:
+    g "Smells like a perfectly normal human to me!"
+if shower == True:
+    r "Yup. That's me. The human salvager..."
+else:
+    r "Yup. That's me. The smelly human salvager..."
 show gelato at wiggle
-g "I ask myself that everyday, Rookie!"
-
-r "No, I mean, I’m scheduled for the night shift, right?"
+if shower == True:
+    g "No you're {size=+06}THE HUMAN{/size} salvager!"
+    show gelato at wiggle
+    g "The one and only!"
+    show gelato at wiggle
+    g "Not since that last one!"
+    g "{size=-06}That one didn't last long...{/size}"
+else:
+    g "No you're {size=+06}THE SMELLY HUMAN{/size} salvager!"
+    m "Hey. No one's allowed to pick on the Rookie but me."
+    show gelato at wiggle
+    g "But I'm not picking on the Rookie..."
 show otus normal with dissolve:
     zoomnorm
     xalign 1.35
 show marnie:
-    ease 0.5 xalign -0.1
+    ease 0.4 xalign -0.1
 show gelato:
-    ease .25 center
+    ease .2 center
 pause 0.25
 show gelato at wiggle
-o "Sorry, new kid. Schedules are made to be broken."
-
-m "Hey, Captain Otus, there you are! Why did you need us all here?"
+o "You Jabbersniffs sure took your sweet time!"
+m "{size=-06}Wait.{w=0.25} But I was the first one here...{/size}"
 show gelato at wiggle
-g "Can’t you see you made Rookie all grouchy?"
-
-r "I’m fine, I just wanted to moan."
-
-o "You can moan later, kid. We got a new job to do."
-
-m "What?{w=0.25} We just came back from a job!"
-
-m "That Luxury Comet Skipper is the reason we’re in this chartless part of the galaxy in the first place!"
+g "Sometimes captain, you gotta go at a human's pace."
+r "What does that even mean?"
+o "Shut it kid! We got a new job to do."
+m "Wait? What?{w=0.25} We're heading back from a job right now!"
+m "That luxury comet skipper is filling up our entire cargo hold!"
 show gelato at wiggle
-g "Yeah, who knew an autopilot would be so bad at navigation?"
-
-r "It took a long time salvaging all those parts of the ship from the asteroid field…"
-
-m "Exactly, and union rules specifically state that we don’t have to do shit until we’re back at homebase-"
-
-o "Hey, hey! Don’t start quoting union rules to me! I’ve been scrapping ships longer than your people have been flying them!"
-
-o "I know I can’t make you do anything, but trust me, I think you’ll all want a part of this."
-
+g "Maybe it's something really{w=0.25} {size=-06}really small...{/size}"
+m "We're on a tight schedule captain! We'll take a big penalty even if we're late by a single micro cycle!"
+o "Hey!{w=0.25} Quit being such a Squeaklebeak! I’ve been scrapping ships longer than your people have been flying them!"
+o "I know what I'm doing! And trust me, I think you’ll all want to be part of this."
 show sprocko normal with dissolve:
     zoomnorm
-    xalign -0.45
+    xalign -0.5
 show marnie:
-    ease 0.25 xalign 0.125
+    ease 0.2 xalign 0.1
 show gelato:
-    ease .15 xalign 0.625
-    wiggle
-s "Hey Boss!"
-
+    ease 0.1 xalign 0.62
+pause 0.25
+show gelato at wiggle
+s "Hey BOSS!"
 s "We got visual!"
+o "Finally! Put it on screen, Sprocko!"
 
-o "Finally! Put in on screen, Sprocko!"
-
+#play sound engines
 show cg01 with dissolve
-# See the space station on screen
-
 g "Woah, what is that?"
-o "Sprocko, any ideas?"
-s "I…{w=0.25} I don’t know! There’s nothing in the database, and I’ve never seen anything like it!"
-m "Then why the hell are we interested in it?"
-s "Because I’m getting a very strong Zexacite signal coming from that things engines."
-m "... How strong?"
-s "200 micro frequencies."
-
+o "Sprocko,{w=0.25} tell them."
+s "Well let's see...{w=0.25} Judging from the data it LOOKS like a custom orbital station built almost FIFTY cycles ago."
+m "Now why would we be interested in an old orbital station?"
+s "Because WE are getting strong zetacite readings from that thing's reactor core."
+m "OK..."
+m "How strong?"
+s "Nine hundred THOUSAND zetajoules... Enough to power an ENTIRE core world."
 hide cg01 with dissolve
+
 dd "The room is silent, as the magnitude of that statement hangs in the air."
-
 show gelato at wiggle
-g "Holy shit! That’s like, what, ten times the latest engine models, right?"
+g "T-That makes no sense!{w=0.25} How can a single station have enough power to do that?!"
+o "Now you're getting it!"
+o "This is an opportunity we can't miss. I'll jettison that entire smogdraffle comet skipper for this salvage if I have to!"
+m "Are you sure those reading are correct?"
+s "I quintuple checked it while YOU were all on ice."
+s "My calculations are PERFECT!"
+m "I don't like this... It's some sort of super secret, galactic government trick or something."
+m "We step one foot on that thing, and {size=+06}BAM!{/size}{w=0.25} We’re sent to prison in a pocket dimension and never seen again!"
+s "No way! I checked the flight charts and no one's been in this sector for AGES!"
+o "There's nothing to worry about! We get our hands on whatever is powering that reactor and we can all retire on any core world we want!"
 
-o "Yep! See why I wanted all of us here?"
+menu(screen ='choice'):
+    "Marnie is right.":
+        r "Maybe we should listen to Marnie."
+        r "This sounds dangerous and I don't want to mess up my first salvage operation."
+        m "See even the Rookie can tell that this is too good to be true."
+        show gelato at wiggle
+        g "It must be that human intuition!"
+        s "Oh come on! We NEED, no we MUST get on that station!"
+        s "Captain? What do you say?"
+        o "How about we put it to a vote?"
+        o "My vote counts as two and as captain I always win the tie breaker."
+        o "If we tally up the votes...{w=0.25} It looks like... We're going!"
+        show gelato at wiggle
+        g "Yay democracy!"
+        r "That's not how that works..."
+    "The captain is right.":
+        r "Captain Otus is right."
+        r "If we miss this opportunity we'll be kicking ourselves for the rest of our lives."
+        o "Yeah see! Good Rookie!"
+        o "Who's a good Rookie! You are that's who!"
+        r "Something feels off about that statement..."
+        show gelato at wiggle
+        g "{size=-06}Such a good human...{/size}"
+        s "Oh! I can't WAIT to play with whatever is in there!"
+        m "Are we actually doing this?"
+        o "If anything looks off we'll high tail it out of there. I promise"
 
-m "This has got to be a trick of some sort."
-
-r "Who would be tricking us?"
-
-m "I dunno, it’s gotta be some super secret, government bull or something."
-
-m "We step one foot on that thing, and BAM! We’re sent to prison in a pocket dimension and never seen again!"
-
-s "I highly doubt that. There’s no signs of life, and it doesn’t seem to be doing anything but orbiting."
-
-m "Still seems to risky. I say we ping it and report it when we get back to home base."
+m "Ugh...{w=0.25} Fine. But you're covering for any late penalty we get."
+o "Alright Sprocko. Guide her in."
+show sprocko:
+    ease 0.8 xalign 3.0
+show marnie:
+    ease 0.4 xalign -0.1
+show gelato:
+    ease .2 center
+pause 0.25
 show gelato at wiggle
-g "Aw, come on! We report it without any evidence, we’ll get like a weeks holiday at best!"
-
-o "For once, I agree with Gelato."
+s "{size=+06}Ghwahahahahahaha!{/size}"
 show gelato at wiggle
-g "Ha, thanks!"
-show gelato at wiggle
-g "Wait, what do you mean for once-{nw}"
-
-o "We should at least dock, try to gain some evidence…"
-
-s "Maybe some cutting-edge technology to play- I mean, experiment with…"
-
-o "I’ll pretend I didn’t hear that."
-
-m "I want it on record that I think this is a bad idea."
-
-m "But if everyone else is on board, I guess I should make sure you don’t get yourself killed."
-show gelato at wiggle
-g "Aww, thanks bud!"
-
-o "Good, I don’t need to argue with you then.{w=0.25} Everyone, suit up."
-
-o "It’s time to go scavenging!"
+g "Yippie!"
+m "This is such a bad idea."
+o "Alright Rookie, you're on point."
 show bgblack2 with dissolve
+#play sound landing
 
 
 
@@ -252,9 +272,9 @@ label enterroom:
 
 
 screen makeinteractables(targetinteractables, roommanagerref):
-    
+
     default localrmanref = roommanagerref
-    
+
 
     for ti in targetinteractables:
         if ti.intertype == 1:
@@ -263,7 +283,7 @@ screen makeinteractables(targetinteractables, roommanagerref):
                 ypos ti.verposition
                 auto ti.imageref[ti.interprogress]
                 action [SensitiveIf((ti.interprogress in ti.interrangequest)and(localrmanref.currinterlayer == 0)), Hide("makeinteractables"), Hide("makeplayerUI"), Function(localrmanref.intiateinteraction,ti.labelref)]
-                
+
 
         elif ti.intertype == 2:
             frame:
@@ -275,10 +295,10 @@ screen makeinteractables(targetinteractables, roommanagerref):
 
 
 screen interactableinteractionscreen(selectedinteractable):
-    
+
     default localinterref = selectedinteractable
     image "[localinterref.menuimageref]" xalign 0.3 yalign 0.5
-            
+
 
 
 screen makeplayerUI(roommanagerref,navon,invon):
@@ -293,7 +313,7 @@ screen makeplayerUI(roommanagerref,navon,invon):
             xalign 0.9
             yalign 0.1
             textbutton "Navigation" action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("navscreen",None,localrmanref)]
-    
+
     if (invon == 0):
         frame:
             xpadding 40
@@ -304,9 +324,9 @@ screen makeplayerUI(roommanagerref,navon,invon):
 
 
 
-    
 
-    
+
+
 
 
 
@@ -319,7 +339,7 @@ screen navscreen(roommanagerref):
 
     for rtg in localrmanref.currentroom.adjacentrooms:
         $ roomstogoto.append(localrmanref.rooms[rtg])
-    
+
 
     frame:
         xpadding 40
@@ -327,11 +347,11 @@ screen navscreen(roommanagerref):
         xalign 0.9
         yalign 0.1
         textbutton "Back" action [Hide("navscreen"),Show("makeplayerUI",None,localrmanref)]
-    
+
 
     for ri in roomstogoto:
-        
-        
+
+
         if (ri.locked == 0):
 
             imagebutton:
@@ -356,7 +376,7 @@ screen navscreen(roommanagerref):
                     auto "iconunknown_%s.jpg"
 
                 action [NullAction()]
-            
+
             image "iconlocked.jpg" xalign 0.6 yalign (0.2 + (0.2*count))
-        
+
         $ count += 1

@@ -14,7 +14,7 @@ init python:
             self.navicon = navicon
 
 
-    
+
     class RoomManager():
         def __init__(self,name,rooms,currentroom,currinterlayer,gotnav,gotinv):
             self.name = name
@@ -27,7 +27,7 @@ init python:
         def setuproom(self,idnum):
             self.currentroom = self.rooms[idnum]
             self.currinterlayer = 1
-            cr = self.currentroom 
+            cr = self.currentroom
             renpy.scene()
             renpy.show(cr.bgref)
             cr.discovered = 0
@@ -35,24 +35,24 @@ init python:
             renpy.jump("enterroom")
 
         def changeinteractionlevel(self,newilv):
-        
+
             self.currinterlayer = newilv
 
-        
+
         def intiateinteraction(self,selinterjump):
-            
-            
+
+
             #renpy.show_screen("interactableinteractionscreen",selinter)
 
             renpy.jump(selinterjump)
-    
 
 
-           
+
+
     class Interactable():
         def __init__(self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,labelref):
             self.name = name
-            self.intertype = intertype #type of interactable 
+            self.intertype = intertype #type of interactable
             self.horposition = horposition #change to specific position as opposed to alignment
             self.verposition = verposition
             self.interprogress = interprogress #how far into the chain of interactions the player is (ie: is a dorr you have to open closed or open)
@@ -60,13 +60,13 @@ init python:
             self.interrangelayer = interrangelayer #at what generic layer of interaction (no menu on screen/navigation/inventory/etc, see roommanager) is this button sensitive to player input?
             self.fltext = fltext #list of flavortexts in response to various situations
             self.labelref = labelref
-    
+
     class ImageInteractable(Interactable):
         def __init__(self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,labelref,imageref,menuimageref):
             super().__init__(name,intertype,horposition,verposition,interprogress,interrangelayer,interrangequest,fltext,labelref)
             self.imageref = imageref
             self.menuimageref = menuimageref
-    
+
     class TextInteractable(Interactable):
         def __init__(self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,textref,xpad,ypad):
             super().__init__(name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,labelref)
@@ -77,7 +77,7 @@ init python:
 
 
 ## Defines
-## Characters Chapter 0
+## Characters
 
 define r = Character("Rookie", color="#bababa")
 
@@ -89,23 +89,18 @@ define g = Character("Gelato", color="#208211")
 define ai = Character("The Caretaker", color="#ffb73b")
 
 define qq = Character("???", color="#666666")
-define dd = Character(None, what_style="centered_text", what_italic=True)
+define dd = Character(None, what_italic=True, what_font="font/NunitoSemiboldItalic.ttf")
 
 
-## Interactables
-define showerdoorintro = ImageInteractable("Cold sleep room",1,1836,524,0,[0],[0],"","showerchoice",["inter/testinteractable_%s.png"],"testinteractable_idle.png")
+## Interactables self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,labelref,imageref,menuimageref
+define showerdoorintro = ImageInteractable("Cold sleep room",1,1775,180,0,[0],[0],"","showerchoice",["inter/testinteractable_%s.png"],"testinteractable_idle.png")
 
 ## Rooms
 
-# Chapter 0
+# ACT 1
 define coldsleeproom = Room("Cold sleep room",0,"bg_ship1",[showerdoorintro],0,0,[],"bg_ship1")
 
 
 
 ## Roommanager (and Inventory soon)
 define roommanager = RoomManager("roommanager",[coldsleeproom],coldsleeproom,1,1,1)
-
-
-
-
-

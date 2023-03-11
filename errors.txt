@@ -1,0 +1,18 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 116: expected ':' not found.
+    else m "Jeez Rookie, you still smell a bit funny."
+         ^
+
+File "game/script.rpy", line 123: expected ':' not found.
+    else g "Smells like a perfectly normal human to me!"
+         ^
+
+File "game/script.rpy", line 126: expected ':' not found.
+    else r "that's me. The smelly human salvager..."
+         ^
+
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Fri Mar 10 23:09:23 2023
