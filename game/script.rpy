@@ -24,27 +24,35 @@ pause 1.5
 qq "Hey..."
 qq "Hey Rookie!"
 play sound heartbeat volume 0.2
-hide bgblack with dissolveslow
+show bgblack with dissolveslow:
+    alpha 0.5
 dd "You awaken to the sound of your heart beginning to pump again, as you stir from the Cold Sleep."
-show bgblack with dissolve:
-    alpha 0.75
-hide bgblack with dissolve
 play sound heartbeat volume 0.2
+show bgblack with dissolve:
+    alpha 0.85
+show bgblack with dissolve:
+    alpha 0.25
 r "Ugh...."
-show marnie normal with dissolve:
+show marnie normal behind bgblack with dissolve:
     zoomnorm
     center
 dd "Standing above you, having pressed the emergency thaw button, is Marnie."
 play sound heartbeat volume 0.2
+show bgblack with dissolve:
+    alpha 0.65
+show bgblack with dissolve:
+    alpha 0.25
 m "Come on Rookie, wake up!"
 menu(screen ='choice'):
     "I'm awake!":
         label start_awake:
+        hide bgblack with dissolve
         r "I'm awake! I'm awake!"
         m "Alright good. I was worried when you didn't respond right away."
         m "I can never tell how long you humans take in there..."
     "Where am I?":
         label start_whereami:
+        hide bgblack with dissolve
         r "W-Where am I?"
         m "Seriously? Don't tell me the Cold Sleep messed with your memory..."
         m "I thought they fixed that issue..."
@@ -72,7 +80,7 @@ menu(screen ='choice'):
         m "Hmmmmm... Can you hear me?"
         m "Maybe something went wrong with the Cold Sleep pod again..."
         m "..."
-        m "{size=+06}Hey Rookie!{/size}"
+        m "{size=+06}Hey Rookie! Wake up!{/size}"
         menu:
             "I'm awake!":
                 jump start_awake
@@ -81,6 +89,7 @@ menu(screen ='choice'):
             "...":
                 r "..."
                 m "..."
+                hide bgblack with disfastnowait
                 show marnie with vpunchnowait
                 play sound smack
                 r "{size=+06}OW!{/size}"
