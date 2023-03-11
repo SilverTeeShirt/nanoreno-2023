@@ -13,85 +13,107 @@
 # {b}{/b}
 # {size=+04}{/size}
 
-
-#hi this is the comment to check repo
-
 label start:
 
 scene START
 show bg_ship1
 show bgblack
-pause 0.75
-
-qq "Hey! Are you awake yet?"
+pause 1.5
+qq "Hey..."
+qq "Hey rookie!"
+play sound heartbeat volume 0.2
 hide bgblack with dissolveslow
-dd "You awaken to the sound of your heart beginning to pump again, as you stir from the Cold Sleep."
+dd "You awaken to the sound of your heart beginning to pump again, as you stir from the cold sleep."
 show bgblack with dissolve:
     alpha 0.75
 hide bgblack with dissolve
+play sound heartbeat volume 0.2
 r "Ugh...."
 show marnie normal with dissolve:
     zoomnorm
     center
-m "Newbie, wake up!"
 dd "Standing above you, having pressed the emergency thaw button, is Marnie."
-
-menu:
-    "I'm awake!":
+play sound heartbeat volume 0.2
+m "Come on rookie, wake up!"
+menu(screen ='choice'):
+     "I'm awake":
         label start_awake:
-        r "I'm awake, I'm awake!"
-        m "Good. Sometimes you humans can be so fickle."
-    "Where am I?":
+        r "Yup, I'm awake! I'm awake!"
+        m "Alright good. I was worried you would take awhile to thaw."
+        m "I can never tell how long you humans take in there."
+     "Where am I?":
         label start_whereami:
-        r "W-Where am I?"
-        m "Seriously? Did the cold sleep scramble your brain?"
-        m "You're on a salvager ship hurtling through space and you're late for a team meeting."
-        r "R-right!"
-    "Who am I?":
-        label start_whoami:
-        r "W-Who am I?"
-        m "Seriously? Did the cold sleep scramble your brain?"
-        m "You're our softest squishiest newest rookie human and you're late for a team meeting."
-        r "R-right!"
-    "...":
+        r "Where am I?"
+        m "Seriously? Don't tell me the cold sleep messed with your memory..."
+        m "I thought they fixed that issue..."
+        m "Well what do you remember?"
+        menu(screen ='choice'):
+            "I'm a salvager":
+                r "That I'm a rookie space salvager?"
+                m "Correct!{w=0.25} And...?"
+                r "Um... You're Marnie?"
+                m "Yup! All I needed to hear."
+                m "Your vitals are fine."
+            "I don't know":
+                r "Oh no! {size=+04}I don't know anything!{/size}"
+                m "..."
+                show marnie with vpunch
+                play sound smack
+                r "{size=+04}OW!{/size}"
+                m "Stop messing around! Your vitals are perfect!"
+        r "R-right..."
+     "...":
         r "..."
-        m "Hmmmmm... There does't look like there's anything wrong with you."
-        m "Your vitals should be fine... "
-        m "Hey are you awake yet?"
+        m "Hmmmmm... Can you hear me?."
+        m "Maybe something went wrong..."
+        m "..."
+        m "{size=+04}Hey Rookie!{/size}"
         menu:
-            "I'm awake!":
+             "I'm awake!":
                 jump start_awake
-            "Where am I?":
-                jump start_whoami
-            "Who am I?":
+             "Where am I?":
                 jump start_whereami
-            "...":
+             "...":
                 r "..."
                 m "..."
                 show marnie with vpunch
-                m "I know you're awake! Stop being lazy!"
-                r "Ow! OK I'm awake!"
+                play sound smack
+                r "{size=+04}OW!{/size}"
+                m "Stop messing around! Your vitals are perfect!"
+                r "Sorry! I'm awake now!"
 
-m "Anyways the Captain wants everyone on the bridge pronto."
-r "Y-Yes Ma'm!"
+m "Anyways the captain wants everyone on the bridge."
+m "Just freshen up and meet everyone there."
+r "Y-Yes Ma'am!"
 hide marnie with dissolve
 dd "With this, Marnie leaves the room, and you begin to get out of the Cold Sleep pod, brushing down your jumpsuit."
-dd "You grab a SuperValue protein bar, some trihydrated milk and try to ignore the lack of taste as you make your way to the bridge."
+
+#LET PLAYER DO THINGS HERE
+menu(screen ='choice'):
+     "shower":
+        dd "You shower in the sonic shower"
+     "leave":
+        dd "You head to the bridge"
+#LET PLAYER DO THINGS HERE
 
 scene bg_ship2 with fade
 show marnie normal with dissolve:
     zoomnorm
     leftish
-m "Hey, look who finally made it!"
+
+if shower == True:
+    m "Jeez Took you long enough."
+m "Jeez Rookie I told you to freshen up."
 show gelato normal with dissolve:
     zoomnorm
     rightish
     wiggle
-g "Good morning, Sleeping Beauty!"
 
-r "Morning?{w=0.25} Why is it morning?"
+g "intro~!"
+
+r "Morning?{w=0.25} "
 show gelato at wiggle
-g "I ask myself that everyday, Newbie!"
+g "I ask myself that everyday, Rookie!"
 
 r "No, I mean, I’m scheduled for the night shift, right?"
 show otus normal with dissolve:
@@ -107,7 +129,7 @@ o "Sorry, new kid. Schedules are made to be broken."
 
 m "Hey, Captain Otus, there you are! Why did you need us all here?"
 show gelato at wiggle
-g "Can’t you see you made Newbie all grouchy?"
+g "Can’t you see you made Rookie all grouchy?"
 
 r "I’m fine, I just wanted to moan."
 
@@ -196,6 +218,27 @@ o "Good, I don’t need to argue with you then.{w=0.25} Everyone, suit up."
 
 o "It’s time to go scavenging!"
 show bgblack2 with dissolve
+
+
+
+
+
+
+
+
+
+
+
+
 dd "END FOR NOW"
+
+
+
+
+
+
+
+
+
 
 return

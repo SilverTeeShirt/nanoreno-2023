@@ -1,1 +1,3 @@
 ## Defines
+
+default shower = False
