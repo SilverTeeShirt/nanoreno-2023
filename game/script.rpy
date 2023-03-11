@@ -13,9 +13,11 @@
 # {b}{/b}
 # {size=+04}{/size}
 
+
 label start:
 
 scene START
+
 show bg_ship1
 show bgblack
 pause 1.5
@@ -36,12 +38,12 @@ dd "Standing above you, having pressed the emergency thaw button, is Marnie."
 play sound heartbeat volume 0.2
 m "Come on rookie, wake up!"
 menu(screen ='choice'):
-     "I'm awake":
+    "I'm awake":
         label start_awake:
         r "Yup, I'm awake! I'm awake!"
         m "Alright good. I was worried you would take awhile to thaw."
         m "I can never tell how long you humans take in there."
-     "Where am I?":
+    "Where am I?":
         label start_whereami:
         r "Where am I?"
         m "Seriously? Don't tell me the cold sleep messed with your memory..."
@@ -62,18 +64,18 @@ menu(screen ='choice'):
                 r "{size=+04}OW!{/size}"
                 m "Stop messing around! Your vitals are perfect!"
         r "R-right..."
-     "...":
+    "...":
         r "..."
         m "Hmmmmm... Can you hear me?."
         m "Maybe something went wrong..."
         m "..."
         m "{size=+04}Hey Rookie!{/size}"
         menu:
-             "I'm awake!":
+            "I'm awake!":
                 jump start_awake
-             "Where am I?":
+            "Where am I?":
                 jump start_whereami
-             "...":
+            "...":
                 r "..."
                 m "..."
                 show marnie with vpunch
@@ -88,11 +90,15 @@ r "Y-Yes Ma'am!"
 hide marnie with dissolve
 dd "With this, Marnie leaves the room, and you begin to get out of the Cold Sleep pod, brushing down your jumpsuit."
 
+$roommanager.setuproom(0)
+
+label showerchoice:
+
 #LET PLAYER DO THINGS HERE
 menu(screen ='choice'):
-     "shower":
+    "shower":
         dd "You shower in the sonic shower"
-     "leave":
+    "leave":
         dd "You head to the bridge"
 #LET PLAYER DO THINGS HERE
 
@@ -227,18 +233,130 @@ show bgblack2 with dissolve
 
 
 
-
-
-
 dd "END FOR NOW"
 
 
-
-
-
-
-
-
-
-
 return
+
+
+
+
+label enterroom:
+
+    "[roommanager.currentroom.name]"
+
+    $roommanager.changeinteractionlevel(0)
+
+    call screen makeplayerUI(roommanager,roommanager.gotnav,roommanager.gotinv)
+
+
+
+screen makeinteractables(targetinteractables, roommanagerref):
+    
+    default localrmanref = roommanagerref
+    
+
+    for ti in targetinteractables:
+        if ti.intertype == 1:
+            imagebutton:
+                xpos ti.horposition
+                ypos ti.verposition
+                auto ti.imageref[ti.interprogress]
+                action [SensitiveIf((ti.interprogress in ti.interrangequest)and(localrmanref.currinterlayer == 0)), Hide("makeinteractables"), Hide("makeplayerUI"), Function(localrmanref.intiateinteraction,ti.labelref)]
+                
+
+        elif ti.intertype == 2:
+            frame:
+                xpos ti.horposition
+                ypos ti.verposition
+                xpadding ti.xpad
+                ypadding ti.ypad
+                textbutton ti.textref  action NullAction()
+
+
+screen interactableinteractionscreen(selectedinteractable):
+    
+    default localinterref = selectedinteractable
+    image "[localinterref.menuimageref]" xalign 0.3 yalign 0.5
+            
+
+
+screen makeplayerUI(roommanagerref,navon,invon):
+
+    default localrmanref = roommanagerref
+
+
+    if (navon == 0):
+        frame:
+            xpadding 40
+            ypadding 20
+            xalign 0.9
+            yalign 0.1
+            textbutton "Navigation" action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("navscreen",None,localrmanref)]
+    
+    if (invon == 0):
+        frame:
+            xpadding 40
+            ypadding 20
+            xalign 0.9
+            yalign 0.2
+            textbutton "Inventory" action NullAction()
+
+
+
+    
+
+    
+
+
+
+screen navscreen(roommanagerref):
+
+    modal True
+    default localrmanref = roommanagerref
+    default roomstogoto = []
+    default count = 0
+
+    for rtg in localrmanref.currentroom.adjacentrooms:
+        $ roomstogoto.append(localrmanref.rooms[rtg])
+    
+
+    frame:
+        xpadding 40
+        ypadding 20
+        xalign 0.9
+        yalign 0.1
+        textbutton "Back" action [Hide("navscreen"),Show("makeplayerUI",None,localrmanref)]
+    
+
+    for ri in roomstogoto:
+        
+        
+        if (ri.locked == 0):
+
+            imagebutton:
+                xalign 0.5
+                yalign (0.2 + (0.2*count))
+
+                if (ri.discovered == 0):
+                    auto ri.navicon
+                else:
+                    auto "iconunknown_%s.jpg"
+                action [Hide(),Function(localrmanref.setuproom,ri.idnum)]
+        else:
+
+            imagebutton:
+
+                xalign 0.5
+                yalign (0.2 + (0.2*count))
+
+                if (ri.discovered == 0):
+                    auto ri.navicon
+                else:
+                    auto "iconunknown_%s.jpg"
+
+                action [NullAction()]
+            
+            image "iconlocked.jpg" xalign 0.6 yalign (0.2 + (0.2*count))
+        
+        $ count += 1
