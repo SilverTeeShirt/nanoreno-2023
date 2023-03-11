@@ -95,14 +95,94 @@ menu(screen ='choice'):
                 r "{size=+06}OW!{/size}"
                 m "Stop messing around!"
                 r "Sorry! I'm awake now!"
-m "Anyways the captain wants everyone on the bridge."
+m "Anyways the Captain wants everyone on the bridge."
 m "Just freshen up and meet everyone there."
 r "Yes Marnie!"
 hide marnie with dissolve
 dd "With this, Marnie leaves the room, and you begin to get out of the Cold Sleep pod, brushing down your jumpsuit."
-r "My head IS a little foggy though... Maybe I should take look around a bit."
+r "My head is still a little foggy though... I should take a moment to get my bearings."
 
 #LET PLAYER DO THINGS HERE
+
+##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
+call screen TESTLOCATIONS
+screen TESTLOCATIONS:
+    imagebutton: #shower
+        xpos 1775
+        ypos 180
+        auto "/inter/inter150x650_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #gloves
+        xpos 1490
+        ypos 350
+        auto "/inter/inter150x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #mirror
+        xpos 1619
+        ypos 290
+        auto "/inter/inter150x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #shoe
+        xpos 1300
+        ypos 720
+        auto "/inter/inter150x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #locker 1
+        xpos 1200
+        ypos 333
+        auto "/inter/inter150x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #locker 2
+        xpos 740
+        ypos 333
+        auto "/inter/inter150x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #cold sleep gas tanks
+        xpos 70
+        ypos 40
+        auto "/inter/inter300x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #wires
+        xpos 380
+        ypos 20
+        auto "/inter/inter300x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #window
+        xpos 970
+        ypos 250
+        auto "/inter/inter150x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #window button
+        xpos 1002
+        ypos 583
+        auto "/inter/inter_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #note
+        xpos 440
+        ypos 430
+        auto "/inter/inter_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #terminal
+        xpos 10
+        ypos 650
+        auto "/inter/inter300x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #cold sleep pod
+        xpos 130
+        ypos 390
+        auto "/inter/inter300x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #scrathes
+        xpos 460
+        ypos 560
+        auto "/inter/inter150x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+
+
+label TESTLOCATIONSEND:
+##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
+
+
 $roommanager.setuproom(0)
 label showerchoice:
 dd "A narrow sonic shower sits uncomfortably in the corner of this room."
@@ -161,15 +241,15 @@ show gelato at wiggle
 o "You Jabbersniffs sure took your sweet time!"
 m "{size=-06}Wait.{w=0.25} But I was the first one here...{/size}"
 show gelato at wiggle
-g "Sometimes captain, you gotta go at a human's pace."
+g "Sometimes Captain, you gotta go at a human's pace."
 r "What does that even mean?"
 o "Shut it kid! We got a new job to do."
 m "Wait? What?{w=0.25} We're heading back from a job right now!"
 m "That luxury comet skipper is filling up our entire cargo hold!"
 show gelato at wiggle
 g "Maybe it's something really{w=0.25} {size=-06}really small...{/size}"
-m "We're on a tight schedule captain! We'll take a big penalty even if we're late by a single micro cycle!"
-o "Hey!{w=0.25} Quit being such a Squeaklebeak! I’ve been scrapping ships longer than your people have been flying them!"
+m "We're on a tight schedule Captain! We'll take a big penalty even if we're late by a single micro cycle!"
+o "Hey!{w=0.25} Quit being such a Squeakybeak! I’ve been scrapping ships longer than your people have been flying them!"
 o "I know what I'm doing! And trust me, I think you’ll all want to be part of this."
 show sprocko normal with dissolve:
     zoomnorm
@@ -190,23 +270,24 @@ g "Woah, what is that?"
 o "Sprocko,{w=0.25} tell them."
 s "Well let's see...{w=0.25} Judging from the data it LOOKS like a custom orbital station built almost FIFTY cycles ago."
 m "Now why would we be interested in an old orbital station?"
-s "Because WE are getting strong zetacite readings from that thing's reactor core."
+s "Because WE are getting strong zeta wave readings from that thing's reactor core."
 m "OK..."
 m "How strong?"
-s "Nine hundred THOUSAND zetajoules... Enough to power an ENTIRE core world."
+s "Nine hundred THOUSAND zetajoules... Enough to power an ENTIRE core world!"
 hide cg01 with dissolve
 
 dd "The room is silent, as the magnitude of that statement hangs in the air."
 show gelato at wiggle
-g "T-That makes no sense!{w=0.25} How can a single station have enough power to do that?!"
+g "T-That makes no sense!{w=0.25} How can a single station have that much power?!"
 o "Now you're getting it!"
 o "This is an opportunity we can't miss. I'll jettison that entire smogdraffle comet skipper for this salvage if I have to!"
-m "Are you sure those reading are correct?"
+m "Are you sure those readings are correct?"
 s "I quintuple checked it while YOU were all on ice."
 s "My calculations are PERFECT!"
 m "I don't like this... It's some sort of super secret, galactic government trick or something."
 m "We step one foot on that thing, and {size=+06}BAM!{/size}{w=0.25} We’re sent to prison in a pocket dimension and never seen again!"
-s "No way! I checked the flight charts and no one's been in this sector for AGES!"
+s "No, I checked all the flight charts and no one's been in this sector for AGES!"
+s "It's a derelict and it's just been sitting there, SITTING!"
 o "There's nothing to worry about! We get our hands on whatever is powering that reactor and we can all retire on any core world we want!"
 
 menu(screen ='choice'):
@@ -219,22 +300,24 @@ menu(screen ='choice'):
         s "Oh come on! We NEED, no we MUST get on that station!"
         s "Captain? What do you say?"
         o "How about we put it to a vote?"
-        o "My vote counts as two and as captain I always win the tie breaker."
-        o "If we tally up the votes...{w=0.25} It looks like... We're going!"
+        o "My vote obviously counts as two."
+        o "So if we tally up the votes...{w=0.25} Tie breaker goes to the Captain..."
+        o "Looks it's decided! We're going!"
         show gelato at wiggle
         g "Yay democracy!"
-        r "That's not how that works..."
-    "The captain is right.":
+        r "That doesn't seem right..."
+    "The Captain is right.":
         r "Captain Otus is right."
         r "If we miss this opportunity we'll be kicking ourselves for the rest of our lives."
+        r "I vote that we check it out at least."
         o "Yeah see! Good Rookie!"
-        o "Who's a good Rookie! You are that's who!"
-        r "Something feels off about that statement..."
+        o "Who's a good Rookie! You are! That's who!"
+        r "Something seems off about that statement..."
         show gelato at wiggle
         g "{size=-06}Such a good human...{/size}"
-        s "Oh! I can't WAIT to play with whatever is in there!"
+        s "Oh! I can not WAIT to play with whatever is in there!"
         m "Are we actually doing this?"
-        o "If anything looks off we'll high tail it out of there. I promise"
+        o "If anything looks off, we'll high tail it out of there. I promise"
 
 m "Ugh...{w=0.25} Fine. But you're covering for any late penalty we get."
 o "Alright Sprocko. Guide her in."

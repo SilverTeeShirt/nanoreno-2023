@@ -207,26 +207,19 @@ style input:
 
 screen choice(items):
     style_prefix "choice"
-
-    vbox:
-        for i in items:
-            textbutton i.caption action i.action
-
-
-style choice_vbox is vbox
-style choice_button is button
-style choice_button_text is button_text
-
-style choice_vbox:
-    xalign 0.5
-    ypos 405
-    yanchor 0.5
-
+    frame:
+        vbox:
+            for i in items:
+                textbutton i.caption action i.action
+style choice_frame is gui_frame
+style choice_frame:
+    background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+    padding gui.confirm_frame_borders.padding
+    xalign .5
+    yalign .9
     spacing gui.choice_spacing
-
 style choice_button is default:
     properties gui.button_properties("choice_button")
-
 style choice_button_text is default:
     properties gui.button_text_properties("choice_button")
 

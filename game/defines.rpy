@@ -76,6 +76,10 @@ init python:
 
 
 
+
+
+
+
 ## Defines
 ## Characters
 
@@ -86,14 +90,15 @@ define m = Character("Marnie", color="#6064d1")
 define o = Character("Captain Otus", color="#f7a512")
 define g = Character("Gelato", color="#208211")
 
-define ai = Character("The Caretaker", color="#ffb73b")
+define ai = Character("The Caretaker", color="#80fff9")
 
 define qq = Character("???", color="#666666")
 define dd = Character(None, what_italic=True, what_font="font/NunitoSemiboldItalic.ttf")
 
 
 ## Interactables self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,labelref,imageref,menuimageref
-define showerdoorintro = ImageInteractable("Cold sleep room",1,1775,180,0,[0],[0],"","showerchoice",["inter/testinteractable_%s.png"],"testinteractable_idle.png")
+define showerdoorintro = ImageInteractable("Cold sleep room",1,1775,180,0,[0],[0],"","showerchoice",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
+# define coldsleeppod = ImageInteractable("Cold sleep room",1,180,180,0,[0],[0],"","showerchoice",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
 
 ## Rooms
 
