@@ -13,6 +13,9 @@
 # {b}{/b}
 # {size=+04}{/size}
 
+
+#hi this is the comment to check repo
+
 label start:
 
 scene START
@@ -34,35 +37,35 @@ m "Newbie, wake up!"
 dd "Standing above you, having pressed the emergency thaw button, is Marnie."
 
 menu:
-     "I'm awake!":
+    "I'm awake!":
         label start_awake:
         r "I'm awake, I'm awake!"
         m "Good. Sometimes you humans can be so fickle."
-     "Where am I?":
+    "Where am I?":
         label start_whereami:
         r "W-Where am I?"
         m "Seriously? Did the cold sleep scramble your brain?"
         m "You're on a salvager ship hurtling through space and you're late for a team meeting."
         r "R-right!"
-     "Who am I?":
+    "Who am I?":
         label start_whoami:
         r "W-Who am I?"
         m "Seriously? Did the cold sleep scramble your brain?"
         m "You're our softest squishiest newest rookie human and you're late for a team meeting."
         r "R-right!"
-     "...":
+    "...":
         r "..."
         m "Hmmmmm... There does't look like there's anything wrong with you."
         m "Your vitals should be fine... "
         m "Hey are you awake yet?"
         menu:
-             "I'm awake!":
+            "I'm awake!":
                 jump start_awake
-             "Where am I?":
+            "Where am I?":
                 jump start_whoami
-             "Who am I?":
+            "Who am I?":
                 jump start_whereami
-             "...":
+            "...":
                 r "..."
                 m "..."
                 show marnie with vpunch
