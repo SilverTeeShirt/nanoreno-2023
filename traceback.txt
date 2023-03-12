@@ -1,28 +1,37 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 108, in script
-    call screen TESTLOCATIONS1
-ScriptError: could not find label 'TESTLOCATIONSEND'.
+  File "game/defines.rpy", line 113, in script
+    define coldsleeproom = Room("Cold sleep room TEST",0,"bg_ship1",[showerdoorintro,coldsleeppod],0,0,[],"bg_ship1")
+  File "game/defines.rpy", line 113, in script
+    define coldsleeproom = Room("Cold sleep room TEST",0,"bg_ship1",[showerdoorintro,coldsleeppod],0,0,[],"bg_ship1")
+  File "game/defines.rpy", line 113, in <module>
+    define coldsleeproom = Room("Cold sleep room TEST",0,"bg_ship1",[showerdoorintro,coldsleeppod],0,0,[],"bg_ship1")
+NameError: name 'showerdoorintro' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\bootstrap.py", line 277, in bootstrap
     renpy.main.main()
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\main.py", line 660, in main
-    run(restart)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\main.py", line 146, in run
-    renpy.execution.run_context(True)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\execution.py", line 938, in run_context
-    context.run()
-  File "game/script.rpy", line 108, in script
-    call screen TESTLOCATIONS1
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\script.py", line 927, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'TESTLOCATIONSEND'.
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\main.py", line 558, in main
+    renpy.game.context().run(node)
+  File "game/defines.rpy", line 113, in script
+    define coldsleeproom = Room("Cold sleep room TEST",0,"bg_ship1",[showerdoorintro,coldsleeppod],0,0,[],"bg_ship1")
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
+  File "game/defines.rpy", line 113, in script
+    define coldsleeproom = Room("Cold sleep room TEST",0,"bg_ship1",[showerdoorintro,coldsleeppod],0,0,[],"bg_ship1")
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 2441, in execute
+    self.set()
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 2455, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/defines.rpy", line 113, in <module>
+    define coldsleeproom = Room("Cold sleep room TEST",0,"bg_ship1",[showerdoorintro,coldsleeppod],0,0,[],"bg_ship1")
+NameError: name 'showerdoorintro' is not defined
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Space Breakers 0.1
-Sat Mar 11 14:24:42 2023
+Sun Mar 12 18:48:33 2023

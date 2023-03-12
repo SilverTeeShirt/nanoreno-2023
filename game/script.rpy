@@ -102,99 +102,12 @@ hide marnie with dissolve
 dd "With this, Marnie leaves the room, and you begin to get out of the Cold Sleep pod, brushing down your jumpsuit."
 r "My head is still a little foggy though... I should take a moment to get my bearings."
 
-#LET PLAYER DO THINGS HERE
 
-##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-call screen TESTLOCATIONS
-screen TESTLOCATIONS:
-    imagebutton: #shower
-        xpos 1775
-        ypos 180
-        auto "/inter/inter150x650_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #gloves
-        xpos 1490
-        ypos 350
-        auto "/inter/inter150x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #mirror
-        xpos 1619
-        ypos 290
-        auto "/inter/inter150x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #shoe
-        xpos 1300
-        ypos 720
-        auto "/inter/inter150x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #locker 1
-        xpos 1200
-        ypos 333
-        auto "/inter/inter150x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #locker 2
-        xpos 740
-        ypos 333
-        auto "/inter/inter150x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #cold sleep gas tanks
-        xpos 70
-        ypos 40
-        auto "/inter/inter300x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #wires
-        xpos 380
-        ypos 20
-        auto "/inter/inter300x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #window
-        xpos 970
-        ypos 250
-        auto "/inter/inter150x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #window button
-        xpos 1002
-        ypos 583
-        auto "/inter/inter_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #note
-        xpos 440
-        ypos 430
-        auto "/inter/inter_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #terminal
-        xpos 10
-        ypos 650
-        auto "/inter/inter300x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #cold sleep pod
-        xpos 130
-        ypos 390
-        auto "/inter/inter300x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #scrathes
-        xpos 460
-        ypos 560
-        auto "/inter/inter150x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-
-
-label TESTLOCATIONSEND:
-##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-
-
+##### ROOM 0 COLD SLEEP #####
 $roommanager.setuproom(0)
-label showerchoice:
-dd "A narrow sonic shower sits uncomfortably in the corner of this room."
-menu(screen ='choice'):
-    "take a shower":
-        #play sound shower
-        dd "You hop in and turn the dial. A wave of ultra sonic pulses hits you all over."
-        r "Ahhh! I don't think I can ever get used to this!"
-        $ shower = True
-    "leave":
-        dd "You head to the bridge."
-#LET PLAYER DO THINGS HERE
+##### ROOM 0 COLD SLEEP #####
+
+label introbridge:
 
 scene bg_ship2 with fade
 show marnie normal with dissolve:
@@ -236,10 +149,11 @@ show marnie:
     ease 0.4 xalign -0.1
 show gelato:
     ease .2 center
-pause 0.25
-show gelato at wiggle
+    ease 0.1 yoffset -30
+    ease 0.1 yoffset 0
 o "You Jabbersniffs sure took your sweet time!"
-m "{size=-06}Wait.{w=0.25} But I was the first one here...{/size}"
+show marnie at sway
+m "{size=-06}But I was the first one here...{/size}"
 show gelato at wiggle
 g "Sometimes Captain, you gotta go at a human's pace."
 r "What does that even mean?"
@@ -258,8 +172,8 @@ show marnie:
     ease 0.2 xalign 0.1
 show gelato:
     ease 0.1 xalign 0.62
-pause 0.25
-show gelato at wiggle
+    ease 0.1 yoffset -30
+    ease 0.1 yoffset 0
 s "Hey BOSS!"
 s "We got visual!"
 o "Finally! Put it on screen, Sprocko!"
@@ -291,7 +205,7 @@ s "It's a derelict and it's just been sitting there, SITTING!"
 o "There's nothing to worry about! We get our hands on whatever is powering that reactor and we can all retire on any core world we want!"
 
 menu(screen ='choice'):
-    "Marnie is right.":
+    "Marnie is right":
         r "Maybe we should listen to Marnie."
         r "This sounds dangerous and I don't want to mess up my first salvage operation."
         m "See even the Rookie can tell that this is too good to be true."
@@ -306,7 +220,7 @@ menu(screen ='choice'):
         show gelato at wiggle
         g "Yay democracy!"
         r "That doesn't seem right..."
-    "The Captain is right.":
+    "The Captain is right":
         r "Captain Otus is right."
         r "If we miss this opportunity we'll be kicking ourselves for the rest of our lives."
         r "I vote that we check it out at least."
@@ -316,8 +230,9 @@ menu(screen ='choice'):
         show gelato at wiggle
         g "{size=-06}Such a good human...{/size}"
         s "Oh! I can not WAIT to play with whatever is in there!"
+        s "{size=+06}Gehehehehe!{/size}"
         m "Are we actually doing this?"
-        o "If anything looks off, we'll high tail it out of there. I promise"
+        o "If anything looks off, we'll high tail it out of there. I promise."
 
 m "Ugh...{w=0.25} Fine. But you're covering for any late penalty we get."
 o "Alright Sprocko. Guide her in."

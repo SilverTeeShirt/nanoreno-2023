@@ -17,6 +17,13 @@ transform zoomnorm:
 transform wiggle:
     ease 0.1 yoffset 20
     ease 0.1 yoffset 0
+transform hop:
+    ease 0.1 yoffset -30
+    ease 0.1 yoffset 0
+transform sway:
+    ease 0.2 xoffset -10
+    ease 0.2 xoffset 20
+    ease 0.2 xoffset 0
 transform flip:
     xzoom -1.0
 transform flicker:
