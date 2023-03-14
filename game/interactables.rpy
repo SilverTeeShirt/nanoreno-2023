@@ -56,14 +56,20 @@ label scrathesslook:
 
 label NAVTEMP: ##### TESTING
 menu(screen ='choice'):
-    "Stay":
-        $roommanager.setuproom(0)
     "Go to bridge":
         jump introbridge
+    "Stay":
+        $roommanager.setuproom(0)
 
 ###### rm_1 bridge ######
 label mainwindowlook:
     dd "look at space or planet."
+    menu(screen ='choice'): #TESTING ONLY
+        "go to hub this is for testing": #TESTING ONLY
+            jump introhub
+        "stay": #TESTING ONLY
+            $roommanager.setuproom(1)
+
     $roommanager.setuproom(1)
 label radtoplook:
     dd "radiator thing pump top."

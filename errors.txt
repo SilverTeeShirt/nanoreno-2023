@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label TESTLOCATIONSEND is defined twice, at File "game/interactables.rpy", line 140:
-label TESTLOCATIONSEND:
-and File "game/script.rpy", line 334:
-label TESTLOCATIONSEND:
-
+File "game/interactables.rpy", line 67: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    "go to hub this is for testing": 
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Mar 14 13:54:25 2023
+Tue Mar 14 17:19:08 2023

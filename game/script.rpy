@@ -18,7 +18,7 @@ label start:
 
 scene START
 
-show bg_ship1
+show bg_0coldsleep
 show bgblack
 pause 1.5
 qq "Hey..."
@@ -118,7 +118,7 @@ $roommanager.setuproom(0)
 
 label introbridge:
 
-scene bg_ship2 with fade
+scene bg_1bridge with fade
 show marnie normal with dissolve:
     zoomnorm
     leftish
@@ -263,20 +263,114 @@ o "Alright Rookie, you're on point."
 show bgblack2 with dissolve
 #play sound landing
 
-dd "END FOR NOW next area is a test"
-
+dd "Next area is a test, look at window to continue"
 
 ##### ROOM 1 BRIDGE #####
 $roommanager.setuproom(1) #testing for now
 ##### ROOM 1 BRIDGE #####
 
 
+
+label introhub:
+scene bg_2hub with fade
+
+show marnie normal with dissolve:
+    zoomnorm
+    ease 0.4 xalign -0.1
+show gelato normal with dissolve:
+    zoomnorm
+    ease .2 center
+    ease 0.1 yoffset -30
+    ease 0.1 yoffset 0
+show otus normal with dissolve:
+    zoomnorm
+    xalign 1.35
+show sprocko normal with dissolve:
+    zoomnorm
+    xalign -0.5
+show marnie:
+    ease 0.2 xalign 0.1
+show gelato:
+    ease 0.1 xalign 0.62
+    ease 0.1 yoffset -30
+    ease 0.1 yoffset 0
+
+o "TEST."
+
+# o “For once, I agree with _Goof.”
+# Goof “Ha, thanks!”
+# Goof “Wait, what do you mean for once-”
+#
+# Landing
+#
+# “The ship lands in a spacious docking area, and we quickly deploy ourselves onto the ships.”
+# Goof “Ooh, this looks very humany, don’t you think, Newbie?”
+# You “I guess…”
+# Tech “Huh, you think so, __Goof?”
+# Goof “Yeah! Look, the size of the doors, the layout of the room it screams Earth Architecture!”
+# Goof “And smell that air! The perfect mixture of Oxygen, Nitrogen and a few other gases.”
+# Goof “Perfect for the homesick earthling!”
+# Leader “Smell that air- __Goof, what have I told you about wearing a helmet?”
+# Goof “Aw man, I hate having to wear that helmet. It makes me feel all stuffy.”
+# Leader “Please, __Goof. If I can put up with being inside this tin can, you can wear a helmet for a bit.”
+# Grouch “C’mon, __Goof, take this seriously. I want us in and out as quickly as we can!”
+# Tech “No way, Grouch, look at this place! Even this docking area is years ahead of anything on our ship…”
+# Grouch “__Tech, one of my kids transport pods is years ahead of the Junk.”
+# Tech “Hey! She tries her best, darn it.”
+# Leader “Focus, people. We need to get past this door. Newbie, grab a Fission Slicer from our tools and use it on the door.”
+# Leader “Everyone else, take some time to try and take things seriously for a little while…”
+#
+# EnteringHub
+#
+# “__Tech begins to slice the slice through the doors.”
+# Grouch “So we’re just going to… Slice this metal man open then?”
+# Tech “That’s the plan! Just let me finish getting it working…”
+# Grouch “It just seems that, y’know, breaking into-”
+# Goof “Woah, woah, who said anything about breaking into? We’re just cutting into, get me?”
+# Goof “Hey Newbie, who are those guys your people have with the small knives who save lives?”
+# You “...Surgeons?”
+# Goof “Yeah, that’s the one! Would you say they ‘break into’ people bodies to fix them?”
+# You “No, because that would be a really weird thing to-”
+# Goof “Exactly, __Grouch, it would be weird to say.”
+# Grouch “Point is, a place all sealed up like this, with no clear cause why it’s empty…”
+# Grouch “Just seems like a bad idea, is all.”
+# Leader “__Grouch, usually I’d agree with you, but the potential…”
+# Leader “This is the sort of opportunity you only get once in a lifetime!”
+# Grouch “Fine, but if this all goes horribly wrong and we all die, I get bragging rights.”
+# Goof “Aw cool your jets, __Grouch! What could possibly go wrong?”
+# “And then everything went wrong.”
+# Tech “I’ve managed to slice through the door!”
+# Leader “Okay! Everyone head in!”
+#
+# #Change background to hub
+#
+# You “Woah…”
+# Goof “Wow, this is some fancy, badass human stuff!”
+# Leader “Oh, we are absolutely taking everything that isn’t nailed down here.”
+# Grouch “Huh, maybe this isn’t such a bad ide-”
+#
+# # strange notification sound
+#
+# Leader “What was that sound?”
+# Tech “!”
+# Leader “__Tech? What is it?”
+# Tech “I just got a bill?”
+# AI “Yes. For the door.”
+# Tech “What? Who said that?”
+# Grouch “I knew this was going to go badly…”
+# AI “Hello. This is my space station. Please leave.”
+# Goof “Gah! What the hell was that!”
+
+
+
+
+
+
 dd "END FOR NOW"
 
 return
 
-
-
+############## ROOM MANAGER ##############
 
 label enterroom:
 
