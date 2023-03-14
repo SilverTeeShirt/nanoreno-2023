@@ -52,7 +52,7 @@ menu(screen ='choice'):
         m "I can never tell how long you humans take in there..."
         m "How are you feeling?"
         r "A little woozy. It felt like my heart was pounding in the back of my skull."
-        m "That's to be expected. Emergency thaws are kinda rough like that."
+        m "That's to be expected. Emergency thaws are kind of rough like that."
     "Where am I?":
         label start_whereami:
         hide bgblack with dissolve
@@ -105,7 +105,7 @@ menu(screen ='choice'):
                 m "Don't scare me like that! You should know better..."
 m "Anyways the Captain wants everyone on the bridge."
 m "Just freshen up and meet everyone there."
-r "Yes Marnie!"
+r "Yes Marnie."
 hide marnie with dissolve
 dd "With this, Marnie leaves the room, and you begin to get out of the Cold Sleep pod, brushing down your jumpsuit."
 r "My head is still a little foggy though... I should take a moment to get my bearings."
@@ -114,6 +114,7 @@ r "My head is still a little foggy though... I should take a moment to get my be
 ##### ROOM 0 COLD SLEEP #####
 $roommanager.setuproom(0)
 ##### ROOM 0 COLD SLEEP #####
+
 
 label introbridge:
 
@@ -238,11 +239,13 @@ menu(screen ='choice'):
         show gelato at wiggle
         g "{size=-06}Such a good human...{/size}"
         s "Oh! I can not WAIT to play with whatever is in there!"
+        show sprocko at shake
         s "{size=+06}Gehehehehe!{/size}"
         m "Are we actually doing this?"
         o "If anything looks off, we'll high tail it out of there. I promise."
 
 m "Ugh...{w=0.25} Fine. But you're covering for any late penalty we get."
+show sprocko at normalize
 o "Alright Sprocko. Guide her in."
 show sprocko:
     ease 0.8 xalign 3.0
@@ -260,16 +263,15 @@ o "Alright Rookie, you're on point."
 show bgblack2 with dissolve
 #play sound landing
 
+dd "END FOR NOW next area is a test"
 
 
-
-
-
-
+##### ROOM 1 BRIDGE #####
+$roommanager.setuproom(1) #testing for now
+##### ROOM 1 BRIDGE #####
 
 
 dd "END FOR NOW"
-
 
 return
 
@@ -278,7 +280,7 @@ return
 
 label enterroom:
 
-    "[roommanager.currentroom.name]"
+    # "[roommanager.currentroom.name]"
 
     $roommanager.changeinteractionlevel(0)
 

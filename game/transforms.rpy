@@ -24,6 +24,13 @@ transform sway:
     ease 0.2 xoffset -10
     ease 0.2 xoffset 20
     ease 0.2 xoffset 0
+transform shake:
+    linear 0.05 xoffset -10
+    linear 0.05 xoffset 10
+    repeat
+transform normalize:
+    ease 0.25 xoffset 0
+    ease 0.25 yoffset 0
 transform flip:
     xzoom -1.0
 transform flicker:

@@ -1,5 +1,6 @@
+###### Interactables
 
-# ROOM 0 - COLD SLEEP ROOM
+###### rm_0 cold sleep locker ######
 label showerchoice:
     dd "A narrow sonic shower sits uncomfortably in the corner the room."
     menu(screen ='choice'):
@@ -41,101 +42,144 @@ label rm0_wbuttonlook:
     dd "push button, do later."
     $roommanager.setuproom(0)
 label rm0_noteslook:
-    dd "note do not use pod out of order."
+    dd "note says do not use pod out of order."
     $roommanager.setuproom(0)
 label rm0_terminallook:
-    dd "COMPUTER."
+    dd "COMPUTER have interactions maybe."
     $roommanager.setuproom(0)
 label sleeppodlook:
-    dd "Large coldsleep pods."
+    dd "Large Cold Sleep pods."
     $roommanager.setuproom(0)
 label scrathesslook:
     dd "Scratches from the inside."
     $roommanager.setuproom(0)
 
-
-
-
-
-
-
-
-label NAVTEMP:
+label NAVTEMP: ##### TESTING
 menu(screen ='choice'):
     "Stay":
         $roommanager.setuproom(0)
     "Go to bridge":
         jump introbridge
 
+###### rm_1 bridge ######
+label mainwindowlook:
+    dd "look at space or planet."
+    $roommanager.setuproom(1)
+label radtoplook:
+    dd "radiator thing pump top."
+    $roommanager.setuproom(1)
+label radbotlook:
+    dd "radiator thing pump bottom."
+    $roommanager.setuproom(1)
+label navseatlook:
+    dd "Navigator seat."
+    $roommanager.setuproom(1)
+label capchairlook:
+    dd "small chair for Captain Otus. It even has a small cup holder."
+    $roommanager.setuproom(1)
+label capscreenlook:
+    dd "captain's screen."
+    $roommanager.setuproom(1)
+label idollook:
+    dd "small idol, might be lucky travels through space or the world destroyer."
+    $roommanager.setuproom(1)
+label rm1_readoutlook:
+    dd "data on area."
+    $roommanager.setuproom(1)
+label rm1_mainscreenlook:
+    dd "main screen visualizer, displays images on the window."
+    $roommanager.setuproom(1)
+label rm1_ventslook:
+    dd "vents are dusty and crooked."
+    $roommanager.setuproom(1)
+label rm1_vbuttonlook:
+    dd "does stuff with vents maybe for puzzle."
+    $roommanager.setuproom(1)
+label rm1_wireslook:
+    dd "exposed wires being used to hold up more wires and tubes. Doesn't look safe."
+    $roommanager.setuproom(1)
+label rm1_datafoodlook:
+    dd "A display of the ship's status. It is blinking and looks worrying."
+    dd "Also there's a nutrition dispenser here... Dunno why its connected to the data screen."
+    $roommanager.setuproom(1)
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
 call screen TESTLOCATIONS
 screen TESTLOCATIONS:
-    imagebutton: #gloves
-        xpos 1490
-        ypos 350
-        auto "/inter/inter150x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #mirror
-        xpos 1619
-        ypos 290
-        auto "/inter/inter150x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #shoe
-        xpos 1300
-        ypos 720
-        auto "/inter/inter150x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #locker 1
-        xpos 1200
-        ypos 333
-        auto "/inter/inter150x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #locker 2
-        xpos 740
-        ypos 333
-        auto "/inter/inter150x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #cold sleep gas tanks
-        xpos 70
-        ypos 40
+
+    imagebutton: #radiatortop
+        xpos 200
+        ypos 660
         auto "/inter/inter300x150_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #wires
-        xpos 380
-        ypos 20
+    imagebutton: #radiatorbot
+        xpos 195
+        ypos 910
         auto "/inter/inter300x150_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #window
-        xpos 970
-        ypos 250
-        auto "/inter/inter150x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #window button
-        xpos 1002
-        ypos 583
-        auto "/inter/inter_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #note
-        xpos 440
-        ypos 430
-        auto "/inter/inter_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #terminal
-        xpos 10
+    imagebutton: #captain chair
+        xpos 1430
         ypos 650
         auto "/inter/inter300x300_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #cold sleep pod
-        xpos 130
-        ypos 390
+    imagebutton: #navigator seat
+        xpos 1090
+        ypos 500
         auto "/inter/inter300x300_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #scrathes
-        xpos 460
-        ypos 560
+    imagebutton: #captain screen
+        xpos 1570
+        ypos 520
+        auto "/inter/inter300x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #idol
+        xpos 1450
+        ypos 450
+        auto "/inter/inter_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #readouts
+        xpos 1425
+        ypos 580
+        auto "/inter/inter_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #main screen visualizer
+        xpos 1760
+        ypos 140
+        auto "/inter/inter150x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #ship vents
+        xpos 170
+        ypos 320
+        auto "/inter/inter300x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #vent buttons
+        xpos 103
+        ypos 526
+        auto "/inter/inter_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #ship wires
+        xpos 490
+        ypos 0
+        auto "/inter/inter300x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #ship data and food
+        xpos 600
+        ypos 340
         auto "/inter/inter150x300_%s.png"
         action Jump("TESTLOCATIONSEND")
+
 
 label TESTLOCATIONSEND:
 
