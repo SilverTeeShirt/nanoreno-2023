@@ -50,6 +50,9 @@ menu(screen ='choice'):
         r "I'm awake! I'm awake!"
         m "Alright good. I was worried when you didn't respond right away."
         m "I can never tell how long you humans take in there..."
+        m "How are you feeling?"
+        r "A little woozy. It felt like my heart was pounding in the back of my skull."
+        m "That's to be expected. Emergency thaws are kinda rough like that."
     "Where am I?":
         label start_whereami:
         hide bgblack with dissolve
@@ -77,9 +80,8 @@ menu(screen ='choice'):
                 r "S-Sorry!"
     "...":
         r "..."
-        m "Hmmmmm... Can you hear me?"
+        m "Hello? Can you hear me?"
         m "Maybe something went wrong with the Cold Sleep pod again..."
-        m "..."
         m "{size=+06}Hey Rookie! Wake up!{/size}"
         menu:
             "I'm awake!":
@@ -87,14 +89,19 @@ menu(screen ='choice'):
             "Where am I?":
                 jump start_whereami
             "...":
+                m "Hmmmmm... All the vitals look good..."
+                show marnie at sway
+                m "Rookie? Are you..."
                 r "..."
                 m "..."
+                r "..."
                 hide bgblack with disfastnowait
                 show marnie with vpunchnowait
                 play sound smack
                 r "{size=+06}OW!{/size}"
                 m "Stop messing around!"
                 r "Sorry! I'm awake now!"
+                m "Don't scare me like that! You should know better..."
 m "Anyways the Captain wants everyone on the bridge."
 m "Just freshen up and meet everyone there."
 r "Yes Marnie!"
@@ -151,19 +158,19 @@ show gelato:
     ease .2 center
     ease 0.1 yoffset -30
     ease 0.1 yoffset 0
-o "You Jabbersniffs sure took your sweet time!"
+o "You jabbersniffs sure took your sweet time!"
 show marnie at sway
 m "{size=-06}But I was the first one here...{/size}"
 show gelato at wiggle
 g "Sometimes Captain, you gotta go at a human's pace."
 r "What does that even mean?"
 o "Shut it kid! We got a new job to do."
-m "Wait? What?{w=0.25} We're heading back from a job right now!"
+m "Wait? What?{w=0.25} We're heading back from a job right now."
 m "That luxury comet skipper is filling up our entire cargo hold!"
 show gelato at wiggle
 g "Maybe it's something really{w=0.25} {size=-06}really small...{/size}"
-m "We're on a tight schedule Captain! We'll take a big penalty even if we're late by a single micro cycle!"
-o "Hey!{w=0.25} Quit being such a Squeakybeak! I’ve been scrapping ships longer than your people have been flying them!"
+m "We're on a tight schedule Captain! If we're late by a even a single micro cycle, we'll take a huge penalty!"
+o "Hey!{w=0.25} Quit being such a pippyflop! I’ve been scrapping ships longer than your people have been flying them!"
 o "I know what I'm doing! And trust me, I think you’ll all want to be part of this."
 show sprocko normal with dissolve:
     zoomnorm
@@ -182,9 +189,9 @@ o "Finally! Put it on screen, Sprocko!"
 show cg01 with dissolve
 g "Woah, what is that?"
 o "Sprocko,{w=0.25} tell them."
-s "Well let's see...{w=0.25} Judging from the data it LOOKS like a custom orbital station built almost FIFTY cycles ago."
+s "Well let's see...{w=0.25} Judging from the data it LOOKS like an orbital station built almost FIFTY cycles ago."
 m "Now why would we be interested in an old orbital station?"
-s "Because WE are getting strong zeta wave readings from that thing's reactor core."
+s "Because WE are getting strong zeta waves from that thing's reactor core."
 m "OK..."
 m "How strong?"
 s "Nine hundred THOUSAND zetajoules... Enough to power an ENTIRE core world!"
@@ -192,9 +199,9 @@ hide cg01 with dissolve
 
 dd "The room is silent, as the magnitude of that statement hangs in the air."
 show gelato at wiggle
-g "T-That makes no sense!{w=0.25} How can a single station have that much power?!"
+g "T-That makes no sense!{w=0.25} How can a single space station have that much power?!"
 o "Now you're getting it!"
-o "This is an opportunity we can't miss. I'll jettison that entire smogdraffle comet skipper for this salvage if I have to!"
+o "This is an opportunity we can't miss. I'll jettison that entire smogdoffle comet skipper for this salvage if I have to!"
 m "Are you sure those readings are correct?"
 s "I quintuple checked it while YOU were all on ice."
 s "My calculations are PERFECT!"
