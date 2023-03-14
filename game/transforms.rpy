@@ -12,11 +12,14 @@ transform rightcenter:
 
 ## Normal
 transform zoomnorm:
-    zoom .625 yalign 1.0
+    zoom .675 yalign 1.0
 
 transform wiggle:
     ease 0.1 yoffset 20
     ease 0.1 yoffset 0
+transform sulk:
+    ease 0.3 yoffset 40
+    ease 0.3 yoffset 0
 transform hop:
     ease 0.1 yoffset -30
     ease 0.1 yoffset 0

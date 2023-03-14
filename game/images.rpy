@@ -13,50 +13,83 @@ image bgblue = "#0064FF"
 
 image ai normal = LiveComposite(
     (1920, 1750),
-    (0, 0), "/char/ai/c_bnormal.png",
-    (0, 0), "/char/ai/c_fnormal.png",
+    (0, 0), "/char/ai/CaretakerNeutral.png"
     )
 
 image ai unhappy = LiveComposite(
     (1920, 1750),
-    (0, 0), "/char/ai/c_bnormal.png",
-    (0, 0), "/char/ai/c_funhappy.png",
+    (0, 0), "/char/ai/CaretakerUnhappy.png"
     )
 
 image ai happy = LiveComposite(
     (1920, 1750),
-    (0, 0), "/char/ai/c_bnormal.png",
-    (0, 0), "/char/ai/c_fhappy.png",
+    (0, 0), "/char/ai/CaretakerHappy"
     )
 
 ## Marnie
 
 image marnie normal = LiveComposite(
     (1920, 1750),
-    (0, 0), "/char/mar/c_bnormal.png",
-    (0, 0), "/char/mar/c_fnormal.png",
+    (0, 0), "/char/mar/MarnieNeutral.png",
+    )
+
+image marnie unhappy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/mar/MarnieUnhappy.png",
+    )
+
+image marnie happy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/mar/MarnieHappy.png",
     )
 
 ## Otus
 
 image otus normal = LiveComposite(
     (1920, 1750),
-    (0, 0), "/char/otus/c_bnormal.png",
-    (0, 0), "/char/otus/c_fnormal.png",
+    (0, 0), "/char/otus/OtusNeutral.png",
+    )
+
+image otus unhappy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/otus/OtusUnhappy.png",
+    )
+
+image otus happy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/otus/OtusHappy.png",
     )
 
 ## Gelato
 
 image gelato normal = LiveComposite(
     (1920, 1750),
-    (0, 0), "/char/gel/c_bnormal.png",
-    (0, 0), "/char/gel/c_fnormal.png",
+    (0, 0), "/char/gel/GelatoNeutral.png",
+    )
+
+image gelato unhappy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/gel/GelatoUnhappy.png",
+    )
+
+image gelato happy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/gel/GelatoHappy.png",
     )
 
 ## Sprocko
 
 image sprocko normal = LiveComposite(
     (1920, 1750),
-    (0, 0), "/char/spro/c_bnormal.png",
-    (0, 0), "/char/spro/c_fnormal.png",
+    (0, 0), "/char/spro/SprockoNeutral.png",
+    )
+
+image sprocko unhappy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/spro/SprockoUnhappy.png",
+    )
+
+image sprocko happy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/spro/SprockoHappy.png",
     )
