@@ -1,5 +1,5 @@
-## Defines
 
+# ROOM 0 - COLD SLEEP ROOM
 label showerchoice:
     dd "A narrow sonic shower sits uncomfortably in the corner the room."
     menu(screen ='choice'):
@@ -17,7 +17,7 @@ label gloveslook:
     dd "They are covered in a layer of dust and grime. Whoever these once belonged have long since gone."
     $roommanager.setuproom(0)
 label mirrorlook:
-    dd "cleaning station uses sonic pusle gun to reach the hard to clean areas."
+    dd "cleaning station uses sonic pulse gun to reach the hard to clean areas."
     $roommanager.setuproom(0)
 label shoe1look:
     dd "dirty shoe..."
