@@ -95,6 +95,7 @@ menu(screen ='choice'):
                 r "..."
                 m "..."
                 r "..."
+                m "..."
                 hide bgblack with disfastnowait
                 show marnie with vpunchnowait
                 play sound smack
