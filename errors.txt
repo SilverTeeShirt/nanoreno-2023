@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/interactables.rpy", line 67: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    "go to hub this is for testing": 
+File "game/script.rpy", line 334: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
+    zoomnorm
     ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Mar 14 17:19:08 2023
+Thu Mar 16 00:02:38 2023

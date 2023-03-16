@@ -81,7 +81,7 @@ menu(screen ='choice'):
                 show marnie with vpunchnowait
                 play sound smack
                 r "{size=+06}OW!{/size}"
-                show marnie unhappy
+                show marnie shocked
                 m "Stop messing around!"
                 r "S-Sorry!"
     "...":
@@ -106,7 +106,7 @@ menu(screen ='choice'):
                 show marnie with vpunchnowait
                 play sound smack
                 r "{size=+06}OW!{/size}"
-                show marnie unhappy
+                show marnie shocked
                 m "Stop messing around!"
                 r "Sorry! I'm awake now!"
                 m "Don't scare me like that! You should know better..."
@@ -115,17 +115,17 @@ m "Anyways the Captain wants everyone on the bridge."
 m "Just freshen up and meet everyone there."
 r "Yes Marnie."
 hide marnie with dissolve
-dd "With this, Marnie leaves the room, and you begin to get out of the Cold Sleep pod."
-dd "As you brush down your jumpsuit, you slowly glace around the room and attempt to regain your bearings."
+
+dd "As you climb out of the Cold Sleep pod, you slowly glance around the room and in an attempt to regain your bearings."
 
 ##### ROOM 0 COLD SLEEP #####
 $roommanager.setuproom(0)
 ##### ROOM 0 COLD SLEEP #####
 
-
+##### BRIDGE #####
 label introbridge:
-
 scene bg_1bridge with fade
+
 show marnie normal with dissolve:
     zoomnorm
     leftish
@@ -209,15 +209,14 @@ s "Because WE are getting strong zeta waves from that thing's reactor core."
 m "OK..."
 m "How strong?"
 s "Nine hundred THOUSAND zetajoules... Enough to power an ENTIRE core world!"
-show marnie normal
+show marnie shocked
 show otus normal
 show sprocko normal
-show gelato #shocked
+show gelato shocked
 hide cg01 with dissolve
 
 dd "The room is silent, as the magnitude of that statement hangs in the air."
-#show gelato #shocked at wiggle
-show gelato unhappy at wiggle
+show gelato shocked at wiggle
 g "T-That makes no sense!{w=0.25} How can a single space station have that much power?!"
 show otus happy
 o "Now you're getting it!"
@@ -251,10 +250,10 @@ menu(screen ='choice'):
         o "How about we put it to a vote?"
         show otus at sway
         o "My vote obviously counts as two."
-        show marnie unhappy
         o "So if we tally it all up...{w=0.25} Tie breaker goes to the Captain..."
         show otus happy at hop
         o "Looks it's decided! We're going!"
+        show marnie unhappy
         show sprocko happy
         show gelato at wiggle
         g "Yay democracy!"
@@ -295,31 +294,36 @@ show marnie unhappy at sway
 m "This is such a bad idea."
 o "Alright Rookie, you're on point."
 show bgblack2 with dissolve
-#play sound landing
+#play sound landing connecting
 
-dd "Next area is a test, look at window to continue"
-
-##### ROOM 1 BRIDGE #####
-$roommanager.setuproom(1) #testing for now
-##### ROOM 1 BRIDGE #####
-
-
-
+##### HUB #####
 label introhub:
 scene bg_2hub with fade
 
+#play sound airlock opening door
+dd "As the salvagers disembark onto the mysterious station, a wave of dusty stale air washes over them."
 show marnie normal with dissolve:
     zoomnorm
     ease 0.4 xalign -0.1
-show gelato normal with dissolve:
+m "Oof! It's pretty dusty in here..."
+m "I don't think anyone has been in here for a very long time..."
+show gelato happy behind marnie with dissolve:
     zoomnorm
     ease .2 center
     ease 0.1 yoffset -30
     ease 0.1 yoffset 0
-show otus normal with dissolve:
-    zoomnorm
-    xalign 1.35
-show sprocko normal with dissolve:
+g "Ooh, this looks very humany, don’t you think Rookie?"
+r "I guess so..."
+show gelato at wiggle
+g "Look the stairs and the carpet, and the pocket dimension delivery system!"
+show gelato at wiggle
+g "Perfect for the homesick Earthling!"
+r "I've never actually been to Earth..."
+show gelato shocked at hop
+g "Whoa really!?"
+g "{size=-06} Does that mean you're not an actual Earthling?{/size}"
+m "C’mon, Gelato, take this seriously."
+show sprocko happy with dissolve :
     zoomnorm
     xalign -0.5
 show marnie:
@@ -328,75 +332,240 @@ show gelato:
     ease 0.1 xalign 0.62
     ease 0.1 yoffset -30
     ease 0.1 yoffset 0
+s "Gahahaha! Look at this place! It's just teeming with... {w=0.25}{size=+06}THINGS!{/size}"
+show marnie unhappy
+m "Not you too..."
+s "Marnie! What do you think? How much of this stuff do you think we can shove into the cargo hold?"
+m "Really? I thought we were only after the power source..."
+show sprocko unhappy
+s "But the Clover... It needs upgrades."
+show otus normal with dissolve:
+    zoomnorm
+    xalign 1.35
+show sprocko normal at hop
+show marnie normal at hop
+show gelato normal at hop
+o "Focus, people! We have a tight timetable remember?"
+o "First things first, we need to get the power restored and then figure a way to that reactor core."
+o "Anything else not nailed down can be scrapped as a bonus."
+o "Now get to it!"
 
-o "TEST."
-
-# o “For once, I agree with _Goof.”
-# Goof “Ha, thanks!”
-# Goof “Wait, what do you mean for once-”
-#
-# Landing
-#
-# “The ship lands in a spacious docking area, and we quickly deploy ourselves onto the ships.”
-# Goof “Ooh, this looks very humany, don’t you think, Newbie?”
-# You “I guess…”
-# Tech “Huh, you think so, __Goof?”
-# Goof “Yeah! Look, the size of the doors, the layout of the room it screams Earth Architecture!”
-# Goof “And smell that air! The perfect mixture of Oxygen, Nitrogen and a few other gases.”
-# Goof “Perfect for the homesick earthling!”
-# Leader “Smell that air- __Goof, what have I told you about wearing a helmet?”
-# Goof “Aw man, I hate having to wear that helmet. It makes me feel all stuffy.”
-# Leader “Please, __Goof. If I can put up with being inside this tin can, you can wear a helmet for a bit.”
-# Grouch “C’mon, __Goof, take this seriously. I want us in and out as quickly as we can!”
-# Tech “No way, Grouch, look at this place! Even this docking area is years ahead of anything on our ship…”
-# Grouch “__Tech, one of my kids transport pods is years ahead of the Junk.”
-# Tech “Hey! She tries her best, darn it.”
-# Leader “Focus, people. We need to get past this door. Newbie, grab a Fission Slicer from our tools and use it on the door.”
-# Leader “Everyone else, take some time to try and take things seriously for a little while…”
-#
-# EnteringHub
-#
-# “__Tech begins to slice the slice through the doors.”
-# Grouch “So we’re just going to… Slice this metal man open then?”
-# Tech “That’s the plan! Just let me finish getting it working…”
-# Grouch “It just seems that, y’know, breaking into-”
-# Goof “Woah, woah, who said anything about breaking into? We’re just cutting into, get me?”
-# Goof “Hey Newbie, who are those guys your people have with the small knives who save lives?”
-# You “...Surgeons?”
-# Goof “Yeah, that’s the one! Would you say they ‘break into’ people bodies to fix them?”
-# You “No, because that would be a really weird thing to-”
-# Goof “Exactly, __Grouch, it would be weird to say.”
-# Grouch “Point is, a place all sealed up like this, with no clear cause why it’s empty…”
-# Grouch “Just seems like a bad idea, is all.”
-# Leader “__Grouch, usually I’d agree with you, but the potential…”
-# Leader “This is the sort of opportunity you only get once in a lifetime!”
-# Grouch “Fine, but if this all goes horribly wrong and we all die, I get bragging rights.”
-# Goof “Aw cool your jets, __Grouch! What could possibly go wrong?”
-# “And then everything went wrong.”
-# Tech “I’ve managed to slice through the door!”
-# Leader “Okay! Everyone head in!”
-#
-# #Change background to hub
-#
-# You “Woah…”
-# Goof “Wow, this is some fancy, badass human stuff!”
-# Leader “Oh, we are absolutely taking everything that isn’t nailed down here.”
-# Grouch “Huh, maybe this isn’t such a bad ide-”
-#
-# # strange notification sound
-#
-# Leader “What was that sound?”
-# Tech “!”
-# Leader “__Tech? What is it?”
-# Tech “I just got a bill?”
-# AI “Yes. For the door.”
-# Tech “What? Who said that?”
-# Grouch “I knew this was going to go badly…”
-# AI “Hello. This is my space station. Please leave.”
-# Goof “Gah! What the hell was that!”
+hide sprocko
+hide marnie
+hide gelato
 
 
 
+
+
+
+
+dd "Next area is a test, look at window to continue"
+
+##### ROOM 1 BRIDGE #####
+$roommanager.setuproom(1) #testing for now
+##### ROOM 1 BRIDGE #####
+
+dd "after they connect the Clover to the Station they power up the Station."
+
+
+# m "So we’re just going to… Slice this metal man open then?"
+# s "That’s the plan! Just let me finish getting it working…"
+# m "It just seems that, y’know, breaking into-"
+# g "Woah, woah, who said anything about breaking into? We’re just cutting into, get me?"
+# g "Hey Newbie, who are those guys your people have with the small knives who save lives?"
+# r "...Surgeons?"
+# g "Yeah, that’s the one! Would you say they ‘break into’ people bodies to fix them?"
+# r "No, because that would be a really weird thing to-"
+# g "Exactly, __Grouch, it would be weird to say."
+
+
+m "Point is, a place all sealed up like this, with no clear cause why it’s empty…"
+m "Just seems like a bad idea, is all."
+o "__Grouch, usually I’d agree with you, but the potential…"
+o "This is the sort of opportunity you only get once in a lifetime!"
+m "Fine, but if this all goes horribly wrong and we all die, I get bragging rights."
+g "Aw cool your jets, __Grouch! What could possibly go wrong?"
+"And then everything went wrong."
+s "I’ve managed to slice through the door!"
+o "Okay! Everyone head in!"
+
+# Change background to hub
+
+r "Woah…"
+g "Wow, this is some fancy, badass human stuff!"
+o "Oh, we are absolutely taking everything that isn’t nailed down here."
+m "Huh, maybe this isn’t such a bad ide-"
+
+# strange notification sound
+
+o "What was that sound?"
+s "!"
+o "__Tech? What is it?"
+
+s "I just got a bill?"
+qq "Yes. For the door."
+s "What? Who said that?"
+m "I knew this was going to go badly…"
+
+show ai normal with dissolve:
+    zoomnorm
+    xalign 1.75
+show otus:
+    ease 0.2 xalign 1.15
+show gelato:
+    ease 0.1 xalign 0.4
+    ease 0.1 yoffset -30
+    ease 0.1 yoffset 0
+show marnie:
+    ease 0.2 xalign -0.15
+pause 0.05
+show sprocko:
+    ease 0.2 xalign -1.1
+    ease 0.1 yoffset 30
+    ease 0.1 yoffset 0
+
+ai "Hello. This is my space station. Please leave."
+show sprocko unhappy:
+    ease 0.9 xalign -0.75
+g "Gah! What the hell was that!"
+ai "That doesn’t matter. Please leave."
+o "Who the pleft do you think you are?"
+ai "I am the owner of this space station. I have asked you once to leave. Please do so."
+m "Or what, tin can?"
+s "Oh, it is much more than that, __Grouch… It’s beautiful!"
+g "__Tech! Don’t compliment things that threaten us!"
+s "I wouldn’t say it’s threatening us-"
+ai "If you do not leave, I will be forced to take drastic measures…"
+r "Drastic measures?"
+o "What kind of drastic measures?"
+ai "Keeping you in the dark will help you make the right decision and leave."
+s "It’s bluffing."
+o "__Tech, you sure?"
+s "No doubts. My scanner says no weapon signatures, no explosives and no personal on board."
+s "At least, nothing automated."
+o "Right, you heard __Tech, crew. The worst that can happen is that we can get annoyed to death."
+ai "..."
+r "Looks like you’re righ-"
+
+show bgblack with dissolveslow:
+    alpha 0.5
+dd "Lights dim"
+
+m "What the pleft was that?"
+s "Uh oh…"
+o "Tech, what’s going on?"
+s "The Clover, it’s… It’s dead!"
+o "What?"
+s "I mean, the generator! It’s dead, it’s been drained of all power!"
+g "I- That’s got to be a coincidence or something, right? I mean, what could drain the power that quickly?"
+ai "No coincidence. Merely a show of power. Heh, power…"
+m "What?!"
+ai "Uh, just a pun. Power being a word that means both energy and strength. I found it funny."
+s "You found it funny?"
+g "Yeah, that was an awful joke."
+g "That was like a, Great Grandad joke, eh Rookie?"
+r "What?"
+s "That’s not the point, __Goof. Hey, uh… Sorry, what do I call you?"
+ai "..."
+o "What are you angling at here, __Tech?"
+s "Just… Let me try something. So, your name?"
+ai "You may call me… Zates."
+g "Zates? Why does that name sound familiar…"
+s "__Goof, you’re missing the point! It has a name, a sense of humour."
+
+#ai looks nervous
+
+s "I think we’re talking to a Sentient level AI here!"
+
+#Everyone looks shocked
+
+m "For real, __Tech?"
+s "Yeah! And if th- person is meeting us at the door, then-"
+o "What’s being kept inside must be worth all the gredits in the universe…"
+ai "What?"
+m "Cap, I know I had my doubts about this, but if that’s the case, we need to clear this place out!"
+ai "Hold on, what?"
+o "Agreed. I think this place is worth paying a fine for a late delivery!"
+g "Hell, we should just trash the stuff in the hold and take as much from this place!"
+ai "Take as much… Are you serious?"
+r "Um, guys…"
+m "I agree, the salvage from here is worth much more than our current contract…"
+s "I really want to get my PTK on the data centre for this guy! Or the engine! Or pretty much anything in here!"
+ai "If you dare lay a single metal finger -"
+r "Guys?"
+g "This place is giving massive human vibes, I wonder…"
+o "Hey __Tech, can you power up the Rusty Clover with enough time?"
+s "You kidding me? All I need to do is find the engine room and find a spare Zetacite cell."
+ai "The engi- No. No more."
+r "Guys!"
+
+# Alarms start sounding
+
+m "What the chirt was that?"
+o "Everyone stay calm-"
+ai "I gave you plenty of chances. You could have left at any point!"
+s "Uh-oh…"
+
+#screen shake
+
+g "Woah, did you guys feel that?"
+s "Yeah, that was the geostationary engines turning off."
+o "Oh brip."
+s "Yeah. The station is falling out of orbit and is going to…"
+ai "Crash. Horribly. Killing all of you."
+g "What the hell, you psychopath! You’re going to kill us all, including yourself!"
+ai "Better that then allow you squiglybeaks to strip this station down!"
+ai "Now, if you allow yourselves to die quietly to die with dignity, I must go."
+r "Woah, where the hell are you going?"
+ai "Shh! Like I said, please die quietly."
+
+hide ai with dissolve
+
+r "Oh my god, we’re going to die!"
+m "I knew this was a stupid risk!"
+g "We’re going to die, and I’ve never even been to Earth!"
+s "I… I…"
+o "Everyone, shut up!"
+o "We’ve been in sticky situations before, and we’ve always found a way out."
+m "Only broken airlocks or collapsing structures, nothing as bad as this!"
+o "Well, if you merge them all together, it’s kind of as big as this, right?"
+o "Anyway, not the point. That software-head expects us to sit back and die?"
+o "__Tech,you mentioned a zetacite cell in the engine room?"
+s "Oh! Uh, through those doors at the end of the room!"
+o "Then we just need to bust open the doors and make our way to that engine room!"
+m "Either we find a way to stop the ship from crashing or grab a cell, clever…"
+s "Uh, one problem. Those doors are made up of Diamondic Titanium."
+g "Wow, that’s like 10 magnitudes harder than diamond!"
+o "Doesn’t matter. Everyone split up, and see if you can find a way through these doors."
+r "How?"
+o "Try anything. Hacking them, blowing them up, finding some fancy technology here, anything!"
+s "Maybe I can find something in that lab…"
+
+hide sprocko with dissolve
+
+g "Hey, there’s a camera up there, right? I want to try something out!"
+
+hide gelato with dissolve
+
+m "Explosives, huh? That gives me an idea, let me see what I can find."
+
+hide marnie with dissolve
+show otus:
+    ease 0.4 xalign 0.5
+
+o "Rookie!"
+r "Ah! Yeah?"
+o "Figure out what the others need and help them."
+o "I’m going to explore this area and see what I can find. I may have an idea..."
+
+# START ROOM
+############## FIRST DRAFT ##############
+
+dd "Next area is a test, look at window to continue"
+##### ROOM 1 BRIDGE #####
+$roommanager.setuproom(1) #testing for now
+##### ROOM 1 BRIDGE #####
 
 
 

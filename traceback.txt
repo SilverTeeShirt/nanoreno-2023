@@ -1,32 +1,48 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 290, in script
-    show marnie unhappy at swap
-  File "game/script.rpy", line 290, in <module>
-    show marnie unhappy at swap
-NameError: name 'swap' is not defined
+Compiling ATL code at game/script.rpy:410
+  File "game/script.rpy", line 409, in script
+    show sprocko:
+  File "game/script.rpy", line 410, in <module>
+    ease xalign -0.6
+NameError: name 'xalign' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 290, in script
-    show marnie unhappy at swap
+  File "game/script.rpy", line 409, in script
+    show sprocko:
   File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1408, in execute
     show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1367, in show_imspec
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1367, in <listcomp>
-    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1371, in show_imspec
+    renpy.config.show(name,
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\exports.py", line 712, in show
+    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 1165, in add
+    thing.visit_all(lambda d : None)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 572, in visit_all
+    for d in self.visit():
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 614, in visit
+    block = self.compile()
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 521, in compile
+    block = self.atl.compile(self.context)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 721, in compile
+    statements = [ i.compile(ctx) for i in self.statements ]
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 721, in <listcomp>
+    statements = [ i.compile(ctx) for i in self.statements ]
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 1033, in compile
+    duration = ctx.eval(self.duration)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 259, in eval
+    return renpy.python.py_eval(expr, locals=self.context)
   File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\python.py", line 1092, in py_eval
     return py_eval_bytecode(code, globals, locals)
   File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 290, in <module>
-    show marnie unhappy at swap
-NameError: name 'swap' is not defined
+  File "game/script.rpy", line 410, in <module>
+    ease xalign -0.6
+NameError: name 'xalign' is not defined
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Space Breakers 0.1
-Tue Mar 14 19:15:42 2023
+Wed Mar 15 23:03:57 2023

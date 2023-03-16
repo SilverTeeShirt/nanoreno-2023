@@ -43,6 +43,11 @@ image marnie happy = LiveComposite(
     (0, 0), "/char/mar/MarnieHappy.png",
     )
 
+image marnie shocked = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/mar/MarnieShocked.png",
+    )
+
 ## Otus
 
 image otus normal = LiveComposite(
@@ -75,6 +80,11 @@ image gelato unhappy = LiveComposite(
 image gelato happy = LiveComposite(
     (1920, 1750),
     (0, 0), "/char/gel/GelatoHappy.png",
+    )
+
+image gelato shocked = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/gel/GelatoShocked.png",
     )
 
 ## Sprocko
