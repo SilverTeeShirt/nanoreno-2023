@@ -23,6 +23,7 @@ init python:
             self.currinterlayer = currinterlayer
             self.gotnav = gotnav
             self.gotinv = gotinv
+      
 
         def setuproom(self,idnum):
             self.currentroom = self.rooms[idnum]
@@ -31,8 +32,17 @@ init python:
             renpy.scene()
             renpy.show(cr.bgref)
             cr.discovered = 0
-            renpy.show_screen("makeinteractables",cr.interactablelist,self)
-            renpy.jump("enterroom")
+            self.setupinterforroom(cr)
+            self.changeinteractionlevel(0)
+            self.setupplayerUI()
+       
+            
+        def setupinterforroom(self,currroom):
+            renpy.show_screen("makeinteractables",currroom.interactablelist,self)
+
+        def setupplayerUI(self):
+            renpy.call("uisetup")
+
 
         def changeinteractionlevel(self,newilv):
             self.currinterlayer = newilv
@@ -128,4 +138,4 @@ define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge",[rm1_mainwindow,rm1_radiat
 
 
 ## Roommanager (and Inventory soon)
-define roommanager = RoomManager("roommanager",[RM0_coldsleeproom,RM1_bridge],RM0_coldsleeproom,1,1,1)
+define roommanager = RoomManager("roommanager",[RM0_coldsleeproom,RM1_bridge],RM0_coldsleeproom,1,0,0)

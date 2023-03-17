@@ -575,13 +575,8 @@ return
 
 ############## ROOM MANAGER ##############
 
-label enterroom:
-
-    # "[roommanager.currentroom.name]"
-
-    $roommanager.changeinteractionlevel(0)
-
-    call screen makeplayerUI(roommanager,roommanager.gotnav,roommanager.gotinv)
+label uisetup:
+    call screen makeplayerUI(roommanager)
 
 
 
@@ -615,12 +610,12 @@ screen interactableinteractionscreen(selectedinteractable):
 
 
 
-screen makeplayerUI(roommanagerref,navon,invon):
+screen makeplayerUI(roommanagerref):
 
     default localrmanref = roommanagerref
 
 
-    if (navon == 0):
+    if (localrmanref.gotnav == 0):
         frame:
             xpadding 40
             ypadding 20
@@ -628,7 +623,7 @@ screen makeplayerUI(roommanagerref,navon,invon):
             yalign 0.1
             textbutton "Navigation" action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("navscreen",None,localrmanref)]
 
-    if (invon == 0):
+    if (localrmanref.gotinv == 0):
         frame:
             xpadding 40
             ypadding 20
