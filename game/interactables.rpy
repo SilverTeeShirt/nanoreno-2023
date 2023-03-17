@@ -9,57 +9,57 @@ label showerchoice:
             dd "You hop in and turn the dial. A wave of ultra sonic pulses hits you all over."
             r "Ahhh! I don't think I can ever get used to this!"
             $ shower = True
-            $roommanager.setuproom(0)
+            $roommanager.returnfrominteraction(roommanager.currentroom)
         "Leave" if shower == False:
-            $roommanager.setuproom(0)
-    $roommanager.setuproom(0)
+            $roommanager.returnfrominteraction(roommanager.currentroom)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label gloveslook:
     dd "Two pairs of work gloves dangle off the ship's internal super structure."
     dd "They are covered in a layer of dust and grime. Whoever these once belonged have long since gone."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label mirrorlook:
     dd "cleaning station uses sonic pulse gun to reach the hard to clean areas."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label shoe1look:
     dd "dirty shoe..."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker1look:
     dd "open locker for something."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker2look:
     dd "thats a locker 2."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label gastanklook:
     dd "all sorts of chemicals for the cold sleep process."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_wireslook:
     dd "dangerous wires."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_windowlook:
     dd "look at space."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_wbuttonlook:
     dd "push button, do later."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_noteslook:
     dd "note says do not use pod out of order."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_terminallook:
     dd "COMPUTER have interactions maybe."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label sleeppodlook:
     dd "Large Cold Sleep pods."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label scrathesslook:
     dd "Scratches from the inside."
-    $roommanager.setuproom(0)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 
 label NAVTEMP: ##### TESTING
 menu(screen ='choice'):
     "Go to bridge":
         jump introbridge
     "Stay":
-        $roommanager.setuproom(0)
+        $roommanager.returnfrominteraction(roommanager.currentroom)
 
 ###### rm_1 bridge ######
 label mainwindowlook:
@@ -68,46 +68,46 @@ label mainwindowlook:
         "go to hub this is for testing": #TESTING ONLY
             jump introhub
         "stay": #TESTING ONLY
-            $roommanager.setuproom(1)
+            $roommanager.returnfrominteraction(roommanager.currentroom)
 
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label radtoplook:
     dd "radiator thing pump top."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label radbotlook:
     dd "radiator thing pump bottom."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label navseatlook:
     dd "Navigator seat."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label capchairlook:
     dd "small chair for Captain Otus. It even has a small cup holder."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label capscreenlook:
     dd "captain's screen."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label idollook:
     dd "small idol, might be lucky travels through space or the world destroyer."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_readoutlook:
     dd "data on area."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_mainscreenlook:
     dd "main screen visualizer, displays images on the window."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_ventslook:
     dd "vents are dusty and crooked."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_vbuttonlook:
     dd "does stuff with vents maybe for puzzle."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_wireslook:
     dd "exposed wires being used to hold up more wires and tubes. Doesn't look safe."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_datafoodlook:
     dd "A display of the ship's status. It is blinking and looks worrying."
     dd "Also there's a nutrition dispenser here... Dunno why its connected to the data screen."
-    $roommanager.setuproom(1)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
 

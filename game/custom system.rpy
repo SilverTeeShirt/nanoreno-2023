@@ -41,7 +41,15 @@ init python:
             renpy.show_screen("makeinteractables",currroom.interactablelist,self)
 
         def setupplayerUI(self):
-            renpy.call("uisetup")
+            renpy.jump("uisetup")
+
+        def returnfrominteraction(self, currroom):
+            self.setupinterforroom(currroom)
+            self.changeinteractionlevel(0)
+            self.setupplayerUI()
+
+
+
 
 
         def changeinteractionlevel(self,newilv):
@@ -50,7 +58,8 @@ init python:
         def intiateinteraction(self,selinterjump):
             #renpy.show_screen("interactableinteractionscreen",selinter)
 
-            renpy.jump(selinterjump)
+            renpy.call(selinterjump)
+            self.setupplayerUI()
 
 
 

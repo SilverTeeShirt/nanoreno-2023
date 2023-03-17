@@ -1,37 +1,92 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/defines.rpy", line 16, in script
-    define rm0_shower= ImageInteractable("Shower",1,1775,180,0,[0],[0],"","showerchoice",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
-  File "game/defines.rpy", line 16, in script
-    define rm0_shower= ImageInteractable("Shower",1,1775,180,0,[0],[0],"","showerchoice",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
-  File "game/defines.rpy", line 16, in <module>
-    define rm0_shower= ImageInteractable("Shower",1,1775,180,0,[0],[0],"","showerchoice",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
-NameError: name 'ImageInteractable' is not defined
+  File "game/custom system.rpy", line 99, in script call
+    call screen makeplayerUI(roommanager)
+  File "game/custom system.rpy", line 99, in script call
+    call screen makeplayerUI(roommanager)
+  File "game/custom system.rpy", line 99, in script call
+    call screen makeplayerUI(roommanager)
+  [Previous line repeated 11 more times]
+  File "game/custom system.rpy", line 99, in script
+    call screen makeplayerUI(roommanager)
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/custom system.rpy", line 156, in execute
+    screen navscreen(roommanagerref):
+  File "game/custom system.rpy", line 156, in execute
+    screen navscreen(roommanagerref):
+  File "game/custom system.rpy", line 175, in execute
+    for ri in roomstogoto:
+  File "game/custom system.rpy", line 178, in execute
+    if (ri.locked == 0):
+  File "game/custom system.rpy", line 180, in execute
+    imagebutton:
+  File "renpy/common/00defaults.rpy", line 139, in _imagemap_auto_function
+    rv = auto_param % variant
+TypeError: not all arguments converted during string formatting
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\bootstrap.py", line 277, in bootstrap
-    renpy.main.main()
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\main.py", line 558, in main
-    renpy.game.context().run(node)
-  File "game/defines.rpy", line 16, in script
-    define rm0_shower= ImageInteractable("Shower",1,1775,180,0,[0],[0],"","showerchoice",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "game/defines.rpy", line 16, in script
-    define rm0_shower= ImageInteractable("Shower",1,1775,180,0,[0],[0],"","showerchoice",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 2441, in execute
-    self.set()
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 2455, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\python.py", line 1085, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/defines.rpy", line 16, in <module>
-    define rm0_shower= ImageInteractable("Shower",1,1775,180,0,[0],[0],"","showerchoice",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
-NameError: name 'ImageInteractable' is not defined
+  File "game/custom system.rpy", line 99, in script call
+    call screen makeplayerUI(roommanager)
+  File "game/custom system.rpy", line 99, in script call
+    call screen makeplayerUI(roommanager)
+  File "game/custom system.rpy", line 99, in script call
+    call screen makeplayerUI(roommanager)
+  [Previous line repeated 11 more times]
+  File "game/custom system.rpy", line 99, in script
+    call screen makeplayerUI(roommanager)
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2232, in execute
+    self.call("execute")
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2220, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\statements.py", line 281, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\exports.py", line 3181, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3810, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3810, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "game/custom system.rpy", line 156, in execute
+    screen navscreen(roommanagerref):
+  File "game/custom system.rpy", line 156, in execute
+    screen navscreen(roommanagerref):
+  File "game/custom system.rpy", line 175, in execute
+    for ri in roomstogoto:
+  File "game/custom system.rpy", line 178, in execute
+    if (ri.locked == 0):
+  File "game/custom system.rpy", line 180, in execute
+    imagebutton:
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\ui.py", line 952, in _imagebutton
+    idle = choice(idle, idle_image, "idle", required=True)
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\ui.py", line 940, in choice
+    rv = renpy.config.imagemap_auto_function(auto, name)
+  File "renpy/common/00defaults.rpy", line 139, in _imagemap_auto_function
+    rv = auto_param % variant
+TypeError: not all arguments converted during string formatting
 
-Windows-10-10.0.19044 AMD64
+Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.3.22090809
 Space Breakers 0.1
-Fri Mar 17 14:08:40 2023
+Fri Mar 17 20:00:07 2023
