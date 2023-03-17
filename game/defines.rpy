@@ -23,7 +23,7 @@ init python:
             self.currinterlayer = currinterlayer
             self.gotnav = gotnav
             self.gotinv = gotinv
-      
+
 
         def setuproom(self,idnum):
             self.currentroom = self.rooms[idnum]
@@ -35,8 +35,8 @@ init python:
             self.setupinterforroom(cr)
             self.changeinteractionlevel(0)
             self.setupplayerUI()
-       
-            
+
+
         def setupinterforroom(self,currroom):
             renpy.show_screen("makeinteractables",currroom.interactablelist,self)
 
@@ -130,9 +130,9 @@ define rm1_datafood= ImageInteractable("",1,600,340,0,[0],[0],"","rm1_datafoodlo
 
 
 ############## Rooms ##############
-define RM0_coldsleeproom = Room("Cold Sleep Room TEST",0,"bg_0coldsleep",[rm0_NAVTEMP,rm0_shower,rm0_gloves,rm0_coldsleeppod,rm0_mirror,rm0_shoe,rm0_locker1,rm0_locker2,rm0_gastanks,rm0_wires,rm0_window,rm0_wbutton,rm0_note,rm0_terminal,rm0_scrathes],0,0,[1],"bg_0coldsleep")
+define RM0_coldsleeproom = Room("Cold Sleep Room TEST",0,"bg_0cold_room",[rm0_NAVTEMP,rm0_shower,rm0_gloves,rm0_mirror,rm0_shoe,rm0_locker1,rm0_locker2,rm0_gastanks,rm0_wires,rm0_window,rm0_wbutton,rm0_note,rm0_terminal,rm0_coldsleeppod,rm0_scrathes],0,0,[1],"bg_0cold_room")
 
-define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0],"bg_1bridge")
+define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0],"bg_1bridge_room")
 
 
 

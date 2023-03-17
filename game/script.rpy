@@ -18,7 +18,7 @@ label start:
 
 scene START
 
-show bg_0coldsleep
+show bg_0cold_room
 show bgblack
 pause 1.5
 qq "Hey..."
@@ -81,7 +81,7 @@ menu(screen ='choice'):
                 show marnie with vpunchnowait
                 play sound smack
                 r "{size=+06}OW!{/size}"
-                show marnie shocked
+                show marnie shocked at hop
                 m "Stop messing around!"
                 r "S-Sorry!"
     "...":
@@ -106,7 +106,7 @@ menu(screen ='choice'):
                 show marnie with vpunchnowait
                 play sound smack
                 r "{size=+06}OW!{/size}"
-                show marnie shocked
+                show marnie shocked at hop
                 m "Stop messing around!"
                 r "Sorry! I'm awake now!"
                 m "Don't scare me like that! You should know better..."
@@ -116,7 +116,7 @@ m "Just freshen up and meet everyone there."
 r "Yes Marnie."
 hide marnie with dissolve
 
-dd "As you climb out of the Cold Sleep pod, you slowly glance around the room and in an attempt to regain your bearings."
+dd "As you climb out of the Cold Sleep pod, you slowly glance around the room in an attempt to regain your bearings."
 
 ##### ROOM 0 COLD SLEEP #####
 $roommanager.setuproom(0)
@@ -124,7 +124,7 @@ $roommanager.setuproom(0)
 
 ##### BRIDGE #####
 label introbridge:
-scene bg_1bridge with fade
+scene bg_1bridge_room with fade
 
 show marnie normal with dissolve:
     zoomnorm
@@ -296,9 +296,16 @@ o "Alright Rookie, you're on point."
 show bgblack2 with dissolve
 #play sound landing connecting
 
+dd "Next area is a test, look at window to continue"
+
+##### ROOM 1 BRIDGE #####
+$roommanager.setuproom(1) #testing for now
+##### ROOM 1 BRIDGE #####
+
 ##### HUB #####
 label introhub:
 scene bg_2hub with fade
+
 
 #play sound airlock opening door
 dd "As the salvagers disembark onto the mysterious station, a wave of dusty stale air washes over them."
@@ -350,24 +357,14 @@ o "First things first, we need to get the power restored and then figure a way t
 o "Anything else not nailed down can be scrapped as a bonus."
 o "Now get to it!"
 
-hide sprocko
-hide marnie
-hide gelato
+# hide sprocko
+# hide marnie
+# hide gelato
 
-
-
-
-
-
-
-dd "Next area is a test, look at window to continue"
-
-##### ROOM 1 BRIDGE #####
-$roommanager.setuproom(1) #testing for now
-##### ROOM 1 BRIDGE #####
 
 dd "after they connect the Clover to the Station they power up the Station."
 
+dd "DRAFT INCOMING."
 
 # m "So we’re just going to… Slice this metal man open then?"
 # s "That’s the plan! Just let me finish getting it working…"

@@ -6,8 +6,77 @@ image bgwhite = "#FFFFFF"
 image bgred = "#FF0000"
 image bgblue = "#0064FF"
 
-## Images Characters
+## Images Rooms
 
+image bg_0cold_room:
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 0.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 1.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 0.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 1.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 0.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 1.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_0cold.png"
+
+image bg_1bridge_room:
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 0.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 1.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 0.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 1.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 0.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 1.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_1bridge.png"
+
+## Images Characters
 
 ## AI
 
