@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 334: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
-    zoomnorm
-    ^
+File "game/custom system.rpy", line 37: invalid syntax
+            else
+    
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Mar 16 00:02:38 2023
+Fri Mar 17 22:10:42 2023

@@ -28,7 +28,7 @@ define rm0_terminal= ImageInteractable("",1,10,650,0,[0],[0],"","rm0_terminalloo
 define rm0_coldsleeppod= ImageInteractable("Cold Sleep pod",1,130,390,0,[0],[0],"","sleeppodlook",["inter/inter300x300_%s.png"],"inter300x300_idle.png")
 define rm0_scrathes= ImageInteractable("",1,460,560,0,[0],[0],"","scrathesslook",["inter/inter150x300_%s.png"],"inter150x300_idle.png")
 
-define rm0_NAVTEMP= ImageInteractable("",1,1700,950,0,[0],[0],"","NAVTEMP",["gamesys/NAV_%s.png"],"NAV_idle.png") #remove rooms navtemp when removing
+#define rm0_NAVTEMP= ImageInteractable("",1,1700,950,0,[0],[0],"","NAVTEMP",["gamesys/NAV_%s.png"],"NAV_idle.png") #remove rooms navtemp when removing
 
 
 #rm_1 bridge
@@ -48,9 +48,9 @@ define rm1_datafood= ImageInteractable("",1,600,340,0,[0],[0],"","rm1_datafoodlo
 
 
 ############## Rooms ##############
-define RM0_coldsleeproom = Room("Cold Sleep Room TEST",0,"bg_0cold_room",[rm0_NAVTEMP,rm0_shower,rm0_gloves,rm0_mirror,rm0_shoe,rm0_locker1,rm0_locker2,rm0_gastanks,rm0_wires,rm0_window,rm0_wbutton,rm0_note,rm0_terminal,rm0_coldsleeppod,rm0_scrathes],0,0,[1],"bg_0cold_room")
+define RM0_coldsleeproom = Room("Cold Sleep Room TEST",0,"bg_0cold_room",[rm0_shower,rm0_gloves,rm0_mirror,rm0_shoe,rm0_locker1,rm0_locker2,rm0_gastanks,rm0_wires,rm0_window,rm0_wbutton,rm0_note,rm0_terminal,rm0_coldsleeppod,rm0_scrathes],0,0,[1],"bg_0cold_room",[])
 
-define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0],"bg_1bridge_room")
+define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0],"bg_1bridge_room",[])
 
 
 

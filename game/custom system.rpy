@@ -3,7 +3,7 @@ init offset = -2
 init python:
 
     class Room():
-        def __init__(self,name,idnum,bgref,interactablelist,discovered,locked,adjacentrooms,navicon):
+        def __init__(self,name,idnum,bgref,interactablelist,discovered,locked,adjacentrooms,navicon,eventsready):
             self.name = name
             self.idnum = idnum
             self.bgref = bgref
@@ -12,6 +12,7 @@ init python:
             self.locked = locked
             self.adjacentrooms = adjacentrooms
             self.navicon = navicon
+            self.eventsready = eventsready
 
 
 
@@ -23,6 +24,28 @@ init python:
             self.currinterlayer = currinterlayer
             self.gotnav = gotnav
             self.gotinv = gotinv
+
+        def addeventstoroom(self,roomid,labelref):
+
+            self.rooms[roomid].eventsready.append(labelref)
+
+        def checkroomevents(self, roomid):
+
+            
+
+            if (len(self.rooms[roomid].eventsready) > 0):
+                
+                roomtocheck = self.rooms[roomid]
+                eventtocheck = roomtocheck.eventsready[0]
+
+                roomtocheck.eventsready.remove(eventtocheck)
+
+                #can call be used here?
+                renpy.jump(eventtocheck)
+            else:
+                self.setuproom(roomid)
+
+
 
 
         def setuproom(self,idnum):
@@ -120,7 +143,7 @@ screen makeinteractables(targetinteractables, roommanagerref):
                 ypos ti.verposition
                 xpadding ti.xpad
                 ypadding ti.ypad
-                textbutton ti.textref  action NullAction()
+                textbutton ti.textref  action [SensitiveIf((ti.interprogress in ti.interrangequest)and(localrmanref.currinterlayer == 0)), Hide("makeinteractables"), Hide("makeplayerUI"), Function(localrmanref.intiateinteraction,ti.labelref)]
 
 
 screen interactableinteractionscreen(selectedinteractable):
@@ -136,12 +159,11 @@ screen makeplayerUI(roommanagerref):
 
 
     if (localrmanref.gotnav == 0):
-        frame:
-            xpadding 40
-            ypadding 20
-            xalign 0.9
-            yalign 0.1
-            textbutton "Navigation" action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("navscreen",None,localrmanref)]
+        imagebutton:
+            xpos 1700
+            ypos 950
+            auto "gamesys/NAV_%s.png"
+            action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("navscreen",None,localrmanref)]
 
     if (localrmanref.gotinv == 0):
         frame:
@@ -178,14 +200,16 @@ screen navscreen(roommanagerref):
         if (ri.locked == 0):
 
             imagebutton:
-                xalign 0.5
-                yalign (0.2 + (0.2*count))
+                xpos (500 + (100*count))
+                yalign 0.8
 
-                if (ri.discovered == 0):
-                    auto ri.navicon
-                else:
-                    auto "iconunknown_%s.jpg"
-                action [Hide(),Function(localrmanref.setuproom,ri.idnum)]
+                #if (ri.discovered == 0):
+                    #auto ri.navicon
+                #else:
+                    #auto "iconunknown_%s.jpg"
+                auto "navic/iconunknown_%s.jpg"
+                #take it away later
+                action [Hide("navscreen"),Hide("makeinteractables"),Function(localrmanref.checkroomevents,ri.idnum)]
         else:
 
             imagebutton:
@@ -193,11 +217,12 @@ screen navscreen(roommanagerref):
                 xalign 0.5
                 yalign (0.2 + (0.2*count))
 
-                if (ri.discovered == 0):
-                    auto ri.navicon
-                else:
-                    auto "iconunknown_%s.jpg"
-
+                #if (ri.discovered == 0):
+                    #auto ri.navicon
+                #else:
+                    #auto "iconunknown_%s.jpg"
+                auto "iconunknown_%s.jpg"
+                #take it away later
                 action [NullAction()]
 
             image "iconlocked.jpg" xalign 0.6 yalign (0.2 + (0.2*count))

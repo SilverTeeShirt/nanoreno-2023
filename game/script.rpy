@@ -116,6 +116,10 @@ m "Just freshen up and meet everyone there."
 r "Yes Marnie."
 hide marnie with dissolve
 
+###this sets up the event when you enter room number, needs name of label as string
+$roommanager.addeventstoroom(1,"introbridge")
+####
+
 dd "As you climb out of the Cold Sleep pod, you slowly glance around the room in an attempt to regain your bearings."
 
 ##### ROOM 0 COLD SLEEP #####
