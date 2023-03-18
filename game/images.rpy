@@ -172,3 +172,8 @@ image sprocko happy = LiveComposite(
     (1920, 1750),
     (0, 0), "/char/spro/SprockoHappy.png",
     )
+
+image sprocko shocked = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/spro/SprockoShocked.png",
+    )

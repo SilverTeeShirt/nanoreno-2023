@@ -1,92 +1,56 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/custom system.rpy", line 99, in script call
-    call screen makeplayerUI(roommanager)
-  File "game/custom system.rpy", line 99, in script call
-    call screen makeplayerUI(roommanager)
-  File "game/custom system.rpy", line 99, in script call
-    call screen makeplayerUI(roommanager)
-  [Previous line repeated 3 more times]
-  File "game/custom system.rpy", line 99, in script
-    call screen makeplayerUI(roommanager)
-  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "game/custom system.rpy", line 156, in execute
-    screen navscreen(roommanagerref):
-  File "game/custom system.rpy", line 156, in execute
-    screen navscreen(roommanagerref):
-  File "game/custom system.rpy", line 175, in execute
-    for ri in roomstogoto:
-  File "game/custom system.rpy", line 178, in execute
-    if (ri.locked == 0):
-  File "game/custom system.rpy", line 180, in execute
+After initialization, but before game start.
+  File "game/custom system.rpy", line 156, in prepare_screen
+    screen makeplayerUI(roommanagerref):
+  File "game/custom system.rpy", line 156, in prepare
+    screen makeplayerUI(roommanagerref):
+  File "game/custom system.rpy", line 161, in prepare
+    if (localrmanref.gotnav == 0):
+  File "game/custom system.rpy", line 161, in prepare
+    if (localrmanref.gotnav == 0):
+  File "game/custom system.rpy", line 162, in prepare
     imagebutton:
-  File "renpy/common/00defaults.rpy", line 139, in _imagemap_auto_function
-    rv = auto_param % variant
-TypeError: not all arguments converted during string formatting
+  File "game/custom system.rpy", line 162, in prepare
+    imagebutton:
+SyntaxError: invalid syntax (game/custom system.rpy, line 166)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/custom system.rpy", line 99, in script call
-    call screen makeplayerUI(roommanager)
-  File "game/custom system.rpy", line 99, in script call
-    call screen makeplayerUI(roommanager)
-  File "game/custom system.rpy", line 99, in script call
-    call screen makeplayerUI(roommanager)
-  [Previous line repeated 3 more times]
-  File "game/custom system.rpy", line 99, in script
-    call screen makeplayerUI(roommanager)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 2232, in execute
-    self.call("execute")
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 2220, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\statements.py", line 281, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\exports.py", line 3181, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 3810, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\screen.py", line 451, in visit_all
-    callback(self)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 3810, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\screen.py", line 462, in per_interact
-    self.update()
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\screen.py", line 653, in update
-    self.screen.function(**self.scope)
-  File "game/custom system.rpy", line 156, in execute
-    screen navscreen(roommanagerref):
-  File "game/custom system.rpy", line 156, in execute
-    screen navscreen(roommanagerref):
-  File "game/custom system.rpy", line 175, in execute
-    for ri in roomstogoto:
-  File "game/custom system.rpy", line 178, in execute
-    if (ri.locked == 0):
-  File "game/custom system.rpy", line 180, in execute
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\bootstrap.py", line 277, in bootstrap
+    renpy.main.main()
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\main.py", line 660, in main
+    run(restart)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\main.py", line 95, in run
+    renpy.display.screen.prepare_screens()
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\screen.py", line 976, in prepare_screens
+    s.ast.prepare_screen()
+  File "game/custom system.rpy", line 156, in prepare_screen
+    screen makeplayerUI(roommanagerref):
+  File "game/custom system.rpy", line 156, in prepare
+    screen makeplayerUI(roommanagerref):
+  File "game/custom system.rpy", line 161, in prepare
+    if (localrmanref.gotnav == 0):
+  File "game/custom system.rpy", line 161, in prepare
+    if (localrmanref.gotnav == 0):
+  File "game/custom system.rpy", line 162, in prepare
     imagebutton:
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ui.py", line 952, in _imagebutton
-    idle = choice(idle, idle_image, "idle", required=True)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ui.py", line 940, in choice
-    rv = renpy.config.imagemap_auto_function(auto, name)
-  File "renpy/common/00defaults.rpy", line 139, in _imagemap_auto_function
-    rv = auto_param % variant
-TypeError: not all arguments converted during string formatting
+  File "game/custom system.rpy", line 162, in prepare
+    imagebutton:
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\py3analysis.py", line 790, in ast_eval
+    return self.ast_eval_literal(expr)[0]
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\py3analysis.py", line 772, in ast_eval_literal
+    expr = py_compile(expr, 'eval', ast_node=True)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\python.py", line 1027, in py_compile
+    raise e
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\python.py", line 979, in py_compile
+    raise orig_e
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\python.py", line 972, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (game/custom system.rpy, line 166)
 
 Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Space Breakers 0.1
-Fri Mar 17 18:05:57 2023
+Fri Mar 17 21:04:18 2023

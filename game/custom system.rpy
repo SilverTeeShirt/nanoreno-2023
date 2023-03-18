@@ -31,10 +31,10 @@ init python:
 
         def checkroomevents(self, roomid):
 
-            
+
 
             if (len(self.rooms[roomid].eventsready) > 0):
-                
+
                 roomtocheck = self.rooms[roomid]
                 eventtocheck = roomtocheck.eventsready[0]
 

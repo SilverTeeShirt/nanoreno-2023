@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/custom system.rpy", line 37: invalid syntax
-            else
-    
+File "game/custom system.rpy", line 210: 'textbutton' is not a keyword argument or valid child for the imagebutton statement.
+    textbutton "???" action [Hide("navscreen"),Hide("makeinteractables"),Function(localrmanref.checkroomevents,ri.idnum)]
+              ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Mar 17 22:10:42 2023
+Fri Mar 17 21:08:57 2023

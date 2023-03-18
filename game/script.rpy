@@ -15,7 +15,6 @@
 
 
 label start:
-
 scene START
 
 show bg_0cold_room
@@ -50,27 +49,28 @@ menu(screen ='choice'):
         r "I'm awake! I'm awake!"
         show marnie happy
         m "Alright good. I was worried when you didn't respond right away."
-        m "I can never tell how long you humans take in there."
-        m "How are you feeling?"
-        r "A little woozy. It felt like my heart was pounding in the back of my skull."
+        m "I can never tell how long you humans take in there!"
         show marnie normal
+        m "How are you feeling?"
+        r "A little woozy. It felt like my heart was pounding in the back of my skull..."
         m "That's to be expected. Emergency thaws are kind of rough..."
     "Where am I?":
         label start_whereami:
         hide bgblack with dissolve
         r "W-Where am I?"
-        show marnie unhappy at sulk
+        show marnie shocked at sulk
         m "Seriously? Don't tell me the Cold Sleep messed with your memory..."
         m "I thought they fixed that issue..."
         show marnie normal
         m "Well what do you remember?"
         menu(screen ='choice'):
             "I'm a salvager":
-                r "That I'm a Rookie space salvager?"
+                r "That I'm the Rookie space salvager?"
                 m "Correct!{w=0.25} And...?"
                 r "Um...{w=0.25} You're Marnie?"
                 show marnie happy
                 m "Yup!{w=0.25} All I needed to hear!"
+                m "Your vitals are one hundred percent!"
                 m "You should be fine!"
                 r "R-Right..."
             "I don't know":
@@ -88,6 +88,7 @@ menu(screen ='choice'):
         r "..."
         m "Hello? Can you hear me?"
         m "Maybe something went wrong with the Cold Sleep pod again..."
+        show marnie shocked at hop
         m "{size=+06}Hey Rookie! Wake up!{/size}"
         menu:
             "I'm awake!":
@@ -95,6 +96,8 @@ menu(screen ='choice'):
             "Where am I?":
                 jump start_whereami
             "...":
+                r "..."
+                show marnie normal at sulk
                 m "Hmmmmm... All the vitals look good..."
                 show marnie at sway
                 m "Rookie? Are you..."
@@ -109,18 +112,21 @@ menu(screen ='choice'):
                 show marnie shocked at hop
                 m "Stop messing around!"
                 r "Sorry! I'm awake now!"
-                m "Don't scare me like that! You should know better..."
+                m "Don't scare me like that!"
+                show marnie normal
+                m "You should know better..."
 show marnie normal
 m "Anyways the Captain wants everyone on the bridge."
 m "Just freshen up and meet everyone there."
 r "Yes Marnie."
 hide marnie with dissolve
 
-###this sets up the event when you enter room number, needs name of label as string
+##### this sets up the event when you enter room number, needs name of label as string
 $roommanager.addeventstoroom(1,"introbridge")
-####
+#####
 
 dd "As you climb out of the Cold Sleep pod, you slowly glance around the room in an attempt to regain your bearings."
+
 
 ##### ROOM 0 COLD SLEEP #####
 $roommanager.setuproom(0)
@@ -154,7 +160,7 @@ if shower == True:
     g "No you're {size=+06}THE HUMAN{/size} salvager!"
     show gelato at wiggle
     g "The one and only!"
-    show gelato unhappy at wiggle
+    show gelato at wiggle
     g "Not since that last one!"
     show gelato unhappy
     g "{size=-06}That one didn't last long...{/size}"
@@ -174,7 +180,7 @@ show gelato normal:
     ease 0.1 yoffset 0
 o "You jabbersniffs sure took your sweet time!"
 show marnie at sway
-m "{size=-06}But I was the first one here...{/size}"
+m "{size=-06}I was the first one here...{/size}"
 show gelato at wiggle
 g "Sometimes Captain, you gotta go at a human's pace!"
 r "What does that even mean?"
@@ -188,12 +194,13 @@ m "We're on a tight schedule Captain! If we're late by a even a single micro cyc
 show otus unhappy at sway
 o "Hey! Quit being such a pippyflop!"
 o "I’ve been scrapping ships longer than your people have been flying them!"
+o "I know what I'm doing!"
 show otus happy
-o "I know what I'm doing! And trust me, I think you’ll all want to be part of this!"
+o "And trust me! I think you’ll all want to be part of this!"
 show sprocko happy with dissolve:
     zoomnorm
     xalign -0.575
-show marnie:
+show marnie normal:
     ease 0.2 xalign 0.1
 show gelato:
     ease 0.1 xalign 0.62
@@ -202,12 +209,15 @@ show gelato:
 s "Hey BOSS!"
 s "We got visual!"
 o "Finally! Put it on screen, Sprocko!"
+#play sound blip and boops
+
+dd "With a simple click, the main screen turns on and a large orbital station comes into view."
 
 #play sound engines
 show cg01 with dissolve
 g "Woah, what is that?"
 o "Sprocko,{w=0.25} tell them."
-s "Well let's see...{w=0.25} Judging from the data it LOOKS like an orbital station built almost FIFTY cycles ago."
+s "Well let's see...{w=0.25} Judging from the data it looks like an orbital station built over FIFTY cycles ago."
 m "Now why would we be interested in an old orbital station?"
 s "Because WE are getting strong zeta waves from that thing's reactor core."
 m "OK..."
@@ -224,7 +234,8 @@ show gelato shocked at wiggle
 g "T-That makes no sense!{w=0.25} How can a single space station have that much power?!"
 show otus happy
 o "Now you're getting it!"
-o "This is an opportunity we can't miss. I'll jettison that entire smogdoffle comet skipper for this salvage if I have to!"
+o "This is an opportunity we can't miss."
+o "I'll jettison that entire smogdoffle comet skipper for this salvage if I have to!"
 m "Are you sure those readings are correct?"
 show sprocko unhappy
 s "I quintuple checked it while YOU were all on ice."
@@ -234,15 +245,21 @@ show marnie unhappy at sulk
 m "I don't like this... It's some sort of super secret, galactic government trick or something."
 m "We step one foot on that thing, and {size=+06}BAM!{/size}{w=0.25} We’re sent to prison in a pocket dimension and never seen again!"
 show sprocko unhappy
-s "No, I checked all the flight charts and no one's been in this sector for AGES!"
+s "I checked ALL the flight charts and no one's been in this sector for AGES!"
+show sprocko shocked
 s "It's a derelict and it's just been sitting there, SITTING!"
-o "There's nothing to worry about! We get our hands on whatever is powering that reactor and we can all retire on any core world we want!"
+o "There's nothing to worry about!"
+o "We've pinged it over and over with no response."
+o "It's completely open for salvage!"
+o "We get our hands on whatever is powering that reactor and we can all retire on any core world we want!"
 show otus normal
 o "What do you think Rookie?"
 
 menu(screen ='choice'):
     "Marnie is right":
         r "Maybe we should listen to Marnie."
+        show sprocko unhappy
+        show gelato normal
         show marnie happy
         r "This sounds dangerous and I don't want to mess up my first salvage operation."
         m "See even the Rookie can tell that this is too good to be true."
@@ -278,6 +295,7 @@ menu(screen ='choice'):
         s "Oh! I can not WAIT to play with whatever is in there!"
         show sprocko happy at shake
         s "{size=+06}Gehehehehe!{/size}"
+        show marnie shocked at sulk
         m "Are we actually doing this?"
         o "If anything looks off, we'll high tail it out of there. I promise."
 
@@ -296,51 +314,61 @@ show gelato happy at wiggle
 g "Yippie!"
 show marnie unhappy at sway
 m "This is such a bad idea."
-o "Alright Rookie, you're on point."
+o "Rookie, you're on point."
 show bgblack2 with dissolve
 #play sound landing connecting
 
-dd "Next area is a test, look at window to continue"
-
-##### ROOM 1 BRIDGE #####
-$roommanager.setuproom(1) #testing for now
-##### ROOM 1 BRIDGE #####
-
 ##### HUB #####
-label introhub:
-scene bg_2hub with fade
-
 
 #play sound airlock opening door
+scene bg_2hub with fadeslow
 dd "As the salvagers disembark onto the mysterious station, a wave of dusty stale air washes over them."
 show marnie normal with dissolve:
     zoomnorm
-    ease 0.4 xalign -0.1
-m "Oof! It's pretty dusty in here..."
-m "I don't think anyone has been in here for a very long time..."
+    ease 0.4 xalign 0.05
+m "Oof! It's so dank, dark, and dusty in here."
+m "Looks like it's been abandoned for a long time..."
+show marnie unhappy at sulk
+m "I don't like this..."
 show gelato happy behind marnie with dissolve:
     zoomnorm
     ease .2 center
     ease 0.1 yoffset -30
     ease 0.1 yoffset 0
-g "Ooh, this looks very humany, don’t you think Rookie?"
-r "I guess so..."
+show marnie normal:
+    ease 0.2 xalign -0.1
+g "What are you talking about? This is great!"
+g "All of this is so humany! Isn't that right Rookie?"
+r "I guess..."
 show gelato at wiggle
 g "Look the stairs and the carpet, and the pocket dimension delivery system!"
-show gelato at wiggle
+show gelato normal at wiggle
 g "Perfect for the homesick Earthling!"
-r "I've never actually been to Earth..."
-show gelato shocked at hop
-g "Whoa really!?"
-g "{size=-06} Does that mean you're not an actual Earthling?{/size}"
+
+menu(screen ='choice'):
+    "I've never been to earth":
+        r "I've never actually been to Earth..."
+        show gelato shocked at hop
+        g "Whoa really!?"
+        r "I was born pretty far from Earth on one of the colonies."
+        g "{size=-06} Does that mean you're not an actual Earthling?{/size}"
+    "I like being in space":
+        r "I actually really like being in space."
+        r "Exploring and seeing the galaxy has always been a dream of mine."
+        show gelato happy at wiggle
+        g "Oh yeah?"
+        g "So does that mean you'll be with the crew long term?"
+        g "{size=-06} Maybe you can teach me human stick hit ball...{/size}"
+
+show marnie shocked
 m "C’mon, Gelato, take this seriously."
 show sprocko happy with dissolve :
     zoomnorm
-    xalign -0.5
-show marnie:
+    xalign -0.55
+show marnie normal:
     ease 0.2 xalign 0.1
-show gelato:
-    ease 0.1 xalign 0.62
+show gelato normal:
+    ease 0.1 xalign 0.55
     ease 0.1 yoffset -30
     ease 0.1 yoffset 0
 s "Gahahaha! Look at this place! It's just teeming with... {w=0.25}{size=+06}THINGS!{/size}"
@@ -352,19 +380,23 @@ show sprocko unhappy
 s "But the Clover... It needs upgrades."
 show otus normal with dissolve:
     zoomnorm
-    xalign 1.35
+    xalign 1.4
 show sprocko normal at hop
 show marnie normal at hop
 show gelato normal at hop
 o "Focus, people! We have a tight timetable remember?"
 o "First things first, we need to get the power restored and then figure a way to that reactor core."
-o "Anything else not nailed down can be scrapped as a bonus."
+o "Scrapping anything else can wait."
 o "Now get to it!"
 
 # hide sprocko
 # hide marnie
 # hide gelato
 
+# dd "Next area is a test, look at window to continue"
+# ##### ROOM 1 BRIDGE #####
+# $roommanager.setuproom(1) #testing for now
+# ##### ROOM 1 BRIDGE #####
 
 dd "after they connect the Clover to the Station they power up the Station."
 
