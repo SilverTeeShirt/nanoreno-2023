@@ -200,8 +200,8 @@ screen navscreen(roommanagerref):
         if (ri.locked == 0):
 
             imagebutton:
-                xpos (500 + (100*count))
-                yalign 0.8
+                xpos (400 + (250*count))
+                ypos 950
 
                 #if (ri.discovered == 0):
                     #auto ri.navicon
