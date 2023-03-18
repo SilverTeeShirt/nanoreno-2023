@@ -76,6 +76,40 @@ image bg_1bridge_room:
     contains:
         "/bg/bg_1bridge.png"
 
+image bg_2hub_room:
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 0.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 1.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 0.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 1.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 0.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 1.0
+        linear 180.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_2hub.png"
+
 ## Images Characters
 
 ## AI

@@ -79,7 +79,7 @@ menu(screen ='choice'):
                 r "..."
                 m "..."
                 show marnie with vpunchnowait
-                play sound smack
+                play sound smack volume 0.6
                 r "{size=+06}OW!{/size}"
                 show marnie shocked at hop
                 m "Stop messing around!"
@@ -107,7 +107,7 @@ menu(screen ='choice'):
                 m "..."
                 hide bgblack with disfastnowait
                 show marnie with vpunchnowait
-                play sound smack
+                play sound smack volume 0.6
                 r "{size=+06}OW!{/size}"
                 show marnie shocked at hop
                 m "Stop messing around!"
@@ -321,7 +321,7 @@ show bgblack2 with dissolve
 ##### HUB #####
 
 #play sound airlock opening door
-scene bg_2hub with fadeslow
+scene bg_2hub_room with fadeslow
 dd "As the salvagers disembark onto the mysterious station, a wave of dusty stale air washes over them."
 show marnie normal with dissolve:
     zoomnorm
