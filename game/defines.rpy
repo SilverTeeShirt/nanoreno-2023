@@ -13,7 +13,7 @@ define dd = Character(None, what_italic=True, what_font="font/NunitoSemiboldItal
 ## Interactables self,name,intertype(IMAGE BUTTON SET to 1),horposition,verposition,interprogress,interrangequest[],interrangelayer[]#set to 0,fltext,labelref,imageref,menuimageref
 
 #rm_0 cold sleep locker
-define rm0_shower= ImageInteractable("Shower",1,1775,180,0,[0],[0],"","showerchoice",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
+define rm0_shower= ImageInteractable("Shower",1,1775,180,0,[0],[0],"","showerlook",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
 define rm0_gloves= ImageInteractable("Gloves",1,1490,350,0,[0],[0],"","gloveslook",["inter/inter150x150_%s.png"],"inter150x150_idle.png")
 define rm0_mirror= ImageInteractable("",1,1619,290,0,[0],[0],"","mirrorlook",["inter/inter150x300_%s.png"],"inter150x300_idle.png")
 define rm0_shoe= ImageInteractable("",1,1300,715,0,[0],[0],"","shoe1look",["inter/inter150x150_%s.png"],"inter150x150_idle.png")
@@ -27,9 +27,7 @@ define rm0_note= ImageInteractable("",1,440,430,0,[0],[0],"","rm0_noteslook",["i
 define rm0_terminal= ImageInteractable("",1,10,650,0,[0],[0],"","rm0_terminallook",["inter/inter300x300_%s.png"],"inter300x300_idle.png")
 define rm0_coldsleeppod= ImageInteractable("Cold Sleep pod",1,130,390,0,[0],[0],"","sleeppodlook",["inter/inter300x300_%s.png"],"inter300x300_idle.png")
 define rm0_scrathes= ImageInteractable("",1,460,560,0,[0],[0],"","scrathesslook",["inter/inter150x300_%s.png"],"inter150x300_idle.png")
-
 #define rm0_NAVTEMP= ImageInteractable("",1,1700,950,0,[0],[0],"","NAVTEMP",["gamesys/NAV_%s.png"],"NAV_idle.png") #remove rooms navtemp when removing
-
 
 #rm_1 bridge
 define rm1_mainwindow= ImageInteractable("",1,1100,235,0,[0],[0],"","mainwindowlook",["inter/inter800x250_%s.png"],"inter800x250_idle.png")
@@ -46,14 +44,34 @@ define rm1_vbutton= ImageInteractable("",1,103,526,0,[0],[0],"","rm1_vbuttonlook
 define rm1_wires= ImageInteractable("",1,490,0,0,[0],[0],"","rm1_wireslook",["inter/inter300x300_%s.png"],"inter300x300_idle.png")
 define rm1_datafood= ImageInteractable("",1,600,340,0,[0],[0],"","rm1_datafoodlook",["inter/inter150x300_%s.png"],"inter150x300_idle.png")
 
+#rm_2 hub
+define skyart= ImageInteractable("",1,510,80,0,[0],[0],"","skyartlook",["inter/inter800x250_%s.png"],"inter800x250_idle.png")
+define rm2_trash= ImageInteractable("",1,1350,900,0,[0],[0],"","rm2_trashlook",["inter/inter300x150_%s.png"],"inter300x150_idle.png")
+define rm2_table= ImageInteractable("",1,1520,720,0,[0],[0],"","rm2_tablelook",["inter/inter150x150_%s.png"],"inter150x150_idle.png")
+define charger= ImageInteractable("",1,1740,610,0,[0],[0],"","chargerlook",["inter/inter150x300_%s.png"],"inter150x300_idle.png")
+define rm2_door1= ImageInteractable("",1,1550,360,0,[0],[0],"","rm2_doorlook",["inter/inter300x150_%s.png"],"inter300x150_idle.png")
+define rm2_door2= ImageInteractable("",1,80,360,0,[0],[0],"","rm2_doorlook",["inter/inter300x150_%s.png"],"inter300x150_idle.png")
+define logo= ImageInteractable("",1,885,350,0,[0],[0],"","logolook",["inter/inter150x300_%s.png"],"inter150x300_idle.png")
+define rm2_elevator= ImageInteractable("",1,810,670,0,[0],[0],"","rm2_elevatorlook",["inter/inter300x300_%s.png"],"inter300x300_idle.png")
+define rm2_light1= ImageInteractable("",1,710,720,0,[0],[0],"","rm2_lightlook",["inter/inter_%s.png"],"inter_idle.png")
+define rm2_light2= ImageInteractable("",1,1128,720,0,[0],[0],"","rm2_lightlook",["inter/inter_%s.png"],"inter_idle.png")
+define rm2_bigdoor= ImageInteractable("",1,0,650,0,[0],[0],"","rm2_bigdoorlook",["inter/inter300x300_%s.png"],"inter300x300_idle.png")
+define planetmodel= ImageInteractable("",1,1355,160,0,[0],[0],"","planetmodellook",["inter/inter150x150_%s.png"],"inter150x150_idle.png")
+define powermail= ImageInteractable("",1,350,775,0,[0],[0],"","powermaillook",["inter/inter150x150_%s.png"],"inter150x150_idle.png")
+
+define marnie_rm2= ImageInteractable("",1,540,690,0,[0],[0],"","marnietalk",["inter/talk/marnie1_%s.png"],"marnie1_idle.png")
+define sprocko_rm2= ImageInteractable("",1,250,740,0,[0],[0],"","sprockotalk",["inter/talk/sprocko1_%s.png"],"sprocko1_idle.png")
+define gelato_rm2= ImageInteractable("",1,1150,450,0,[0],[0],"","gelatotalk",["inter/talk/gelato1_%s.png"],"gelato1_idle.png")
+define otus_rm2= ImageInteractable("",1,1100,650,0,[0],[0],"","otustalk",["inter/talk/otus1_%s.png"],"otus1_idle.png")
+define ai_rm2= ImageInteractable("",1,1700,685,0,[0],[0],"","aitalk",["inter/talk/ai1_%s.png"],"ai1_idle.png")
 
 ############## Rooms ##############
-define RM0_coldsleeproom = Room("Cold Sleep Room TEST",0,"bg_0cold_room",[rm0_shower,rm0_gloves,rm0_mirror,rm0_shoe,rm0_locker1,rm0_locker2,rm0_gastanks,rm0_wires,rm0_window,rm0_wbutton,rm0_note,rm0_terminal,rm0_coldsleeppod,rm0_scrathes],0,0,[1],"bg_0cold_room",[])
+define RM0_coldsleeproom = Room("Cold TEST",0,"bg_0cold_room",[rm0_shower,rm0_gloves,rm0_mirror,rm0_shoe,rm0_locker1,rm0_locker2,rm0_gastanks,rm0_wires,rm0_window,rm0_wbutton,rm0_note,rm0_terminal,rm0_coldsleeppod,rm0_scrathes],0,0,[1],"bg_0cold_room",[])
 
-define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0],"bg_1bridge_room",[])
+define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0,2],"bg_1bridge_room",[])
 
-
+define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,charger,rm2_door1,rm2_door2,logo,rm2_elevator,rm2_light1,rm2_light2,rm2_bigdoor,planetmodel,powermail,marnie_rm2,sprocko_rm2,gelato_rm2,otus_rm2,ai_rm2],0,0,[1],"bg_2hub_room",[])
 
 
 ## Roommanager (and Inventory soon)
-define roommanager = RoomManager("roommanager",[RM0_coldsleeproom,RM1_bridge],RM0_coldsleeproom,1,0,0)
+define roommanager = RoomManager("roommanager",[RM0_coldsleeproom,RM1_bridge,RM2_hub],RM0_coldsleeproom,1,0,0)

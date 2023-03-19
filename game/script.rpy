@@ -143,7 +143,7 @@ if shower == True:
     m "Jeez Rookie,{w=0.25} took you long enough."
 else:
     m "Oof Rookie,{w=0.25} you still smell a bit funny."
-show gelato normal with dissolve:
+show gelato normal behind marnie with dissolve:
     zoomnorm
     rightish
     wiggle
@@ -157,7 +157,7 @@ else:
     r "Yup. That's me. The smelly human salvager..."
 show gelato happy at wiggle
 if shower == True:
-    g "No you're {size=+06}THE HUMAN{/size} salvager!"
+    g "Yeah! You're {size=+06}THE HUMAN{/size} salvager!"
     show gelato at wiggle
     g "The one and only!"
     show gelato at wiggle
@@ -325,14 +325,14 @@ scene bg_2hub_room with fadeslow
 dd "As the salvagers disembark onto the mysterious station, a wave of dusty stale air washes over them."
 show marnie normal with dissolve:
     zoomnorm
-    ease 0.4 xalign 0.05
+    ease 0.4 xalign 0.2
 m "Oof! It's so dank, dark, and dusty in here."
 m "Looks like it's been abandoned for a long time..."
 show marnie unhappy at sulk
 m "I don't like this..."
 show gelato happy behind marnie with dissolve:
     zoomnorm
-    ease .2 center
+    center
     ease 0.1 yoffset -30
     ease 0.1 yoffset 0
 show marnie normal:
@@ -392,6 +392,11 @@ o "Now get to it!"
 # hide sprocko
 # hide marnie
 # hide gelato
+# hide otus
+
+##### ROOM 2 HUB #####
+$roommanager.setuproom(2)
+##### ROOM 2 HUB #####
 
 # dd "Next area is a test, look at window to continue"
 # ##### ROOM 1 BRIDGE #####

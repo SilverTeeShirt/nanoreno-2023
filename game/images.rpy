@@ -22,22 +22,22 @@ image bg_0cold_room:
     contains:
         "/bg/bg_Xstars1.png"
         xalign 0.0
-        linear 180.0 xpos 1920
+        linear 190.0 xpos 1920
         repeat
     contains:
         "/bg/bg_Xstars1.png"
         xalign 1.0
-        linear 180.0 xpos 1920
+        linear 190.0 xpos 1920
         repeat
     contains:
         "/bg/bg_Xstars2.png"
         xalign 0.0
-        linear 180.0 xpos 1920
+        linear 160.0 xpos 1920
         repeat
     contains:
         "/bg/bg_Xstars2.png"
         xalign 1.0
-        linear 180.0 xpos 1920
+        linear 160.0 xpos 1920
         repeat
     contains:
         "/bg/bg_0cold.png"
@@ -56,22 +56,22 @@ image bg_1bridge_room:
     contains:
         "/bg/bg_Xstars1.png"
         xalign 0.0
-        linear 180.0 xpos 1920
+        linear 190.0 xpos 1920
         repeat
     contains:
         "/bg/bg_Xstars1.png"
         xalign 1.0
-        linear 180.0 xpos 1920
+        linear 190.0 xpos 1920
         repeat
     contains:
         "/bg/bg_Xstars2.png"
         xalign 0.0
-        linear 180.0 xpos 1920
+        linear 160.0 xpos 1920
         repeat
     contains:
         "/bg/bg_Xstars2.png"
         xalign 1.0
-        linear 180.0 xpos 1920
+        linear 160.0 xpos 1920
         repeat
     contains:
         "/bg/bg_1bridge.png"
@@ -90,22 +90,22 @@ image bg_2hub_room:
     contains:
         "/bg/bg_Xstars1.png"
         xalign 0.0
-        linear 180.0 xpos 1920
+        linear 190.0 xpos 1920
         repeat
     contains:
         "/bg/bg_Xstars1.png"
         xalign 1.0
-        linear 180.0 xpos 1920
+        linear 190.0 xpos 1920
         repeat
     contains:
         "/bg/bg_Xstars2.png"
         xalign 0.0
-        linear 180.0 xpos 1920
+        linear 160.0 xpos 1920
         repeat
     contains:
         "/bg/bg_Xstars2.png"
         xalign 1.0
-        linear 180.0 xpos 1920
+        linear 160.0 xpos 1920
         repeat
     contains:
         "/bg/bg_2hub.png"

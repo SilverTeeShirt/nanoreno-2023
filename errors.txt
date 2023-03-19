@@ -2,9 +2,83 @@
 errors listed below, and try again.
 
 
-File "game/custom system.rpy", line 210: 'textbutton' is not a keyword argument or valid child for the imagebutton statement.
-    textbutton "???" action [Hide("navscreen"),Hide("makeinteractables"),Function(localrmanref.checkroomevents,ri.idnum)]
-              ^
+The label mainwindowlook is defined twice, at File "game/interactables.rpy", line 71:
+label mainwindowlook:
+and File "game/interactables.rpy", line 117:
+label mainwindowlook:
+
+
+The label radtoplook is defined twice, at File "game/interactables.rpy", line 74:
+label radtoplook:
+and File "game/interactables.rpy", line 120:
+label radtoplook:
+
+
+The label radbotlook is defined twice, at File "game/interactables.rpy", line 77:
+label radbotlook:
+and File "game/interactables.rpy", line 123:
+label radbotlook:
+
+
+The label navseatlook is defined twice, at File "game/interactables.rpy", line 80:
+label navseatlook:
+and File "game/interactables.rpy", line 126:
+label navseatlook:
+
+
+The label capchairlook is defined twice, at File "game/interactables.rpy", line 83:
+label capchairlook:
+and File "game/interactables.rpy", line 129:
+label capchairlook:
+
+
+The label capscreenlook is defined twice, at File "game/interactables.rpy", line 86:
+label capscreenlook:
+and File "game/interactables.rpy", line 132:
+label capscreenlook:
+
+
+The label idollook is defined twice, at File "game/interactables.rpy", line 89:
+label idollook:
+and File "game/interactables.rpy", line 135:
+label idollook:
+
+
+The label rm1_readoutlook is defined twice, at File "game/interactables.rpy", line 92:
+label rm1_readoutlook:
+and File "game/interactables.rpy", line 138:
+label rm1_readoutlook:
+
+
+The label rm1_mainscreenlook is defined twice, at File "game/interactables.rpy", line 95:
+label rm1_mainscreenlook:
+and File "game/interactables.rpy", line 141:
+label rm1_mainscreenlook:
+
+
+The label rm1_ventslook is defined twice, at File "game/interactables.rpy", line 98:
+label rm1_ventslook:
+and File "game/interactables.rpy", line 144:
+label rm1_ventslook:
+
+
+The label rm1_vbuttonlook is defined twice, at File "game/interactables.rpy", line 101:
+label rm1_vbuttonlook:
+and File "game/interactables.rpy", line 147:
+label rm1_vbuttonlook:
+
+
+The label rm1_wireslook is defined twice, at File "game/interactables.rpy", line 104:
+label rm1_wireslook:
+and File "game/interactables.rpy", line 150:
+label rm1_wireslook:
+
+
+The label rm1_datafoodlook is defined twice, at File "game/interactables.rpy", line 107:
+label rm1_datafoodlook:
+and File "game/interactables.rpy", line 153:
+label rm1_datafoodlook:
+
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Mar 17 21:08:57 2023
+Sun Mar 19 12:17:59 2023
