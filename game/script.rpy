@@ -389,106 +389,11 @@ o "First things first, we need to get the power restored and then figure a way t
 o "Scrapping anything else can wait."
 o "Now get to it!"
 
+
 # hide sprocko
 # hide marnie
 # hide gelato
 # hide otus
-
-# scene bg_4con_room
-
-# label TESTLOCATIONSEND:
-# call screen TESTLOCATIONS
-# screen TESTLOCATIONS:
-#     imagebutton: #sky art
-#         xpos 510
-#         ypos 80
-#         auto "/inter/inter800x250_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #trash
-#         xpos 1350
-#         ypos 900
-#         auto "/inter/inter300x150_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #table
-#         xpos 1520
-#         ypos 720
-#         auto "/inter/inter150x150_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #charge station
-#         xpos 1740
-#         ypos 610
-#         auto "/inter/inter150x300_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #door 1
-#         xpos 1550
-#         ypos 360
-#         auto "/inter/inter300x150_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #door 2
-#         xpos 80
-#         ypos 360
-#         auto "/inter/inter300x150_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #logo
-#         xpos 885
-#         ypos 350
-#         auto "/inter/inter150x300_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #Elevator Door
-#         xpos 810
-#         ypos 670
-#         auto "/inter/inter300x300_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #Light 1
-#         xpos 710
-#         ypos 720
-#         auto "/inter/inter_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #Light 2
-#         xpos 1128
-#         ypos 720
-#         auto "/inter/inter_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #Heavy door
-#         xpos 0
-#         ypos 650
-#         auto "/inter/inter300x300_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #planet model
-#         xpos 1355
-#         ypos 160
-#         auto "/inter/inter150x150_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #power node mail
-#         xpos 350
-#         ypos 775
-#         auto "/inter/inter150x150_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #marnie1
-#         xpos 540
-#         ypos 690
-#         auto "/inter/talk/marnie1_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #otus1
-#         xpos 1100
-#         ypos 650
-#         auto "/inter/talk/otus1_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #gelato1
-#         xpos 1150
-#         ypos 450
-#         auto "/inter/talk/gelato1_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #sprocko1
-#         xpos 250
-#         ypos 740
-#         auto "/inter/talk/sprocko1_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #ai1
-#         xpos 1700
-#         ypos 680
-#         auto "/inter/talk/ai1_%s.png"
-#         action Jump("TESTLOCATIONSEND")
 
 
 ##### ROOM 2 HUB #####

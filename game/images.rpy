@@ -178,6 +178,74 @@ image bg_4con_room:
     contains:
         "/bg/bg_4con.png"
 
+image bg_5bar_room:
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 0.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 1.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 0.0
+        linear 190.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 1.0
+        linear 190.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 0.0
+        linear 160.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 1.0
+        linear 160.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_5bar.png"
+
+image bg_6core_room:
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 0.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 1.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 0.0
+        linear 190.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 1.0
+        linear 190.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 0.0
+        linear 160.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 1.0
+        linear 160.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_6core.png"
+
 ## Images Characters
 
 ## AI

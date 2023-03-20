@@ -111,11 +111,11 @@ init python:
             self.textref = textref
             self.xpad = xpad
             self.ypad = ypad
-        
+
     class Inventory():
         def __init__(self,items):
             self.items = items
-    
+
     class Item():
         def __init__(self,name,idnum,imageref,description,targetinter):
             self.name = name
@@ -202,7 +202,7 @@ screen navscreen(roommanagerref):
     imagebutton:
             xpos 1700
             ypos 950
-            auto "gamesys/NAV_%s.png" 
+            auto "gamesys/NAV_%s.png"
             action [Hide("navscreen"),Show("makeplayerUI",None,localrmanref)]
 
 
@@ -275,4 +275,3 @@ screen invscreen(inventoryref,roommanagerref):
                 action [NullAction()]
 
         $ count += 1
-    

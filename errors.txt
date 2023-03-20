@@ -2,9 +2,71 @@
 errors listed below, and try again.
 
 
-File "game/custom system.rpy", line 247: 'defualt' is not a keyword argument or valid child for the screen statement.
-    defualt count = 0
-           ^
+The label skyartlook is defined twice, at File "game/interactables.rpy", line 125:
+label skyartlook:
+and File "game/interactables.rpy", line 176:
+label skyartlook:
+
+
+The label trashlook is defined twice, at File "game/interactables.rpy", line 128:
+label trashlook:
+and File "game/interactables.rpy", line 179:
+label trashlook:
+
+
+The label rm2_tablelook is defined twice, at File "game/interactables.rpy", line 131:
+label rm2_tablelook:
+and File "game/interactables.rpy", line 182:
+label rm2_tablelook:
+
+
+The label chargerlook is defined twice, at File "game/interactables.rpy", line 134:
+label chargerlook:
+and File "game/interactables.rpy", line 185:
+label chargerlook:
+
+
+The label rm2_doorlook is defined twice, at File "game/interactables.rpy", line 137:
+label rm2_doorlook:
+and File "game/interactables.rpy", line 188:
+label rm2_doorlook:
+
+
+The label logolook is defined twice, at File "game/interactables.rpy", line 140:
+label logolook:
+and File "game/interactables.rpy", line 191:
+label logolook:
+
+
+The label rm2_elevatorlook is defined twice, at File "game/interactables.rpy", line 143:
+label rm2_elevatorlook:
+and File "game/interactables.rpy", line 194:
+label rm2_elevatorlook:
+
+
+The label rm2_lightslook is defined twice, at File "game/interactables.rpy", line 146:
+label rm2_lightslook:
+and File "game/interactables.rpy", line 197:
+label rm2_lightslook:
+
+
+The label rm2_bigdoorlook is defined twice, at File "game/interactables.rpy", line 149:
+label rm2_bigdoorlook:
+and File "game/interactables.rpy", line 200:
+label rm2_bigdoorlook:
+
+
+The label planetmodellook is defined twice, at File "game/interactables.rpy", line 152:
+label planetmodellook:
+and File "game/interactables.rpy", line 203:
+label planetmodellook:
+
+
+The label powermaillook is defined twice, at File "game/interactables.rpy", line 155:
+label powermaillook:
+and File "game/interactables.rpy", line 206:
+label powermaillook:
+
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon Mar 20 02:53:04 2023
+Mon Mar 20 15:41:00 2023
