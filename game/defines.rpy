@@ -70,13 +70,16 @@ define RM0_coldsleeproom = Room("Cold TEST",0,"bg_0cold_room",[rm0_shower,rm0_gl
 
 define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0,2],"bg_1bridge_room",[])
 
-define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,charger,rm2_door1,rm2_door2,logo,rm2_elevator,rm2_light1,rm2_light2,rm2_bigdoor,planetmodel,powermail,marnie_rm2,sprocko_rm2,gelato_rm2,otus_rm2,ai_rm2],0,0,[1],"bg_2hub_room",[])
+define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,charger,rm2_door1,rm2_door2,logo,rm2_elevator,rm2_light1,rm2_light2,rm2_bigdoor,planetmodel,powermail,marnie_rm2,sprocko_rm2,gelato_rm2,otus_rm2,ai_rm2],0,0,[1,3,4],"bg_2hub_room",[])
+
+define RM3_lab = Room("Lab TEST",3,"bg_3lab_room",[],0,0,[2],"bg_3lab_room",[])
+
+define RM4_con = Room("Conservatory TEST",4,"bg_4con_room",[],0,0,[2],"bg_4con_room",[])
 
 #####items######
 define lockerkey = Item("Small Key",0,"item/item_key1.png","A small key found in a sock. Too small to be a door's key, and besides, we use magnetic locks", "Locker")
 
 ## Roommanager (and Inventory soon)
-define roommanager = RoomManager("roommanager",[RM0_coldsleeproom,RM1_bridge,RM2_hub],RM0_coldsleeproom,1,0,0)
+define roommanager = RoomManager("roommanager",[RM0_coldsleeproom,RM1_bridge,RM2_hub,RM3_lab,RM4_con],RM0_coldsleeproom,1,0,0)
 
 define inventory = Inventory([])
-

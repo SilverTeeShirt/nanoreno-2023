@@ -190,10 +190,9 @@ label aitalk:
 
 
 ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-label TESTLOCATIONSEND:
+#label TESTLOCATIONSEND:
 call screen TESTLOCATIONS
 screen TESTLOCATIONS:
-
     imagebutton: #sky art
         xpos 510
         ypos 80
