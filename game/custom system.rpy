@@ -108,9 +108,21 @@ init python:
     class TextInteractable(Interactable):
         def __init__(self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,textref,xpad,ypad):
             super().__init__(name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,labelref)
-            self.textref = textref;
-            self.xpad = xpad;
-            self.ypad = ypad;
+            self.textref = textref
+            self.xpad = xpad
+            self.ypad = ypad
+        
+    class Inventory():
+        def __init__(self,items):
+            self.items = items
+    
+    class Item():
+        def __init__(self,name,idnum,imageref,description,targetinter):
+            self.name = name
+            self.idnum = idnum
+            self.imageref = imageref
+            self.description = description
+            self.targetinter = targetinter
 
 
 ############## ROOM MANAGER ##############
@@ -149,13 +161,14 @@ screen makeinteractables(targetinteractables, roommanagerref):
 screen interactableinteractionscreen(selectedinteractable):
 
     default localinterref = selectedinteractable
-    image "[localinterref.menuimageref]" xalign 0.3 yalign 0.5
+    #image "[localinterref.menuimageref]" xalign 0.3 yalign 0.5
 
 
 
 screen makeplayerUI(roommanagerref):
 
     default localrmanref = roommanagerref
+    default localinvenref = inventory
 
 
     if (localrmanref.gotnav == 0):
@@ -169,9 +182,9 @@ screen makeplayerUI(roommanagerref):
         frame:
             xpadding 40
             ypadding 20
-            xalign 0.9
-            yalign 0.2
-            textbutton "Inventory" action NullAction()
+            xpos 1300
+            ypos 950
+            textbutton "Inventory" action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("invscreen",None,localinvenref,localrmanref)]
 
 
 
@@ -186,12 +199,11 @@ screen navscreen(roommanagerref):
         $ roomstogoto.append(localrmanref.rooms[rtg])
 
 
-    frame:
-        xpadding 40
-        ypadding 20
-        xalign 0.9
-        yalign 0.1
-        textbutton "Back" action [Hide("navscreen"),Show("makeplayerUI",None,localrmanref)]
+    imagebutton:
+            xpos 1700
+            ypos 950
+            auto "gamesys/NAV_%s.png" 
+            action [Hide("navscreen"),Show("makeplayerUI",None,localrmanref)]
 
 
     for ri in roomstogoto:
@@ -228,3 +240,39 @@ screen navscreen(roommanagerref):
             image "iconlocked.jpg" xalign 0.6 yalign (0.2 + (0.2*count))
 
         $ count += 1
+
+screen invscreen(inventoryref,roommanagerref):
+
+    modal True
+    default localrmanref = roommanagerref
+    default inventoryreference = inventoryref
+    default itemstoshow = []
+    default count = 0
+
+    frame:
+            xpadding 40
+            ypadding 20
+            xpos 1700
+            ypos 950
+            textbutton "Inventory" action [Hide("invscreen"),Show("makeplayerUI",None,localrmanref)]
+
+    for it in inventoryref.items:
+
+        $itemstoshow.append(it)
+
+
+    for gitem in itemstoshow:
+
+        imagebutton:
+
+                xpos (400 + (250*count))
+                ypos 950
+
+                idle gitem.imageref
+
+                hover gitem.imageref
+
+                action [NullAction()]
+
+        $ count += 1
+    

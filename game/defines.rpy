@@ -16,8 +16,8 @@ define dd = Character(None, what_italic=True, what_font="font/NunitoSemiboldItal
 define rm0_shower= ImageInteractable("Shower",1,1775,180,0,[0],[0],"","showerlook",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
 define rm0_gloves= ImageInteractable("Gloves",1,1490,350,0,[0],[0],"","gloveslook",["inter/inter150x150_%s.png"],"inter150x150_idle.png")
 define rm0_mirror= ImageInteractable("",1,1619,290,0,[0],[0],"","mirrorlook",["inter/inter150x300_%s.png"],"inter150x300_idle.png")
-define rm0_shoe= ImageInteractable("",1,1300,715,0,[0],[0],"","shoe1look",["inter/inter150x150_%s.png"],"inter150x150_idle.png")
-define rm0_locker1= ImageInteractable("",1,1200,333,0,[0],[0],"","locker1look",["inter/inter150x150_%s.png"],"inter150x150_idle.png")
+define rm0_shoe= ImageInteractable("",1,1300,715,0,[0],[0],"","shoe1look",["inter/inter150x150_%s.png","inter/inter150x150_%s.png"],"inter150x150_idle.png")
+define rm0_locker1= ImageInteractable("Locker",1,1200,333,0,[0],[0],"","locker1look",["inter/inter150x150_%s.png"],"inter150x150_idle.png")
 define rm0_locker2= ImageInteractable("",1,740,333,0,[0],[0],"","locker2look",["inter/inter150x150_%s.png"],"inter150x150_idle.png")
 define rm0_gastanks= ImageInteractable("",1,70,40,0,[0],[0],"","gastanklook",["inter/inter300x150_%s.png"],"inter300x150_idle.png")
 define rm0_wires= ImageInteractable("",1,380,20,0,[0],[0],"","rm0_wireslook",["inter/inter300x150_%s.png"],"inter300x150_idle.png")
@@ -72,6 +72,11 @@ define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_r
 
 define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,charger,rm2_door1,rm2_door2,logo,rm2_elevator,rm2_light1,rm2_light2,rm2_bigdoor,planetmodel,powermail,marnie_rm2,sprocko_rm2,gelato_rm2,otus_rm2,ai_rm2],0,0,[1],"bg_2hub_room",[])
 
+#####items######
+define lockerkey = Item("Small Key",0,"item/item_key1.png","A small key found in a sock. Too small to be a door's key, and besides, we use magnetic locks", "Locker")
 
 ## Roommanager (and Inventory soon)
 define roommanager = RoomManager("roommanager",[RM0_coldsleeproom,RM1_bridge,RM2_hub],RM0_coldsleeproom,1,0,0)
+
+define inventory = Inventory([])
+

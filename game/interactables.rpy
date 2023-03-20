@@ -24,10 +24,17 @@ label mirrorlook:
     dd "cleaning station uses sonic pulse gun to reach the hard to clean areas."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label shoe1look:
-    dd "dirty shoe..."
+    if (rm0_shoe.interprogress == 0):
+        dd "Dirty shoe...wait, there seems to be something inside."
+        $inventory.items.append(lockerkey)
+        $rm0_shoe.interprogress = 1
+        dd "A small key... I wonder what can I open with it."
+    else:
+        dd "Nope, I got lucky once. That will have to do."
+
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker1look:
-    dd "open locker for something."
+    dd "A locker. Always seems to be closed."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker2look:
     dd "thats a locker 2."
