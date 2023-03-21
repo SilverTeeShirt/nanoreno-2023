@@ -70,6 +70,17 @@ define ai_rm2= ImageInteractable("",1,1700,685,0,[0],[0],"","aitalk",["inter/tal
 
 #rm_4 con
 define hangingplants= ImageInteractable("",1,620,30,0,[0],[0],"","hangingplantslook",["inter/inter800x250_%s.png"],"inter800x250_idle.png")
+define garden= ImageInteractable("",1,-100,550,0,[0],[0],"","gardenlook",["inter/inter800x250_%s.png"],"inter800x250_idle.png")
+define scarecrow= ImageInteractable("",1,50,300,0,[0],[0],"","scarecrowlook",["inter/inter300x300_%s.png"],"inter300x300_idle.png")
+define watertank= ImageInteractable("",1,390,90,0,[0],[0],"","watertanklook",["inter/inter150x300_%s.png"],"inter150x300_idle.png")
+define rm4_stair= ImageInteractable("",1,1750,275,0,[0],[0],"","rm4_stairlook",["inter/inter150x650_%s.png"],"inter150x650_idle.png")
+define rm4_panels= ImageInteractable("",1,930,265,0,[0],[0],"","rm4_panelslook",["inter/inter300x300_%s.png"],"inter300x300_idle.png")
+define pumpdoor= ImageInteractable("",1,930,535,0,[0],[0],"","pumpdoorlook",["inter/inter300x150_%s.png"],"inter300x150_idle.png")
+define pumps= ImageInteractable("",1,660,475,0,[0],[0],"","pumpslook",["inter/inter300x300_%s.png"],"inter300x300_idle.png")
+define forest= ImageInteractable("",1,1410,490,0,[0],[0],"","forestlook",["inter/inter300x300_%s.png"],"inter300x300_idle.png")
+define colorfulflower= ImageInteractable("",1,1520,90,0,[0],[0],"","colorfulflowerlook",["inter/inter300x150_%s.png"],"inter300x150_idle.png")
+
+define marnie_rm4= ImageInteractable("",1,1180,550,0,[0],[0],"","marnietalk",["inter/talk/marnie2_%s.png"],"marnie2_idle.png")
 
 #rm_5 bar
 # define skyart= ImageInteractable("",1,510,80,0,[0],[0],"","skyartlook",["inter/inter800x250_%s.png"],"inter800x250_idle.png")
@@ -87,7 +98,7 @@ define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,ch
 
 define RM3_lab = Room("Lab TEST",3,"bg_3lab_room",[],0,0,[2,4,5],"bg_3lab_room",[])
 
-define RM4_con = Room("Conservatory TEST",4,"bg_4con_room",[hangingplants],0,0,[2,3,5],"bg_4con_room",[])
+define RM4_con = Room("Conservatory TEST",4,"bg_4con_room",[hangingplants,garden,scarecrow,watertank,rm4_stair,rm4_panels,pumpdoor,pumps,forest,colorfulflower,marnie_rm4],0,0,[2,3,5],"bg_4con_room",[])
 
 define RM5_bar = Room("Bar TEST",5,"bg_5bar_room",[],0,0,[2,3,4],"bg_5bar_room",[])
 

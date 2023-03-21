@@ -176,6 +176,33 @@ label powermaillook:
 label hangingplantslook:
     dd "hanging plants."
     $roommanager.returnfrominteraction(roommanager.currentroom)
+label gardenlook:
+    dd "garden."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label scarecrowlook:
+    dd "scarecrow, looks like old servobot."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label watertanklook:
+    dd "water is pumped and stored here."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm4_stairlook:
+    dd "stair a bit rusty."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm4_panelslook:
+    dd "big panels for helping plants grow."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label pumpdoorlook:
+    dd "door is blocked by vines."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label pumpslook:
+    dd "pumps water."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label forestlook:
+    dd "dense forest."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label colorfulflowerlook:
+    dd "colorful plant can use pollen."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
 ######################### #### ###############################
@@ -260,4 +287,10 @@ screen TESTLOCATIONS:
         xpos 1520
         ypos 90
         auto "/inter/inter300x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+
+    imagebutton: #colorful plant
+        xpos 1520
+        ypos 90
+        auto "/inter/talk/marnie2_%s.png"
         action Jump("TESTLOCATIONSEND")
