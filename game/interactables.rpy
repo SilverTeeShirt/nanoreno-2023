@@ -209,13 +209,75 @@ label colorfulflowerlook:
 ######################### TALK ###############################
 ######################### #### ###############################
 
+screen talk(items):
+    style_prefix "choicetalk"
+    frame:
+        vbox:
+            for i in items:
+                textbutton i.caption action i.action
+style choicetalk_frame is gui_frame
+style choicetalk_frame:
+    background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+    padding gui.confirm_frame_borders.padding
+    xalign .75
+    yalign .5
+    spacing gui.choice_spacing
+style choicetalk_button is default:
+    properties gui.button_properties("choice_button")
+style choicetalk_button_text is default:
+    properties gui.button_text_properties("choice_button")
+
+
+######################## Character ##############################
+
 label marnietalk:
-    dd "talk marnie test."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
+    show marnie normal with dissolve:
+        zoomnorm
+        left
+    m "Hey what's up?"
+    label marnietalking:
+    menu(screen ='talk'):
+        "Need help?":
+            r "Do you need help?"
+            m "No I'm all set."
+            jump marnietalking
+        "Is this a test?":
+            r "Test?"
+            m "Yup."
+            jump marnietalking
+        "Advice":
+            r "Can I get advice?"
+            m "Nah."
+            jump marnietalking
+        "Back":
+            hide marnie with dissolve
+            $roommanager.returnfrominteraction(roommanager.currentroom)
+
+
+
 
 label sprockotalk:
-    dd "test."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
+    show sprocko normal with dissolve:
+        zoomnorm
+        left
+    s "What's going on Rookie?"
+    label sprockotalking:
+    menu(screen ='talk'):
+        "Need help?":
+            r "Do you need help?"
+            s "No I'm all set."
+            jump sprockotalking
+        "Is this a test?":
+            r "Test?"
+            s "Yup."
+            jump sprockotalking
+        "Advice":
+            r "Can I get advice?"
+            s "Go away!"
+            jump sprockotalking
+        "Back":
+            hide sprocko with dissolve
+            $roommanager.returnfrominteraction(roommanager.currentroom)
 
 label gelatotalk:
     dd "test."

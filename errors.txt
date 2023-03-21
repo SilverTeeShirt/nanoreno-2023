@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/interactables.rpy", line 268: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-            auto "/inter/talk/marnie2_%s.png
+The label marnietalking is defined twice, at File "game/interactables.rpy", line 237:
+    label marnietalking:
+and File "game/interactables.rpy", line 265:
+    label marnietalking:
+
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon Mar 20 19:41:55 2023
+Mon Mar 20 20:42:36 2023
