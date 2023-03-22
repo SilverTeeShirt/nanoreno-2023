@@ -15,6 +15,10 @@
 
 
 label start:
+##rollback messes with item collecting
+$config.rollback_enabled = False
+##
+
 scene START
 
 show bg_0cold_room

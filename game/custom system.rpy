@@ -104,6 +104,7 @@ init python:
             super().__init__(name,intertype,horposition,verposition,interprogress,interrangelayer,interrangequest,fltext,labelref)
             self.imageref = imageref
             self.menuimageref = menuimageref
+        
 
     class TextInteractable(Interactable):
         def __init__(self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,textref,xpad,ypad):
@@ -146,7 +147,7 @@ screen makeinteractables(targetinteractables, roommanagerref):
                 xpos ti.horposition
                 ypos ti.verposition
                 auto ti.imageref
-                action [SensitiveIf((ti.interprogress in ti.interrangequest)and(localrmanref.currinterlayer == 0)), Hide("makeinteractables"), Hide("makeplayerUI"), Function(localrmanref.intiateinteraction,ti.labelref)]
+                action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeinteractables"), Hide("makeplayerUI"), Function(localrmanref.intiateinteraction,ti.labelref)]
 
 
         elif ti.intertype == 2:
@@ -155,13 +156,13 @@ screen makeinteractables(targetinteractables, roommanagerref):
                 ypos ti.verposition
                 xpadding ti.xpad
                 ypadding ti.ypad
-                textbutton ti.textref  action [SensitiveIf((ti.interprogress in ti.interrangequest)and(localrmanref.currinterlayer == 0)), Hide("makeinteractables"), Hide("makeplayerUI"), Function(localrmanref.intiateinteraction,ti.labelref)]
+                textbutton ti.textref  action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeinteractables"), Hide("makeplayerUI"), Function(localrmanref.intiateinteraction,ti.labelref)]
 
 
 screen interactableinteractionscreen(selectedinteractable):
 
     default localinterref = selectedinteractable
-    #image "[localinterref.menuimageref]" xalign 0.3 yalign 0.5
+
 
 
 
@@ -247,6 +248,7 @@ screen invscreen(inventoryref,roommanagerref):
     default localrmanref = roommanagerref
     default inventoryreference = inventoryref
     default itemstoshow = []
+    default interactablesonscreen = localrmanref.currentroom.interactablelist
     default count = 0
 
     frame:
@@ -260,18 +262,34 @@ screen invscreen(inventoryref,roommanagerref):
 
         $itemstoshow.append(it)
 
+    draggroup:
 
-    for gitem in itemstoshow:
 
-        imagebutton:
+        for gitem in itemstoshow:
+
+            drag:
 
                 xpos (400 + (250*count))
                 ypos 950
 
-                idle gitem.imageref
+                child gitem.imageref
 
-                hover gitem.imageref
+                draggable True
 
-                action [NullAction()]
+                droppable False
+            #test later, this might create issues        
+            $ count += 1
+        
+        for intloc in interactablesonscreen:
+            drag:
+                drag_name "[intloc.name]"
+                xpos intloc.horposition
+                ypos intloc.verposition
+                child intloc.menuimageref
+                draggable False
+                droppable True
 
-        $ count += 1
+
+       
+
+    
