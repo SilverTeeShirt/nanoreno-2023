@@ -1,15 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('inter150x650_idle.png') at 0x0000000005f7e1f0>:
+While loading <renpy.display.im.Image object ('inter/marnie1_idle.png') at 0x0000000005b02d30>:
+  File "game/custom system.rpy", line 135, in script call
+    call screen makeplayerUI(roommanager)
+  File "game/custom system.rpy", line 135, in script call
+    call screen makeplayerUI(roommanager)
+  File "game/custom system.rpy", line 135, in script call
+    call screen makeplayerUI(roommanager)
   File "game/custom system.rpy", line 135, in script
     call screen makeplayerUI(roommanager)
   File "renpy/common/000statements.rpy", line 609, in execute_call_screen
     store._return = renpy.call_screen(name, *args, **kwargs)
-OSError: Couldn't find file 'inter150x650_idle.png'.
+OSError: Couldn't find file 'inter/marnie1_idle.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
+  File "game/custom system.rpy", line 135, in script call
+    call screen makeplayerUI(roommanager)
+  File "game/custom system.rpy", line 135, in script call
+    call screen makeplayerUI(roommanager)
+  File "game/custom system.rpy", line 135, in script call
+    call screen makeplayerUI(roommanager)
   File "game/custom system.rpy", line 135, in script
     call screen makeplayerUI(roommanager)
   File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2232, in execute
@@ -72,9 +84,9 @@ Full traceback:
     filelike = renpy.loader.load(self.filename)
   File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\loader.py", line 820, in load
     raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'inter150x650_idle.png'.
+OSError: Couldn't find file 'inter/marnie1_idle.png'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.3.22090809
 Space Breakers 0.1
-Wed Mar 22 06:39:15 2023
+Wed Mar 22 22:43:33 2023

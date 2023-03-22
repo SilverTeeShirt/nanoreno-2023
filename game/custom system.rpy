@@ -171,6 +171,8 @@ screen makeplayerUI(roommanagerref):
     default localrmanref = roommanagerref
     default localinvenref = inventory
 
+    #$changevariables
+
 
     if (localrmanref.gotnav == 0):
         imagebutton:

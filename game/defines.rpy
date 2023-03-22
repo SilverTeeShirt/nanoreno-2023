@@ -59,11 +59,11 @@ define rm2_bigdoor= ImageInteractable("",1,0,650,0,[0],[0],"","rm2_bigdoorlook",
 define planetmodel= ImageInteractable("",1,1355,160,0,[0],[0],"","planetmodellook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 define powermail= ImageInteractable("",1,350,775,0,[0],[0],"","powermaillook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 
-define marnie_rm2= ImageInteractable("",1,540,690,0,[0],[0],"","marnietalk","inter/talk/marnie1_%s.png","inter/marnie1_idle.png")
-define sprocko_rm2= ImageInteractable("",1,250,740,0,[0],[0],"","sprockotalk","inter/talk/sprocko1_%s.png","inter/sprocko1_idle.png")
-define gelato_rm2= ImageInteractable("",1,1150,450,0,[0],[0],"","gelatotalk","inter/talk/gelato1_%s.png","inter/gelato1_idle.png")
-define otus_rm2= ImageInteractable("",1,1100,650,0,[0],[0],"","otustalk","inter/talk/otus1_%s.png","inter/otus1_idle.png")
-define ai_rm2= ImageInteractable("",1,1700,685,0,[0],[0],"","aitalk","inter/talk/ai1_%s.png","inter/ai1_idle.png")
+define marnie_rm2= ImageInteractable("",1,540,690,0,[0],[0],"","marnietalk","inter/talk/marnie1_%s.png","inter/talk/marnie1_idle.png")
+define sprocko_rm2= ImageInteractable("",1,250,740,0,[0],[0],"","sprockotalk","inter/talk/sprocko1_%s.png","inter/talk/sprocko1_idle.png")
+define gelato_rm2= ImageInteractable("",1,1150,450,0,[0],[0],"","gelatotalk","inter/talk/gelato1_%s.png","inter/talk/gelato1_idle.png")
+define otus_rm2= ImageInteractable("",1,1100,650,0,[0],[0],"","otustalk","inter/talk/otus1_%s.png","inter/talk/otus1_idle.png")
+define ai_rm2= ImageInteractable("",1,1700,685,0,[0],[0],"","aitalk","inter/talk/ai1_%s.png","inter/talk/ai1_idle.png")
 
 #rm_3 lab
 # define skyart= ImageInteractable("",1,510,80,0,[0],[0],"","skyartlook",["inter/inter800x250_%s.png"],"inter800x250_idle.png")
@@ -80,7 +80,7 @@ define pumps= ImageInteractable("",1,660,475,0,[0],[0],"","pumpslook","inter/int
 define forest= ImageInteractable("",1,1410,490,0,[0],[0],"","forestlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
 define colorfulflower= ImageInteractable("",1,1520,90,0,[0],[0],"","colorfulflowerlook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
 
-define marnie_rm4= ImageInteractable("",1,1180,550,0,[0],[0],"","marnietalk","inter/talk/marnie2_%s.png","inter/marnie2_idle.png")
+define marnie_rm4= ImageInteractable("",1,1180,550,0,[0],[0],"","marnietalk","inter/talk/marnie2_%s.png","inter/talk/marnie2_idle.png")
 
 #rm_5 bar
 # define skyart= ImageInteractable("",1,510,80,0,[0],[0],"","skyartlook",["inter/inter800x250_%s.png"],"inter800x250_idle.png")
