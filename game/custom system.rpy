@@ -145,7 +145,7 @@ screen makeinteractables(targetinteractables, roommanagerref):
             imagebutton:
                 xpos ti.horposition
                 ypos ti.verposition
-                auto ti.imageref[ti.interprogress]
+                auto ti.imageref
                 action [SensitiveIf((ti.interprogress in ti.interrangequest)and(localrmanref.currinterlayer == 0)), Hide("makeinteractables"), Hide("makeplayerUI"), Function(localrmanref.intiateinteraction,ti.labelref)]
 
 
