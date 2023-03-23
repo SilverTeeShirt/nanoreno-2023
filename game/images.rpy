@@ -6,243 +6,81 @@ image bgwhite = "#FFFFFF"
 image bgred = "#FF0000"
 image bgblue = "#0064FF"
 
+## Space
+
+image spacemoving:
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 0.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars0.png"
+        xalign 1.0
+        linear 240.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 0.0
+        linear 190.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars1.png"
+        xalign 1.0
+        linear 190.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 0.0
+        linear 160.0 xpos 1920
+        repeat
+    contains:
+        "/bg/bg_Xstars2.png"
+        xalign 1.0
+        linear 160.0 xpos 1920
+        repeat
+
 ## Images Rooms
 
 image bg_0cold_room:
     contains:
-        "/bg/bg_Xstars0.png"
-        xalign 0.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars0.png"
-        xalign 1.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 0.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 1.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 0.0
-        linear 160.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 1.0
-        linear 160.0 xpos 1920
-        repeat
+        "spacemoving"
     contains:
         "/bg/bg_0cold.png"
 
 image bg_1bridge_room:
     contains:
-        "/bg/bg_Xstars0.png"
-        xalign 0.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars0.png"
-        xalign 1.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 0.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 1.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 0.0
-        linear 160.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 1.0
-        linear 160.0 xpos 1920
-        repeat
+        "spacemoving"
     contains:
         "/bg/bg_1bridge.png"
 
 image bg_2hub_room:
     contains:
-        "/bg/bg_Xstars0.png"
-        xalign 0.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars0.png"
-        xalign 1.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 0.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 1.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 0.0
-        linear 160.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 1.0
-        linear 160.0 xpos 1920
-        repeat
+        "spacemoving"
     contains:
         "/bg/bg_2hub.png"
 
 image bg_3lab_room:
     contains:
-        "/bg/bg_Xstars0.png"
-        xalign 0.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars0.png"
-        xalign 1.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 0.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 1.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 0.0
-        linear 160.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 1.0
-        linear 160.0 xpos 1920
-        repeat
+        "spacemoving"
     contains:
         "/bg/bg_3lab.png"
 
 image bg_4con_room:
     contains:
-        "/bg/bg_Xstars0.png"
-        xalign 0.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars0.png"
-        xalign 1.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 0.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 1.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 0.0
-        linear 160.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 1.0
-        linear 160.0 xpos 1920
-        repeat
+        "spacemoving"
     contains:
         "/bg/bg_4con.png"
 
 image bg_5bar_room:
     contains:
-        "/bg/bg_Xstars0.png"
-        xalign 0.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars0.png"
-        xalign 1.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 0.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 1.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 0.0
-        linear 160.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 1.0
-        linear 160.0 xpos 1920
-        repeat
+        "spacemoving"
     contains:
         "/bg/bg_5bar.png"
 
 image bg_6core_room:
     contains:
-        "/bg/bg_Xstars0.png"
-        xalign 0.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars0.png"
-        xalign 1.0
-        linear 240.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 0.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars1.png"
-        xalign 1.0
-        linear 190.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 0.0
-        linear 160.0 xpos 1920
-        repeat
-    contains:
-        "/bg/bg_Xstars2.png"
-        xalign 1.0
-        linear 160.0 xpos 1920
-        repeat
+        "spacemoving"
     contains:
         "/bg/bg_6core.png"
 
@@ -263,6 +101,21 @@ image ai unhappy = LiveComposite(
 image ai happy = LiveComposite(
     (1920, 1750),
     (0, 0), "/char/ai/CaretakerHappy"
+    )
+
+image ai normalevil = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/ai/CaretakerNeutralEvil.png"
+    )
+
+image ai unhappyevil = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/ai/CaretakerUnhappyEvil.png"
+    )
+
+image ai happyevil = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/ai/CaretakerHappyEvil"
     )
 
 ## Marnie
@@ -347,3 +200,13 @@ image sprocko shocked = LiveComposite(
     (1920, 1750),
     (0, 0), "/char/spro/SprockoShocked.png",
     )
+
+
+
+
+
+## ITEMS
+
+image small_item_key1:
+    "item/item_key1.png"
+    zoom .25

@@ -26,12 +26,16 @@ label mirrorlook:
 label shoe1look:
     if (rm0_shoe.interprogress == 0):
         dd "Dirty shoe...wait, there seems to be something inside."
+        show item_key1 with dissolve:
+            xalign 0.5
+            yalign 0.5
+        item "Received \"Locker Key\""
+        hide item_key1 with moveoutbottom
         $inventory.items.append(lockerkey)
         $rm0_shoe.interprogress = 1
         dd "A small key... I wonder what can I open with it."
     else:
         dd "Nope, I got lucky once. That will have to do."
-
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker1look:
     dd "A locker. Always seems to be closed."
@@ -125,7 +129,7 @@ label rm1_datafoodlook:
 label skyartlook:
     dd "art."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-label trashlook:
+label rm2_trashlook:
     dd "trash messy."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm2_tablelook:

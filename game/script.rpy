@@ -21,6 +21,7 @@ $config.rollback_enabled = False
 
 scene START
 
+label introcold:
 show bg_0cold_room
 show bgblack
 pause 1.5

@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label marnietalking is defined twice, at File "game/interactables.rpy", line 237:
-    label marnietalking:
-and File "game/interactables.rpy", line 265:
-    label marnietalking:
-
+File "game/images.rpy", line 206: invalid syntax
+    "item/item_key1.png" at zoom .675
+                          ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon Mar 20 20:42:36 2023
+Wed Mar 22 22:40:01 2023

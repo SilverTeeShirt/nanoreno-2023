@@ -104,7 +104,7 @@ init python:
             super().__init__(name,intertype,horposition,verposition,interprogress,interrangelayer,interrangequest,fltext,labelref)
             self.imageref = imageref
             self.menuimageref = menuimageref
-        
+
 
     class TextInteractable(Interactable):
         def __init__(self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,textref,xpad,ypad):
@@ -176,20 +176,25 @@ screen makeplayerUI(roommanagerref):
 
     if (localrmanref.gotnav == 0):
         imagebutton:
-            xpos 1700
+            xpos 975
             ypos 950
             auto "gamesys/NAV_%s.png"
             action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("navscreen",None,localrmanref)]
 
     if (localrmanref.gotinv == 0):
-        frame:
-            xpadding 40
-            ypadding 20
-            xpos 1300
+        imagebutton:
+            xpos 775
             ypos 950
-            textbutton "Inventory" action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("invscreen",None,localinvenref,localrmanref)]
+            auto "gamesys/INV_%s.png"
+            action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("invscreen",None,localinvenref,localrmanref)]
 
-
+    # if (localrmanref.gotinv == 0):
+    #     frame:
+    #         xpadding 40
+    #         ypadding 20
+    #         xpos 1300
+    #         ypos 950
+    #         textbutton "Inventory" action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("invscreen",None,localinvenref,localrmanref)]
 
 screen navscreen(roommanagerref):
 
@@ -203,9 +208,9 @@ screen navscreen(roommanagerref):
 
 
     imagebutton:
-            xpos 1700
+            xpos 885
             ypos 950
-            auto "gamesys/NAV_%s.png"
+            auto "gamesys/BCK_%s.png"
             action [Hide("navscreen"),Show("makeplayerUI",None,localrmanref)]
 
 
@@ -215,8 +220,8 @@ screen navscreen(roommanagerref):
         if (ri.locked == 0):
 
             imagebutton:
-                xpos (400 + (250*count))
-                ypos 950
+                xalign (0.2 + (0.15*count))
+                yalign 0.5
 
                 #if (ri.discovered == 0):
                     #auto ri.navicon
@@ -253,12 +258,19 @@ screen invscreen(inventoryref,roommanagerref):
     default interactablesonscreen = localrmanref.currentroom.interactablelist
     default count = 0
 
-    frame:
-            xpadding 40
-            ypadding 20
-            xpos 1700
-            ypos 950
-            textbutton "Inventory" action [Hide("invscreen"),Show("makeplayerUI",None,localrmanref)]
+    imagebutton:
+        xpos 885
+        ypos 950
+        auto "gamesys/BCK_%s.png"
+        action [Hide("invscreen"),Show("makeplayerUI",None,localrmanref)]
+
+
+    # frame:
+    #         xpadding 40
+    #         ypadding 20
+    #         xpos 1700
+    #         ypos 950
+    #         textbutton "Inventory" action [Hide("invscreen"),Show("makeplayerUI",None,localrmanref)]
 
     for it in inventoryref.items:
 
@@ -279,9 +291,9 @@ screen invscreen(inventoryref,roommanagerref):
                 draggable True
 
                 droppable False
-            #test later, this might create issues        
+            #test later, this might create issues
             $ count += 1
-        
+
         for intloc in interactablesonscreen:
             drag:
                 drag_name "[intloc.name]"
@@ -290,8 +302,3 @@ screen invscreen(inventoryref,roommanagerref):
                 child intloc.menuimageref
                 draggable False
                 droppable True
-
-
-       
-
-    
