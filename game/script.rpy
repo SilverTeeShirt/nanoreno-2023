@@ -57,7 +57,7 @@ menu(screen ='choice'):
         m "I can never tell how long you humans take in there!"
         show marnie normal
         m "How are you feeling?"
-        r "A little woozy. It felt like my heart was pounding in the back of my skull..."
+        r "A little woozy. It feels like my heart is pounding in the back of my skull..."
         m "That's to be expected. Emergency thaws are kind of rough..."
     "Where am I?":
         label start_whereami:
