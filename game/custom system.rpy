@@ -42,6 +42,8 @@ init python:
 
                 #can call be used here?
                 renpy.jump(eventtocheck)
+                #renpy.call(eventtocheck)
+
             else:
                 self.setuproom(roomid)
 
@@ -54,6 +56,7 @@ init python:
             cr = self.currentroom
             renpy.scene()
             renpy.show(cr.bgref)
+            #renpy.with_statement(fade)
             cr.discovered = 0
             self.setupinterforroom(cr)
             self.changeinteractionlevel(0)

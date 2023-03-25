@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/images.rpy", line 206: invalid syntax
-    "item/item_key1.png" at zoom .675
-                          ^
+The label TESTLOCATIONSEND is defined twice, at File "game/interactables.rpy", line 315:
+label TESTLOCATIONSEND:
+and File "game/script.rpy", line 416:
+label TESTLOCATIONSEND:
+
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Wed Mar 22 22:40:01 2023
+Sat Mar 25 13:42:06 2023

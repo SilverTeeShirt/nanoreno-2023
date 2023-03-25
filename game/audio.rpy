@@ -17,4 +17,8 @@ define config.default_sfx_volume = 0.8
 define config.default_voice_volume = 0.8
 
 
+## music
+
+
+## sound
 define heartbeat = "audio/sfx/heartbeat.mp3"

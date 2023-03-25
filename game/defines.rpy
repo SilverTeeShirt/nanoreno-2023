@@ -9,7 +9,7 @@ define g = Character("Gelato", color="#208211")
 define ai = Character("The Caretaker", color="#80fff9")
 define qq = Character("???", color="#666666")
 define dd = Character(None, what_italic=True, what_font="font/NunitoSemiboldItalic.ttf") #Description
-define item = Character(None, what_italic=True, what_style="centered_text", what_font="font/NunitoSemiboldItalic.ttf", what_size = 24) #Description
+define item = Character(None, what_italic=True, what_style="centered_text", what_font="font/NunitoSemiboldItalic.ttf", what_size = 48) #Description
 
 ## Interactables self,name,intertype(IMAGE BUTTON SET to 1),horposition,verposition,interprogress,interrangequest[],interrangelayer[]#set to 0,fltext,labelref,imageref,menuimageref
 
@@ -28,7 +28,6 @@ define rm0_note= ImageInteractable("",1,440,430,0,[0],[0],"","rm0_noteslook","in
 define rm0_terminal= ImageInteractable("",1,10,650,0,[0],[0],"","rm0_terminallook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
 define rm0_coldsleeppod= ImageInteractable("",1,130,390,0,[0],[0],"","sleeppodlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
 define rm0_scrathes= ImageInteractable("",1,460,560,0,[0],[0],"","scrathesslook","inter/inter150x300_%s.png","inter/inter150x300_idle.png")
-#define rm0_NAVTEMP= ImageInteractable("",1,1700,950,0,[0],[0],"","NAVTEMP",["gamesys/NAV_%s.png"],"NAV_idle.png") #remove rooms navtemp when removing
 
 #rm_1 bridge
 define rm1_mainwindow= ImageInteractable("",1,1100,235,0,[0],[0],"","mainwindowlook","inter/inter800x250_%s.png","inter/inter800x250_idle.png")
@@ -60,14 +59,30 @@ define rm2_bigdoor= ImageInteractable("",1,0,650,0,[0],[0],"","rm2_bigdoorlook",
 define planetmodel= ImageInteractable("",1,1355,160,0,[0],[0],"","planetmodellook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 define powermail= ImageInteractable("",1,350,775,0,[0],[0],"","powermaillook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 
-define marnie_rm2= ImageInteractable("",1,540,690,0,[0],[0],"","marnietalk","inter/talk/marnie1_%s.png","inter/talk/marnie1_idle.png")
+define marnie_rm2= ImageInteractable("",1,540,685,0,[0],[0],"","marnietalk","inter/talk/marnie1_%s.png","inter/talk/marnie1_idle.png")
 define sprocko_rm2= ImageInteractable("",1,250,740,0,[0],[0],"","sprockotalk","inter/talk/sprocko1_%s.png","inter/talk/sprocko1_idle.png")
 define gelato_rm2= ImageInteractable("",1,1150,450,0,[0],[0],"","gelatotalk","inter/talk/gelato1_%s.png","inter/talk/gelato1_idle.png")
 define otus_rm2= ImageInteractable("",1,1100,650,0,[0],[0],"","otustalk","inter/talk/otus1_%s.png","inter/talk/otus1_idle.png")
 define ai_rm2= ImageInteractable("",1,1650,685,0,[0],[0],"","aitalk","inter/talk/ai1_%s.png","inter/talk/ai1_idle.png")
 
 #rm_3 lab
-# define skyart= ImageInteractable("",1,510,80,0,[0],[0],"","skyartlook",["inter/inter800x250_%s.png"],"inter800x250_idle.png")
+define rm3_ceiling= ImageInteractable("",1,650,25,0,[0],[0],"","rm3_ceilinglook","inter/inter800x250_%s.png","inter/inter800x250_idle.png")
+define rm3_window= ImageInteractable("",1,840,350,0,[0],[0],"","rm3_windowlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
+define partshead= ImageInteractable("",1,380,680,0,[0],[0],"","partsheadlook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
+define partsarm= ImageInteractable("",1,80,790,0,[0],[0],"","partsarmlook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
+define raydish= ImageInteractable("",1,150,100,0,[0],[0],"","raydishlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
+define constructor= ImageInteractable("",1,90,490,0,[0],[0],"","constructorlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
+define fluidtanks= ImageInteractable("",1,613,420,0,[0],[0],"","fluidtankslook","inter/inter150x300_%s.png","inter/inter150x300_idle.png")
+define biodevice= ImageInteractable("",1,745,550,0,[0],[0],"","biodevicelook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
+define rm3_datapad= ImageInteractable("",1,1028,650,0,[0],[0],"","rm3_datapad","inter/inter_%s.png","inter/inter_idle.png")
+define rm3_safe= ImageInteractable("",1,745,765,0,[0],[0],"","rm3_safelook","inter/inter_%s.png","inter/inter_idle.png")
+define rm3_computer= ImageInteractable("",1,1300,400,0,[0],[0],"","rm3_computerlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
+define chembank1= ImageInteractable("",1,1470,190,0,[0],[0],"","chembanklook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
+define chembank2= ImageInteractable("",1,1650,290,0,[0],[0],"","chembanklook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
+define chembank3= ImageInteractable("",1,1610,518,0,[0],[0],"","chembanklook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
+
+define sprocko_rm3= ImageInteractable("",1,1120,450,0,[0],[0],"","sprockotalk","inter/talk/sprocko2_%s.png","inter/talk/sprocko2_idle.png")
+
 
 #rm_4 con
 define hangingplants= ImageInteractable("",1,620,30,0,[0],[0],"","hangingplantslook","inter/inter800x250_%s.png","inter/inter800x250_idle.png")
@@ -97,7 +112,7 @@ define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_r
 
 define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,charger,rm2_door1,rm2_door2,logo,rm2_elevator,rm2_light1,rm2_light2,rm2_bigdoor,planetmodel,powermail,marnie_rm2,sprocko_rm2,gelato_rm2,otus_rm2,ai_rm2],0,0,[1,3,4,5,6],"bg_2hub_room",[])
 
-define RM3_lab = Room("Lab TEST",3,"bg_3lab_room",[],0,0,[2,4,5],"bg_3lab_room",[])
+define RM3_lab = Room("Lab TEST",3,"bg_3lab_room",[rm3_ceiling,rm3_window,partshead,partsarm,raydish,constructor,fluidtanks,biodevice,rm3_datapad,rm3_safe,rm3_computer,chembank1,chembank2,chembank3,sprocko_rm3],0,0,[2,4,5],"bg_3lab_room",[])
 
 define RM4_con = Room("Conservatory TEST",4,"bg_4con_room",[hangingplants,garden,scarecrow,watertank,rm4_stair,rm4_panels,pumpdoor,pumps,forest,colorfulflower,marnie_rm4],0,0,[2,3,5],"bg_4con_room",[])
 

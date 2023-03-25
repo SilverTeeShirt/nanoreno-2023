@@ -58,5 +58,3 @@ define disnowait = { "master" : Dissolve(1.0) }
 define disnowaitslow = { "master" : Dissolve(5.0) }
 define fadenowait = { "master" : Fade(1.0, 0.0, 1.0) }
 define vpunchnowait = { "master" : Move((0, 10), (0, -10), .10, bounce=True, repeat=True, delay=.275) }
-
-define disnowaitlabdoor = { "master" : Dissolve(2.5) }

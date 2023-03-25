@@ -16,7 +16,7 @@
 
 label start:
 ##rollback messes with item collecting
-$config.rollback_enabled = False
+#$config.rollback_enabled = False
 ##
 
 scene START
@@ -392,55 +392,51 @@ show gelato normal at hop
 o "Focus, people! We have a tight timetable remember?"
 o "First things first, we need to get the power restored and then figure a way to that reactor core."
 o "Scrapping anything else can wait."
+s "Yes yes! I'll take a look around, I already have IDEAS!"
+hide sprocko with dissolve
+show gelato normal at wiggle
+g "How fun! I guess we should spread out."
+hide gelato with dissolve
+m "For the record I still think this is a bad idea..."
+hide marnie with dissolve
+show otus unhappy:
+    ease 0.4 xalign 0.5
+o "Rookie!"
+r "Ahh! Yes Captain?"
+o "Why are you just standing there?"
+o "Go help the others out and see what they need."
+r "Ahh! Yes sir!"
+show otus normal at hop
 o "Now get to it!"
-
-
-# hide sprocko
-# hide marnie
-# hide gelato
-# hide otus
+hide otus with dissolve
 
 
 ##### ROOM 2 HUB #####
 $roommanager.setuproom(2)
 ##### ROOM 2 HUB #####
 
-# dd "Next area is a test, look at window to continue"
-# ##### ROOM 1 BRIDGE #####
-# $roommanager.setuproom(1) #testing for now
-# ##### ROOM 1 BRIDGE #####
 
 dd "after they connect the Clover to the Station they power up the Station."
 
 dd "DRAFT INCOMING."
 
-# m "So we’re just going to… Slice this metal man open then?"
-# s "That’s the plan! Just let me finish getting it working…"
-# m "It just seems that, y’know, breaking into-"
-# g "Woah, woah, who said anything about breaking into? We’re just cutting into, get me?"
-# g "Hey Newbie, who are those guys your people have with the small knives who save lives?"
-# r "...Surgeons?"
-# g "Yeah, that’s the one! Would you say they ‘break into’ people bodies to fix them?"
-# r "No, because that would be a really weird thing to-"
-# g "Exactly, __Grouch, it would be weird to say."
-
-
+m "So we’re just going to… Slice this open then?"
+s "That’s the plan! Just let me finish getting it working…"
+m "It just seems that, y’know, breaking into-"
+g "Woah, woah, who said anything about breaking into? We’re just cutting into, get me?"
+g "Hey Rookie, who are those guys your people have with the small knives who save lives?"
+r "...Surgeons?"
+g "Yeah, that’s the one! Would you say they ‘break into’ people bodies to fix them?"
+r "No, because that would be a really weird thing to-"
+g "Exactly, Marnie, it would be weird to say."
 m "Point is, a place all sealed up like this, with no clear cause why it’s empty…"
 m "Just seems like a bad idea, is all."
-o "__Grouch, usually I’d agree with you, but the potential…"
-o "This is the sort of opportunity you only get once in a lifetime!"
+o "Marnie, usually I’d agree with you, but the potential…"
+
 m "Fine, but if this all goes horribly wrong and we all die, I get bragging rights."
-g "Aw cool your jets, __Grouch! What could possibly go wrong?"
-"And then everything went wrong."
-s "I’ve managed to slice through the door!"
+g "Aw cool your jets, Marnie! What could possibly go wrong?"
+s "I’ve managed to slice through the door! It was simply no match for my brain power!"
 o "Okay! Everyone head in!"
-
-# Change background to hub
-
-r "Woah…"
-g "Wow, this is some fancy, badass human stuff!"
-o "Oh, we are absolutely taking everything that isn’t nailed down here."
-m "Huh, maybe this isn’t such a bad ide-"
 
 # strange notification sound
 
@@ -449,9 +445,12 @@ s "!"
 o "__Tech? What is it?"
 
 s "I just got a bill?"
-qq "Yes. For the door."
+qq "Excuse me."
+g "what is we just blow it up?"
+
 s "What? Who said that?"
-m "I knew this was going to go badly…"
+
+m "I knew this was going to go badly..."
 
 show ai normal with dissolve:
     zoomnorm
@@ -585,23 +584,8 @@ g "Wow, that’s like 10 magnitudes harder than diamond!"
 o "Doesn’t matter. Everyone split up, and see if you can find a way through these doors."
 r "How?"
 o "Try anything. Hacking them, blowing them up, finding some fancy technology here, anything!"
-s "Maybe I can find something in that lab…"
 
-hide sprocko with dissolve
 
-g "Hey, there’s a camera up there, right? I want to try something out!"
-
-hide gelato with dissolve
-
-m "Explosives, huh? That gives me an idea, let me see what I can find."
-
-hide marnie with dissolve
-show otus:
-    ease 0.4 xalign 0.5
-
-o "Rookie!"
-r "Ah! Yeah?"
-o "Figure out what the others need and help them."
 o "I’m going to explore this area and see what I can find. I may have an idea..."
 
 # START ROOM

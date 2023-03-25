@@ -30,10 +30,9 @@ label shoe1look:
             xalign 0.5
             yalign 0.5
         item "Received \"Locker Key\""
-        hide item_key1 with moveoutbottom
+        hide item_key1 with dissolve
         $inventory.items.append(lockerkey)
         $rm0_shoe.interprogress = 1
-        dd "A small key... I wonder what can I open with it."
     else:
         dd "Nope, I got lucky once. That will have to do."
     $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -165,17 +164,47 @@ label powermaillook:
 ###### rm_3 lab ######
 ###### ######## ######
 
-# label skyartlook:
-#     dd "art."
-#     $roommanager.returnfrominteraction(roommanager.currentroom)
-# label trashlook:
-#     dd "trash messy."
-#     $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm3_ceilinglook:
+    dd "tubes and stuff must connect to other rooms."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm3_windowlook:
+    dd "window."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label partsheadlook:
+    dd "head of servobot old."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label partsarmlook:
+    dd "arm of servobot or something."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label raydishlook:
+    dd "galvanizing ray. great but old technology."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label constructorlook:
+    dd "very fancy constructor to create and repair machinery."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label fluidtankslook:
+    dd "fluids are building up in tank, empty then fill later."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label biodevicelook:
+    dd "simple bio encoder device. maybe useful for puzzle."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm3_datapad:
+    dd "download data to read later. About Sebastain."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm3_safelook:
+    dd "need code to open."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm3_computerlook:
+    dd "computer with data you can read about station and the puzzle hints."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label chembanklook:
+    dd "filled with chem or not. player must add chem ingredients."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
-###### ######## ######
+###### ################# ######
 ###### rm_4 conservatory ######
-###### ######## ######
+###### ################# ######
 
 label hangingplantslook:
     dd "hanging plants."
@@ -207,6 +236,18 @@ label forestlook:
 label colorfulflowerlook:
     dd "colorful plant can use pollen."
     $roommanager.returnfrominteraction(roommanager.currentroom)
+
+
+###### ######## ######
+###### rm_5 bar ######
+###### ######## ######
+
+
+
+###### ######## ######
+###### rm_6 core ######
+###### ######## ######
+
 
 
 ######################### #### ###############################
@@ -304,59 +345,79 @@ label aitalk:
 label TESTLOCATIONSEND:
 call screen TESTLOCATIONS
 screen TESTLOCATIONS:
-    imagebutton: #hanging plants
-        xpos 620
-        ypos 30
+    imagebutton: #ceiling
+        xpos 650
+        ypos 25
         auto "/inter/inter800x250_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #garden
-        xpos -100
-        ypos 550
-        auto "/inter/inter800x250_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #scarecrow
-        xpos 50
-        ypos 300
+    imagebutton: #window
+        xpos 840
+        ypos 350
         auto "/inter/inter300x300_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #watertank
-        xpos 390
-        ypos 90
-        auto "/inter/inter150x300_%s.png"
+    imagebutton: #partshead
+        xpos 380
+        ypos 680
+        auto "/inter/inter150x150_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #stair
-        xpos 1750
-        ypos 275
-        auto "/inter/inter150x650_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #panels
-        xpos 930
-        ypos 265
-        auto "/inter/inter300x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #pump house front
-        xpos 930
-        ypos 535
+    imagebutton: #partsarm
+        xpos 80
+        ypos 790
         auto "/inter/inter300x150_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #pipes
-        xpos 660
-        ypos 475
+    imagebutton: #raydish
+        xpos 150
+        ypos 100
         auto "/inter/inter300x300_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #forest
-        xpos 1410
+    imagebutton: #constructor
+        xpos 90
         ypos 490
         auto "/inter/inter300x300_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #colorful plant
-        xpos 1520
-        ypos 90
+    imagebutton: #chem tank
+        xpos 613
+        ypos 420
+        auto "/inter/inter150x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #bio device
+        xpos 745
+        ypos 550
+        auto "/inter/inter150x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #datapad
+        xpos 1028
+        ypos 650
+        auto "/inter/inter_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #safe
+        xpos 745
+        ypos 765
+        auto "/inter/inter_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #computer
+        xpos 1300
+        ypos 400
+        auto "/inter/inter300x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #chem bank1
+        xpos 1470
+        ypos 190
+        auto "/inter/inter300x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #chem bank2
+        xpos 1650
+        ypos 290
+        auto "/inter/inter300x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #chem bank3
+        xpos 1610
+        ypos 518
         auto "/inter/inter300x150_%s.png"
         action Jump("TESTLOCATIONSEND")
 
-    imagebutton: #colorful plant
-        xpos 1520
-        ypos 90
-        auto "/inter/talk/marnie2_%s.png"
+    imagebutton:
+        xpos 1120
+        ypos 450
+        auto "/inter/talk/sprocko2_%s.png"
         action Jump("TESTLOCATIONSEND")
