@@ -352,8 +352,27 @@ label sprockotalk:
             $roommanager.returnfrominteraction(roommanager.currentroom)
 
 label gelatotalk:
-    dd "test."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
+    show gelato normal with dissolve:
+        zoomnorm
+        left
+    s "What's going on human Rookie?"
+    label gelatotalking:
+    menu(screen ='talk'):
+        "Need help?":
+            r "Do you need help?"
+            g "Nope it's all good."
+            jump gelatotalking
+        "Is this a test?":
+            r "Test?"
+            g "Yup."
+            jump gelatotalking
+        "Advice":
+            r "Can I get advice?"
+            g "Apple a day keeps the donkeys away... I think..."
+            jump gelatotalking
+        "Back":
+            hide gelato with dissolve
+            $roommanager.returnfrominteraction(roommanager.currentroom)
 
 label otustalk:
     dd "test."
@@ -368,7 +387,7 @@ label aitalk:
 
 
 ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-scene bg_5bar_room
+scene bg_6core_room
 ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
 label TESTLOCATIONSEND:
 call screen TESTLOCATIONS

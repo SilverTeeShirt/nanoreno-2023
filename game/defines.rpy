@@ -99,7 +99,7 @@ define colorfulflower= ImageInteractable("",1,1520,90,0,[0],[0],"","colorfulflow
 define marnie_rm4= ImageInteractable("",1,1180,550,0,[0],[0],"","marnietalk","inter/talk/marnie2_%s.png","inter/talk/marnie2_idle.png")
 
 #rm_5 bar
-define booth= ImageInteractable("",1,0,550,0,[0],[0],"","boothlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
+define booth= ImageInteractable("",1,0,545,0,[0],[0],"","boothlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
 define plantmonster= ImageInteractable("",1,295,110,0,[0],[0],"","plantmonsterlook","inter/inter150x650_%s.png","inter/inter150x650_idle.png")
 define paintings= ImageInteractable("",1,300,10,0,[0],[0],"","paintingslook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
 define eyetree= ImageInteractable("",1,5,20,0,[0],[0],"","eyetreelook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
@@ -110,7 +110,7 @@ define bughead= ImageInteractable("",1,1525,210,0,[0],[0],"","bugheadlook","inte
 define rm5_tubes= ImageInteractable("",1,1580,30,0,[0],[0],"","rm5_tubeslook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
 define drinkmaker= ImageInteractable("",1,1240,400,0,[0],[0],"","drinkmakerlook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 define drinks1= ImageInteractable("",1,1050,400,0,[0],[0],"","drinkslook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
-define drinks2= ImageInteractable("",1,1450,435,0,[0],[0],"","drinkslook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
+define drinks2= ImageInteractable("",1,1450,435,0,[0],[0],"","drinkslook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
 define rm5_datapad= ImageInteractable("",1,1390,555,0,[0],[0],"","rm5_datapadlook","inter/inter_%s.png","inter/inter_idle.png")
 
 define gelato_rm5= ImageInteractable("",1,440,140,0,[0],[0],"","gelatotalk","inter/talk/gelato2_%s.png","inter/talk/gelato2_idle.png")
