@@ -18,7 +18,4 @@ define config.default_voice_volume = 0.8
 
 
 ## music
-
-
-## sound
-define heartbeat = "audio/sfx/heartbeat.mp3"
+define ambience = "audio/music/ambience.ogg"

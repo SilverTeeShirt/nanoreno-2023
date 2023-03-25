@@ -59,8 +59,8 @@ define rm2_bigdoor= ImageInteractable("",1,0,650,0,[0],[0],"","rm2_bigdoorlook",
 define planetmodel= ImageInteractable("",1,1355,160,0,[0],[0],"","planetmodellook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 define powermail= ImageInteractable("",1,350,775,0,[0],[0],"","powermaillook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 
-define marnie_rm2= ImageInteractable("",1,540,685,0,[0],[0],"","marnietalk","inter/talk/marnie1_%s.png","inter/talk/marnie1_idle.png")
-define sprocko_rm2= ImageInteractable("",1,250,740,0,[0],[0],"","sprockotalk","inter/talk/sprocko1_%s.png","inter/talk/sprocko1_idle.png")
+define marnie_rm2= ImageInteractable("",1,545,680,0,[0],[0],"","marnietalk","inter/talk/marnie1_%s.png","inter/talk/marnie1_idle.png")
+define sprocko_rm2= ImageInteractable("",1,250,750,0,[0],[0],"","sprockotalk","inter/talk/sprocko1_%s.png","inter/talk/sprocko1_idle.png")
 define gelato_rm2= ImageInteractable("",1,1150,450,0,[0],[0],"","gelatotalk","inter/talk/gelato1_%s.png","inter/talk/gelato1_idle.png")
 define otus_rm2= ImageInteractable("",1,1100,650,0,[0],[0],"","otustalk","inter/talk/otus1_%s.png","inter/talk/otus1_idle.png")
 define ai_rm2= ImageInteractable("",1,1650,685,0,[0],[0],"","aitalk","inter/talk/ai1_%s.png","inter/talk/ai1_idle.png")
@@ -74,14 +74,14 @@ define raydish= ImageInteractable("",1,150,100,0,[0],[0],"","raydishlook","inter
 define constructor= ImageInteractable("",1,90,490,0,[0],[0],"","constructorlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
 define fluidtanks= ImageInteractable("",1,613,420,0,[0],[0],"","fluidtankslook","inter/inter150x300_%s.png","inter/inter150x300_idle.png")
 define biodevice= ImageInteractable("",1,745,550,0,[0],[0],"","biodevicelook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
-define rm3_datapad= ImageInteractable("",1,1028,650,0,[0],[0],"","rm3_datapad","inter/inter_%s.png","inter/inter_idle.png")
+define rm3_datapad= ImageInteractable("",1,1028,650,0,[0],[0],"","rm3_datapadlook","inter/inter_%s.png","inter/inter_idle.png")
 define rm3_safe= ImageInteractable("",1,745,765,0,[0],[0],"","rm3_safelook","inter/inter_%s.png","inter/inter_idle.png")
 define rm3_computer= ImageInteractable("",1,1300,400,0,[0],[0],"","rm3_computerlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
 define chembank1= ImageInteractable("",1,1470,190,0,[0],[0],"","chembanklook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
 define chembank2= ImageInteractable("",1,1650,290,0,[0],[0],"","chembanklook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
 define chembank3= ImageInteractable("",1,1610,518,0,[0],[0],"","chembanklook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
 
-define sprocko_rm3= ImageInteractable("",1,1120,450,0,[0],[0],"","sprockotalk","inter/talk/sprocko2_%s.png","inter/talk/sprocko2_idle.png")
+define sprocko_rm3= ImageInteractable("",1,1120,475,0,[0],[0],"","sprockotalk","inter/talk/sprocko2_%s.png","inter/talk/sprocko2_idle.png")
 
 
 #rm_4 con
@@ -99,7 +99,22 @@ define colorfulflower= ImageInteractable("",1,1520,90,0,[0],[0],"","colorfulflow
 define marnie_rm4= ImageInteractable("",1,1180,550,0,[0],[0],"","marnietalk","inter/talk/marnie2_%s.png","inter/talk/marnie2_idle.png")
 
 #rm_5 bar
-# define skyart= ImageInteractable("",1,510,80,0,[0],[0],"","skyartlook",["inter/inter800x250_%s.png"],"inter800x250_idle.png")
+define booth= ImageInteractable("",1,0,550,0,[0],[0],"","boothlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
+define plantmonster= ImageInteractable("",1,295,110,0,[0],[0],"","plantmonsterlook","inter/inter150x650_%s.png","inter/inter150x650_idle.png")
+define paintings= ImageInteractable("",1,300,10,0,[0],[0],"","paintingslook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
+define eyetree= ImageInteractable("",1,5,20,0,[0],[0],"","eyetreelook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
+define moose= ImageInteractable("",1,690,130,0,[0],[0],"","mooselook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
+define harpoon= ImageInteractable("",1,710,0,0,[0],[0],"","harpoonlook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
+define bonemonster= ImageInteractable("",1,1100,30,0,[0],[0],"","bonemonsterlook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
+define bughead= ImageInteractable("",1,1525,210,0,[0],[0],"","bugheadlook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
+define rm5_tubes= ImageInteractable("",1,1580,30,0,[0],[0],"","rm5_tubeslook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
+define drinkmaker= ImageInteractable("",1,1240,400,0,[0],[0],"","drinkmakerlook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
+define drinks1= ImageInteractable("",1,1050,400,0,[0],[0],"","drinkslook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
+define drinks2= ImageInteractable("",1,1450,435,0,[0],[0],"","drinkslook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
+define rm5_datapad= ImageInteractable("",1,1390,555,0,[0],[0],"","rm5_datapadlook","inter/inter_%s.png","inter/inter_idle.png")
+
+define gelato_rm5= ImageInteractable("",1,440,140,0,[0],[0],"","gelatotalk","inter/talk/gelato2_%s.png","inter/talk/gelato2_idle.png")
+
 
 #rm_6 core
 # define skyart= ImageInteractable("",1,510,80,0,[0],[0],"","skyartlook",["inter/inter800x250_%s.png"],"inter800x250_idle.png")
@@ -116,7 +131,8 @@ define RM3_lab = Room("Lab TEST",3,"bg_3lab_room",[rm3_ceiling,rm3_window,partsh
 
 define RM4_con = Room("Conservatory TEST",4,"bg_4con_room",[hangingplants,garden,scarecrow,watertank,rm4_stair,rm4_panels,pumpdoor,pumps,forest,colorfulflower,marnie_rm4],0,0,[2,3,5],"bg_4con_room",[])
 
-define RM5_bar = Room("Bar TEST",5,"bg_5bar_room",[],0,0,[2,3,4],"bg_5bar_room",[])
+define RM5_bar = Room("Bar TEST",5,"bg_5bar_room",[booth,plantmonster,paintings,eyetree,moose,harpoon,bonemonster,bughead,rm5_tubes,drinkmaker,drinks1,drinks2,rm5_datapad,gelato_rm5],0,0,[2,3,4],"bg_5bar_room",[])
+
 
 define RM6_core = Room("Core TEST",6,"bg_6core_room",[],0,0,[2],"bg_6core_room",[])
 

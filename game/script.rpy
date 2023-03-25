@@ -21,17 +21,18 @@ label start:
 
 scene START
 
+
 label introcold:
 show bg_0cold_room
 show bgblack
 pause 1.5
 qq "Hey..."
 qq "Hey Rookie!"
-play sound heartbeat volume 0.2
+play sound heartbeat volume 0.3
 show bgblack with dissolveslow:
     alpha 0.5
 dd "You awaken to the sound of your heart beginning to pump again, as you stir from the Cold Sleep."
-play sound heartbeat volume 0.2
+play sound heartbeat volume 0.3
 show bgblack with dissolve:
     alpha 0.85
 show bgblack with dissolve:
@@ -41,7 +42,7 @@ show marnie normal behind bgblack with dissolve:
     zoomnorm
     center
 dd "Standing above you, having pressed the emergency thaw button, is Marnie."
-play sound heartbeat volume 0.2
+play sound heartbeat volume 0.4
 show bgblack with dissolve:
     alpha 0.65
 show bgblack with dissolve:
@@ -126,6 +127,8 @@ m "Just freshen up and meet everyone there."
 r "Yes Marnie."
 hide marnie with dissolve
 
+play music ambience volume 0.4
+
 ##### this sets up the event when you enter room number, needs name of label as string
 $roommanager.addeventstoroom(1,"introbridge")
 #####
@@ -139,8 +142,8 @@ $roommanager.setuproom(0)
 
 ##### BRIDGE #####
 label introbridge:
+stop music fadeout 1.0
 scene bg_1bridge_room with fade
-
 show marnie normal with dissolve:
     zoomnorm
     leftish
@@ -189,15 +192,15 @@ m "{size=-06}I was the first one here...{/size}"
 show gelato at wiggle
 g "Sometimes Captain, you gotta go at a human's pace!"
 r "What does that even mean?"
-o "Shut it kid! We got a new job to do."
+o "Shut it Rookie! We got a new job to do."
 show marnie unhappy at hop
-m "Wait? What?{w=0.25} We're heading back from a job right now!"
+m "Wait?! What?!{w=0.25} We're heading back from a job right now!"
 m "That luxury comet skipper is filling up our entire cargo hold!"
 show gelato at wiggle
 g "Maybe it's something really{w=0.25} {size=-06}really small...{/size}"
 m "We're on a tight schedule Captain! If we're late by a even a single micro cycle, we'll take a huge penalty!"
 show otus unhappy at sway
-o "Hey! Quit being such a pippyflop!"
+o "Hey! Quit being such a squiglybeak!"
 o "I’ve been scrapping ships longer than your people have been flying them!"
 o "I know what I'm doing!"
 show otus happy
@@ -214,10 +217,7 @@ show gelato:
 s "Hey BOSS!"
 s "We got visual!"
 o "Finally! Put it on screen, Sprocko!"
-#play sound blip and boops
-
 dd "With a simple click, the main screen turns on and a large orbital station comes into view."
-
 #play sound engines
 show cg01 with dissolve
 g "Woah, what is that?"
@@ -409,6 +409,7 @@ r "Ahh! Yes sir!"
 show otus normal at hop
 o "Now get to it!"
 hide otus with dissolve
+
 
 
 ##### ROOM 2 HUB #####

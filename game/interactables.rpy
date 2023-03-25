@@ -8,9 +8,10 @@ label showerlook:
     dd "A narrow sonic shower sits uncomfortably in the corner the room."
     menu(screen ='choice'):
         "Take a shower" if shower == False:
-            #play sound shower
-            dd "You hop in and turn the dial. A wave of ultra sonic pulses hits you all over."
-            r "Ahhh! I don't think I can ever get used to this!"
+            dd "You hop in the shower and turn the dial."
+            play sound sonicshower volume 0.9
+            dd "A wave of ultra sonic pulses hits you all over."
+            r "Ahhh! How can anyone ever get used to this?!"
             $ shower = True
             $roommanager.returnfrominteraction(roommanager.currentroom)
         "Leave" if shower == False:
@@ -66,13 +67,6 @@ label sleeppodlook:
 label scrathesslook:
     dd "Scratches from the inside."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-
-# label NAVTEMP: ##### TESTING
-# menu(screen ='choice'):
-#     "Go to bridge":
-#         jump introbridge
-#     "Stay":
-#         $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
 ###### ########### ######
@@ -188,7 +182,7 @@ label fluidtankslook:
 label biodevicelook:
     dd "simple bio encoder device. maybe useful for puzzle."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm3_datapad:
+label rm3_datapadlook:
     dd "download data to read later. About Sebastain."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm3_safelook:
@@ -242,6 +236,39 @@ label colorfulflowerlook:
 ###### rm_5 bar ######
 ###### ######## ######
 
+label boothlook:
+    dd "nice looking booth soft velvety material."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label plantmonsterlook:
+    dd "big taxidermy plant monster."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label paintingslook:
+    dd "exprssionistic painting from a bygone era."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label eyetreelook:
+    dd "creepy ocular tree."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label harpoonlook:
+    dd "deadly harpoon used in space hunts back in the day."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label bonemonsterlook:
+    dd "big bone monster. This one is called a Gigamaw Wurm."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label bugheadlook:
+    dd "Zirikkacamantis deadly and dangerous."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm5_tubeslook:
+    dd "pumps and tube connected to the rest of the station. They power the beverage devices in the bar."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label drinkmakerlook:
+    dd "make Bieere need pump activated for that."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label drinkslook:
+    dd "Various glasses and containers for beverages. Get a beverage holder here to hold chemicals later."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm5_datapadlook:
+    dd "download data to read later. About Sebastain and clues."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
 ###### ######## ######
@@ -341,83 +368,80 @@ label aitalk:
 
 
 ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-
+scene bg_5bar_room
+##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
 label TESTLOCATIONSEND:
 call screen TESTLOCATIONS
 screen TESTLOCATIONS:
-    imagebutton: #ceiling
-        xpos 650
-        ypos 25
-        auto "/inter/inter800x250_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #window
-        xpos 840
-        ypos 350
+    imagebutton: #booth
+        xpos 0
+        ypos 550
         auto "/inter/inter300x300_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #partshead
-        xpos 380
-        ypos 680
-        auto "/inter/inter150x150_%s.png"
+    imagebutton: #plantmonster
+        xpos 295
+        ypos 110
+        auto "/inter/inter150x650_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #partsarm
-        xpos 80
-        ypos 790
+    imagebutton: #paintings
+        xpos 300
+        ypos 10
         auto "/inter/inter300x150_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #raydish
-        xpos 150
-        ypos 100
+    imagebutton: #eyetree
+        xpos 5
+        ypos 20
         auto "/inter/inter300x300_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #constructor
-        xpos 90
-        ypos 490
+    imagebutton: #moose
+        xpos 690
+        ypos 130
         auto "/inter/inter300x300_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #chem tank
-        xpos 613
-        ypos 420
-        auto "/inter/inter150x300_%s.png"
+    imagebutton: #harpoon
+        xpos 710
+        ypos 0
+        auto "/inter/inter300x150_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #bio device
-        xpos 745
-        ypos 550
+    imagebutton: #bones
+        xpos 1100
+        ypos 30
+        auto "/inter/inter300x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #bughead
+        xpos 1525
+        ypos 210
         auto "/inter/inter150x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #tubemachine
+        xpos 1580
+        ypos 30
+        auto "/inter/inter300x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #drink maker
+        xpos 1240
+        ypos 400
+        auto "/inter/inter150x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #drinks1
+        xpos 1050
+        ypos 400
+        auto "/inter/inter150x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #drinks2
+        xpos 1450
+        ypos 435
+        auto "/inter/inter300x150_%s.png"
         action Jump("TESTLOCATIONSEND")
     imagebutton: #datapad
-        xpos 1028
-        ypos 650
+        xpos 1390
+        ypos 555
         auto "/inter/inter_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #safe
-        xpos 745
-        ypos 765
-        auto "/inter/inter_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #computer
-        xpos 1300
-        ypos 400
-        auto "/inter/inter300x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #chem bank1
-        xpos 1470
-        ypos 190
-        auto "/inter/inter300x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #chem bank2
-        xpos 1650
-        ypos 290
-        auto "/inter/inter300x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #chem bank3
-        xpos 1610
-        ypos 518
-        auto "/inter/inter300x150_%s.png"
         action Jump("TESTLOCATIONSEND")
 
-    imagebutton:
-        xpos 1120
-        ypos 450
-        auto "/inter/talk/sprocko2_%s.png"
+    imagebutton: #gelato
+        xpos 440
+        ypos 140
+        auto "/inter/talk/gelato2_%s.png"
         action Jump("TESTLOCATIONSEND")
+##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
