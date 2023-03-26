@@ -92,8 +92,11 @@ init python:
 
                     tarinter.intertype = 1
 
-
-
+        def intertoggle_off(self,tarinter):
+            tarinter.intertype = 3
+            
+        def intertoggle_on(self,tarinter):
+            tarinter.intertype = 1
 
 
 

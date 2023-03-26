@@ -1,13 +1,13 @@
-Sun Mar 26 10:35:20 2023
+Sun Mar 26 11:14:48 2023
 Windows-10-10.0.19044
 Ren'Py 8.0.3.22090809
  
 
-Bootstrap to the start of init.init took 0.06s
+Bootstrap to the start of init.init took 0.05s
 Early init took 0.00s
 Loader init took 0.04s
-Loading error handling took 0.03s
-Loading script took 0.20s
+Loading error handling took 0.04s
+Loading script took 0.23s
 Loading save slot metadata. took 0.03s
 Loading persistent took 0.00s
 Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\Tony\\Desktop\\renpy-8.0.3-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
@@ -23,19 +23,19 @@ Initial gc. took 0.03s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 0.29s
+Creating interface object took 0.25s
 Cleaning stores took 0.00s
-Init translation took 0.05s
+Init translation took 0.04s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
-Prepare screens took 0.07s
-Save pyanalysis. took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.00s
 Save bytecode. took 0.03s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.20s
+Interface start took 0.12s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)
@@ -49,43 +49,3 @@ Screen sizes: virtual=(1920, 1080) physical=(1340, 754) drawable=(1340, 754)
 Maximum texture size: 4096x4096
 controller: '030000005e0400008e02000000007200' 'Xbox 360 Controller' 1
 controller: '030000005e0400008e02000000007200' 'Xbox 360 Controller' 1
-
-Full traceback:
-  File "game/custom system.rpy", line 163, in script call
-    call screen makeplayerUI(roommanager)
-  File "game/interactables.rpy", line 30, in script
-    show item_key1_idle with dissolve:
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1408, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1371, in show_imspec
-    renpy.config.show(name,
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\exports.py", line 712, in show
-    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 1165, in add
-    thing.visit_all(lambda d : None)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 572, in visit_all
-    for d in self.visit():
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 614, in visit
-    block = self.compile()
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 521, in compile
-    block = self.atl.compile(self.context)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 721, in compile
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 721, in <listcomp>
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 978, in compile
-    child = renpy.easy.displayable(child)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\easy.py", line 140, in displayable
-    raise Exception("Not a displayable: %r" % (d,))
-Exception: Not a displayable: <store.BrightnessMatrix object at 0x0000000005def160>
-
-Compiling ATL code at game/images.rpy:215
-  File "game/custom system.rpy", line 163, in script call
-    call screen makeplayerUI(roommanager)
-  File "game/interactables.rpy", line 30, in script
-    show item_key1_idle with dissolve:
-Exception: Not a displayable: <store.BrightnessMatrix object at 0x0000000005def160>

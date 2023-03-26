@@ -402,6 +402,13 @@ label sprockotalk:
             $roommanager.intertoggle(sprocko_rm2)
             $roommanager.intertoggle(sprocko_rm3)
             $roommanager.returnfrominteraction(roommanager.currentroom)
+        "Go away":
+            r "I want you to vanish from everywhere."
+            s "Sure thing."
+            hide sprocko with dissolve
+            $roommanager.intertoggle_off(sprocko_rm2)
+            $roommanager.intertoggle_off(sprocko_rm3)
+            $roommanager.returnfrominteraction(roommanager.currentroom)
         "Back":
             hide sprocko with dissolve
             $roommanager.returnfrominteraction(roommanager.currentroom)

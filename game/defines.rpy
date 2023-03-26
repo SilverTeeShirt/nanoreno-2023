@@ -46,7 +46,7 @@ define rm1_datafood= ImageInteractable("",1,600,340,0,[0],[0],"","rm1_datafoodlo
 
 ###################rm_2 hub
 define skyart= ImageInteractable("",1,510,80,0,[0],[0],"","skyartlook","inter/inter800x250_%s.png","inter/inter800x250_idle.png")
-define rm2_trash= ImageInteractable("",1,1350,900,0,[0],[0],"","rm2_trashlook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
+define rm2_trash= ImageInteractable("",1,1370,870,0,[0],[0],"","rm2_trashlook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
 define rm2_table= ImageInteractable("",1,1518,720,0,[0],[0],"","rm2_tablelook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 define charger= ImageInteractable("",1,1745,610,0,[0],[0],"","chargerlook","inter/inter150x300_%s.png","inter/inter150x300_idle.png")
 define rm2_door1= ImageInteractable("",1,1550,360,0,[0],[0],"","rm2_doorlook","inter/inter300x150_%s.png","inter/inter300x150_idle.png")
@@ -54,15 +54,15 @@ define rm2_door2= ImageInteractable("",1,80,360,0,[0],[0],"","rm2_doorlook","int
 define logo= ImageInteractable("",1,885,350,0,[0],[0],"","logolook","inter/inter150x300_%s.png","inter/inter150x300_idle.png")
 define rm2_elevator= ImageInteractable("",1,810,670,0,[0],[0],"","rm2_elevatorlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
 define rm2_light1= ImageInteractable("",1,710,720,0,[0],[0],"","rm2_lightlook","inter/inter_%s.png","inter/inter_idle.png")
-define rm2_light2= ImageInteractable("",1,1128,720,0,[0],[0],"","rm2_lightlook","inter/inter_%s.png","inter/inter_idle.png")
+define rm2_light2= ImageInteractable("",3,1128,720,0,[0],[0],"","rm2_lightlook","inter/inter_%s.png","inter/inter_idle.png")
 define rm2_bigdoor= ImageInteractable("",1,0,650,0,[0],[0],"","rm2_bigdoorlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
 define planetmodel= ImageInteractable("",1,1355,160,0,[0],[0],"","planetmodellook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 define powermail= ImageInteractable("",1,350,775,0,[0],[0],"","powermaillook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 
 define marnie_rm2= ImageInteractable("",1,545,680,0,[0],[0],"","marnietalk","inter/talk/marnie1_%s.png","inter/talk/marnie1_idle.png")
 define sprocko_rm2= ImageInteractable("",1,230,735,0,[0],[0],"","sprockotalk","inter/talk/sprocko1_%s.png","inter/talk/sprocko1_idle.png")
-define gelato_rm2= ImageInteractable("",1,1144,447,0,[0],[0],"","gelatotalk","inter/talk/gelato1_%s.png","inter/talk/gelato1_idle.png")
-define otus_rm2= ImageInteractable("",1,1100,615,0,[0],[0],"","otustalk","inter/talk/otus1_%s.png","inter/talk/otus1_idle.png")
+define gelato_rm2= ImageInteractable("",1,1140,447,0,[0],[0],"","gelatotalk","inter/talk/gelato1_%s.png","inter/talk/gelato1_idle.png")
+define otus_rm2= ImageInteractable("",1,1150,615,0,[0],[0],"","otustalk","inter/talk/otus1_%s.png","inter/talk/otus1_idle.png")
 define ai_rm2= ImageInteractable("",1,1645,675,0,[0],[0],"","aitalk","inter/talk/ai1_%s.png","inter/talk/ai1_idle.png")
 
 ###################rm_3 lab
@@ -133,23 +133,15 @@ define otus_rm6= ImageInteractable("",3,1142,295,0,[0],[0],"","otustalk","inter/
 
 ############## Rooms ##############
 define RM0_cold = Room("Cold TEST",0,"bg_0cold_room",[rm0_shower,rm0_gloves,rm0_mirror,rm0_shoe,rm0_locker1,rm0_locker2,rm0_gastanks,rm0_wires,rm0_window,rm0_wbutton,rm0_note,rm0_terminal,rm0_coldsleeppod,rm0_scrathes],0,0,[1],"bg_0cold_room",[])
-
 define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0,2],"bg_1bridge_room",[])
-
 define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,charger,rm2_door1,rm2_door2,logo,rm2_elevator,rm2_light1,rm2_light2,rm2_bigdoor,planetmodel,powermail,marnie_rm2,sprocko_rm2,gelato_rm2,otus_rm2,ai_rm2],0,0,[1,3,4,5,6],"bg_2hub_room",[])
-
 define RM3_lab = Room("Lab TEST",3,"bg_3lab_room",[rm3_ceiling,rm3_window,partshead,partsarm,raydish,constructor,fluidtanks,biodevice,rm3_datapad,rm3_safe,rm3_computer,chembank1,chembank2,chembank3,sprocko_rm3],0,0,[2,4,5],"bg_3lab_room",[])
-
 define RM4_con = Room("Conservatory TEST",4,"bg_4con_room",[hangingplants,garden,scarecrow,watertank,rm4_stair,rm4_panels,pumpdoor,pumps,forest,colorfulflower,marnie_rm4],0,0,[2,3,5],"bg_4con_room",[])
-
 define RM5_bar = Room("Bar TEST",5,"bg_5bar_room",[booth,plantmonster,paintings,eyetree,moose,harpoon,bonemonster,bughead,rm5_tubes,drinkmaker,drinks1,drinks2,rm5_datapad,gelato_rm5],0,0,[2,3,4],"bg_5bar_room",[])
-
-
 define RM6_core = Room("Core TEST",6,"bg_6core_room",[memento,rm6_door,jarbot,jartop,jarman,rm6_computer,deadguy,rm6_rcore,rm6_points1,rm6_points2,rm6_datapad,otus_rm6],0,0,[2],"bg_6core_room",[])
 
-
 #####items######
-define rm0_lockerkey = Item("Small Key",0,"item/item_key1_%s.png","A small key found in a sock. Too small to be a door's key.", rm0_locker1,"rm0_lockersolution","item/item_key1_idle.png")
+define rm0_lockerkey = Item("Small Key",0,"item/item_key1_%s.png","A small key found in a sock. Too small to be a door's key.", "locker1","rm0_lockersolution","item/item_key1_idle.png")
 define rm0_lockerkey2 = Item("Big Keytest",1,"item/item_key1_%s.png","A small key found in a sock. Too small to be a door's key.", "locker1","rm0_lockersolution","item/item_key1_idle.png")
 
 ## Roommanager (and Inventory soon)

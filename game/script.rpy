@@ -21,7 +21,6 @@ label start:
 
 scene START
 
-
 label introcold:
 show bg_0cold_room
 show bgblack
