@@ -20,6 +20,7 @@ label showerlook:
 label gloveslook:
     dd "Two pairs of work gloves dangle off the ship's internal super structure."
     dd "They are covered in a layer of dust and grime. Whoever these once belonged have long since gone."
+    $roommanager.intertoggle(rm0_shower)
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label mirrorlook:
     dd "cleaning station uses sonic pulse gun to reach the hard to clean areas."
@@ -27,12 +28,12 @@ label mirrorlook:
 label shoe1look:
     if (rm0_shoe.interprogress == 0):
         dd "Dirty shoe...wait, there seems to be something inside."
-        show item_key1 with dissolve:
+        show item_key1_idle with dissolve:
             xalign 0.5
             yalign 0.5
         item "Received \"Locker Key\""
-        hide item_key1 with dissolve
-        $inventory.items.append(lockerkey)
+        hide item_key1_idle with dissolve
+        $inventory.items.append(rm0_lockerkey)
         $rm0_shoe.interprogress = 1
     else:
         dd "Nope, I got lucky once. That will have to do."
@@ -464,3 +465,16 @@ screen TESTLOCATIONS:
         auto "/inter/talk/gelato2_%s.png"
         action Jump("TESTLOCATIONSEND")
 ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
+
+
+
+
+
+
+######object description and result labels, move to own screen later?############
+
+##rm0_lockerkey
+
+
+label rm0_lockersolution:
+    dd "It worked!"

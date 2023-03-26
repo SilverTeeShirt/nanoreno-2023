@@ -31,8 +31,6 @@ init python:
 
         def checkroomevents(self, roomid):
 
-
-
             if (len(self.rooms[roomid].eventsready) > 0):
 
                 roomtocheck = self.rooms[roomid]
@@ -47,8 +45,7 @@ init python:
             else:
                 self.setuproom(roomid)
 
-
-
+  
 
         def setuproom(self,idnum):
             self.currentroom = self.rooms[idnum]
@@ -75,9 +72,6 @@ init python:
             self.setupplayerUI()
 
 
-
-
-
         def changeinteractionlevel(self,newilv):
             self.currinterlayer = newilv
 
@@ -86,6 +80,21 @@ init python:
 
             renpy.call(selinterjump)
             self.setupplayerUI()
+        
+
+        def intertoggle(self,tarinter):
+            
+            if tarinter.intertype == 1:
+
+                    tarinter.intertype = 3
+
+            elif tarinter.intertype == 3:
+
+                    tarinter.intertype = 1
+
+
+    
+
 
 
 
@@ -117,17 +126,33 @@ init python:
             self.ypad = ypad
 
     class Inventory():
-        def __init__(self,items):
+        def __init__(self,items,activeitem):
             self.items = items
+            self.activeitem = activeitem
+        
+            
 
     class Item():
-        def __init__(self,name,idnum,imageref,description,targetinter):
+        def __init__(self,name,idnum,imageref,description,targetinter,solutionlab,dragimg):
             self.name = name
             self.idnum = idnum
             self.imageref = imageref
             self.description = description
             self.targetinter = targetinter
+            self.solutionlab = solutionlab
+            self.dragimg = dragimg
+        
 
+    
+    def dropcheck(dritem,drpinter,drags,drops):
+
+        if dritem.targetinter == drpinter:
+            renpy.call_screen("wtf")
+
+
+
+screen wtf:
+    text "wtf" xalign 0.5 yalign 0.5
 
 ############## ROOM MANAGER ##############
 ############## ROOM MANAGER ##############
@@ -189,15 +214,11 @@ screen makeplayerUI(roommanagerref):
             xpos 775
             ypos 950
             auto "gamesys/INV_%s.png"
-            action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("invscreen",None,localinvenref,localrmanref)]
+            action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
+   
 
-    # if (localrmanref.gotinv == 0):
-    #     frame:
-    #         xpadding 40
-    #         ypadding 20
-    #         xpos 1300
-    #         ypos 950
-    #         textbutton "Inventory" action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("invscreen",None,localinvenref,localrmanref)]
+
+    
 
 screen navscreen(roommanagerref):
 
@@ -252,52 +273,86 @@ screen navscreen(roommanagerref):
 
         $ count += 1
 
+
+
+
 screen invscreen(inventoryref,roommanagerref):
 
-    modal True
+   
+    modal False
     default localrmanref = roommanagerref
-    default inventoryreference = inventoryref
+    default localinventoryref = inventoryref
     default itemstoshow = []
-    default interactablesonscreen = localrmanref.currentroom.interactablelist
+    #default interactablesonscreen = localrmanref.currentroom.interactablelist
     default count = 0
+
 
     imagebutton:
         xpos 885
         ypos 950
         auto "gamesys/BCK_%s.png"
-        action [Hide("invscreen"),Show("makeplayerUI",None,localrmanref)]
+        action [Hide("invscreen"),Function(localrmanref.changeinteractionlevel,0),Show("makeplayerUI",None,localrmanref)]
 
-
-    # frame:
-    #         xpadding 40
-    #         ypadding 20
-    #         xpos 1700
-    #         ypos 950
-    #         textbutton "Inventory" action [Hide("invscreen"),Show("makeplayerUI",None,localrmanref)]
 
     for it in inventoryref.items:
 
         $itemstoshow.append(it)
 
+
+
+    for gitem in itemstoshow:
+
+            
+        imagebutton:
+
+            xpos (400 + (250*count))
+            ypos 950
+
+            auto gitem.imageref
+
+            action [Hide("invscreen"), Show("interlocationscreen",None,localinventoryref,localrmanref,gitem)]
+
+            alternate [Hide("invscreen"), Show("itemdescscreen",None,gitem.description,localinventoryref,localrmanref)]
+
+        $ count += 1
+
+
+screen interlocationscreen(inventoryref,roommanagerref,itemtodrag):
+
+    modal True
+
+
+    default localinvenref = inventoryref
+    default locitemtodrag =  itemtodrag
+    default localrmanref = roommanagerref
+
+    default interactablesonscreen = localrmanref.currentroom.interactablelist
+
+
+    #transform other items into back button!!! (or use them to loop into this screen?) Account for count and relative position!
+
+
+
+    imagebutton:
+        xpos 885
+        ypos 950
+        auto "gamesys/BCK_%s.png"
+        action [Hide("interlocationscreen"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
+
     draggroup:
 
+        drag:
+            drag_name "[itemtodrag.name]"
+            xpos 400
+            ypos 950
+            child itemtodrag.dragimg
+            draggable True
+            droppable False
 
-        for gitem in itemstoshow:
 
-            drag:
-
-                xpos (400 + (250*count))
-                ypos 950
-
-                child gitem.imageref
-
-                draggable True
-
-                droppable False
-            #test later, this might create issues
-            $ count += 1
 
         for intloc in interactablesonscreen:
+
             drag:
                 drag_name "[intloc.name]"
                 xpos intloc.horposition
@@ -305,3 +360,20 @@ screen invscreen(inventoryref,roommanagerref):
                 child intloc.menuimageref
                 draggable False
                 droppable True
+
+
+
+
+screen itemdescscreen(itemdesc, inventoryref, roommanagerref):
+
+    modal True
+
+    default localrmanref = roommanagerref
+    default inventoryreference = inventoryref
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xpadding 50
+        ypadding 30
+        textbutton "[itemdesc]" action [Hide("itemdescscreen"), Show("invscreen",None, inventoryreference, localrmanref)]

@@ -138,9 +138,10 @@ define RM6_core = Room("Core TEST",6,"bg_6core_room",[],0,0,[2],"bg_6core_room",
 
 
 #####items######
-define lockerkey = Item("Small Key",0,"small_item_key1","A small key found in a sock. Too small to be a door's key, and besides, we use magnetic locks", "locker1")
+define rm0_lockerkey = Item("Small Key",0,"item/item_key1_%s.png","A small key found in a sock. Too small to be a door's key.", rm0_locker1,"rm0_lockersolution","item/item_key1_idle.png")
+define rm0_lockerkey2 = Item("Big Keytest",1,"item/item_key1_%s.png","A small key found in a sock. Too small to be a door's key.", "locker1","rm0_lockersolution","item/item_key1_idle.png")
 
 ## Roommanager (and Inventory soon)
 define roommanager = RoomManager("roommanager",[RM0_cold,RM1_bridge,RM2_hub,RM3_lab,RM4_con,RM5_bar,RM6_core],RM0_cold,1,0,0)
 
-define inventory = Inventory([])
+define inventory = Inventory([],"")

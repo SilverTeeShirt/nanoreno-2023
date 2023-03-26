@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 145: expected simple expression
-    stop music fadeout
-                      ^
+File "game/custom system.rpy", line 147: expected statement.
+    def dropcheck(dritem,drpinter,drags,drops):
+                 ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Mar 25 18:24:56 2023
+Sun Mar 26 11:13:45 2023
