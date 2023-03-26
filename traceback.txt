@@ -1,58 +1,48 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
+Compiling ATL code at game/images.rpy:215
   File "game/custom system.rpy", line 163, in script call
     call screen makeplayerUI(roommanager)
-  File "game/custom system.rpy", line 163, in script
-    call screen makeplayerUI(roommanager)
-  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-TypeError: __call__() takes 1 positional argument but 3 were given
+  File "game/interactables.rpy", line 30, in script
+    show item_key1_idle with dissolve:
+Exception: Not a displayable: <store.BrightnessMatrix object at 0x0000000005def160>
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "game/custom system.rpy", line 163, in script call
     call screen makeplayerUI(roommanager)
-  File "game/custom system.rpy", line 163, in script
-    call screen makeplayerUI(roommanager)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2232, in execute
-    self.call("execute")
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 2220, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\statements.py", line 281, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 609, in execute_call_screen
-    store._return = renpy.call_screen(name, *args, **kwargs)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\exports.py", line 3181, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\core.py", line 4258, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\screen.py", line 743, in event
-    rv = self.child.event(ev, x, y, st)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\dragdrop.py", line 882, in event
-    return super(DragGroup, self).event(ev, x, y, st)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\dragdrop.py", line 762, in event
-    rv = run(drop.dropped, drop, joined) # type: ignore
-  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\display\behavior.py", line 329, in run
-    return action(*args, **kwargs)
-TypeError: __call__() takes 1 positional argument but 3 were given
+  File "game/interactables.rpy", line 30, in script
+    show item_key1_idle with dissolve:
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1408, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1371, in show_imspec
+    renpy.config.show(name,
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\exports.py", line 712, in show
+    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 1165, in add
+    thing.visit_all(lambda d : None)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 572, in visit_all
+    for d in self.visit():
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 614, in visit
+    block = self.compile()
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 521, in compile
+    block = self.atl.compile(self.context)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 721, in compile
+    statements = [ i.compile(ctx) for i in self.statements ]
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 721, in <listcomp>
+    statements = [ i.compile(ctx) for i in self.statements ]
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 978, in compile
+    child = renpy.easy.displayable(child)
+  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\easy.py", line 140, in displayable
+    raise Exception("Not a displayable: %r" % (d,))
+Exception: Not a displayable: <store.BrightnessMatrix object at 0x0000000005def160>
 
-Windows-10-10.0.19045 AMD64
+Windows-10-10.0.19044 AMD64
 Ren'Py 8.0.3.22090809
 Space Breakers 0.1
-Sun Mar 26 11:15:27 2023
+Sun Mar 26 10:35:26 2023

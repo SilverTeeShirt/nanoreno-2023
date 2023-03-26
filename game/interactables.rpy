@@ -20,7 +20,6 @@ label showerlook:
 label gloveslook:
     dd "Two pairs of work gloves dangle off the ship's internal super structure."
     dd "They are covered in a layer of dust and grime. Whoever these once belonged have long since gone."
-    $roommanager.intertoggle(rm0_shower)
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label mirrorlook:
     dd "cleaning station uses sonic pulse gun to reach the hard to clean areas."
@@ -70,6 +69,7 @@ label scrathesslook:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
+
 ###### ########### ######
 ###### rm_1 bridge ######
 ###### ########### ######
@@ -116,6 +116,7 @@ label rm1_datafoodlook:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
+
 ###### ######## ######
 ###### rm_2 hub ######
 ###### ######## ######
@@ -141,11 +142,11 @@ label logolook:
 label rm2_elevatorlook:
     dd "lotsa text and stuff here about elevator."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm2_lightslook:
+label rm2_lightlook:
     dd "weird lights. feels like they are watching you when on."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm2_bigdoorlook:
-    dd "big ole door leading to ship."
+    dd "big security storage area. need biometric data to open."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label planetmodellook:
     dd "looks familiar if sprocko in room."
@@ -153,6 +154,7 @@ label planetmodellook:
 label powermaillook:
     dd "DA MAIL power connect to this."
     $roommanager.returnfrominteraction(roommanager.currentroom)
+
 
 
 ###### ######## ######
@@ -197,6 +199,7 @@ label chembanklook:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
+
 ###### ################# ######
 ###### rm_4 conservatory ######
 ###### ################# ######
@@ -233,6 +236,7 @@ label colorfulflowerlook:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
+
 ###### ######## ######
 ###### rm_5 bar ######
 ###### ######## ######
@@ -248,6 +252,9 @@ label paintingslook:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label eyetreelook:
     dd "creepy ocular tree."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label mooselook:
+    dd "Moose, gelato says it must be a famout earth monster devours humans."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label harpoonlook:
     dd "deadly harpoon used in space hunts back in the day."
@@ -272,9 +279,38 @@ label rm5_datapadlook:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
+
 ###### ######## ######
 ###### rm_6 core ######
 ###### ######## ######
+
+label mementolook:
+    dd "Sebastian's sentimental things."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm6_doorlook:
+    dd "Big honking door."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label jarlook:
+    dd "odd device. seems to be for biological recovery. low power draining from it."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label jarmanlook:
+    dd "Cloudy cant see inside yet, then opens to reveal the founder."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm6_computerlook:
+    dd "Computer core room."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label deadguylook:
+    dd "Not sure who this sad sack is."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm6_rcorelook:
+    dd "impressive giant Zeta reactorcore."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm6_pointslook:
+    dd "devices pointing to reactor core."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm6_datapadlook:
+    dd "download data to read later. About Sebastain and clues."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
 
@@ -301,8 +337,12 @@ style choicetalk_button_text is default:
     properties gui.button_text_properties("choice_button")
 
 
-######################## Character ##############################
 
+######################### ######### ###############################
+######################## Characters ##############################
+######################### ######### ###############################
+
+######################## Marnie ########################
 label marnietalk:
     show marnie normal with dissolve:
         zoomnorm
@@ -322,13 +362,20 @@ label marnietalk:
             r "Can I get advice?"
             m "Nah."
             jump marnietalking
+        "Explore":
+            r "Can you explore the other room?"
+            m "Sure thing."
+            hide marnie with dissolve
+            $roommanager.intertoggle(marnie_rm2)
+            $roommanager.intertoggle(marnie_rm4)
+            $roommanager.returnfrominteraction(roommanager.currentroom)
         "Back":
             hide marnie with dissolve
             $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
 
-
+######################## Sprocko ########################
 label sprockotalk:
     show sprocko normal with dissolve:
         zoomnorm
@@ -348,15 +395,25 @@ label sprockotalk:
             r "Can I get advice?"
             s "Go away!"
             jump sprockotalking
+        "Explore":
+            r "Can you explore the other room?"
+            s "Sure thing."
+            hide sprocko with dissolve
+            $roommanager.intertoggle(sprocko_rm2)
+            $roommanager.intertoggle(sprocko_rm3)
+            $roommanager.returnfrominteraction(roommanager.currentroom)
         "Back":
             hide sprocko with dissolve
             $roommanager.returnfrominteraction(roommanager.currentroom)
 
+
+
+######################## Gelato ########################
 label gelatotalk:
     show gelato normal with dissolve:
         zoomnorm
         left
-    s "What's going on human Rookie?"
+    g "What's going on human Rookie?"
     label gelatotalking:
     menu(screen ='talk'):
         "Need help?":
@@ -371,18 +428,74 @@ label gelatotalk:
             r "Can I get advice?"
             g "Apple a day keeps the donkeys away... I think..."
             jump gelatotalking
+        "Explore":
+            r "Can you explore the other room?"
+            g "Sure thing."
+            hide gelato with dissolve
+            $roommanager.intertoggle(gelato_rm2)
+            $roommanager.intertoggle(gelato_rm5)
+            $roommanager.returnfrominteraction(roommanager.currentroom)
         "Back":
             hide gelato with dissolve
             $roommanager.returnfrominteraction(roommanager.currentroom)
 
+
+
+######################## Otus ########################
 label otustalk:
-    dd "test."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
+    show otus normal with dissolve:
+        zoomnorm
+        left
+    o "Huh? What is it?"
+    label otustalking:
+    menu(screen ='talk'):
+        "Need help?":
+            r "Do you need help?"
+            o "Not from you."
+            jump otustalking
+        "Is this a test?":
+            r "Test?"
+            o "Yup."
+            jump otustalking
+        "Advice":
+            r "Can I get advice?"
+            o "Be useful Rookie."
+            jump otustalking
+        "Explore":
+            r "Can you explore the other room?"
+            o "Sure thing."
+            hide otus with dissolve
+            $roommanager.intertoggle(otus_rm2)
+            $roommanager.intertoggle(otus_rm6)
+            $roommanager.returnfrominteraction(roommanager.currentroom)
+        "Back":
+            hide otus with dissolve
+            $roommanager.returnfrominteraction(roommanager.currentroom)
 
+
+######################## Caretaker AI ########################
 label aitalk:
-    dd "test."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-
+    show ai normal with dissolve:
+        zoomnorm
+        left
+    ai "You are unwelcome."
+    label aitalking:
+    menu(screen ='talk'):
+        "Need help?":
+            r "Do you need help?"
+            ai "Do not disturb my master."
+            jump aitalking
+        "Is this a test?":
+            r "Test?"
+            ai "Yup."
+            jump aitalking
+        "Advice":
+            r "Can I get advice?"
+            ai "Please leave this station."
+            jump aitalking
+        "Back":
+            hide ai with dissolve
+            $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
 
@@ -390,79 +503,69 @@ label aitalk:
 ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
 scene bg_6core_room
 ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-label TESTLOCATIONSEND:
+#label TESTLOCATIONSEND:
 call screen TESTLOCATIONS
 screen TESTLOCATIONS:
-    imagebutton: #booth
-        xpos 0
-        ypos 550
+    imagebutton: #memento
+        xpos 1685
+        ypos 540
         auto "/inter/inter300x300_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #plantmonster
-        xpos 295
-        ypos 110
+    imagebutton: #door
+        xpos 1525
+        ypos 30
         auto "/inter/inter150x650_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #paintings
+    imagebutton: #jarbottom
+        xpos 0
+        ypos 670
+        auto "/inter/inter300x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #jartop
+        xpos -35
+        ypos 100
+        auto "/inter/inter300x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #jarman
+        xpos -25
+        ypos 360
+        auto "/inter/inter300x300_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #computer
         xpos 300
-        ypos 10
-        auto "/inter/inter300x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #eyetree
-        xpos 5
-        ypos 20
+        ypos 450
         auto "/inter/inter300x300_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #moose
-        xpos 690
-        ypos 130
+    imagebutton: #deadguy
+        xpos 900
+        ypos 750
+        auto "/inter/inter300x150_%s.png"
+        action Jump("TESTLOCATIONSEND")
+    imagebutton: #core
+        xpos 810
+        ypos 200
         auto "/inter/inter300x300_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #harpoon
-        xpos 710
-        ypos 0
+    imagebutton: #points1
+        xpos 290
+        ypos 90
         auto "/inter/inter300x150_%s.png"
         action Jump("TESTLOCATIONSEND")
-    imagebutton: #bones
-        xpos 1100
-        ypos 30
-        auto "/inter/inter300x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #bughead
-        xpos 1525
-        ypos 210
-        auto "/inter/inter150x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #tubemachine
-        xpos 1580
-        ypos 30
-        auto "/inter/inter300x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #drink maker
-        xpos 1240
-        ypos 400
-        auto "/inter/inter150x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #drinks1
-        xpos 1050
-        ypos 400
-        auto "/inter/inter150x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #drinks2
-        xpos 1450
-        ypos 435
+    imagebutton: #points2
+        xpos 1150
+        ypos 190
         auto "/inter/inter300x150_%s.png"
         action Jump("TESTLOCATIONSEND")
     imagebutton: #datapad
-        xpos 1390
-        ypos 555
+        xpos 690
+        ypos 860
         auto "/inter/inter_%s.png"
         action Jump("TESTLOCATIONSEND")
 
-    imagebutton: #gelato
-        xpos 440
-        ypos 140
-        auto "/inter/talk/gelato2_%s.png"
+    imagebutton: #otus
+        xpos 1142
+        ypos 295
+        auto "/inter/talk/otus2_%s.png"
         action Jump("TESTLOCATIONSEND")
 ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
 

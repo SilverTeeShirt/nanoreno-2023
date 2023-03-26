@@ -45,7 +45,7 @@ init python:
             else:
                 self.setuproom(roomid)
 
-  
+
 
         def setuproom(self,idnum):
             self.currentroom = self.rooms[idnum]
@@ -80,10 +80,10 @@ init python:
 
             renpy.call(selinterjump)
             self.setupplayerUI()
-        
+
 
         def intertoggle(self,tarinter):
-            
+
             if tarinter.intertype == 1:
 
                     tarinter.intertype = 3
@@ -93,7 +93,7 @@ init python:
                     tarinter.intertype = 1
 
 
-    
+
 
 
 
@@ -129,8 +129,8 @@ init python:
         def __init__(self,items,activeitem):
             self.items = items
             self.activeitem = activeitem
-        
-            
+
+
 
     class Item():
         def __init__(self,name,idnum,imageref,description,targetinter,solutionlab,dragimg):
@@ -141,9 +141,9 @@ init python:
             self.targetinter = targetinter
             self.solutionlab = solutionlab
             self.dragimg = dragimg
-        
 
-    
+
+
     def dropcheck(dritem,drpinter,drags,drops):
 
         if dritem.targetinter == drpinter:
@@ -215,10 +215,10 @@ screen makeplayerUI(roommanagerref):
             ypos 950
             auto "gamesys/INV_%s.png"
             action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
-   
 
 
-    
+
+
 
 screen navscreen(roommanagerref):
 
@@ -278,7 +278,7 @@ screen navscreen(roommanagerref):
 
 screen invscreen(inventoryref,roommanagerref):
 
-   
+
     modal False
     default localrmanref = roommanagerref
     default localinventoryref = inventoryref
@@ -302,7 +302,7 @@ screen invscreen(inventoryref,roommanagerref):
 
     for gitem in itemstoshow:
 
-            
+
         imagebutton:
 
             xpos (400 + (250*count))

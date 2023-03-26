@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/custom system.rpy", line 147: expected statement.
-    def dropcheck(dritem,drpinter,drags,drops):
-                 ^
+File "game/images.rpy", line 215: expected 'comma or end of line' not found.
+    b = 0.5
+      ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sun Mar 26 11:13:45 2023
+Sun Mar 26 10:30:32 2023

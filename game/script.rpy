@@ -127,7 +127,7 @@ m "Just freshen up and meet everyone there."
 r "Yes Marnie."
 hide marnie with dissolve
 
-play music ambience volume 0.4
+play music ambience volume 0.15
 
 ##### this sets up the event when you enter room number, needs name of label as string
 $roommanager.addeventstoroom(1,"introbridge")
@@ -409,7 +409,7 @@ r "Ahh! Yes sir!"
 show otus normal at hop
 o "Now get to it!"
 hide otus with dissolve
-
+play music ambience volume 0.15
 
 
 ##### ROOM 2 HUB #####
