@@ -7,19 +7,19 @@
 label showerlook:
     dd "A narrow sonic shower sits uncomfortably in the corner the room."
     menu(screen ='choice'):
-        "Take a shower" if shower == False:
+        "Take a shower" if shower == False and power == False:
             dd "You hop in the shower and turn the dial."
             play sound sonicshower volume 0.9
             dd "A wave of ultra sonic pulses hits you all over."
             r "Ahhh! How can anyone ever get used to this?!"
             $ shower = True
             $roommanager.returnfrominteraction(roommanager.currentroom)
-        "Leave" if shower == False:
+        "Back" if shower == False and power == False:
             $roommanager.returnfrominteraction(roommanager.currentroom)
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label gloveslook:
     dd "Two pairs of work gloves dangle off the ship's internal super structure."
-    dd "They are covered in a layer of dust and grime. Whoever these once belonged have long since gone."
+    dd "They are covered in a thick layer of dust and grime."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label mirrorlook:
     dd "cleaning station uses sonic pulse gun to reach the hard to clean areas."

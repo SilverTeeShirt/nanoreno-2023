@@ -15,6 +15,7 @@
 
 
 label start:
+
 ##rollback messes with item collecting
 #$config.rollback_enabled = False
 ##
@@ -67,7 +68,9 @@ menu(screen ='choice'):
         m "Seriously? Don't tell me the Cold Sleep messed with your memory..."
         m "I thought they fixed that issue..."
         show marnie normal
-        m "Well what do you remember?"
+        m "You're on the Rusty Clover. A salvager ship."
+        r "Oh... I think already I knew that..."
+        m "Well what else do you remember?"
         menu(screen ='choice'):
             "I'm a salvager":
                 r "That I'm the Rookie space salvager?"
@@ -78,8 +81,19 @@ menu(screen ='choice'):
                 m "Your vitals are one hundred percent!"
                 m "You should be fine!"
                 r "R-Right..."
-            "I don't know":
-                r "Oh no!{w=0.25} {size=+06}I don't know anything!!!{/size}"
+            "Your name is Marnie":
+                r "Your name is Marnie. The Ship's navigator?"
+                show marnie happy
+                m "Yup!{w=0.25} That's right!"
+                m "I also do other important tasks like finance, scheduling, and sometimes waking up Rookies from their Cold Sleep."
+                r "Yeah... I think I knew that too."
+                m "You're perfectly fine!"
+                r "I guess I am..."
+            "Nothing!":
+                r "Oh no!{w=0.25} {size=+06}I dont remember anything else!!!{/size}"
+                show marnie shocked at hop
+                r "{size=+06}Ahhhhhhh!{/size}"
+                show marnie normal
                 m "..."
                 r "..."
                 m "..."
@@ -118,7 +132,7 @@ menu(screen ='choice'):
                 m "Stop messing around!"
                 r "Sorry! I'm awake now!"
                 m "Don't scare me like that!"
-                show marnie normal
+                show marnie normal at sulk
                 m "You should know better..."
 show marnie normal
 m "Anyways the Captain wants everyone on the bridge."
@@ -133,7 +147,6 @@ $roommanager.addeventstoroom(1,"introbridge")
 #####
 
 dd "As you climb out of the Cold Sleep pod, you slowly glance around the room in an attempt to regain your bearings."
-
 
 ##### ROOM 0 COLD SLEEP #####
 $roommanager.setuproom(0)
@@ -158,11 +171,8 @@ show gelato normal behind marnie with dissolve:
 if shower == True:
     g "Hey there human salvager!"
 else:
-    g "Smells like a perfectly normal human to me!"
-if shower == True:
-    r "Yup. That's me. The human salvager..."
-else:
-    r "Yup. That's me. The smelly human salvager..."
+    g "Smells like a perfectly normal human salvager to me!"
+r "Yup. That's me. The human salvager..."
 show gelato happy at wiggle
 if shower == True:
     g "Yeah! You're {size=+06}THE HUMAN{/size} salvager!"
@@ -171,13 +181,13 @@ if shower == True:
     show gelato at wiggle
     g "Not since that last one!"
     show gelato unhappy
-    g "{size=-06}That one didn't last long...{/size}"
+    g "{size=-06}That one didn't last very long...{/size}"
 else:
     g "No you're {size=+06}THE SMELLY HUMAN{/size} salvager!"
     m "Hey. No one's allowed to pick on the Rookie but me."
     show gelato unhappy at wiggle
     g "But I'm not picking on the Rookie..."
-show otus normal with dissolve:
+show otus unhappy with dissolve:
     zoomnorm
     xalign 1.375
 show marnie:
@@ -186,13 +196,19 @@ show gelato normal:
     ease .2 center
     ease 0.1 yoffset -30
     ease 0.1 yoffset 0
+o "Gahhh! Where have you all been?!"
 o "You jabbersniffs sure took your sweet time!"
 show marnie at sway
-m "{size=-06}I was the first one here...{/size}"
+if shower == True:
+    m "{size=-06}But I was the first one here...{/size}"
+else:
+    m "Hey! I was here this whole time!"
+    o "Bah! Whatever!"
 show gelato at wiggle
 g "Sometimes Captain, you gotta go at a human's pace!"
 r "What does that even mean?"
-o "Shut it Rookie! We got a new job to do."
+show otus normal at wiggle
+o "Shut it Rookie! We got a new job to do!"
 show marnie unhappy at hop
 m "Wait?! What?!{w=0.25} We're heading back from a job right now!"
 m "That luxury comet skipper is filling up our entire cargo hold!"
@@ -200,7 +216,7 @@ show gelato at wiggle
 g "Maybe it's something really{w=0.25} {size=-06}really small...{/size}"
 m "We're on a tight schedule Captain! If we're late by a even a single micro cycle, we'll take a huge penalty!"
 show otus unhappy at sway
-o "Hey! Quit being such a squiglybeak!"
+o "Hey! Quit being such a squigglybeak!"
 o "I’ve been scrapping ships longer than your people have been flying them!"
 o "I know what I'm doing!"
 show otus happy
@@ -366,7 +382,7 @@ menu(screen ='choice'):
         r "I've never actually been to Earth..."
         show gelato shocked at hop
         g "Whoa really!?"
-        r "I was born pretty far from Earth on one of the colonies."
+        r "I was born on one of the colonies far from Earth."
         g "{size=-06} Does that mean you're not an actual Earthling?{/size}"
     "I like being in space":
         r "I actually really like being in space."
@@ -393,7 +409,7 @@ m "Not you too..."
 s "Marnie! What do you think? How much of this stuff do you think we can shove into the cargo hold?"
 m "Really? I thought we were only after the power source..."
 show sprocko unhappy
-s "But the Clover... It needs upgrades."
+s "But the Clover...{w=0.25} It needs upgrades..."
 show otus normal with dissolve:
     zoomnorm
     xalign 1.4
@@ -403,7 +419,7 @@ show gelato normal at hop
 o "Focus, people! We have a tight timetable remember?"
 o "First things first, we need to get the power restored and then figure a way to that reactor core."
 o "Scrapping anything else can wait."
-s "Yes yes! I'll take a look around, I already have IDEAS!"
+s "Yes! I'll take a look around, I already have...{w=0.25} IDEAS!"
 hide sprocko with dissolve
 show gelato normal at wiggle
 g "How fun! I guess we should spread out."
@@ -412,7 +428,7 @@ m "For the record I still think this is a bad idea..."
 hide marnie with dissolve
 show otus unhappy:
     ease 0.4 xalign 0.5
-o "Rookie!"
+o "{size=+06}Rookie!{/size}"
 r "Ahh! Yes Captain?"
 o "Why are you just standing there?"
 o "Go help the others out and see what they need."
@@ -422,11 +438,18 @@ o "Now get to it!"
 hide otus with dissolve
 play music ambience volume 0.15
 
-
 ##### ROOM 2 HUB #####
 $roommanager.setuproom(2)
 ##### ROOM 2 HUB #####
 
+
+label powerup_event:
+
+
+
+
+
+############## DRAFT ##############
 
 dd "after they connect the Clover to the Station they power up the Station."
 
@@ -450,13 +473,14 @@ g "Aw cool your jets, Marnie! What could possibly go wrong?"
 s "I’ve managed to slice through the door! It was simply no match for my brain power!"
 o "Okay! Everyone head in!"
 
+
+
 # strange notification sound
 
 o "What was that sound?"
 s "!"
 o "__Tech? What is it?"
 
-s "I just got a bill?"
 qq "Excuse me."
 g "what is we just blow it up?"
 
@@ -484,11 +508,11 @@ show sprocko:
 ai "Hello. This is my space station. Please leave."
 show sprocko unhappy:
     ease 0.9 xalign -0.75
-g "Gah! What the hell was that!"
+g "Gah! What was that!"
 ai "That doesn’t matter. Please leave."
 o "Who the pleft do you think you are?"
-ai "I am the owner of this space station. I have asked you once to leave. Please do so."
-m "Or what, tin can?"
+ai "I am the caretaker of this space station. I have asked you once to leave. Please do so."
+
 s "Oh, it is much more than that, __Grouch… It’s beautiful!"
 g "__Tech! Don’t compliment things that threaten us!"
 s "I wouldn’t say it’s threatening us-"
@@ -600,12 +624,10 @@ o "Try anything. Hacking them, blowing them up, finding some fancy technology he
 
 o "I’m going to explore this area and see what I can find. I may have an idea..."
 
-# START ROOM
-############## FIRST DRAFT ##############
+############## DRAFT ##############
 
-dd "Next area is a test, look at window to continue"
 ##### ROOM 1 BRIDGE #####
-$roommanager.setuproom(1) #testing for now
+$roommanager.setuproom(2)
 ##### ROOM 1 BRIDGE #####
 
 

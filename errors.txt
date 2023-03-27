@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/interactables.rpy", line 422: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation.
-    $ power = False
-    ^
+File "game/interactables.rpy", line 17: choice menuitem expects a non-empty block.
+    "Back" if shower == False:
+                              ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sun Mar 26 21:48:31 2023
+Mon Mar 27 00:49:27 2023
