@@ -95,6 +95,7 @@ define pumpdoor= ImageInteractable("",1,930,535,0,[0],[0],"","pumpdoorlook","int
 define pumps= ImageInteractable("",1,660,475,0,[0],[0],"","pumpslook","inter/inter300x300_%s.png","inter/inter300x300_idle.png",0)
 define forest= ImageInteractable("",1,1410,490,0,[0],[0],"","forestlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png",0)
 define colorfulflower= ImageInteractable("",1,1520,90,0,[0],[0],"","colorfulflowerlook","inter/inter300x150_%s.png","inter/inter300x150_idle.png",0)
+define bird= ImageInteractable("",1,525,705,0,[0],[0],"","birdlook","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
 
 define marnie_rm4= ImageInteractable("",3,1180,550,0,[0],[0],"","marnietalk","inter/talk/marnie2_%s.png","inter/talk/marnie2_idle.png",2)
 
@@ -136,7 +137,7 @@ define RM0_cold = Room("Cold TEST",0,"bg_0cold_room",[rm0_shower,rm0_gloves,rm0_
 define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0,2],"bg_1bridge_room",[])
 define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,charger,rm2_door1,rm2_door2,logo,rm2_elevator,rm2_light1,rm2_light2,rm2_bigdoor,planetmodel,powermail,marnie_rm2,sprocko_rm2,gelato_rm2,otus_rm2,ai_rm2],0,0,[1,3,4,5,6],"bg_2hub_room",[])
 define RM3_lab = Room("Lab TEST",3,"bg_3lab_room",[rm3_ceiling,rm3_window,partshead,partsarm,raydish,constructor,fluidtanks,biodevice,rm3_datapad,rm3_safe,rm3_computer,chembank1,chembank2,chembank3,sprocko_rm3],0,0,[2,4,5],"bg_3lab_room",[])
-define RM4_con = Room("Conservatory TEST",4,"bg_4con_room",[hangingplants,garden,scarecrow,watertank,rm4_stair,rm4_panels,pumpdoor,pumps,forest,colorfulflower,marnie_rm4],0,0,[2,3,5],"bg_4con_room",[])
+define RM4_con = Room("Conservatory TEST",4,"bg_4con_room",[hangingplants,garden,scarecrow,watertank,rm4_stair,rm4_panels,pumpdoor,pumps,forest,colorfulflower,bird,marnie_rm4],0,0,[2,3,5],"bg_4con_room",[])
 define RM5_bar = Room("Bar TEST",5,"bg_5bar_room",[booth,plantmonster,paintings,eyetree,moose,harpoon,bonemonster,bughead,rm5_tubes,drinkmaker,drinks1,drinks2,rm5_datapad,gelato_rm5],0,0,[2,3,4],"bg_5bar_room",[])
 define RM6_core = Room("Core TEST",6,"bg_6core_room",[memento,rm6_door,jarbot,jartop,jarman,rm6_computer,deadguy,rm6_rcore,rm6_points1,rm6_points2,rm6_datapad,otus_rm6],0,0,[2],"bg_6core_room",[])
 

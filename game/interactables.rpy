@@ -234,7 +234,9 @@ label forestlook:
 label colorfulflowerlook:
     dd "colorful plant can use pollen."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-
+label birdlook:
+    dd "thats a squiggleybeak. very dangerous defeat with chocolate."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
 ###### ######## ######

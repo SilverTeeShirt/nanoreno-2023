@@ -84,7 +84,7 @@ menu(screen ='choice'):
                 r "..."
                 m "..."
                 show marnie with vpunchnowait
-                play sound smack volume 0.6
+                play sound smack volume 0.7
                 r "{size=+06}OW!{/size}"
                 show marnie shocked at hop
                 m "Stop messing around!"
@@ -112,7 +112,7 @@ menu(screen ='choice'):
                 m "..."
                 hide bgblack with disfastnowait
                 show marnie with vpunchnowait
-                play sound smack volume 0.6
+                play sound smack volume 0.7
                 r "{size=+06}OW!{/size}"
                 show marnie shocked at hop
                 m "Stop messing around!"
@@ -339,7 +339,10 @@ hide bgblack2 with dissolveslow
 show marnie normal behind bgblack2 with dissolve:
     zoomnorm
     ease 0.4 xalign 0.2
+stop sound fadeout 0.5
+stop sound2 fadeout 0.5
 m "Oof! It's so dank, dark, and dusty in here."
+stop sound3 fadeout 0.5
 m "Looks like it's been abandoned for a long time..."
 show marnie unhappy at sulk
 m "I don't like this..."
@@ -371,7 +374,7 @@ menu(screen ='choice'):
         show gelato happy at wiggle
         g "Oh yeah?"
         g "So does that mean you'll be with the crew long term?"
-        g "{size=-06} Maybe you can teach me human stick hit ball...{/size}"
+        g "{size=-06} Maybe you can teach me human stick ball...{/size}"
 
 show marnie shocked
 m "C’mon, Gelato, take this seriously."
