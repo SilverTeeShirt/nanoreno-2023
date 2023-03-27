@@ -587,4 +587,68 @@ screen TESTLOCATIONS:
 
 
 label rm0_lockersolution:
-    dd "It worked!"
+    dd "The locker opened. There seems to be something inside."
+    $inventory.items.append(rm0_food)
+    $inventory.removeitem(rm0_lockerkey)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label rm0_lockerkeycommsp:
+    s "Hi, that's a key, a bit too analog for my taste."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label rm0_lockerkeycommmar:
+    m "Hi, that's a key, I think it might open one of the lockers?"
+    $rm0_lockerkey.targetinter = "locker1"
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label rm0_lockerkeycommot:
+    o "Hi, that's a key, I am not sure it's yours rookie."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label rm0_lockerkeycomgel:
+    g "Hi, that's my key, I was wondering where it went."
+    $rm0_food.targetinter = "Gelato"
+    $rm0_lockerkey.targetinter = "locker1"
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label rm0_lockerkeycomai:
+    ai "A key. Now go away."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+
+#rm0_food
+
+label rm0_foodsolution:
+
+    dd "With a single gulp, Gelato ingests the food bar. Wrapper and all."
+
+    g "That really hit the spot!"
+
+    $inventory.removeitem(rm0_food)
+
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label rm0_foodcommsp:
+    s "I think I ate a few of those back in high school... I think it's Gelato's"
+
+    $rm0_food.targetinter = "Gelato"
+    
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label rm0_foodcommmar:
+    m "Oh wow that... that looks bad. No thanks."
+    
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label rm0_foodcommot:
+    o "A special nutrition bar. Not compatible with my species."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label rm0_foodcomgel:
+    g "Oh hey, if it isn't my food bar, thanks buddy!"
+    jump rm0_foodsolution
+
+label rm0_foodcomai:
+    ai "Egads, what ghastly manner of food is that?"
+    
+    $roommanager.returnfrominteraction(roommanager.currentroom)

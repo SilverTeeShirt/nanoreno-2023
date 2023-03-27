@@ -115,10 +115,11 @@ init python:
             self.labelref = labelref
 
     class ImageInteractable(Interactable):
-        def __init__(self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,labelref,imageref,menuimageref):
+        def __init__(self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,labelref,imageref,menuimageref,characode):
             super().__init__(name,intertype,horposition,verposition,interprogress,interrangelayer,interrangequest,fltext,labelref)
             self.imageref = imageref
             self.menuimageref = menuimageref
+            self.characode = characode
 
 
     class TextInteractable(Interactable):
@@ -133,10 +134,20 @@ init python:
             self.items = items
             self.activeitem = activeitem
 
+        def setactiveitem(self,nitem):
+            self.activeitem = nitem
+
+        def removeitem(self,itemr):
+            
+            if (itemr in self.items):
+                self.items.remove(itemr)
+
+            if (self.activeitem == itemr):
+                self.activeitem = ""
 
 
     class Item():
-        def __init__(self,name,idnum,imageref,description,targetinter,solutionlab,dragimg):
+        def __init__(self,name,idnum,imageref,description,targetinter,solutionlab,dragimg,comments):
             self.name = name
             self.idnum = idnum
             self.imageref = imageref
@@ -144,22 +155,88 @@ init python:
             self.targetinter = targetinter
             self.solutionlab = solutionlab
             self.dragimg = dragimg
+            self.comments = comments
+
+        def interpretoutcome(self,outcomeval,rmman):
+            if outcomeval == 0:
+                renpy.jump(self.solutionlab)
+            
+            if outcomeval == 6:
+                rmman.returnfrominteraction(rmman.currentroom)
+
+            if outcomeval == 1:
+                renpy.jump(self.comments[0])
+            
+            if outcomeval ==2:
+                renpy.jump(self.comments[1])
+
+            if outcomeval ==3:
+                renpy.jump(self.comments[2])
+            
+            if outcomeval ==4:
+                renpy.jump(self.comments[3])
+            
+            if outcomeval ==5:
+                renpy.jump(self.comments[4])
+
+
+    def dropcheckcorr(drags,drop):
+
+        store.dropoutcome = 0
+
+        return True
+    
+    def dropcheckwrong(drags,drop):
+
+        store.dropoutcome = 6
+
+        return True
+    
+    def dropchecksp(drags,drop):
+
+        store.dropoutcome = 1;
+
+        return True
+
+    def dropcheckmar(drags,drop):
+
+        store.dropoutcome = 2;
+
+        return True
+    
+    def dropcheckot(drags,drop):
+
+        store.dropoutcome = 3;
+
+        return True
+    
+    def dropcheckgel(drags,drop):
+
+        store.dropoutcome = 4;
+
+        return True
+
+    def dropcheckai(drags,drop):
+
+        store.dropoutcome = 5;
+
+        return True
 
 
 
-    def dropcheck(dritem,drpinter,drags,drops):
-
-        if dritem.targetinter == drpinter:
-            renpy.call_screen("wtf")
 
 
+label dragdroplab:
 
-screen wtf:
-    text "wtf" xalign 0.5 yalign 0.5
+    default dropoutcome = 99
 
-############## ROOM MANAGER ##############
-############## ROOM MANAGER ##############
-############## ROOM MANAGER ##############
+    call screen dragdropscreen(inventory,roommanager,inventory.activeitem)
+
+    $inventory.activeitem.interpretoutcome(dropoutcome,roommanager)
+
+
+
+
 
 
 label uisetup:
@@ -313,17 +390,16 @@ screen invscreen(inventoryref,roommanagerref):
 
             auto gitem.imageref
 
-            action [Hide("invscreen"), Show("interlocationscreen",None,localinventoryref,localrmanref,gitem)]
+            action [Hide("invscreen"),Function(localinventoryref.setactiveitem,gitem), Jump("dragdroplab")]
 
             alternate [Hide("invscreen"), Show("itemdescscreen",None,gitem.description,localinventoryref,localrmanref)]
 
         $ count += 1
 
 
-screen interlocationscreen(inventoryref,roommanagerref,itemtodrag):
+screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
 
     modal True
-
 
     default localinvenref = inventoryref
     default locitemtodrag =  itemtodrag
@@ -335,12 +411,11 @@ screen interlocationscreen(inventoryref,roommanagerref,itemtodrag):
     #transform other items into back button!!! (or use them to loop into this screen?) Account for count and relative position!
 
 
-
     imagebutton:
         xpos 885
         ypos 950
         auto "gamesys/BCK_%s.png"
-        action [Hide("interlocationscreen"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
+        action [Hide("dragdropscreen"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
 
     draggroup:
 
@@ -352,17 +427,82 @@ screen interlocationscreen(inventoryref,roommanagerref,itemtodrag):
             draggable True
             droppable False
 
-
-
         for intloc in interactablesonscreen:
 
-            drag:
-                drag_name "[intloc.name]"
-                xpos intloc.horposition
-                ypos intloc.verposition
-                child intloc.menuimageref
-                draggable False
-                droppable True
+            if (intloc.intertype != 3):
+
+                if (intloc.name == locitemtodrag.targetinter):
+
+                    drag:
+                        drag_name "[intloc.name]"
+                        xpos intloc.horposition
+                        ypos intloc.verposition
+                        child intloc.menuimageref
+                        draggable False
+                        droppable True
+                        dropped dropcheckcorr
+                else:
+                    if (intloc.characode == 0):
+                        drag:
+                            drag_name "[intloc.name]"
+                            xpos intloc.horposition
+                            ypos intloc.verposition
+                            child intloc.menuimageref
+                            draggable False
+                            droppable True
+                            dropped dropcheckwrong
+
+                    if (intloc.characode == 1):
+                        drag:
+                            drag_name "[intloc.name]"
+                            xpos intloc.horposition
+                            ypos intloc.verposition
+                            child intloc.menuimageref
+                            draggable False
+                            droppable True
+                            dropped dropchecksp
+                
+                    if (intloc.characode == 2):
+                        drag:
+                            drag_name "[intloc.name]"
+                            xpos intloc.horposition
+                            ypos intloc.verposition
+                            child intloc.menuimageref
+                            draggable False
+                            droppable True
+                            dropped dropcheckmar
+
+                    if (intloc.characode == 3):
+                        drag:
+                            drag_name "[intloc.name]"
+                            xpos intloc.horposition
+                            ypos intloc.verposition
+                            child intloc.menuimageref
+                            draggable False
+                            droppable True
+                            dropped dropcheckot
+
+                    if (intloc.characode == 4):
+                        drag:
+                            drag_name "[intloc.name]"
+                            xpos intloc.horposition
+                            ypos intloc.verposition
+                            child intloc.menuimageref
+                            draggable False
+                            droppable True
+                            dropped dropcheckgel
+                
+                    if (intloc.characode == 5):
+                        drag:
+                            drag_name "[intloc.name]"
+                            xpos intloc.horposition
+                            ypos intloc.verposition
+                            child intloc.menuimageref
+                            draggable False
+                            droppable True
+                            dropped dropcheckai
+
+
 
 
 

@@ -1,48 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-Compiling ATL code at game/images.rpy:215
-  File "game/custom system.rpy", line 163, in script call
+While running game code:
+  File "game/custom system.rpy", line 243, in script call
     call screen makeplayerUI(roommanager)
-  File "game/interactables.rpy", line 30, in script
-    show item_key1_idle with dissolve:
-Exception: Not a displayable: <store.BrightnessMatrix object at 0x0000000005def160>
+  File "game/interactables.rpy", line 601, in script
+    $room0_lockerkey.targetinter = "locker1"
+  File "game/interactables.rpy", line 601, in <module>
+    $room0_lockerkey.targetinter = "locker1"
+NameError: name 'room0_lockerkey' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/custom system.rpy", line 163, in script call
+  File "game/custom system.rpy", line 243, in script call
     call screen makeplayerUI(roommanager)
-  File "game/interactables.rpy", line 30, in script
-    show item_key1_idle with dissolve:
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1408, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1371, in show_imspec
-    renpy.config.show(name,
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\exports.py", line 712, in show
-    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 1165, in add
-    thing.visit_all(lambda d : None)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 572, in visit_all
-    for d in self.visit():
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 614, in visit
-    block = self.compile()
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 521, in compile
-    block = self.atl.compile(self.context)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 721, in compile
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 721, in <listcomp>
-    statements = [ i.compile(ctx) for i in self.statements ]
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 978, in compile
-    child = renpy.easy.displayable(child)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\easy.py", line 140, in displayable
-    raise Exception("Not a displayable: %r" % (d,))
-Exception: Not a displayable: <store.BrightnessMatrix object at 0x0000000005def160>
+  File "game/interactables.rpy", line 601, in script
+    $room0_lockerkey.targetinter = "locker1"
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\Admin\Desktop\Renpy\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/interactables.rpy", line 601, in <module>
+    $room0_lockerkey.targetinter = "locker1"
+NameError: name 'room0_lockerkey' is not defined
 
-Windows-10-10.0.19044 AMD64
+Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.3.22090809
 Space Breakers 0.1
-Sun Mar 26 10:35:26 2023
+Mon Mar 27 02:07:11 2023
