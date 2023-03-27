@@ -42,29 +42,92 @@ image spacemoving:
 
 ## Images Rooms
 
-image bg_0cold_room:
+image bg_0cold_roomP:
     contains:
         "spacemoving"
     contains:
         "/bg/bg_0cold.png"
+    contains:
+        "/bg/bg_0coldscreen.png"
+        alpha .55
+        pause .08
+        "/bg/bg_0coldscreen.png"
+        alpha .3
+        pause .08
+        repeat
+image bg_0cold_roomP2:
+    contains:
+        "spacemoving"
+    contains:
+        "/bg/bg_0cold2.png"
 
-image bg_1bridge_room:
+image bg_0cold_room = ConditionSwitch(
+    "power", "bg_0cold_roomP2",
+    "True", "bg_0cold_roomP")
+
+
+
+image bg_1bridge_roomP:
     contains:
         "spacemoving"
     contains:
         "/bg/bg_1bridge.png"
+    contains:
+        "/bg/bg_1bridgescreen.png"
+        alpha .55
+        pause .08
+        "/bg/bg_1bridgescreen.png"
+        alpha .3
+        pause .08
+        repeat
+image bg_1bridge_roomP2:
+    contains:
+        "spacemoving"
+    contains:
+        "/bg/bg_1bridge2.png"
+image bg_1bridge_room = ConditionSwitch(
+    "power", "bg_1bridge_roomP2",
+    "True", "bg_1bridge_roomP")
 
-image bg_2hub_room:
+
+image bg_2hub_roomP:
     contains:
         "spacemoving"
     contains:
         "/bg/bg_2hub.png"
+image bg_2hub_roomP2:
+    contains:
+        "spacemoving"
+    contains:
+        "/bg/bg_2hub2.png"
+image bg_2hub_room = ConditionSwitch(
+    "power", "bg_2hub_roomP2",
+    "True", "bg_2hub_roomP")
+
+
 
 image bg_3lab_room:
     contains:
         "spacemoving"
     contains:
         "/bg/bg_3lab.png"
+    contains:
+        "/bg/bg_3labscreen.png"
+        alpha .55
+        pause .08
+        "/bg/bg_3labscreen.png"
+        alpha .3
+        pause .08
+        repeat
+    contains:
+        "labpulse"
+
+image labpulse:
+    "/bg/bg_3labpulse.png" with dissolveslow
+    pause 2
+    "/bg/bg_3labpulse2.png" with dissolveslow
+    pause 2
+    repeat
 
 image bg_4con_room:
     contains:

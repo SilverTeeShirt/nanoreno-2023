@@ -19,3 +19,4 @@ define config.default_voice_volume = 0.8
 
 ## music
 define ambience = "audio/music/ambience.ogg"
+define floatingby = "audio/music/floating_by.ogg"

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/custom system.rpy", line 167: expected statement.
-    inventory.activeitem.interpretoutcome(dropoutcome)
-                                                      ^
+File "game/interactables.rpy", line 422: Line is indented, but the preceding hide statement statement does not expect a block. Please check this line's indentation.
+    $ power = False
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon Mar 27 00:10:00 2023
+Sun Mar 26 21:48:31 2023

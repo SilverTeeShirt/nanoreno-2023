@@ -146,6 +146,7 @@ scene bg_1bridge_room with fade
 show marnie normal with dissolve:
     zoomnorm
     leftish
+play music floatingby volume 0.3
 if shower == True:
     m "Jeez Rookie,{w=0.25} took you long enough."
 else:
@@ -319,15 +320,23 @@ g "Yippie!"
 show marnie unhappy at sway
 m "This is such a bad idea."
 o "Rookie, you're on point."
-show bgblack2 with dissolve
-#play sound landing connecting
+stop music fadeout 1.75
+show bgblack2 with dissolveslow
+play sound hylong volume 0.7
+pause 2.6
+play sound2 metaldoorclunk volume 1
+pause 1.25
 
 ##### HUB #####
 
-#play sound airlock opening door
-scene bg_2hub_room with fadeslow
+scene bgblack
+show bgblack2:
+    alpha .7
+show bg_2hub_room behind bgblack2 with dissolveslow
+play sound3 airlock volume 0.6
 dd "As the salvagers disembark onto the mysterious station, a wave of dusty stale air washes over them."
-show marnie normal with dissolve:
+hide bgblack2 with dissolveslow
+show marnie normal behind bgblack2 with dissolve:
     zoomnorm
     ease 0.4 xalign 0.2
 m "Oof! It's so dank, dark, and dusty in here."

@@ -14,7 +14,9 @@ init python:
             self.navicon = navicon
             self.eventsready = eventsready
 
+        def bgref_change(self,idnum,bgref):
 
+            self.room[idnum].bgref_change(bgref)
 
     class RoomManager():
         def __init__(self,name,rooms,currentroom,currinterlayer,gotnav,gotinv):
@@ -94,7 +96,7 @@ init python:
 
         def intertoggle_off(self,tarinter):
             tarinter.intertype = 3
-            
+
         def intertoggle_on(self,tarinter):
             tarinter.intertype = 1
 
@@ -138,7 +140,7 @@ init python:
             self.activeitem = nitem
 
         def removeitem(self,itemr):
-            
+
             if (itemr in self.items):
                 self.items.remove(itemr)
 
@@ -160,22 +162,22 @@ init python:
         def interpretoutcome(self,outcomeval,rmman):
             if outcomeval == 0:
                 renpy.jump(self.solutionlab)
-            
+
             if outcomeval == 6:
                 rmman.returnfrominteraction(rmman.currentroom)
 
             if outcomeval == 1:
                 renpy.jump(self.comments[0])
-            
+
             if outcomeval ==2:
                 renpy.jump(self.comments[1])
 
             if outcomeval ==3:
                 renpy.jump(self.comments[2])
-            
+
             if outcomeval ==4:
                 renpy.jump(self.comments[3])
-            
+
             if outcomeval ==5:
                 renpy.jump(self.comments[4])
 
@@ -185,13 +187,13 @@ init python:
         store.dropoutcome = 0
 
         return True
-    
+
     def dropcheckwrong(drags,drop):
 
         store.dropoutcome = 6
 
         return True
-    
+
     def dropchecksp(drags,drop):
 
         store.dropoutcome = 1;
@@ -203,13 +205,13 @@ init python:
         store.dropoutcome = 2;
 
         return True
-    
+
     def dropcheckot(drags,drop):
 
         store.dropoutcome = 3;
 
         return True
-    
+
     def dropcheckgel(drags,drop):
 
         store.dropoutcome = 4;
@@ -461,7 +463,7 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
                             draggable False
                             droppable True
                             dropped dropchecksp
-                
+
                     if (intloc.characode == 2):
                         drag:
                             drag_name "[intloc.name]"
@@ -491,7 +493,7 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
                             draggable False
                             droppable True
                             dropped dropcheckgel
-                
+
                     if (intloc.characode == 5):
                         drag:
                             drag_name "[intloc.name]"

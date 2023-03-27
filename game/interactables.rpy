@@ -409,6 +409,20 @@ label sprockotalk:
             $roommanager.intertoggle_off(sprocko_rm2)
             $roommanager.intertoggle_off(sprocko_rm3)
             $roommanager.returnfrominteraction(roommanager.currentroom)
+        "Power up station" if power == False:
+            r "Can you turn up the power? "
+            s "Sure thing but this will shut off the ship!"
+            hide sprocko with dissolve
+            $ power = True
+            $roommanager.intertoggle(ai_rm2)
+            $roommanager.setuproom(2)
+        "Power down station" if power == True:
+            r "Can you cut off the power?"
+            s "Um ok."
+            hide sprocko with dissolve
+            $ power = False
+            $roommanager.intertoggle(ai_rm2)
+            $roommanager.setuproom(2)
         "Back":
             hide sprocko with dissolve
             $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -632,12 +646,12 @@ label rm0_foodcommsp:
     s "I think I ate a few of those back in high school... I think it's Gelato's"
 
     $rm0_food.targetinter = "Gelato"
-    
+
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 label rm0_foodcommmar:
     m "Oh wow that... that looks bad. No thanks."
-    
+
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 label rm0_foodcommot:
@@ -650,5 +664,5 @@ label rm0_foodcomgel:
 
 label rm0_foodcomai:
     ai "Egads, what ghastly manner of food is that?"
-    
+
     $roommanager.returnfrominteraction(roommanager.currentroom)

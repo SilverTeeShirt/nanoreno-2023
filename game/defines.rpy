@@ -1,7 +1,7 @@
 ## Defines
 ## Characters
 
-define r = Character("Rookie", color="#bababa") 
+define r = Character("Rookie", color="#bababa")
 define s = Character("Sprocko", color="#aa16c4") #characode 1
 define m = Character("Marnie", color="#6064d1") #characode 2
 define o = Character("Captain Otus", color="#f7a512") #characode 3
@@ -63,7 +63,7 @@ define marnie_rm2= ImageInteractable("",1,545,680,0,[0],[0],"","marnietalk","int
 define sprocko_rm2= ImageInteractable("",1,230,735,0,[0],[0],"","sprockotalk","inter/talk/sprocko1_%s.png","inter/talk/sprocko1_idle.png",1)
 define gelato_rm2= ImageInteractable("Gelato",1,1140,447,0,[0],[0],"","gelatotalk","inter/talk/gelato1_%s.png","inter/talk/gelato1_idle.png",4)
 define otus_rm2= ImageInteractable("",1,1150,615,0,[0],[0],"","otustalk","inter/talk/otus1_%s.png","inter/talk/otus1_idle.png",3)
-define ai_rm2= ImageInteractable("",1,1645,675,0,[0],[0],"","aitalk","inter/talk/ai1_%s.png","inter/talk/ai1_idle.png",5)
+define ai_rm2= ImageInteractable("",3,1645,675,0,[0],[0],"","aitalk","inter/talk/ai1_%s.png","inter/talk/ai1_idle.png",5)
 
 ###################rm_3 lab
 define rm3_ceiling= ImageInteractable("",1,650,25,0,[0],[0],"","rm3_ceilinglook","inter/inter800x250_%s.png","inter/inter800x250_idle.png",0)
