@@ -279,8 +279,9 @@ style quick_button_text:
 ## to other menus, and to start the game.
 
 screen navigation():
-
+    image "titlecard"
     vbox:
+
         style_prefix "navigation"
 
         xpos gui.navigation_xpos
@@ -361,11 +362,11 @@ screen main_menu():
         vbox:
             style "main_menu_vbox"
 
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
+            # text "[config.name!t]":
+            #     style "main_menu_title"
+            #
+            # text "[config.version]":
+            #     style "main_menu_version"
 
 
 style main_menu_frame is empty

@@ -81,7 +81,7 @@ menu(screen ='choice'):
                 m "Your vitals are one hundred percent!"
                 m "You should be fine!"
                 r "R-Right..."
-            "Your name is Marnie":
+            "You're Marnie":
                 r "Your name is Marnie. The Ship's navigator?"
                 show marnie happy
                 m "Yup!{w=0.25} That's right!"
@@ -202,7 +202,7 @@ show marnie at sway
 if shower == True:
     m "{size=-06}But I was the first one here...{/size}"
 else:
-    m "Hey! I was here this whole time!"
+    m "Hey! I was here the whole time!"
     o "Bah! Whatever!"
 show gelato at wiggle
 g "Sometimes Captain, you gotta go at a human's pace!"
@@ -357,7 +357,7 @@ show marnie normal behind bgblack2 with dissolve:
     ease 0.4 xalign 0.2
 stop sound fadeout 0.5
 stop sound2 fadeout 0.5
-m "Oof! It's so dank, dark, and dusty in here."
+m "Oof! It's so dark, dank, and dusty in here."
 stop sound3 fadeout 0.5
 m "Looks like it's been abandoned for a long time..."
 show marnie unhappy at sulk
@@ -378,7 +378,7 @@ show gelato normal at wiggle
 g "Perfect for the homesick Earthling!"
 
 menu(screen ='choice'):
-    "I've never been to earth":
+    "I've never been to Earth":
         r "I've never actually been to Earth..."
         show gelato shocked at hop
         g "Whoa really!?"
@@ -432,10 +432,10 @@ show otus unhappy:
 o "{size=+06}Rookie!{/size}"
 r "Ahh! Yes Captain?"
 o "Why are you just standing there?"
-o "Go help the others out and see what they need."
-r "Ahh! Yes sir!"
+o "Go and help the others. See what they need."
 show otus normal at hop
 o "Now get to it!"
+r "Ahh! Yes sir!"
 hide otus with dissolve
 play music ambience volume 0.15
 

@@ -50,10 +50,28 @@ label rm0_wireslook:
     dd "dangerous wires."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_windowlook:
-    dd "look at space."
+    if coldwindow_on == False:
+        dd "You stare deeply into the inky blackness of space."
+        dd "A cold shiver runs down your spine as you contemplate the unimaginable vastness of the universe."
+    else:
+        dd "The window shade blocks the view into space."
+        dd "Useful when trying to fall into the deep chill of Cold Sleep."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_wbuttonlook:
-    dd "push button, do later."
+    dd "You press the window shade button."
+    if power == False:
+        play sound fastsys
+        show bgwhite with vpunchnowait:
+            alpha 0.0
+        if coldwindow_on == False:
+            $ coldwindow_on = True
+            dd "The window shade snaps down in a flash."
+        else:
+            $ coldwindow_on = False
+            dd "The window shade shoots up in a flash."
+        $roommanager.returnfrominteraction(roommanager.currentroom)
+    else:
+        dd "Without the main power systems on, the button does nothing."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_noteslook:
     dd "note says do not use pod out of order."
@@ -228,6 +246,9 @@ label pumpdoorlook:
 label pumpslook:
     dd "pumps water."
     $roommanager.returnfrominteraction(roommanager.currentroom)
+label rm4_lightlook:
+    dd "Even with the power back on some things are just too damaged to reactivate."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
 label forestlook:
     dd "dense forest."
     $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -371,6 +392,24 @@ label marnietalk:
             $roommanager.intertoggle(marnie_rm2)
             $roommanager.intertoggle(marnie_rm4)
             $roommanager.returnfrominteraction(roommanager.currentroom)
+        "Toggle bird":
+            r "Can  u toggle?"
+            m "Sure..."
+            hide marnie with dissolve
+            if conbird_off == False:
+                $ conbird_off = True
+            else:
+                $ conbird_off = False
+            $roommanager.returnfrominteraction(roommanager.currentroom)
+        "Toggle vines":
+            r "Can u vines??"
+            m "Sure..."
+            hide marnie with dissolve
+            if convine_off == False:
+                $ convine_off = True
+            else:
+                $ convine_off = False
+            $roommanager.returnfrominteraction(roommanager.currentroom)
         "Back":
             hide marnie with dissolve
             $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -429,10 +468,10 @@ label sprockotalk:
             r "Can togglewater?"
             s "sure thing Rookie."
             hide sprocko with dissolve
-            if waterpressure == False:
-                $ waterpressure = True
+            if water_on == False:
+                $ water_on = True
             else:
-                $ waterpressure = False
+                $ water_on = False
             $roommanager.returnfrominteraction(roommanager.currentroom)
         "Back":
             hide sprocko with dissolve

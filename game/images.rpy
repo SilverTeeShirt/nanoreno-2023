@@ -44,11 +44,34 @@ image spacemoving:
         linear 160.0 xpos 1920
         repeat
 
+image main_menu:
+    contains:
+        "spacemoving"
+    contains:
+        "/gui/main_menubeam.png"
+        alpha 0.7
+        zoom 0.9
+        xpos 150
+        ypos -50
+    contains:
+        "/gui/main_menu.png"
+        zoom 0.5
+        xalign 1.0
+        yalign 0.9
+
+image titlecard:
+    "/gui/main_menutitle.png"
+    zoom 0.6
+    xalign 0.05
+    yalign 0.05
+
 ## Images Rooms
 
 image bg_0cold_roomP:
     contains:
         "spacemoving"
+    contains:
+        "coldwindow"
     contains:
         "/bg/bg_0cold.png"
     contains:
@@ -63,8 +86,15 @@ image bg_0cold_roomP2:
     contains:
         "spacemoving"
     contains:
+        "coldwindow2"
+    contains:
         "/bg/bg_0cold2.png"
-
+image coldwindow = ConditionSwitch(
+    "coldwindow_on", "/bg/bg_0coldwindow.png",
+    "True", "no_img")
+image coldwindow2 = ConditionSwitch(
+    "coldwindow_on", "/bg/bg_0coldwindow2.png",
+    "True", "no_img")
 image bg_0cold_room = ConditionSwitch(
     "power", "bg_0cold_roomP2",
     "True", "bg_0cold_roomP")
@@ -84,14 +114,20 @@ image bg_1bridge_roomP:
         alpha .3
         pause .08
         repeat
+    contains:
+        "bridgecord"
 image bg_1bridge_roomP2:
     contains:
         "spacemoving"
     contains:
         "/bg/bg_1bridge2.png"
+image bridgecord = ConditionSwitch(
+    "bridgecord_on", "/bg/bg_1bridgecord.png",
+    "True", "no_img")
 image bg_1bridge_room = ConditionSwitch(
     "power", "bg_1bridge_roomP2",
     "True", "bg_1bridge_roomP")
+
 
 
 image bg_2hub_roomP:
@@ -99,11 +135,16 @@ image bg_2hub_roomP:
         "spacemoving"
     contains:
         "/bg/bg_2hub.png"
+    contains:
+        "hubcord"
 image bg_2hub_roomP2:
     contains:
         "spacemoving"
     contains:
         "/bg/bg_2hub2.png"
+image hubcord = ConditionSwitch(
+    "hubcord_on", "/bg/bg_2hubcord.png",
+    "True", "no_img")
 image bg_2hub_room = ConditionSwitch(
     "power", "bg_2hub_roomP2",
     "True", "bg_2hub_roomP")
@@ -128,7 +169,7 @@ image bg_3lab_room:
     contains:
         "labwaterfill"
 image labwaterfill = ConditionSwitch(
-    "waterpressure", "/bg/bg_3labfill.png",
+    "water_on", "/bg/bg_3labfill.png",
     "True", "no_img")
 image labpulse:
     "/bg/bg_3labpulse.png" with dissolveslow
@@ -139,13 +180,55 @@ image labpulse:
 
 
 
-
-
 image bg_4con_room:
     contains:
         "spacemoving"
     contains:
         "/bg/bg_4con.png"
+    contains:
+        "conbird"
+    contains:
+        "convine"
+image convine = ConditionSwitch(
+    "convine_off", "no_img",
+    "True", "/bg/bg_4convine.png")
+image conbirdactive:
+    "/bg/bg_4conbeak.png"
+    ease 0.1 ypos -15
+    ease 0.1 ypos 0
+    pause 1
+    ease 1.0 xpos 15
+    pause 3
+    ease 0.1 ypos -15
+    ease 0.1 ypos 0
+    ease 0.1 ypos -15
+    ease 0.1 ypos 0
+    ease 1.0 xpos -15
+    pause 1
+    ease 0.1 ypos -15
+    ease 0.1 ypos 0
+    pause 4
+    ease 1.0 xpos 15
+    pause 1.5
+    ease 1.0 xpos 0
+    pause 2
+    ease 0.1 xpos 5
+    ease 0.1 xpos -5
+    ease 0.1 xpos 5
+    ease 0.1 xpos -5
+    ease 0.1 xpos 5
+    ease 0.1 xpos -5
+    ease 0.1 xpos 5
+    ease 0.1 xpos -5
+    ease 0.1 xpos 5
+    ease 0.1 xpos -5
+    pause 1
+    ease 0.1 ypos -15
+    ease 0.1 ypos 0
+    repeat
+image conbird = ConditionSwitch(
+    "conbird_off", "no_img",
+    "True", "conbirdactive")
 
 image bg_5bar_room:
     contains:
