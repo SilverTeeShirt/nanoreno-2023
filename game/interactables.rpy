@@ -463,6 +463,24 @@ label gelatotalk:
             $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
+# "The station":
+#     r "What can you tell me about the station?"
+#     g "Well It's a human station for sure."
+#     g "If you look, everything is proportional to you guys. The stairs, the table, even the doors."
+#     g "But mainly it's the air!"
+#     r "The air?"
+#     g "Yeah its the perfect mixture of oxygen, nitrogen, elements. A Perfect replicata of Earth air and ideal for humans."
+#     g "You see we Troaderlites are very sensitive to air qaulitiy since we often times breath through our skin."
+#     g "When at rest we don't even need to use our lungs!"
+#
+# "Troaderlites":
+#     r "What can you tell me about Troaderlites in general?"
+#     g "Well... You know we aren't the most liked species in the galaxy..."
+#     g "Because of that war and everything..."
+#     g "It's tough sometimes but I try to manage."
+#     g "I'm thankful Captain Otus took me onto his crew. It's just so much fun!"
+#     g "Sorry... I didn't really answer your question..."
+
 
 ######################## Otus ########################
 label otustalk:
