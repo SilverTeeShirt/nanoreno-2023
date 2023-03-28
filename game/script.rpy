@@ -18,8 +18,8 @@ label start:
 
 ##rollback messes with item collecting
 #$config.rollback_enabled = False
-##
-stop music fadout 1.0
+
+stop music fadeout 1.0
 scene START
 
 label introcold:
@@ -419,10 +419,11 @@ show gelato normal at hop
 o "Focus, people! We have a tight timetable remember?"
 o "First things first, we need to get the power restored and then figure a way to that reactor core."
 o "Scrapping anything else can wait."
+show sprocko happy
 s "Yes! I'll take a look around, I already have...{w=0.25} IDEAS!"
 hide sprocko with dissolve
 show gelato normal at wiggle
-g "How fun! I guess we should spread out."
+g "How fun!{w=0.25} I guess we should spread out!"
 hide gelato with dissolve
 m "For the record I still think this is a bad idea..."
 hide marnie with dissolve

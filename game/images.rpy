@@ -6,6 +6,10 @@ image bgwhite = "#FFFFFF"
 image bgred = "#FF0000"
 image bgblue = "#0064FF"
 
+image no_img:
+    "#000000"
+    alpha 0.0
+
 ## Space
 
 image spacemoving:
@@ -121,13 +125,21 @@ image bg_3lab_room:
         repeat
     contains:
         "labpulse"
-
+    contains:
+        "labwaterfill"
+image labwaterfill = ConditionSwitch(
+    "waterpressure", "/bg/bg_3labfill.png",
+    "True", "no_img")
 image labpulse:
     "/bg/bg_3labpulse.png" with dissolveslow
     pause 2
     "/bg/bg_3labpulse2.png" with dissolveslow
     pause 2
     repeat
+
+
+
+
 
 image bg_4con_room:
     contains:

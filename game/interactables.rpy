@@ -9,7 +9,7 @@ label showerlook:
     menu(screen ='choice'):
         "Take a shower" if shower == False and power == False:
             dd "You hop in the shower and turn the dial."
-            play sound sonicshower volume 0.9
+            play sound sonicshower
             dd "A wave of ultra sonic pulses hits you all over."
             r "Ahhh! How can anyone ever get used to this?!"
             $ shower = True
@@ -425,6 +425,15 @@ label sprockotalk:
             $ power = False
             $roommanager.intertoggle(ai_rm2)
             $roommanager.setuproom(2)
+        "Toggle water":
+            r "Can togglewater?"
+            s "sure thing Rookie."
+            hide sprocko with dissolve
+            if waterpressure == False:
+                $ waterpressure = True
+            else:
+                $ waterpressure = False
+            $roommanager.returnfrominteraction(roommanager.currentroom)
         "Back":
             hide sprocko with dissolve
             $roommanager.returnfrominteraction(roommanager.currentroom)

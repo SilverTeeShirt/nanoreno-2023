@@ -94,7 +94,7 @@ define rm4_panels= ImageInteractable("",1,930,265,0,[0],[0],"","rm4_panelslook",
 define pumpdoor= ImageInteractable("",1,930,535,0,[0],[0],"","pumpdoorlook","inter/inter300x150_%s.png","inter/inter300x150_idle.png",0)
 define pumps= ImageInteractable("",1,660,475,0,[0],[0],"","pumpslook","inter/inter300x300_%s.png","inter/inter300x300_idle.png",0)
 define forest= ImageInteractable("",1,1410,490,0,[0],[0],"","forestlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png",0)
-define colorfulflower= ImageInteractable("",1,1520,90,0,[0],[0],"","colorfulflowerlook","inter/inter300x150_%s.png","inter/inter300x150_idle.png",0)
+define colorfulflower= ImageInteractable("",1,1520,50,0,[0],[0],"","colorfulflowerlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png",0)
 define bird= ImageInteractable("",1,525,705,0,[0],[0],"","birdlook","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
 
 define marnie_rm4= ImageInteractable("",3,1180,550,0,[0],[0],"","marnietalk","inter/talk/marnie2_%s.png","inter/talk/marnie2_idle.png",2)

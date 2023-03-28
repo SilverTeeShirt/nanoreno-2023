@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/interactables.rpy", line 17: choice menuitem expects a non-empty block.
-    "Back" if shower == False:
-                              ^
+File "game/images.rpy", line 131: expected 'comma or end of line' not found.
+    image labwaterfill = ConditionSwitch(
+    ^
+            "waterpressure", "/bg/bg_3labfill.png",
+            "True", "no_img")
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon Mar 27 00:49:27 2023
+Tue Mar 28 03:17:19 2023
