@@ -19,7 +19,7 @@ label start:
 ##rollback messes with item collecting
 #$config.rollback_enabled = False
 ##
-
+stop music fadout 1.0
 scene START
 
 label introcold:
@@ -32,7 +32,7 @@ play sound heartbeat volume 0.3
 show bgblack with dissolveslow:
     alpha 0.5
 dd "You awaken to the sound of your heart beginning to pump again, as you stir from the Cold Sleep."
-play sound heartbeat volume 0.3
+play sound heartbeat volume 0.4
 show bgblack with dissolve:
     alpha 0.85
 show bgblack with dissolve:
@@ -42,7 +42,7 @@ show marnie normal behind bgblack with dissolve:
     zoomnorm
     center
 dd "Standing above you, having pressed the emergency thaw button, is Marnie."
-play sound heartbeat volume 0.4
+play sound heartbeat volume 0.5
 show bgblack with dissolve:
     alpha 0.65
 show bgblack with dissolve:
@@ -98,7 +98,7 @@ menu(screen ='choice'):
                 r "..."
                 m "..."
                 show marnie with vpunchnowait
-                play sound smack volume 0.7
+                play sound smack volume 0.8
                 r "{size=+06}OW!{/size}"
                 show marnie shocked at hop
                 m "Stop messing around!"
@@ -126,7 +126,7 @@ menu(screen ='choice'):
                 m "..."
                 hide bgblack with disfastnowait
                 show marnie with vpunchnowait
-                play sound smack volume 0.7
+                play sound smack volume 0.8
                 r "{size=+06}OW!{/size}"
                 show marnie shocked at hop
                 m "Stop messing around!"
@@ -159,7 +159,7 @@ scene bg_1bridge_room with fade
 show marnie normal with dissolve:
     zoomnorm
     leftish
-play music floatingby volume 0.3
+play music floatingby volume 0.25
 if shower == True:
     m "Jeez Rookie,{w=0.25} took you long enough."
 else:
