@@ -82,7 +82,7 @@ menu(screen ='choice'):
                 m "You should be fine!"
                 r "R-Right..."
             "You're Marnie":
-                r "Your name is Marnie. The Ship's navigator?"
+                r "Your name is Marnie. The ship's navigator?"
                 show marnie happy
                 m "Yup!{w=0.25} That's right!"
                 m "I also do other important tasks like finance, scheduling, and sometimes waking up Rookies from their Cold Sleep."

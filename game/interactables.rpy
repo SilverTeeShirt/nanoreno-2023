@@ -396,6 +396,7 @@ label marnietalk:
             r "Can  u toggle?"
             m "Sure..."
             hide marnie with dissolve
+            $roommanager.intertoggle(bird)
             if conbird_off == False:
                 $ conbird_off = True
             else:
