@@ -44,6 +44,8 @@ image spacemoving:
         linear 160.0 xpos 1920
         repeat
 
+## Menu
+
 image main_menu:
     contains:
         "spacemoving"
@@ -64,6 +66,34 @@ image titlecard:
     zoom 0.6
     xalign 0.05
     yalign 0.05
+
+## CG
+
+image CG1:
+    contains:
+        "/cg/cg01bg.png"
+    contains:
+        "CG1stars"
+    contains:
+        "/cg/cg01station.png"
+    contains:
+        "CG1ship"
+        ease 2.5 ypos 20
+        ease 2.5 ypos 0
+        repeat
+
+image CG1stars:
+    "/cg/cg01star1.png" with dissolveslow
+    pause 1.6
+    "/cg/cg01star2.png" with dissolveslow
+    pause 1.6
+    repeat
+
+image CG1ship:
+    contains:
+        "/cg/cg01ship.png"
+    contains:
+        "/cg/cg01shipengine.png"
 
 ## Images Rooms
 

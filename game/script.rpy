@@ -234,8 +234,8 @@ s "Hey BOSS!"
 s "We got visual!"
 o "Finally! Put it on screen, Sprocko!"
 dd "With a simple click, the main screen turns on and a large orbital station comes into view."
-#play sound engines
-show cg01 with dissolve
+
+show CG1 with dissolve
 g "Woah, what is that?"
 o "Sprocko,{w=0.25} tell them."
 s "Well let's see...{w=0.25} Judging from the data it looks like an orbital station built over FIFTY cycles ago."
@@ -248,7 +248,7 @@ show marnie shocked
 show otus normal
 show sprocko normal
 show gelato shocked
-hide cg01 with dissolve
+hide CG1 with dissolve
 
 dd "The room is silent, as the magnitude of that statement hangs in the air."
 show gelato shocked at wiggle
