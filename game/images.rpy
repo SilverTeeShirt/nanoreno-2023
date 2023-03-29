@@ -235,6 +235,11 @@ image bg_5bar_room:
         "spacemoving"
     contains:
         "/bg/bg_5bar.png"
+    contains:
+        "barwaterfill"
+image barwaterfill = ConditionSwitch(
+    "water_on", "/bg/bg_5barfill.png",
+    "True", "no_img")
 
 image bg_6core_room:
     contains:
