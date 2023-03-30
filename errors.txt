@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/images.rpy", line 57: Line is indented, but the preceding ATL statement does not expect a block. Please check this line's indentation.
-    repeat
-    ^
+File "game/custom system.rpy", line 59: invalid syntax
+            renpy.pause 1
+                         ^
+    
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Tue Mar 28 16:25:38 2023
+Thu Mar 30 18:08:19 2023

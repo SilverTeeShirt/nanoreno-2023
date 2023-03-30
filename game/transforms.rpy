@@ -57,4 +57,5 @@ define flash = Fade(0.1, 0.0, 0.5, color="#fff")
 define disnowait = { "master" : Dissolve(1.0) }
 define disnowaitslow = { "master" : Dissolve(5.0) }
 define fadenowait = { "master" : Fade(1.0, 0.0, 1.0) }
+define fadetransnowait = { "master" : Fade(0.1, 0.0, 0.1) }
 define vpunchnowait = { "master" : Move((0, 10), (0, -10), .10, bounce=True, repeat=True, delay=.275) }

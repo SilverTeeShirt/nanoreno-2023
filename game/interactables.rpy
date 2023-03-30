@@ -20,13 +20,16 @@ label showerlook:
 label gloveslook:
     dd "Two pairs of work gloves dangle off the ship's internal super structure."
     dd "They are covered in a thick layer of dust and grime."
+    dd "You are unsure who they belong to as no member of the crew would be able fit into the claw like design."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label mirrorlook:
-    dd "cleaning station uses sonic pulse gun to reach the hard to clean areas."
+    dd "This cleaning station uses a sonic pulse gun to reach hard to reach areas."
+    dd "Useful for when you need to clean off gear or those more delicate parts of your body."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label shoe1look:
+    dd "An oversized work boot sits akwardly against the wall."
     if (rm0_shoe.interprogress == 0):
-        dd "Dirty shoe...wait, there seems to be something inside."
+        dd "You peer inside the giant boot and notice something at the bottom."
         show item_key1_idle with dissolve:
             xalign 0.5
             yalign 0.5
@@ -35,19 +38,25 @@ label shoe1look:
         $inventory.items.append(rm0_lockerkey)
         $rm0_shoe.interprogress = 1
     else:
-        dd "Nope, I got lucky once. That will have to do."
+        dd "There is nothing else of interest inside the large shoe. You wonder who it belongs to."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker1look:
-    dd "A locker. Always seems to be closed."
+    dd "These lockers are mainly used to store equipment and sometimes personal items."
+    dd "This set of lockers have a dimond and circle pattern on them."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker2look:
-    dd "thats a locker 2."
+    dd "These lockers are mainly used to store equipment and sometimes personal items."
+    dd "This set of lockers have a sqaure and triangle pattern on them."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label gastanklook:
-    dd "all sorts of chemicals for the cold sleep process."
+    dd "The Cold Sleep pods use a mixture of volitiles and chemicals along with a weak pulse of electricity."
+    dd "The tanks holding the volitiles have seen better days."
+    dd "It looks like one of the tanks have been leaking volitiles."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_wireslook:
-    dd "dangerous wires."
+    dd "You recognize the exposed wires all over the room. "
+    dd "They hang dangerously all over the place."
+    dd "It's best not to touch them."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_windowlook:
     if coldwindow_on == False:
@@ -68,22 +77,25 @@ label rm0_wbuttonlook:
             dd "The window shade snaps down in a flash."
         else:
             $ coldwindow_on = False
-            dd "The window shade shoots up in a flash."
+            dd "The window shade shoots up with a snap."
         $roommanager.returnfrominteraction(roommanager.currentroom)
     else:
         dd "Without the main power systems on, the button does nothing."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_noteslook:
-    dd "note says do not use pod out of order."
+    dd "The note says \"Do not use! Out of Order! -Captain Otus\" in Galacta Simplified Writing. "
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_terminallook:
-    dd "COMPUTER have interactions maybe."
+    dd "You click the computer terminal on."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label sleeppodlook:
-    dd "Large Cold Sleep pods."
+    dd "These Large Cold Sleep pods are used by the crew for long voyages and to conserve on life support systems."
+    dd "For many species, they also fuction as a way to avoid Starsickness."
+    dd "Humans are very susceptiable to those effects and often require Cold Sleep whenever they want to traverse the stars."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label scrathesslook:
-    dd "Scratches from the inside."
+    dd "This Cold Sleep pod is pretty banged up."
+    dd "There are heavy scratches and marks all from the inside the pod."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
@@ -396,7 +408,6 @@ label marnietalk:
             r "Can  u toggle?"
             m "Sure..."
             hide marnie with dissolve
-            $roommanager.intertoggle(bird)
             if conbird_off == False:
                 $ conbird_off = True
             else:

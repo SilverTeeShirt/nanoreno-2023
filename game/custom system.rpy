@@ -55,11 +55,14 @@ init python:
             cr = self.currentroom
             renpy.scene()
             renpy.show(cr.bgref)
-            #renpy.with_statement(fade)
+            #renpy.with_statement(fadetransnowait)
             cr.discovered = 0
             self.setupinterforroom(cr)
             self.changeinteractionlevel(0)
             self.setupplayerUI()
+
+        def setuproominstant(self,idnum):
+            self.currentroom = self.rooms[idnum]
 
 
         def setupinterforroom(self,currroom):

@@ -149,7 +149,8 @@ $roommanager.addeventstoroom(1,"introbridge")
 dd "As you climb out of the Cold Sleep pod, you slowly glance around the room in an attempt to regain your bearings."
 
 ##### ROOM 0 COLD SLEEP #####
-$roommanager.setuproom(0)
+# $roommanager.setuproom(0)
+$roommanager.returnfrominteraction(roommanager.currentroom)
 ##### ROOM 0 COLD SLEEP #####
 
 ##### BRIDGE #####
@@ -343,8 +344,12 @@ pause 2.6
 play sound2 metaldoorclunk volume 1
 pause 1.25
 
+$roommanager.addeventstoroom(2,"introhub")
+$roommanager.setuproominstant(2)
+$roommanager.checkroomevents(2)
 ##### HUB #####
 
+label introhub:
 scene bgblack
 show bgblack2:
     alpha .7
@@ -440,15 +445,14 @@ hide otus with dissolve
 play music ambience volume 0.15
 
 ##### ROOM 2 HUB #####
-$roommanager.setuproom(2)
+#$roommanager.setuproom(2)
+$roommanager.returnfrominteraction(roommanager.currentroom)
 ##### ROOM 2 HUB #####
 
 
+
+
 label powerup_event:
-
-
-
-
 
 ############## DRAFT ##############
 
