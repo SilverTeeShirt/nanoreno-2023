@@ -116,7 +116,7 @@ define drinks1= ImageInteractable("",1,1050,400,0,[0],[0],"","drinkslook","inter
 define drinks2= ImageInteractable("",1,1450,435,0,[0],[0],"","drinkslook","inter/inter300x150_%s.png","inter/inter300x150_idle.png",0)
 define rm5_datapad= ImageInteractable("",1,1390,555,0,[0],[0],"","rm5_datapadlook","inter/inter_%s.png","inter/inter_idle.png",0)
 
-define gelato_rm5= ImageInteractable("",3,440,140,0,[0],[0],"","gelatotalk","inter/talk/gelato2_%s.png","inter/talk/gelato2_idle.png",4)
+define gelato_rm5= ImageInteractable("Gelato",3,440,140,0,[0],[0],"","gelatotalk","inter/talk/gelato2_%s.png","inter/talk/gelato2_idle.png",4)
 
 
 ###################rm_6 reactor core

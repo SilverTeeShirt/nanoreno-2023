@@ -12,6 +12,7 @@ label showerlook:
             play sound sonicshower
             dd "A wave of ultra sonic pulses hits you all over."
             r "Ahhh! How can anyone ever get used to this?!"
+            dd "Although now clean you don't feel very refreshed."
             $ shower = True
             $roommanager.returnfrominteraction(roommanager.currentroom)
         "Back" if shower == False and power == False:
@@ -23,11 +24,11 @@ label gloveslook:
     dd "You are unsure who they belong to as no member of the crew would be able fit into the claw like design."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label mirrorlook:
-    dd "This cleaning station uses a sonic pulse gun to reach hard to reach areas."
+    dd "This cleaning station contains a sonic pulse gun and other similar cleaning devices."
     dd "Useful for when you need to clean off gear or those more delicate parts of your body."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label shoe1look:
-    dd "An oversized work boot sits akwardly against the wall."
+    dd "An oversized work boot sits awkwardly against the wall."
     if (rm0_shoe.interprogress == 0):
         dd "You peer inside the giant boot and notice something at the bottom."
         show item_key1_idle with dissolve:
@@ -46,16 +47,15 @@ label locker1look:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker2look:
     dd "These lockers are mainly used to store equipment and sometimes personal items."
-    dd "This set of lockers have a sqaure and triangle pattern on them."
+    dd "This set of lockers have a square and triangle pattern on them."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label gastanklook:
-    dd "The Cold Sleep pods use a mixture of volitiles and chemicals along with a weak pulse of electricity."
-    dd "The tanks holding the volitiles have seen better days."
-    dd "It looks like one of the tanks have been leaking volitiles."
+    dd "The Cold Sleep pods use a mixture of volatiles and chemicals along with a weak pulse of electricity."
+    dd "The tanks holding the chemicals have seen better days."
+    dd "A white gooey chemical is slowly seeping out of one of the tanks."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_wireslook:
-    dd "You recognize the exposed wires all over the room. "
-    dd "They hang dangerously all over the place."
+    dd "There are exposed wires hanging dangerously all over the room."
     dd "It's best not to touch them."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_windowlook:
@@ -83,19 +83,26 @@ label rm0_wbuttonlook:
         dd "Without the main power systems on, the button does nothing."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_noteslook:
-    dd "The note says \"Do not use! Out of Order! -Captain Otus\" in Galacta Simplified Writing. "
+    dd "The note says \"Do not use! Out of Order!\" written in Galactic Script."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_terminallook:
-    dd "You click the computer terminal on."
+    if power == False:
+        dd "The computer terminal flickers with a dull green light."
+        # Add computer terminal stuff. Maybe cold sleep log, and info and lore about it.
+    else:
+        dd "There is no use in trying to activate this computer."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label sleeppodlook:
-    dd "These Large Cold Sleep pods are used by the crew for long voyages and to conserve on life support systems."
-    dd "For many species, they also fuction as a way to avoid Starsickness."
-    dd "Humans are very susceptiable to those effects and often require Cold Sleep whenever they want to traverse the stars."
+    dd "Cold Sleep pods are an older technology still in use today."
+    dd "These pods in particular look very old."
+    dd "You often get a bit nervous when climbing into one of these."
+    # dd "These Cold Sleep pods are an older technology still in use today."
+    # dd "For many species, they function as a way to avoid Starsickness."
+    # dd "Humans are very susceptible and often require Cold Sleep whenever they want to traverse the stars."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label scrathesslook:
     dd "This Cold Sleep pod is pretty banged up."
-    dd "There are heavy scratches and marks all from the inside the pod."
+    dd "There are heavy scratches and marks all over the inside of this pod."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
@@ -523,6 +530,7 @@ label gelatotalk:
             $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
+
 # "The station":
 #     r "What can you tell me about the station?"
 #     g "Well It's a human station for sure."
@@ -574,6 +582,7 @@ label otustalk:
             $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
+
 ######################## Caretaker AI ########################
 label aitalk:
     show ai normal with dissolve:
@@ -600,85 +609,80 @@ label aitalk:
 
 
 
-
-##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-scene bg_6core_room
-##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-#label TESTLOCATIONSEND:
-call screen TESTLOCATIONS
-screen TESTLOCATIONS:
-    imagebutton: #memento
-        xpos 1685
-        ypos 540
-        auto "/inter/inter300x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #door
-        xpos 1525
-        ypos 30
-        auto "/inter/inter150x650_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #jarbottom
-        xpos 0
-        ypos 670
-        auto "/inter/inter300x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #jartop
-        xpos -35
-        ypos 100
-        auto "/inter/inter300x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #jarman
-        xpos -25
-        ypos 360
-        auto "/inter/inter300x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #computer
-        xpos 300
-        ypos 450
-        auto "/inter/inter300x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #deadguy
-        xpos 900
-        ypos 750
-        auto "/inter/inter300x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #core
-        xpos 810
-        ypos 200
-        auto "/inter/inter300x300_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #points1
-        xpos 290
-        ypos 90
-        auto "/inter/inter300x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #points2
-        xpos 1150
-        ypos 190
-        auto "/inter/inter300x150_%s.png"
-        action Jump("TESTLOCATIONSEND")
-    imagebutton: #datapad
-        xpos 690
-        ypos 860
-        auto "/inter/inter_%s.png"
-        action Jump("TESTLOCATIONSEND")
-
-    imagebutton: #otus
-        xpos 1142
-        ypos 295
-        auto "/inter/talk/otus2_%s.png"
-        action Jump("TESTLOCATIONSEND")
-##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-
-
-
+# ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
+# scene bg_6core_room
+# ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
+# #label TESTLOCATIONSEND:
+# call screen TESTLOCATIONS
+# screen TESTLOCATIONS:
+#     imagebutton: #memento
+#         xpos 1685
+#         ypos 540
+#         auto "/inter/inter300x300_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+#     imagebutton: #door
+#         xpos 1525
+#         ypos 30
+#         auto "/inter/inter150x650_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+#     imagebutton: #jarbottom
+#         xpos 0
+#         ypos 670
+#         auto "/inter/inter300x300_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+#     imagebutton: #jartop
+#         xpos -35
+#         ypos 100
+#         auto "/inter/inter300x300_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+#     imagebutton: #jarman
+#         xpos -25
+#         ypos 360
+#         auto "/inter/inter300x300_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+#     imagebutton: #computer
+#         xpos 300
+#         ypos 450
+#         auto "/inter/inter300x300_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+#     imagebutton: #deadguy
+#         xpos 900
+#         ypos 750
+#         auto "/inter/inter300x150_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+#     imagebutton: #core
+#         xpos 810
+#         ypos 200
+#         auto "/inter/inter300x300_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+#     imagebutton: #points1
+#         xpos 290
+#         ypos 90
+#         auto "/inter/inter300x150_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+#     imagebutton: #points2
+#         xpos 1150
+#         ypos 190
+#         auto "/inter/inter300x150_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+#     imagebutton: #datapad
+#         xpos 690
+#         ypos 860
+#         auto "/inter/inter_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+#
+#     imagebutton: #otus
+#         xpos 1142
+#         ypos 295
+#         auto "/inter/talk/otus2_%s.png"
+#         action Jump("TESTLOCATIONSEND")
+# ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
 
 
 
 ######object description and result labels, move to own screen later?############
 
 ##rm0_lockerkey
-
 
 label rm0_lockersolution:
     dd "The locker opened. There seems to be something inside."

@@ -160,7 +160,7 @@ scene bg_1bridge_room with fade
 show marnie normal with dissolve:
     zoomnorm
     leftish
-play music floatingby volume 0.25
+play music floatingby volume 0.22
 if shower == True:
     m "Jeez Rookie,{w=0.25} took you long enough."
 else:
@@ -336,7 +336,7 @@ show gelato happy at wiggle
 g "Yippie!"
 show marnie unhappy at sway
 m "This is such a bad idea."
-o "Rookie, you're on point."
+o "Alright Rookie! You're on point."
 stop music fadeout 1.75
 show bgblack2 with dissolveslow
 play sound hylong volume 0.7

@@ -19,5 +19,5 @@ define config.default_voice_volume = 0.8
 
 ## music
 define ambience = "audio/music/ambience.ogg" # volume 0.15
-define floatingby = "audio/music/floating_by.ogg" # volume 0.25
+define floatingby = "audio/music/floating_by.ogg" # volume 0.22
 define spacedout = "audio/music/spaced_out.ogg" # volume 0.4
