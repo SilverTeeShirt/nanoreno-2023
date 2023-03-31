@@ -37,6 +37,7 @@ label shoe1look:
         item "Received \"Locker Key\""
         hide item_key1_idle with dissolve
         $inventory.items.append(rm0_lockerkey)
+        $renpy.block_rollback()
         $rm0_shoe.interprogress = 1
     else:
         dd "There is nothing else of interest inside the large shoe. You wonder who it belongs to."
@@ -688,6 +689,7 @@ label rm0_lockersolution:
     dd "The locker opened. There seems to be something inside."
     $inventory.items.append(rm0_food)
     $inventory.removeitem(rm0_lockerkey)
+    $renpy.block_rollback()
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 label rm0_lockerkeycommsp:
@@ -723,6 +725,7 @@ label rm0_foodsolution:
     g "That really hit the spot!"
 
     $inventory.removeitem(rm0_food)
+    $renpy.block_rollback()
 
     $roommanager.returnfrominteraction(roommanager.currentroom)
 

@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/custom system.rpy", line 59: invalid syntax
-            renpy.pause 1
-                         ^
-    
+File "game/custom system.rpy", line 369: 'image' is not a keyword argument or valid child for the imagebutton statement.
+    image "iconlocked.jpg" xalign 0.6 yalign (0.2 + (0.2*count))
+         ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Thu Mar 30 18:08:19 2023
+Fri Mar 31 04:49:54 2023

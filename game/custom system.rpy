@@ -164,24 +164,31 @@ init python:
 
         def interpretoutcome(self,outcomeval,rmman):
             if outcomeval == 0:
+
                 renpy.jump(self.solutionlab)
 
             if outcomeval == 6:
-                rmman.returnfrominteraction(rmman.currentroom)
+                
+                renpy.jump("dragdroplab")
 
             if outcomeval == 1:
+                
                 renpy.jump(self.comments[0])
 
             if outcomeval ==2:
+                
                 renpy.jump(self.comments[1])
 
             if outcomeval ==3:
+               
                 renpy.jump(self.comments[2])
 
             if outcomeval ==4:
+                
                 renpy.jump(self.comments[3])
 
             if outcomeval ==5:
+                
                 renpy.jump(self.comments[4])
 
 
@@ -233,9 +240,13 @@ init python:
 
 label dragdroplab:
 
+    $ _skipping = False
+
     default dropoutcome = 99
 
     call screen dragdropscreen(inventory,roommanager,inventory.activeitem)
+
+    $ _skipping = True
 
     $inventory.activeitem.interpretoutcome(dropoutcome,roommanager)
 
@@ -245,6 +256,7 @@ label dragdroplab:
 
 
 label uisetup:
+
     call screen makeplayerUI(roommanager)
 
 
@@ -292,14 +304,14 @@ screen makeplayerUI(roommanagerref):
             xpos 975
             ypos 950
             auto "gamesys/NAV_%s.png"
-            action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Show("navscreen",None,localrmanref)]
+            action [SensitiveIf(localrmanref.currinterlayer == 0), SetVariable("_skipping",False), Hide("makeplayerUI"), Show("navscreen",None,localrmanref)]
 
     if (localrmanref.gotinv == 0):
         imagebutton:
             xpos 775
             ypos 950
             auto "gamesys/INV_%s.png"
-            action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
+            action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"),SetVariable("_skipping",False),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
 
 
 
@@ -320,7 +332,7 @@ screen navscreen(roommanagerref):
             xpos 885
             ypos 950
             auto "gamesys/BCK_%s.png"
-            action [Hide("navscreen"),Show("makeplayerUI",None,localrmanref)]
+            action [Hide("navscreen"), SetVariable("_skipping",True),Show("makeplayerUI",None,localrmanref)]
 
 
     for ri in roomstogoto:
@@ -338,7 +350,7 @@ screen navscreen(roommanagerref):
                     #auto "iconunknown_%s.jpg"
                 auto "navic/iconunknown_%s.jpg"
                 #take it away later
-                action [Hide("navscreen"),Hide("makeinteractables"),Function(localrmanref.checkroomevents,ri.idnum)]
+                action [Hide("navscreen"),Hide("makeinteractables"),SetVariable("_skipping",True),Function(localrmanref.checkroomevents,ri.idnum)]
         else:
 
             imagebutton:
@@ -376,7 +388,7 @@ screen invscreen(inventoryref,roommanagerref):
         xpos 885
         ypos 950
         auto "gamesys/BCK_%s.png"
-        action [Hide("invscreen"),Function(localrmanref.changeinteractionlevel,0),Show("makeplayerUI",None,localrmanref)]
+        action [Hide("invscreen"),Function(localrmanref.changeinteractionlevel,0),SetVariable("_skipping",True),Show("makeplayerUI",None,localrmanref)]
 
 
     for it in inventoryref.items:
@@ -405,6 +417,8 @@ screen invscreen(inventoryref,roommanagerref):
 screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
 
     modal True
+
+    
 
     default localinvenref = inventoryref
     default locitemtodrag =  itemtodrag

@@ -26,6 +26,7 @@ label introcold:
 show bg_0cold_room
 show bgblack
 pause 1.5
+
 qq "Hey..."
 qq "Hey Rookie!"
 play sound heartbeat volume 0.3
