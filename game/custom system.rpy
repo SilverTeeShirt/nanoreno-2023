@@ -19,13 +19,14 @@ init python:
             self.room[idnum].bgref_change(bgref)
 
     class RoomManager():
-        def __init__(self,name,rooms,currentroom,currinterlayer,gotnav,gotinv):
+        def __init__(self,name,rooms,currentroom,currinterlayer,gotnav,gotinv,navsys):
             self.name = name
             self.rooms = rooms
             self.currentroom = currentroom
             self.currinterlayer = currinterlayer
             self.gotnav = gotnav
             self.gotinv = gotinv
+            self.navsys = navsys
 
         def addeventstoroom(self,roomid,labelref):
 
@@ -103,6 +104,14 @@ init python:
         def intertoggle_on(self,tarinter):
             tarinter.intertype = 1
 
+        def updatenavsys(self): 
+
+            self.navsys.clear()
+             
+            for rtg in self.currentroom.adjacentrooms:
+
+                self.navsys.append(self.rooms[rtg])
+
 
 
 
@@ -138,6 +147,7 @@ init python:
         def __init__(self,items,activeitem):
             self.items = items
             self.activeitem = activeitem
+        
 
         def setactiveitem(self,nitem):
             self.activeitem = nitem
@@ -149,6 +159,9 @@ init python:
 
             if (self.activeitem == itemr):
                 self.activeitem = ""
+        
+
+
 
 
     class Item():
@@ -240,13 +253,12 @@ init python:
 
 label dragdroplab:
 
-    $ _skipping = False
 
     default dropoutcome = 99
 
     call screen dragdropscreen(inventory,roommanager,inventory.activeitem)
 
-    $ _skipping = True
+ 
 
     $inventory.activeitem.interpretoutcome(dropoutcome,roommanager)
 
@@ -304,14 +316,14 @@ screen makeplayerUI(roommanagerref):
             xpos 975
             ypos 950
             auto "gamesys/NAV_%s.png"
-            action [SensitiveIf(localrmanref.currinterlayer == 0), SetVariable("_skipping",False), Hide("makeplayerUI"), Show("navscreen",None,localrmanref)]
+            action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"), Function(localrmanref.updatenavsys), Show("navscreen",None,localrmanref)]
 
     if (localrmanref.gotinv == 0):
         imagebutton:
             xpos 775
             ypos 950
             auto "gamesys/INV_%s.png"
-            action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"),SetVariable("_skipping",False),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
+            action [SensitiveIf(localrmanref.currinterlayer == 0), Hide("makeplayerUI"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
 
 
 
@@ -321,54 +333,55 @@ screen navscreen(roommanagerref):
 
     modal True
     default localrmanref = roommanagerref
-    default roomstogoto = []
-    default count = 0
-
-    for rtg in localrmanref.currentroom.adjacentrooms:
-        $ roomstogoto.append(localrmanref.rooms[rtg])
+    default roomstogoto = roommanagerref.navsys
+    
 
 
     imagebutton:
             xpos 885
             ypos 950
             auto "gamesys/BCK_%s.png"
-            action [Hide("navscreen"), SetVariable("_skipping",True),Show("makeplayerUI",None,localrmanref)]
+            action [Hide("navscreen"),Show("makeplayerUI",None,localrmanref)]
+
+    hbox:
+
+        xalign 0.5
+        yalign 0.5
+
+        spacing 20
+        
+        for ri in roomstogoto:
 
 
-    for ri in roomstogoto:
+            if (ri.locked == 0):
 
+                imagebutton:
+                    xalign 0.5
+                    yalign 0.5
 
-        if (ri.locked == 0):
+                    if (ri.discovered == 0):
+                        auto ri.navicon
+                    else:
+                        auto "navic/navX_%s.png"
+                    #take it away later
+                    action [Hide("navscreen"),Hide("makeinteractables"),Function(localrmanref.checkroomevents,ri.idnum)]
+            else:
 
-            imagebutton:
-                xalign (0.2 + (0.15*count))
-                yalign 0.5
+                imagebutton:
 
-                #if (ri.discovered == 0):
-                    #auto ri.navicon
-                #else:
-                    #auto "iconunknown_%s.png"
-                auto "navic/navX_%s.png"
-                #take it away later
-                action [Hide("navscreen"),Hide("makeinteractables"),SetVariable("_skipping",True),Function(localrmanref.checkroomevents,ri.idnum)]
-        else:
+                    xalign 0.5
+                    yalign 0.5
 
-            imagebutton:
+                    # if (ri.discovered == 0):
+                    #     auto ri.navicon
+                    # else:
+                    #     #auto "iconunknown_%s.png"
+                    auto "navic/navX_%s.png"
+                    #take it away later
+                    action [NullAction()]
 
-                xalign 0.5
-                yalign (0.2 + (0.2*count))
+ 
 
-                # if (ri.discovered == 0):
-                #     auto ri.navicon
-                # else:
-                #     #auto "iconunknown_%s.png"
-                auto "navic/navX_%s.png"
-                #take it away later
-                action [NullAction()]
-
-            image "iconlocked.jpg" xalign 0.6 yalign (0.2 + (0.2*count))
-
-        $ count += 1
 
 
 
@@ -379,45 +392,45 @@ screen invscreen(inventoryref,roommanagerref):
     modal False
     default localrmanref = roommanagerref
     default localinventoryref = inventoryref
-    default itemstoshow = []
-    #default interactablesonscreen = localrmanref.currentroom.interactablelist
-    default count = 0
+    default itemstoshow = inventoryref.items
+
+
 
 
     imagebutton:
         xpos 885
         ypos 950
         auto "gamesys/BCK_%s.png"
-        action [Hide("invscreen"),Function(localrmanref.changeinteractionlevel,0),SetVariable("_skipping",True),Show("makeplayerUI",None,localrmanref)]
-
-
-    for it in inventoryref.items:
-
-        $itemstoshow.append(it)
+        action [Hide("invscreen"),Function(localrmanref.changeinteractionlevel,0),Show("makeplayerUI",None,localrmanref)]
 
 
 
-    for gitem in itemstoshow:
+    hbox:
+
+        xpos 400 
+        ypos 950
+
+    
+        for gitem in itemstoshow:
 
 
-        imagebutton:
+            imagebutton:
 
-            xpos (400 + (250*count))
-            ypos 950
+                xalign 0.5
+                yalign 0.5                
 
-            auto gitem.imageref
+                auto gitem.imageref
 
-            action [Hide("invscreen"),Function(localinventoryref.setactiveitem,gitem), Jump("dragdroplab")]
+                action [Hide("invscreen"),Function(localinventoryref.setactiveitem,gitem), Jump("dragdroplab")]
 
-            alternate [Hide("invscreen"), Show("itemdescscreen",None,gitem.description,localinventoryref,localrmanref)]
+                alternate [Hide("invscreen"), Show("itemdescscreen",None,gitem.description,localinventoryref,localrmanref)]
 
-        $ count += 1
+
 
 
 screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
 
     modal True
-
 
 
     default localinvenref = inventoryref

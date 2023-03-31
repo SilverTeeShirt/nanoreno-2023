@@ -137,13 +137,13 @@ define otus_rm6= ImageInteractable("",3,1142,295,0,[0],[0],"","otustalk","inter/
 
 ############## Rooms ##############
 ############## Rooms ##############
-define RM0_cold = Room("Cold TEST",0,"bg_0cold_room",[rm0_shower,rm0_gloves,rm0_mirror,rm0_shoe,rm0_locker1,rm0_locker2,rm0_gastanks,rm0_wires,rm0_window,rm0_wbutton,rm0_note,rm0_terminal,rm0_coldsleeppod,rm0_scrathes],0,0,[1],"bg_0cold_room",[])
-define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0,2],"bg_1bridge_room",[])
-define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,charger,rm2_door1,rm2_door2,logo,rm2_elevator,rm2_light1,rm2_light2,rm2_bigdoor,planetmodel,powermail,marnie_rm2,sprocko_rm2,gelato_rm2,otus_rm2,ai_rm2],0,0,[1,3,4,5,6],"bg_2hub_room",[])
-define RM3_lab = Room("Lab TEST",3,"bg_3lab_room",[rm3_ceiling,rm3_window,partshead,partsarm,raydish,constructor,fluidtanks,biodevice,rm3_datapad,rm3_safe,rm3_computer,chembank1,chembank2,chembank3,sprocko_rm3],0,0,[2,4,5],"bg_3lab_room",[])
-define RM4_con = Room("Conservatory TEST",4,"bg_4con_room",[hangingplants,garden,scarecrow,watertank,rm4_stair,rm4_panels,pumpdoor,pumps,rm4_light,forest,colorfulflower,bird,marnie_rm4],0,0,[2,3,5],"bg_4con_room",[])
-define RM5_bar = Room("Bar TEST",5,"bg_5bar_room",[booth,plantmonster,paintings,eyetree,moose,harpoon,bonemonster,bughead,rm5_tubes,drinkmaker,drinks1,drinks2,rm5_datapad,gelato_rm5],0,0,[2,3,4],"bg_5bar_room",[])
-define RM6_core = Room("Core TEST",6,"bg_6core_room",[memento,rm6_door,jarbot,jartop,jarman,rm6_computer,deadguy,rm6_rcore,rm6_points1,rm6_points2,rm6_datapad,otus_rm6],0,0,[2],"bg_6core_room",[])
+define RM0_cold = Room("Cold TEST",0,"bg_0cold_room",[rm0_shower,rm0_gloves,rm0_mirror,rm0_shoe,rm0_locker1,rm0_locker2,rm0_gastanks,rm0_wires,rm0_window,rm0_wbutton,rm0_note,rm0_terminal,rm0_coldsleeppod,rm0_scrathes],0,0,[1],"navic/nav0_%s.png",[])
+define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0,2],"navic/nav1_%s.png",[])
+define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,charger,rm2_door1,rm2_door2,logo,rm2_elevator,rm2_light1,rm2_light2,rm2_bigdoor,planetmodel,powermail,marnie_rm2,sprocko_rm2,gelato_rm2,otus_rm2,ai_rm2],0,0,[1,3,4,5,6],"navic/nav2_%s.png",[])
+define RM3_lab = Room("Lab TEST",3,"bg_3lab_room",[rm3_ceiling,rm3_window,partshead,partsarm,raydish,constructor,fluidtanks,biodevice,rm3_datapad,rm3_safe,rm3_computer,chembank1,chembank2,chembank3,sprocko_rm3],1,0,[2,4,5],"navic/nav3_%s.png",[])
+define RM4_con = Room("Conservatory TEST",4,"bg_4con_room",[hangingplants,garden,scarecrow,watertank,rm4_stair,rm4_panels,pumpdoor,pumps,rm4_light,forest,colorfulflower,bird,marnie_rm4],1,0,[2,3,5],"navic/nav4_%s.png",[])
+define RM5_bar = Room("Bar TEST",5,"bg_5bar_room",[booth,plantmonster,paintings,eyetree,moose,harpoon,bonemonster,bughead,rm5_tubes,drinkmaker,drinks1,drinks2,rm5_datapad,gelato_rm5],1,0,[2,3,4],"navic/nav5_%s.png",[])
+define RM6_core = Room("Core TEST",6,"bg_6core_room",[memento,rm6_door,jarbot,jartop,jarman,rm6_computer,deadguy,rm6_rcore,rm6_points1,rm6_points2,rm6_datapad,otus_rm6],1,0,[2],"navic/nav6_%s.png",[])
 
 #####items######
 define rm0_lockerkey = Item("Small Key",0,"item/item_key1_%s.png","A small key found in a sock. Too small to be a door's key.", "nonedonotusetest","rm0_lockersolution","item/item_key1_idle.png",["rm0_lockerkeycommsp","rm0_lockerkeycommmar","rm0_lockerkeycommot","rm0_lockerkeycomgel","rm0_lockerkeycomai"])
@@ -164,6 +164,6 @@ define rm0_food = Item("Food Bar",1,"item/item_food1_%s.png", "A nasty looking f
 
 
 ## Roommanager (and Inventory soon)
-define roommanager = RoomManager("roommanager",[RM0_cold,RM1_bridge,RM2_hub,RM3_lab,RM4_con,RM5_bar,RM6_core],RM0_cold,1,0,0)
+define roommanager = RoomManager("roommanager",[RM0_cold,RM1_bridge,RM2_hub,RM3_lab,RM4_con,RM5_bar,RM6_core],RM0_cold,1,0,0,[])
 
 define inventory = Inventory([],"")
