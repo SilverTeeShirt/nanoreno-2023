@@ -279,7 +279,7 @@ style quick_button_text:
 ## to other menus, and to start the game.
 
 screen navigation():
-    image "titlecard"
+    # image "titlecard"
     vbox:
 
         style_prefix "navigation"

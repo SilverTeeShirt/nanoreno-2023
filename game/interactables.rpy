@@ -90,6 +90,10 @@ label rm0_terminallook:
     if power == False:
         dd "The computer terminal flickers with a dull green light."
         # Add computer terminal stuff. Maybe cold sleep log, and info and lore about it.
+
+
+
+
     else:
         dd "There is no use in trying to activate this computer."
     $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -388,6 +392,28 @@ label rm6_pointslook:
 label rm6_datapadlook:
     dd "download data to read later. About Sebastain and clues."
     $roommanager.returnfrominteraction(roommanager.currentroom)
+
+######################### ####### ###############################
+######################### Computer ###############################
+######################### ####### ###############################
+
+screen talk(items):
+    style_prefix "computertalk"
+    frame:
+        vbox:
+            for i in items:
+                textbutton i.caption action i.action
+style computertalk_frame is gui_frame
+style computertalk_frame:
+    background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
+    padding gui.confirm_frame_borders.padding
+    xalign .5
+    yalign .5
+    spacing gui.choice_spacing
+style computertalk_button is default:
+    properties gui.button_properties("choice_button")
+style computertalk_button_text is default:
+    properties gui.button_text_properties("choice_button")
 
 
 

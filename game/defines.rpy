@@ -150,6 +150,19 @@ define rm0_lockerkey = Item("Small Key",0,"item/item_key1_%s.png","A small key f
 
 define rm0_food = Item("Food Bar",1,"item/item_food1_%s.png", "A nasty looking food bar. You could swear it is squirming in your hand.","nonedonotusetest", "rm0_foodsolution", "item/item_food1_idle.png",["rm0_foodcommsp","rm0_foodcommmar","rm0_foodcommot","rm0_foodcomgel","rm0_foodcomai"] )
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Roommanager (and Inventory soon)
 define roommanager = RoomManager("roommanager",[RM0_cold,RM1_bridge,RM2_hub,RM3_lab,RM4_con,RM5_bar,RM6_core],RM0_cold,1,0,0)
 

@@ -63,6 +63,7 @@ define gui.name_text_font = "font/VirusKiller.ttf"
 ## The font used for out-of-game text.
 define gui.interface_text_font = "font/NunitoSemibold.ttf"
 
+define gui.title_text_font = "font/EdgeOfTheGalaxyRegular.otf"
 ## The size of normal dialogue text.
 define gui.text_size = 33
 
