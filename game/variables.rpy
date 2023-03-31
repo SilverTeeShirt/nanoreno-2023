@@ -11,3 +11,5 @@ default hubcord_on = False
 default convine_off = False
 default conbird_off = False
 default water_on = False
+
+default corejarman_on = False

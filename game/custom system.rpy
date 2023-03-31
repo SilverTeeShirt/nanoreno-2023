@@ -168,27 +168,27 @@ init python:
                 renpy.jump(self.solutionlab)
 
             if outcomeval == 6:
-                
+
                 renpy.jump("dragdroplab")
 
             if outcomeval == 1:
-                
+
                 renpy.jump(self.comments[0])
 
             if outcomeval ==2:
-                
+
                 renpy.jump(self.comments[1])
 
             if outcomeval ==3:
-               
+
                 renpy.jump(self.comments[2])
 
             if outcomeval ==4:
-                
+
                 renpy.jump(self.comments[3])
 
             if outcomeval ==5:
-                
+
                 renpy.jump(self.comments[4])
 
 
@@ -347,8 +347,8 @@ screen navscreen(roommanagerref):
                 #if (ri.discovered == 0):
                     #auto ri.navicon
                 #else:
-                    #auto "iconunknown_%s.jpg"
-                auto "navic/iconunknown_%s.jpg"
+                    #auto "iconunknown_%s.png"
+                auto "navic/navX_%s.png"
                 #take it away later
                 action [Hide("navscreen"),Hide("makeinteractables"),SetVariable("_skipping",True),Function(localrmanref.checkroomevents,ri.idnum)]
         else:
@@ -358,11 +358,11 @@ screen navscreen(roommanagerref):
                 xalign 0.5
                 yalign (0.2 + (0.2*count))
 
-                #if (ri.discovered == 0):
-                    #auto ri.navicon
-                #else:
-                    #auto "iconunknown_%s.jpg"
-                auto "iconunknown_%s.jpg"
+                # if (ri.discovered == 0):
+                #     auto ri.navicon
+                # else:
+                #     #auto "iconunknown_%s.png"
+                auto "navic/navX_%s.png"
                 #take it away later
                 action [NullAction()]
 
@@ -418,7 +418,7 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
 
     modal True
 
-    
+
 
     default localinvenref = inventoryref
     default locitemtodrag =  itemtodrag

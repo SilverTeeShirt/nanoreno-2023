@@ -338,7 +338,40 @@ label jarlook:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label jarmanlook:
     dd "Cloudy cant see inside yet, then opens to reveal the founder."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
+####TESTING
+####TESTING
+####TESTING
+    menu(screen ='choice'):
+        "ENDING?":
+            show bgblack with fade
+            scene bgblack2
+            $ corejarman_on = True
+            show spacemoving
+            show bg_6coreback
+            show bg_6core_roomforeground
+            show bgblack
+            ai "Well..."
+            hide bgblack with dissolve
+            show ai normale with dissolve:
+                zoomnorm
+            aie "I will kill you all!"
+            show ai happye at wiggle
+            aie "GHAHAHAHAHAHA!"
+            aie "MURDERRRR!"
+            aie "OPEN ZAAAA DOOORRRSS"
+            play sound zetaheart
+            show ai with vpunchnowait
+            show ai unhappye
+            hide bg_6coreback with dissolve
+            aie "..."
+            aie "im sad now..."
+            hide ai with dissolve
+            $roommanager.returnfrominteraction(roommanager.currentroom)
+        "Back":
+            $roommanager.returnfrominteraction(roommanager.currentroom)
+####TESTING
+####TESTING
+####TESTING
 label rm6_computerlook:
     dd "Computer core room."
     $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -346,6 +379,7 @@ label deadguylook:
     dd "Not sure who this sad sack is."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm6_rcorelook:
+    play sound zetaheart
     dd "impressive giant Zeta reactorcore."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm6_pointslook:

@@ -7,7 +7,7 @@ define m = Character("Marnie", color="#5b66b7") #characode 2
 define o = Character("Captain Otus", color="#ff8518") #characode 3
 define g = Character("Gelato", color="#006e21") #characode 4
 define ai = Character("The Caretaker", color="#00f0ff") #characode 5
-define aie = Character("The Caretaker", color="#ff0000") #characode 5
+define aie = Character("The Founder", color="#ff0000") #characode 5
 define qq = Character("???", color="#8888887f")
 define dd = Character(None, what_italic=True, what_font="font/NunitoSemiboldItalic.ttf") #Description
 define item = Character(None, what_italic=True, what_style="centered_text", what_font="font/NunitoSemiboldItalic.ttf", what_size = 36) #Description

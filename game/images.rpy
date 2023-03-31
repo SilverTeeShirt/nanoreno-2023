@@ -271,11 +271,70 @@ image barwaterfill = ConditionSwitch(
     "water_on", "/bg/bg_5barfill.png",
     "True", "no_img")
 
+
 image bg_6core_room:
     contains:
         "spacemoving"
     contains:
+        "/bg/bg_6coreback.png"
+    contains:
+        "coreglow"
+    contains:
         "/bg/bg_6core.png"
+    contains:
+        "/bg/bg_6corescreen.png"
+        alpha .55
+        pause .08
+        "/bg/bg_6corescreen.png"
+        alpha .3
+        pause .08
+        repeat
+    contains:
+        "jarman_image"
+
+image bg_6core_roomforeground:
+    contains:
+        "coreglow"
+    contains:
+        "/bg/bg_6core.png"
+    contains:
+        "/bg/bg_6corescreen.png"
+        alpha .55
+        pause .08
+        "/bg/bg_6corescreen.png"
+        alpha .3
+        pause .08
+        repeat
+    contains:
+        "jarman_image"
+
+image coreglow:
+    "/bg/bg_6coreglow.png" with dissolveslow
+    pause 2
+    "/bg/bg_6coreglow2.png" with dissolveslow
+    pause 2
+    repeat
+image jarmanactive:
+    contains:
+        "/bg/bg_6core_jar.png"
+    contains:
+        "/bg/bg_6core_jarman2.png"
+        ease 6.7 ypos 11
+        ease 5.9 ypos -5
+        repeat
+    contains:
+        "/bg/bg_6core_jarman1.png"
+        ease 5.6 ypos 11
+        ease 5.3 ypos 0
+        repeat
+    contains:
+        "/bg/bg_6core_jarman3.png"
+        ease 3.7 ypos -5
+        ease 4.3 ypos 0
+        repeat
+image jarman_image = ConditionSwitch(
+    "corejarman_on", "jarmanactive",
+    "True", "no_img")
 
 ## Images Characters
 
@@ -293,22 +352,22 @@ image ai unhappy = LiveComposite(
 
 image ai happy = LiveComposite(
     (1920, 1750),
-    (0, 0), "/char/ai/CaretakerHappy"
+    (0, 0), "/char/ai/CaretakerHappy.png"
     )
 
-image ai normalevil = LiveComposite(
+image ai normale = LiveComposite(
     (1920, 1750),
     (0, 0), "/char/ai/CaretakerNeutralEvil.png"
     )
 
-image ai unhappyevil = LiveComposite(
+image ai unhappye = LiveComposite(
     (1920, 1750),
     (0, 0), "/char/ai/CaretakerUnhappyEvil.png"
     )
 
-image ai happyevil = LiveComposite(
+image ai happye = LiveComposite(
     (1920, 1750),
-    (0, 0), "/char/ai/CaretakerHappyEvil"
+    (0, 0), "/char/ai/CaretakerHappyEvil.png"
     )
 
 ## Marnie
