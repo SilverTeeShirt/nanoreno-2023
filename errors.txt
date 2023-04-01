@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 361: expected end of line
-    window show behind choice
-                ^
+File "game/custom system.rpy", line 453: 'text' is not a keyword argument or valid child for the imagebutton statement.
+    text "Item Selected"
+        ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Apr  1 00:26:35 2023
+Sat Apr  1 01:44:50 2023

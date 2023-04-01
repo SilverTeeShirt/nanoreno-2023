@@ -59,10 +59,10 @@ define rm2_light1= ImageInteractable("",1,710,720,0,[0],[0],"","rm2_lightlook","
 define rm2_light2= ImageInteractable("",3,1128,720,0,[0],[0],"","rm2_lightlook","inter/inter_%s.png","inter/inter_idle.png",0)
 define rm2_bigdoor= ImageInteractable("",1,0,650,0,[0],[0],"","rm2_bigdoorlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png",0)
 define planetmodel= ImageInteractable("",1,1355,160,0,[0],[0],"","planetmodellook","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
-define powermail= ImageInteractable("",1,350,775,0,[0],[0],"","powermaillook","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
+define powermail= ImageInteractable("",1,352,775,0,[0],[0],"","powermaillook","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
 
 define marnie_rm2= ImageInteractable("",1,545,680,0,[0],[0],"","marnietalk","inter/talk/marnie1_%s.png","inter/talk/marnie1_idle.png",2)
-define sprocko_rm2= ImageInteractable("",1,230,735,0,[0],[0],"","sprockotalk","inter/talk/sprocko1_%s.png","inter/talk/sprocko1_idle.png",1)
+define sprocko_rm2= ImageInteractable("",1,228,735,0,[0],[0],"","sprockotalk","inter/talk/sprocko1_%s.png","inter/talk/sprocko1_idle.png",1)
 define gelato_rm2= ImageInteractable("Gelato",1,1140,447,0,[0],[0],"","gelatotalk","inter/talk/gelato1_%s.png","inter/talk/gelato1_idle.png",4)
 define otus_rm2= ImageInteractable("",1,1150,615,0,[0],[0],"","otustalk","inter/talk/otus1_%s.png","inter/talk/otus1_idle.png",3)
 define ai_rm2= ImageInteractable("",3,1645,675,0,[0],[0],"","aitalk","inter/talk/ai1_%s.png","inter/talk/ai1_idle.png",5)

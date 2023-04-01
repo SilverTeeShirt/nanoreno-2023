@@ -144,15 +144,17 @@ label mainwindowlook:
     show CG1docked with dissolve
     dd "The ship is docked to the station and you have a nice view of the planet below."
     dd "The large green planet doesn't seem to hold any life. Just large swirls of noxious gas and planet wide storms."
-    dd "Looking ahead you can see the edges of the Milkyway. This sector has a nice view of the Smeeepogo Constellation."
-    dd "Can you see it? It looks like a slice of pie."
+    dd "Looking ahead you can see the edges of the Milkyway Galaxy. This sector also has a nice view of the Pepperoni Constellation."
+    dd "Can you see it? It looks like a slice of pizza."
     hide CG1docked with dissolve
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label radtoplook:
-    dd "radiator thing pump top."
+    dd "This radiator helps circulate the air."
+    
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label radbotlook:
-    dd "radiator thing pump bottom."
+    dd "Hot or cool air is pumped out of this unit."
+    dd "It's a bit tricky to maintain a comfortable temperature for the diverse crew."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label navseatlook:
     dd "Navigator seat."

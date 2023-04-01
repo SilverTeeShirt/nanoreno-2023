@@ -104,10 +104,10 @@ init python:
         def intertoggle_on(self,tarinter):
             tarinter.intertype = 1
 
-        def updatenavsys(self): 
+        def updatenavsys(self):
 
             self.navsys.clear()
-             
+
             for rtg in self.currentroom.adjacentrooms:
 
                 self.navsys.append(self.rooms[rtg])
@@ -147,7 +147,7 @@ init python:
         def __init__(self,items,activeitem):
             self.items = items
             self.activeitem = activeitem
-        
+
 
         def setactiveitem(self,nitem):
             self.activeitem = nitem
@@ -159,7 +159,7 @@ init python:
 
             if (self.activeitem == itemr):
                 self.activeitem = ""
-        
+
 
 
 
@@ -258,7 +258,7 @@ label dragdroplab:
 
     call screen dragdropscreen(inventory,roommanager,inventory.activeitem)
 
- 
+
 
     $inventory.activeitem.interpretoutcome(dropoutcome,roommanager)
 
@@ -334,7 +334,7 @@ screen navscreen(roommanagerref):
     modal True
     default localrmanref = roommanagerref
     default roomstogoto = roommanagerref.navsys
-    
+
 
 
     imagebutton:
@@ -349,7 +349,7 @@ screen navscreen(roommanagerref):
         yalign 0.5
 
         spacing 20
-        
+
         for ri in roomstogoto:
 
 
@@ -380,7 +380,7 @@ screen navscreen(roommanagerref):
                     #take it away later
                     action [NullAction()]
 
- 
+
 
 
 
@@ -403,21 +403,26 @@ screen invscreen(inventoryref,roommanagerref):
         auto "gamesys/BCK_%s.png"
         action [Hide("invscreen"),Function(localrmanref.changeinteractionlevel,0),Show("makeplayerUI",None,localrmanref)]
 
+    #testing
+    textbutton "No Item Selected":
+        xpos 850
+        ypos 900
+        action [Hide("invscreen"),Function(localrmanref.changeinteractionlevel,0),Show("makeplayerUI",None,localrmanref)]
 
 
     hbox:
 
-        xpos 400 
-        ypos 950
+        xpos 400
+        ypos 800
 
-    
+
         for gitem in itemstoshow:
 
 
             imagebutton:
 
                 xalign 0.5
-                yalign 0.5                
+                yalign 0.5
 
                 auto gitem.imageref
 
@@ -448,13 +453,19 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
         ypos 950
         auto "gamesys/BCK_%s.png"
         action [Hide("dragdropscreen"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
+        
+    #testing
+    textbutton "Selected Item":
+        xpos 850
+        ypos 900
+        action [Hide("dragdropscreen"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
 
     draggroup:
 
         drag:
             drag_name "[itemtodrag.name]"
-            xpos 400
-            ypos 950
+            xpos 905
+            ypos 800
             child itemtodrag.dragimg
             draggable True
             droppable False
