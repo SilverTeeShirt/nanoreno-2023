@@ -6,18 +6,22 @@
 
 label showerlook:
     dd "A narrow sonic shower sits uncomfortably in the corner the room."
-    menu(screen ='choice'):
-        "Take a shower" if shower == False and power == False:
-            dd "You hop in the shower and turn the dial."
-            play sound sonicshower
-            dd "A wave of ultra sonic pulses hits you all over."
-            r "Ahhh! How can anyone ever get used to this?!"
-            dd "Although now clean you don't feel very refreshed."
-            $ shower = True
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-        "Back" if shower == False and power == False:
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-    $roommanager.returnfrominteraction(roommanager.currentroom)
+    if shower == True:
+        $roommanager.returnfrominteraction(roommanager.currentroom)
+    if power == True:
+        dd "No power means no shower. You'll have to stay a bit stinky."
+        $roommanager.returnfrominteraction(roommanager.currentroom)
+    else:
+        menu(screen ='choice'):
+            "Take a shower" if shower == False:
+                dd "You hop in the shower and turn the dial."
+                play sound sonicshower
+                dd "A wave of ultra sonic pulses hits you all over."
+                dd "Although clean you don't feel very refreshed."
+                $ shower = True
+                $roommanager.returnfrominteraction(roommanager.currentroom)
+            "Back" if shower == False:
+                $roommanager.returnfrominteraction(roommanager.currentroom)
 label gloveslook:
     dd "Two pairs of work gloves dangle off the ship's internal super structure."
     dd "They are covered in a thick layer of dust and grime."
@@ -31,16 +35,16 @@ label shoe1look:
     dd "An oversized work boot sits awkwardly against the wall."
     if (rm0_shoe.interprogress == 0):
         dd "You peer inside the giant boot and notice something at the bottom."
-        show item_key1_idle with dissolve:
+        show item_key1 with dissolve:
             xalign 0.5
             yalign 0.5
         item "Received \"Locker Key\""
-        hide item_key1_idle with dissolve
+        hide item_key1 with dissolve
         $inventory.items.append(rm0_lockerkey)
         $renpy.block_rollback()
         $rm0_shoe.interprogress = 1
     else:
-        dd "There is nothing else of interest inside the large shoe. You wonder who it belongs to."
+        dd "You wonder who it belongs to."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker1look:
     dd "These lockers are mainly used to store equipment and sometimes personal items."
@@ -52,7 +56,7 @@ label locker2look:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label gastanklook:
     dd "The Cold Sleep pods use a mixture of volatiles and chemicals along with a weak pulse of electricity."
-    dd "The tanks holding the chemicals have seen better days."
+    dd "The tanks holding the chemicals have seen better cycles."
     dd "A white gooey chemical is slowly seeping out of one of the tanks."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_wireslook:
@@ -75,7 +79,7 @@ label rm0_wbuttonlook:
             alpha 0.0
         if coldwindow_on == False:
             $ coldwindow_on = True
-            dd "The window shade snaps down in a flash."
+            dd "The window shade shoots down in a flash."
         else:
             $ coldwindow_on = False
             dd "The window shade shoots up with a snap."
@@ -90,10 +94,32 @@ label rm0_terminallook:
     if power == False:
         dd "The computer terminal flickers with a dull green light."
         # Add computer terminal stuff. Maybe cold sleep log, and info and lore about it.
-
-
-
-
+        label rm0_terminallook1:
+        menu(screen ='ctalk'):
+            "Cold Sleep Pod Status":
+                menu(screen ='ctalk'):
+                    "Pod 1":
+                        c "Status: Release. Settings: Human. Recharging 49\%"
+                        c "Note: Emergency release activated."
+                        jump rm0_terminallook1
+                    "Pod 2":
+                        c "Status: Release. Settings: Felle'tian. Recharging 78\%"
+                        jump rm0_terminallook1
+                    "Pod 3":
+                        c "Status: Ready. Settings None: Fully Charged."
+                        jump rm0_terminallook1
+                    "Pod 4":
+                        c "Status: Critical Failure. Settings: Human. Power levels overloaded."
+                        c "Note: System offline. Pod lock disengaged. Maintenance cycle past due."
+                        jump rm0_terminallook1
+            "Data Log":
+                c "If anyone is experiencing any symptoms of Starsickness please use an available Cold Sleep pod within the milli cycle. -M"
+                c "Do not store Beverages in the Cold Sleep pods! Please use the Lockers for personal items! -M"
+                c "Make sure to put the Rookie in pod 4. That one is already set for humans. They don't handle the Star Paths very well and can get some serious Starsickness. -CO"
+                c "DO NOT PUT THE ROOKIE IN POD 4!!! -M"
+                jump rm0_terminallook1
+            "Back":
+                $roommanager.returnfrominteraction(roommanager.currentroom)
     else:
         dd "There is no use in trying to activate this computer."
     $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -101,9 +127,6 @@ label sleeppodlook:
     dd "Cold Sleep pods are an older technology still in use today."
     dd "These pods in particular look very old."
     dd "You often get a bit nervous when climbing into one of these."
-    # dd "These Cold Sleep pods are an older technology still in use today."
-    # dd "For many species, they function as a way to avoid Starsickness."
-    # dd "Humans are very susceptible and often require Cold Sleep whenever they want to traverse the stars."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label scrathesslook:
     dd "This Cold Sleep pod is pretty banged up."
@@ -117,7 +140,13 @@ label scrathesslook:
 ###### ########### ######
 
 label mainwindowlook:
-    dd "look at space or planet."
+    dd "You take a look out the main window."
+    show CG1docked with dissolve
+    dd "The ship is docked to the station and you have a nice view of the planet below."
+    dd "The large green planet doesn't seem to hold any life. Just large swirls of noxious gas and planet wide storms."
+    dd "Looking ahead you can see the edges of the Milkyway. This sector has a nice view of the Smeeepogo Constellation."
+    dd "Can you see it? It looks like a slice of pie."
+    hide CG1docked with dissolve
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label radtoplook:
     dd "radiator thing pump top."
@@ -397,7 +426,7 @@ label rm6_datapadlook:
 ######################### Computer ###############################
 ######################### ####### ###############################
 
-screen talk(items):
+screen ctalk(items):
     style_prefix "computertalk"
     frame:
         vbox:

@@ -19,6 +19,7 @@ label start:
 ##rollback messes with item collecting
 #$config.rollback_enabled = False
 
+$roommanager.setuproominstant(0)
 stop music fadeout 1.0
 scene START
 
@@ -138,7 +139,7 @@ menu(screen ='choice'):
 show marnie normal
 m "Anyways the Captain wants everyone on the bridge."
 m "Just freshen up and meet everyone there."
-r "Yes Marnie."
+r "Sure thing Marnie."
 hide marnie with dissolve
 
 play music ambience volume 0.15
@@ -339,7 +340,7 @@ show marnie unhappy at sway
 m "This is such a bad idea."
 o "Alright Rookie! You're on point."
 stop music fadeout 1.75
-show bgblack2 with dissolveslow
+scene bgblack2 with dissolveslow
 play sound hylong volume 0.7
 pause 2.6
 play sound2 metaldoorclunk volume 1
@@ -379,9 +380,9 @@ g "What are you talking about? This is great!"
 g "All of this is so humany! Isn't that right Rookie?"
 r "I guess..."
 show gelato at wiggle
-g "Look the stairs and the carpet, and the pocket dimension delivery system!"
+g "Look at the stairs and the carpet, and the pocket dimension delivery system!"
 show gelato normal at wiggle
-g "Perfect for the homesick Earthling!"
+g "Perfect for the Rookie Earthling!"
 
 menu(screen ='choice'):
     "I've never been to Earth":

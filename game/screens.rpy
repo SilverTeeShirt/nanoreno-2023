@@ -279,13 +279,12 @@ style quick_button_text:
 ## to other menus, and to start the game.
 
 screen navigation():
-    # image "titlecard"
     vbox:
 
         style_prefix "navigation"
 
         xpos gui.navigation_xpos
-        yalign 0.5
+        yalign 0.65
 
         spacing gui.navigation_spacing
 
@@ -301,7 +300,7 @@ screen navigation():
 
         textbutton _("Load") action ShowMenu("load")
 
-        textbutton _("Preferences") action ShowMenu("preferences")
+        textbutton _("Options") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -311,7 +310,7 @@ screen navigation():
 
             textbutton _("Main Menu") action MainMenu()
 
-        textbutton _("About") action ShowMenu("about")
+        textbutton _("Credits") action ShowMenu("about")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
@@ -355,11 +354,13 @@ screen main_menu():
 
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
+    image "titlecard"
     use navigation
 
     if gui.show_name:
 
         vbox:
+
             style "main_menu_vbox"
 
             # text "[config.name!t]":
@@ -517,6 +518,7 @@ style game_menu_label:
 
 style game_menu_label_text:
     size gui.title_text_size
+    font gui.title_text_font
     color gui.accent_color
     yalign 0.5
 
@@ -540,7 +542,7 @@ screen about():
     ## This use statement includes the game_menu screen inside this one. The
     ## vbox child is then included inside the viewport inside the game_menu
     ## screen.
-    use game_menu(_("About"), scroll="viewport"):
+    use game_menu(_("Credits"), scroll="viewport"):
 
         style_prefix "about"
 
@@ -706,7 +708,7 @@ screen preferences():
 
     tag menu
 
-    use game_menu(_("Preferences"), scroll="viewport"):
+    use game_menu(_("Options"), scroll="viewport"):
 
         vbox:
 

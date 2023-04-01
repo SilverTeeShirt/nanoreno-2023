@@ -82,6 +82,12 @@ image CG1:
         ease 2.5 ypos 0
         repeat
 
+image CG1docked:
+    contains:
+        "/cg/cg01bg.png"
+    contains:
+        "CG1stars"
+
 image CG1stars:
     "/cg/cg01star1.png" with dissolveslow
     pause 1.6

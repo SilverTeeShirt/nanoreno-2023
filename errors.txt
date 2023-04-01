@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/custom system.rpy", line 314: keyword argument 'auto' appears more than once in a imagebutton statement.
-    auto "gamesys/BCK_%s.png"
-        ^
+File "game/script.rpy", line 361: expected end of line
+    window show behind choice
+                ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Mar 31 02:17:51 2023
+Sat Apr  1 00:26:35 2023
