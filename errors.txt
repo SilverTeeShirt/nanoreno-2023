@@ -2,9 +2,29 @@
 errors listed below, and try again.
 
 
-File "game/custom system.rpy", line 453: 'text' is not a keyword argument or valid child for the imagebutton statement.
-    text "Item Selected"
-        ^
+The label rm0_foodcommsp is defined twice, at File "game/items.rpy", line 46:
+label rm0_foodcommsp:
+and File "game/items.rpy", line 71:
+label rm0_foodcommsp:
+
+
+The label rm0_foodcommmar is defined twice, at File "game/items.rpy", line 50:
+label rm0_foodcommmar:
+and File "game/items.rpy", line 75:
+label rm0_foodcommmar:
+
+
+The label rm0_foodcommot is defined twice, at File "game/items.rpy", line 53:
+label rm0_foodcommot:
+and File "game/items.rpy", line 78:
+label rm0_foodcommot:
+
+
+The label rm0_foodcomgel is defined twice, at File "game/items.rpy", line 56:
+label rm0_foodcomgel:
+and File "game/items.rpy", line 81:
+label rm0_foodcomgel:
+
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Apr  1 01:44:50 2023
+Sat Apr  1 14:44:05 2023

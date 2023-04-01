@@ -21,7 +21,7 @@ define rm0_gloves= ImageInteractable("",1,1490,350,0,[0],[0],"","gloveslook","in
 define rm0_mirror= ImageInteractable("",1,1619,290,0,[0],[0],"","mirrorlook","inter/inter150x300_%s.png","inter/inter150x300_idle.png",0)
 define rm0_shoe= ImageInteractable("",1,1300,715,0,[0],[0],"","shoe1look","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
 define rm0_locker1= ImageInteractable("locker1",1,1200,333,0,[0],[0],"","locker1look","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
-define rm0_locker2= ImageInteractable("",1,740,333,0,[0],[0],"","locker2look","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
+define rm0_locker2= ImageInteractable("locker2",1,740,333,0,[0],[0],"","locker2look","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
 define rm0_gastanks= ImageInteractable("",1,70,40,0,[0],[0],"","gastanklook","inter/inter300x150_%s.png","inter/inter300x150_idle.png",0)
 define rm0_wires= ImageInteractable("",1,380,20,0,[0],[0],"","rm0_wireslook","inter/inter300x150_%s.png","inter/inter300x150_idle.png",0)
 define rm0_window= ImageInteractable("",1,970,250,0,[0],[0],"","rm0_windowlook","inter/inter150x300_%s.png","inter/inter150x300_idle.png",0)
@@ -41,7 +41,7 @@ define rm1_capscreen= ImageInteractable("",1,1570,520,0,[0],[0],"","capscreenloo
 define rm1_idol= ImageInteractable("",1,1450,450,0,[0],[0],"","idollook","inter/inter_%s.png","inter/inter_idle.png",0)
 define rm1_readout= ImageInteractable("",1,1425,580,0,[0],[0],"","rm1_readoutlook","inter/inter_%s.png","inter/inter_idle.png",0)
 define rm1_mainscreen= ImageInteractable("",1,1760,140,0,[0],[0],"","rm1_mainscreenlook","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
-define rm1_vents= ImageInteractable("",1,170,320,0,[0],[0],"","rm1_ventslook","inter/inter300x300_%s.png","inter/inter300x300_idle.png",0)
+define rm1_vents= ImageInteractable("vents",1,170,320,0,[0],[0],"","rm1_ventslook","inter/inter300x300_%s.png","inter/inter300x300_idle.png",0)
 define rm1_vbutton= ImageInteractable("",1,103,526,0,[0],[0],"","rm1_vbuttonlook","inter/inter_%s.png","inter/inter_idle.png",0)
 define rm1_wires= ImageInteractable("",1,490,0,0,[0],[0],"","rm1_wireslook","inter/inter300x300_%s.png","inter/inter300x300_idle.png",0)
 define rm1_datafood= ImageInteractable("",1,600,340,0,[0],[0],"","rm1_datafoodlook","inter/inter150x300_%s.png","inter/inter150x300_idle.png",0)
@@ -59,7 +59,7 @@ define rm2_light1= ImageInteractable("",1,710,720,0,[0],[0],"","rm2_lightlook","
 define rm2_light2= ImageInteractable("",3,1128,720,0,[0],[0],"","rm2_lightlook","inter/inter_%s.png","inter/inter_idle.png",0)
 define rm2_bigdoor= ImageInteractable("",1,0,650,0,[0],[0],"","rm2_bigdoorlook","inter/inter300x300_%s.png","inter/inter300x300_idle.png",0)
 define planetmodel= ImageInteractable("",1,1355,160,0,[0],[0],"","planetmodellook","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
-define powermail= ImageInteractable("",1,352,775,0,[0],[0],"","powermaillook","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
+define rm2_powermail= ImageInteractable("rm2_powerconnector",1,352,775,0,[0],[0],"","rm2_powermaillook","inter/inter150x150_%s.png","inter/inter150x150_idle.png",0)
 
 define marnie_rm2= ImageInteractable("",1,545,680,0,[0],[0],"","marnietalk","inter/talk/marnie1_%s.png","inter/talk/marnie1_idle.png",2)
 define sprocko_rm2= ImageInteractable("",1,228,735,0,[0],[0],"","sprockotalk","inter/talk/sprocko1_%s.png","inter/talk/sprocko1_idle.png",1)
@@ -140,19 +140,20 @@ define otus_rm6= ImageInteractable("",3,1142,295,0,[0],[0],"","otustalk","inter/
 ############## Rooms ##############
 define RM0_cold = Room("Cold TEST",0,"bg_0cold_room",[rm0_shower,rm0_gloves,rm0_mirror,rm0_shoe,rm0_locker1,rm0_locker2,rm0_gastanks,rm0_wires,rm0_window,rm0_wbutton,rm0_note,rm0_terminal,rm0_coldsleeppod,rm0_scrathes],0,0,[1],"navic/nav0_%s.png",[])
 define RM1_bridge = Room("Bridge TEST",1,"bg_1bridge_room",[rm1_mainwindow,rm1_radiatortop,rm1_radiatorbot,rm1_navseat,rm1_capchair,rm1_capscreen,rm1_idol,rm1_readout,rm1_mainscreen,rm1_vents,rm1_vbutton,rm1_wires,rm1_datafood],0,0,[0,2],"navic/nav1_%s.png",[])
-define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,charger,rm2_door1,rm2_door2,logo,rm2_elevator,rm2_light1,rm2_light2,rm2_bigdoor,planetmodel,powermail,marnie_rm2,sprocko_rm2,gelato_rm2,otus_rm2,ai_rm2],0,0,[1,3,4,5,6],"navic/nav2_%s.png",[])
+define RM2_hub = Room("Hub TEST",2,"bg_2hub_room",[skyart,rm2_trash,rm2_table,charger,rm2_door1,rm2_door2,logo,rm2_elevator,rm2_light1,rm2_light2,rm2_bigdoor,planetmodel,rm2_powermail,marnie_rm2,sprocko_rm2,gelato_rm2,otus_rm2,ai_rm2],0,0,[1,3,4,5,6],"navic/nav2_%s.png",[])
 define RM3_lab = Room("Lab TEST",3,"bg_3lab_room",[rm3_ceiling,rm3_window,partshead,partsarm,raydish,constructor,fluidtanks,biodevice,rm3_datapad,rm3_safe,rm3_computer,chembank1,chembank2,chembank3,sprocko_rm3],1,0,[2,4,5],"navic/nav3_%s.png",[])
 define RM4_con = Room("Conservatory TEST",4,"bg_4con_room",[hangingplants,garden,scarecrow,watertank,rm4_stair,rm4_panels,pumpdoor,pumps,rm4_light,forest,colorfulflower,bird,marnie_rm4],1,0,[2,3,5],"navic/nav4_%s.png",[])
 define RM5_bar = Room("Bar TEST",5,"bg_5bar_room",[booth,plantmonster,paintings,eyetree,moose,harpoon,bonemonster,bughead,rm5_tubes,drinkmaker,drinks1,drinks2,rm5_datapad,gelato_rm5],1,0,[2,3,4],"navic/nav5_%s.png",[])
 define RM6_core = Room("Core TEST",6,"bg_6core_room",[memento,rm6_door,jarbot,jartop,jarman,rm6_computer,deadguy,rm6_rcore,rm6_points1,rm6_points2,rm6_datapad,otus_rm6],1,0,[2],"navic/nav6_%s.png",[])
 
 #####items######
-define rm0_lockerkey = Item("Small Key",0,"item/item_key1_%s.png","A small key found in a sock. Too small to be a door's key.", "nonedonotusetest","rm0_lockersolution","item/item_key1_idle.png",["rm0_lockerkeycommsp","rm0_lockerkeycommmar","rm0_lockerkeycommot","rm0_lockerkeycomgel","rm0_lockerkeycomai"])
+define rm0_lockerkey = Item("Boot Key",0,"item/item_key1_%s.png","Too small key found in a boot. It has a with a diamond symbol in it.", "nonedonotusetest","rm0_lockersolution","item/item_key1_idle.png",["rm0_lockerkeycommsp","rm0_lockerkeycommmar","rm0_lockerkeycommot","rm0_lockerkeycomgel","rm0_lockerkeycomai"])
 
-define rm0_food = Item("Food Bar",1,"item/item_food1_%s.png", "A nasty looking food bar. You could swear it is squirming in your hand.","nonedonotusetest", "rm0_foodsolution", "item/item_food1_idle.png",["rm0_foodcommsp","rm0_foodcommmar","rm0_foodcommot","rm0_foodcomgel","rm0_foodcomai"] )
+define rm0_food = Item("Food Bar",1,"item/item_food1_%s.png", "A nasty looking food bar. You could swear it's squirming in your hand.","nonedonotusetest", "rm0_foodsolution", "item/item_food1_idle.png",["rm0_foodcommsp","rm0_foodcommmar","rm0_foodcommot","rm0_foodcomgel","rm0_foodcomai"] )
 
+define item_powerfittings = Item("Expandable Power Fittings",0,"item/item_fittings_%s.png", "A large extendable power fitting. It can stretch great distances and carry a high density of energy.","nonedonotusetest", "item_fittingssolution", "item/item_fittings_%s.png",["item_NAsp","item_NAmar","item_NAot","item_NAgel","item_NAai"] )
 
-
+define item_keyset = Item("Key Set",0,"item/item_keyset_%s.png", "A set of locker kets with a symbols on them.","nonedonotusetest", "item_fittingssolution", "item/item_keyset_%s.png",["item_NAsp","item_NAmar","item_NAot","item_NAgel","item_NAai"] )
 
 
 

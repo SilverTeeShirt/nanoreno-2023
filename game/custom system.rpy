@@ -211,6 +211,12 @@ init python:
 
         return True
 
+    # def dropcheckcorr2(drags,drop):
+    #
+    #     store.dropoutcome = 7
+    #
+    #     return True
+
     def dropcheckwrong(drags,drop):
 
         store.dropoutcome = 6
@@ -338,7 +344,7 @@ screen navscreen(roommanagerref):
 
 
     imagebutton:
-            xpos 885
+            xalign 0.5
             ypos 950
             auto "gamesys/BCK_%s.png"
             action [Hide("navscreen"),Show("makeplayerUI",None,localrmanref)]
@@ -398,21 +404,21 @@ screen invscreen(inventoryref,roommanagerref):
 
 
     imagebutton:
-        xpos 885
+        xalign 0.5
         ypos 950
         auto "gamesys/BCK_%s.png"
         action [Hide("invscreen"),Function(localrmanref.changeinteractionlevel,0),Show("makeplayerUI",None,localrmanref)]
 
     #testing
     textbutton "No Item Selected":
-        xpos 850
+        xalign 0.5
         ypos 900
         action [Hide("invscreen"),Function(localrmanref.changeinteractionlevel,0),Show("makeplayerUI",None,localrmanref)]
 
 
     hbox:
 
-        xpos 400
+        xalign 0.5
         ypos 800
 
 
@@ -449,14 +455,14 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
 
 
     imagebutton:
-        xpos 885
+        xalign 0.5
         ypos 950
         auto "gamesys/BCK_%s.png"
         action [Hide("dragdropscreen"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
-        
+
     #testing
-    textbutton "Selected Item":
-        xpos 850
+    textbutton "Selected Item: use drag and drop":
+        xalign 0.5
         ypos 900
         action [Hide("dragdropscreen"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
 
@@ -464,7 +470,7 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
 
         drag:
             drag_name "[itemtodrag.name]"
-            xpos 905
+            xalign 0.5
             ypos 800
             child itemtodrag.dragimg
             draggable True

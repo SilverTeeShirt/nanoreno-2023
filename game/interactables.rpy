@@ -38,7 +38,7 @@ label shoe1look:
         show item_key1 with dissolve:
             xalign 0.5
             yalign 0.5
-        item "Received \"Locker Key\""
+        item "Received \"Boot Key\""
         hide item_key1 with dissolve
         $inventory.items.append(rm0_lockerkey)
         $renpy.block_rollback()
@@ -48,11 +48,11 @@ label shoe1look:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker1look:
     dd "These lockers are mainly used to store equipment and sometimes personal items."
-    dd "This set of lockers have a dimond and circle pattern on them."
+    dd "This set of lockers have a dimond and circle symbol on them."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker2look:
     dd "These lockers are mainly used to store equipment and sometimes personal items."
-    dd "This set of lockers have a square and triangle pattern on them."
+    dd "This set of lockers have a square and triangle symbol on them."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label gastanklook:
     dd "The Cold Sleep pods use a mixture of volatiles and chemicals along with a weak pulse of electricity."
@@ -96,21 +96,21 @@ label rm0_terminallook:
         # Add computer terminal stuff. Maybe cold sleep log, and info and lore about it.
         label rm0_terminallook1:
         menu(screen ='ctalk'):
-            "Cold Sleep Pod Status":
+            "Pod Status":
                 menu(screen ='ctalk'):
                     "Pod 1":
-                        c "Status: Release. Settings: Human. Recharging 49\%"
+                        c "Status: Release. Settings: Human. Power: Recharging 49\%"
                         c "Note: Emergency release activated."
                         jump rm0_terminallook1
                     "Pod 2":
-                        c "Status: Release. Settings: Felle'tian. Recharging 78\%"
+                        c "Status: Release. Settings: Felle'tian. Power: Recharging 78\%"
                         jump rm0_terminallook1
                     "Pod 3":
-                        c "Status: Ready. Settings None: Fully Charged."
+                        c "Status: Ready. Settings: None. Power: Fully Charged"
                         jump rm0_terminallook1
                     "Pod 4":
-                        c "Status: Critical Failure. Settings: Human. Power levels overloaded."
-                        c "Note: System offline. Pod lock disengaged. Maintenance cycle past due."
+                        c "Status: Critical Failure. Settings: Human. Power: Overloaded."
+                        c "Note: Chemical mixture system offline. Pod lock disengaged. Maintenance cycle past due."
                         jump rm0_terminallook1
             "Data Log":
                 c "If anyone is experiencing any symptoms of Starsickness please use an available Cold Sleep pod within the milli cycle. -M"
@@ -150,7 +150,7 @@ label mainwindowlook:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label radtoplook:
     dd "This radiator helps circulate the air."
-    
+
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label radbotlook:
     dd "Hot or cool air is pumped out of this unit."
@@ -224,7 +224,7 @@ label rm2_bigdoorlook:
 label planetmodellook:
     dd "looks familiar if sprocko in room."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-label powermaillook:
+label rm2_powermaillook:
     dd "DA MAIL power connect to this."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
@@ -488,7 +488,7 @@ label marnietalk:
             r "Do you need help?"
             m "No I'm all set."
             jump marnietalking
-        "Is this a test?":
+        "BELOW IS TESTING":
             r "Test?"
             m "Yup."
             jump marnietalking
@@ -535,15 +535,69 @@ label sprockotalk:
     s "What's going on Rookie?"
     label sprockotalking:
     menu(screen ='talk'):
-        "Need help?":
-            r "Do you need help?"
-            s "No I'm all set."
+        "Power up station" if sstatus == 0:
+            if stalk1 == False:
+                $ stalk1 = True
+                r "You said you had an idea about getting power to the station?"
+                s "Well, it's OBVIOUS, isn't it?"
+                menu(screen ='choice'):
+                    "Yeah!":
+                        r "Y-Yeah, of course it is!"
+                        show sprocko happy at wiggle
+                        s "GOOD! Glad that SOMEONE here is on the same wavelength as me!"
+                        r "T-Totally"
+                        s "..."
+                        r "..."
+                        show sprocko unhappy at sulk
+                        s "So...?"
+                        r "Oh, uh, I'll go and...?"
+                        show sprocko shocked at hop
+                        s "You don't know what you're doing, do you?!"
+                        r "..."
+                    "Not really":
+                        r "Sorry I don't really follow."
+                        show sprocko unhappy
+                        s "I had high hopes for you Rookie."
+                        s "But now you are..."
+                        show sprocko shocked at hop
+                        s "DISAPOINTING!"
+                        r "S-Sorry..."
+                show sprocko unhappy
+                s "Listen ROOKIE! All we need to do is plug the Clover straight into this station's hub connector."
+                r "How is our ship going to power this whole station?"
+                show sprocko shocked at hop
+                s "Do I have to explain EVERYTHING?!"
+                show sprocko unhappy
+                s "So, the station already has power. That much is obvious."
+                s "But it's been thrown out of sync, hence all the... {size=-06}Spookiness.{/size}"
+                show sprocko normal
+                s "We connect the Clover. The power gets synchronized and {w=0.25}{nw}"
+                show sprocko normal with vpunchnowait
+                s "{cps=0}We connect the Clover. The power gets synchronized and {/cps}BOOM!"
+                r "Ahh!"
+                s "Well, not boom. That CLEARLY won't happen...{w=0.25} Probably..."
+                show sprocko happy
+                s "That should provide the station access to it's own power source again."
+                r "Great! Let's start by doing that then!"
+                s "Just find me the expandable power fittings and we can!"
+                r "Sure! Umm... Where are they again?"
+                show sprocko unhappy
+                s "What must it be like being trapped in a mind like that..."
+                r "Hey!"
+                show sprocko normal
+                s "They'll be somewhere IN the Clover. Ask the others if you need help!"
+                show sprocko happy
+                s "Now leave me alone. I must adjust these...{w=0.25} CAPACITORS!"
+                hide sprocko
+                $ powertalk = True
+                $roommanager.returnfrominteraction(roommanager.currentroom)
+            else:
+                r "How do we power up the station again?"
+                s "Just plug the ship STRIAGHT into this hub connector!"
+                s "Find and connect the power fittings to both the ship and the station!"
+                r "Got it!"
             jump sprockotalking
-        "Is this a test?":
-            r "Test?"
-            s "Yup."
-            jump sprockotalking
-        "Advice":
+        "BELOW IS TESTING":
             r "Can I get advice?"
             s "Go away!"
             jump sprockotalking
@@ -561,14 +615,14 @@ label sprockotalk:
             $roommanager.intertoggle_off(sprocko_rm2)
             $roommanager.intertoggle_off(sprocko_rm3)
             $roommanager.returnfrominteraction(roommanager.currentroom)
-        "Power up station" if power == False:
+        "Power up station TEST" if power == False:
             r "Can you turn up the power? "
             s "Sure thing but this will shut off the ship!"
             hide sprocko with dissolve
             $ power = True
             $roommanager.intertoggle(ai_rm2)
             $roommanager.setuproom(2)
-        "Power down station" if power == True:
+        "Power down station TEST" if power == True:
             r "Can you cut off the power?"
             s "Um ok."
             hide sprocko with dissolve
@@ -589,7 +643,6 @@ label sprockotalk:
             $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
-
 ######################## Gelato ########################
 label gelatotalk:
     show gelato normal with dissolve:
@@ -598,11 +651,29 @@ label gelatotalk:
     g "What's going on human Rookie?"
     label gelatotalking:
     menu(screen ='talk'):
+        "Power up station" if gstatus == 0:
+            if stalk1 == False:
+                r "What to do about power."
+                g "No idea!! talk to Sprocko!"
+                jump gelatotalking
+            elif gtalk1 == False:
+                g "Take hit set of keys!"
+                show item_keyset with dissolve:
+                    xalign 0.5
+                    yalign 0.5
+                item "Received \"Key Set\""
+                hide item_keyset with dissolve
+                $inventory.items.append(item_keyset)
+                $renpy.block_rollback()
+                $ gtalk1 = True
+                jump gelatotalking
+            g "use that to get item power extender!"
+            jump gelatotalking
         "Need help?":
             r "Do you need help?"
             g "Nope it's all good."
             jump gelatotalking
-        "Is this a test?":
+        "BELOW IS TESTING":
             r "Test?"
             g "Yup."
             jump gelatotalking
@@ -620,8 +691,6 @@ label gelatotalk:
         "Back":
             hide gelato with dissolve
             $roommanager.returnfrominteraction(roommanager.currentroom)
-
-
 
 # "The station":
 #     r "What can you tell me about the station?"
@@ -642,6 +711,7 @@ label gelatotalk:
 #     g "Sorry... I didn't really answer your question..."
 
 
+
 ######################## Otus ########################
 label otustalk:
     show otus normal with dissolve:
@@ -654,7 +724,7 @@ label otustalk:
             r "Do you need help?"
             o "Not from you."
             jump otustalking
-        "Is this a test?":
+        "BELOW IS TESTING":
             r "Test?"
             o "Yup."
             jump otustalking
@@ -670,7 +740,7 @@ label otustalk:
             $roommanager.intertoggle(otus_rm6)
             $roommanager.returnfrominteraction(roommanager.currentroom)
         "Back":
-            hide otus with dissolve
+            hide ai with dissolve
             $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
@@ -683,164 +753,26 @@ label aitalk:
     ai "You are unwelcome."
     label aitalking:
     menu(screen ='talk'):
+        "BELOW IS TESTING":
+            r "Test?"
+            ai "Yup."
+            jump aitalking
         "Need help?":
             r "Do you need help?"
             ai "Do not disturb my master."
             jump aitalking
-        "Is this a test?":
-            r "Test?"
-            ai "Yup."
-            jump aitalking
-        "Advice":
-            r "Can I get advice?"
+        "Be evil or weird":
+            r "you werid now?"
             ai "Please leave this station."
+            show ai happye with hop
+            ai "OR DONT!"
+            show ai normal with wiggle
+            ai "Sorry I don't know whats going on."
+            show ai unhappye with hop
+            ai "GAHHHHHH!"
+            show ai unhappy with wiggle
+            ai "Sometimes I get like this..."
             jump aitalking
         "Back":
             hide ai with dissolve
             $roommanager.returnfrominteraction(roommanager.currentroom)
-
-
-
-# ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-# scene bg_6core_room
-# ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-# #label TESTLOCATIONSEND:
-# call screen TESTLOCATIONS
-# screen TESTLOCATIONS:
-#     imagebutton: #memento
-#         xpos 1685
-#         ypos 540
-#         auto "/inter/inter300x300_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #door
-#         xpos 1525
-#         ypos 30
-#         auto "/inter/inter150x650_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #jarbottom
-#         xpos 0
-#         ypos 670
-#         auto "/inter/inter300x300_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #jartop
-#         xpos -35
-#         ypos 100
-#         auto "/inter/inter300x300_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #jarman
-#         xpos -25
-#         ypos 360
-#         auto "/inter/inter300x300_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #computer
-#         xpos 300
-#         ypos 450
-#         auto "/inter/inter300x300_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #deadguy
-#         xpos 900
-#         ypos 750
-#         auto "/inter/inter300x150_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #core
-#         xpos 810
-#         ypos 200
-#         auto "/inter/inter300x300_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #points1
-#         xpos 290
-#         ypos 90
-#         auto "/inter/inter300x150_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #points2
-#         xpos 1150
-#         ypos 190
-#         auto "/inter/inter300x150_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#     imagebutton: #datapad
-#         xpos 690
-#         ypos 860
-#         auto "/inter/inter_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-#
-#     imagebutton: #otus
-#         xpos 1142
-#         ypos 295
-#         auto "/inter/talk/otus2_%s.png"
-#         action Jump("TESTLOCATIONSEND")
-# ##### TESTING LOCATION OF INTERACTABLES ##### TESTING LOCATION OF INTERACTABLES
-
-
-
-######object description and result labels, move to own screen later?############
-
-##rm0_lockerkey
-
-label rm0_lockersolution:
-    dd "The locker opened. There seems to be something inside."
-    $inventory.items.append(rm0_food)
-    $inventory.removeitem(rm0_lockerkey)
-    $renpy.block_rollback()
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-
-label rm0_lockerkeycommsp:
-    s "Hi, that's a key, a bit too analog for my taste."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-
-label rm0_lockerkeycommmar:
-    m "Hi, that's a key, I think it might open one of the lockers?"
-    $rm0_lockerkey.targetinter = "locker1"
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-
-label rm0_lockerkeycommot:
-    o "Hi, that's a key, I am not sure it's yours rookie."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-
-label rm0_lockerkeycomgel:
-    g "Hi, that's my key, I was wondering where it went."
-    $rm0_food.targetinter = "Gelato"
-    $rm0_lockerkey.targetinter = "locker1"
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-
-label rm0_lockerkeycomai:
-    ai "A key. Now go away."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-
-
-#rm0_food
-
-label rm0_foodsolution:
-
-    dd "With a single gulp, Gelato ingests the food bar. Wrapper and all."
-
-    g "That really hit the spot!"
-
-    $inventory.removeitem(rm0_food)
-    $renpy.block_rollback()
-
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-
-label rm0_foodcommsp:
-    s "I think I ate a few of those back in high school... I think it's Gelato's"
-
-    $rm0_food.targetinter = "Gelato"
-
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-
-label rm0_foodcommmar:
-    m "Oh wow that... that looks bad. No thanks."
-
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-
-label rm0_foodcommot:
-    o "A special nutrition bar. Not compatible with my species."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-
-label rm0_foodcomgel:
-    g "Oh hey, if it isn't my food bar, thanks buddy!"
-    jump rm0_foodsolution
-
-label rm0_foodcomai:
-    ai "Egads, what ghastly manner of food is that?"
-
-    $roommanager.returnfrominteraction(roommanager.currentroom)
