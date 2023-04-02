@@ -550,6 +550,16 @@ screen about():
 
             label "[config.name!t]"
             text _("Version [config.version!t]\n")
+            text _("{font=font/EdgeOfTheGalaxyRegular.otf}{size=64}The Team{/size}{/font}\n")
+            text _("{a=https://silverteeshirt.itch.io/}{font=font/VirusKiller.ttf}{size=45}SilverTeeShirt{/size}{/font}{/a} : Team lead, bg artist, writer, scripter, audio designer")
+            text _("{a=https://twitter.com/MiniPaquin}{font=font/VirusKiller.ttf}{size=45}MiniPaquin{/size}{/font}{/a} : Musician, audio designer")
+            text _("{a=https://llp.itch.io/}{font=font/VirusKiller.ttf}{size=45}LLP{/size}{/font}{/a} : Systems Coder")
+            text _("{a=https://greenclovers.itch.io/}{font=font/VirusKiller.ttf}{size=45}GreenClovers{/size}{/font}{/a} : Writer")
+            text _("{a=https://www.artstation.com/huurreprinssi}{font=font/VirusKiller.ttf}{size=45}Elina{/size}{/font}{/a} : Character Artist\n")
+
+# <p><a href="https://llp.itch.io/">LLP</a>: Systems Coder <br></p>
+# <p><a href="https://greenclovers.itch.io/">GreenClovers</a>: Writer <br></p>
+# <p><a href="https://www.artstation.com/huurreprinssi">Elina</a>: Character Artist <br></p>
 
             ## gui.about is usually set in options.rpy.
             if gui.about:
@@ -963,7 +973,7 @@ screen help():
         style_prefix "help"
 
         vbox:
-            spacing 23
+            spacing 18
 
             hbox:
 

@@ -76,8 +76,8 @@ init python:
             self.setupinterforroom(currroom)
             self.changeinteractionlevel(0)
             self.setupplayerUI()
-        
-        
+
+
 
 
         def changeinteractionlevel(self,newilv):
@@ -161,7 +161,7 @@ init python:
 
             if (self.activeitem == itemr):
                 self.activeitem = ""
-        
+
         def returnfromdescription(self, roommanagerref):
 
             self.activeitem = ""
@@ -381,11 +381,10 @@ screen invscreen(inventoryref,roommanagerref):
         auto "gamesys/BCK_%s.png"
         action [Hide("invscreen"),Function(localrmanref.changeinteractionlevel,0),Show("makeplayerUI",None,localrmanref)]
 
-    #testing
-    textbutton "No Item Selected":
+
+    text "No item selected":
         xalign 0.5
         ypos 900
-        action NullAction()
 
 
     hbox:
@@ -414,19 +413,26 @@ screen invscreen(inventoryref,roommanagerref):
 
 screen invinterscreen(inventoryref,roommanagerref):
 
+
     default selitem = inventoryref.activeitem
+
 
     modal True
 
     image selitem.dragimg xalign 0.5 ypos 800
-        
-       
+
+
 
     imagebutton:
         xalign 0.5
         ypos 950
         auto "gamesys/BCK_%s.png"
         action [Hide("invinterscreen"),Jump("invscreensetup")]
+
+#TESTINGNAME
+    text selitem.name:
+        xalign 0.5
+        ypos 900
 
     hbox:
         xalign 0.5
@@ -441,9 +447,9 @@ screen invinterscreen(inventoryref,roommanagerref):
             textbutton "Examine" action [Hide("invinterscreen"),Jump(selitem.description)]
 
 
-        
 
-            
+
+
 
 
 screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
@@ -468,10 +474,9 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
         action [Hide("dragdropscreen"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
 
     #testing
-    textbutton "Selected Item: use drag and drop":
+    text "Use drag and drop":
         xalign 0.5
         ypos 900
-        action NullAction()
 
     draggroup:
 
@@ -495,14 +500,3 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
                     child intloc.menuimageref
                     draggable False
                     droppable True
-
-
-
-
-
-
-
-
-
-
-

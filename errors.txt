@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/custom system.rpy", line 421: imagebutton expects a non-empty block.
-    imagebutton:
-                ^
+File "game/script.rpy", line 518: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
+    alpha 0.85
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sun Apr  2 20:09:24 2023
+Sun Apr  2 17:43:32 2023

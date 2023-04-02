@@ -135,8 +135,6 @@ label sprockotalk:
             hide sprocko with dissolve
             $roommanager.returnfrominteraction(roommanager.currentroom)
 
-        "Power TESTEVENT":
-            jump powerup_event
 
 
 ######################### ######### ####################
@@ -159,7 +157,7 @@ label marnietalk:
 
         "Expandable Power Fittings" if crewstatus == 0 and subjectfittings == True:
             r "Hey Marnie do you know where can I find the Expandable Power Fittings?"
-            m "Hmmmmm... I'm not sure. I think Gelato handles that kind of stuff."
+            m "Hmmmmm... I'm not sure. Gelato usually handles that kind of heavy equipment."
             m "I've seen him lug a whole rack of sprigle rods up a ladder before."
             m "It was impressive but..."
             show marnie unhappy at sulk
@@ -183,7 +181,7 @@ label marnietalk:
             show marnie happy at sway
             m "Oh that? Hahaha!"
             m "Just a little something silly I picked up a while ago."
-            m "It's supposed to represent an ancient space wurm that would guide travelers."
+            m "It's supposed to represent an ancient space wurm that would guide travelers safely though space."
             m "They say it gives you good luck if you rub it's cute little head every once in a while!"
             jump marnietalking
 
@@ -273,7 +271,7 @@ label gelatotalk:
             g "A perfect replica of Earth air and ideal for humans!"
             r "Wow! How can you tell?"
             show gelato normal
-            g "We Troaderlites are very sensitive to air quality since we breath through our skin as well."
+            g "We Troaderlites are very sensitive to air quality since we can breath through our skin."
             show gelato happy at wiggle
             g "Knowing what the air is made of is second nature to us!"
             $troaderlite = True
@@ -294,6 +292,19 @@ label gelatotalk:
             g "I'm just so thankful Captain Otus took me onto his crew!"
             show gelato unhappy
             g "Sorry... I didn't really answer your question..."
+            jump gelatotalking
+
+        "The logo" if logo == True and crewstatus == 0:
+            r "Gelato you ever seen a logo like that?"
+            show gelato happy at wiggle
+            g "Oh yeah!"
+            show gelato at wiggle
+            g "That's the Yummo Grabbo That Candy Corp logo!"
+            show gelato normal at wiggle
+            g "Although the orb looking part should be more candy like..."
+            g "And the hand looking parts should be tentacles..."
+            show gelato happy at wiggle
+            g "It must be an older design!"
             jump gelatotalking
 
         "Back":
@@ -324,14 +335,16 @@ label otustalk:
             r "Do you know where I can find the Expandable Power Fittings?"
             o "I would ask Gelato, he's in charge of organizing the tools and heavy equipment."
             r "So you don't know where it is?"
-            show o unhappy
+            show otus unhappy
             o "Listen Rookie. It's Gelato's job to know and my job to know that he knows!"
+            show otus happy
             o "That guy is a pro. And as a pro he knows where everything on that ship is."
-            o "Well, nearly everything.."
+            show otus normal at wiggle
+            o "Well, nearly everything..."
             jump otustalking
 
         "The station" if crewstatus == 0:
-            r "Hey Captain what do you think about this station?"
+            r "Hey Captain, what do you think about this station?"
             o "From the outside it looks like any typical high class private space station."
             o "But why is a fancy station like this out in the middle of nowhere?"
             o "This sector is mainly known for prospecting and not much else."
@@ -340,6 +353,18 @@ label otustalk:
             r "You seem to be having a good time."
             show otus happy at hop
             o "What can I say? I love me a good adventure!"
+            jump otustalking
+
+        "The logo" if logo == True:
+            r "Hey Captain, have you seen that logo before?"
+            o "That logo?"
+            o "I think I have..."
+            o "Some sort of Earth foundation I believe..."
+            show otus unhappy
+            o "Maybe its THAT foundation who runs this place."
+            o "But..."
+            show otus happy at wiggle
+            o "Nah! It can't be!"
             jump otustalking
 
         "Back":
@@ -355,13 +380,33 @@ label aitalk:
     show ai normal with dissolve:
         zoomnorm
         left
-    ai "You are unwelcome."
+    ai "Hello, what is it that you want?"
     label aitalking:
     show ai normal
     menu(screen ='talk'):
-        "Need help?":
-            r "Do you need help?"
-            ai "I can Take care of myself."
+        # "The station" if crewstatus == 1:
+        #     r "Hey Caretaker, what can you tell me about this station."
+        #     jump aitalking
+
+        "End of the game!" if crewstatus == 1:
+            ai "Sorry but this is the end of the game!"
+            ai "We will work hard to finish it up but one month just wasn't enough."
+            ai "I apologize and hope you look forward to it!"
+            ai "Feel free to explore a bit and let us know what you think."
+            ai "Thank you for playing!"
+            jump aitalking
+
+        "The logo" if logo == True:
+            r "Do you have any idea what that logo is?"
+            ai "Well it is quite obviously the Z{nw}"
+            show ai at shake
+            ai "{cps=0}Well it is quite obviously the Z{/cps}---zttztzt...."
+            ai "The Z-zztzttztttzt...."
+            play sound beepon
+            show ai unhappy at normalize
+            ai "How odd. I can't seem to say that word..."
+            show ai normal
+            ai "It is a famous foundation. Surely you are just being forgetful."
             jump aitalking
         "Back":
             hide ai with dissolve
@@ -378,7 +423,6 @@ label aitalk:
 ######################### ######### ####################
 ######################## TEST MENU ########################
 ######################### ######### ####################
-
 label sprockotalkTESTINGONLY:
     show sprocko normal with dissolve:
         zoomnorm
@@ -432,3 +476,6 @@ label sprockotalkTESTINGONLY:
             "Back":
                 hide sprocko with dissolve
                 $roommanager.returnfrominteraction(roommanager.currentroom)
+######################### ######### ####################
+######################## TEST MENU ########################
+######################### ######### ####################

@@ -16,13 +16,17 @@
 
 label start:
 
-#TEST BLOCK
+############################TEST BLOCK
+############################TEST BLOCK
+
 ##rollback messes with item collecting
 #$config.rollback_enabled = False
 
 #$inventory.items.append(item_fittings)
+#jump powerup_event
 
-#TEST BLOCK
+############################TEST BLOCK
+############################TEST BLOCK
 
 $roommanager.setuproominstant(0)
 stop music fadeout 1.0
@@ -151,12 +155,10 @@ play music ambience volume 0.15
 
 ##### this sets up the event when you enter room number, needs name of label as string
 $roommanager.addeventstoroom(1,"introbridge")
-#####
 
 dd "As you climb out of the Cold Sleep pod, you slowly glance around the room in an attempt to regain your bearings."
 
 ##### ROOM 0 COLD SLEEP #####
-# $roommanager.setuproom(0)
 $roommanager.returnfrominteraction(roommanager.currentroom)
 ##### ROOM 0 COLD SLEEP #####
 
@@ -452,17 +454,19 @@ o "Now get to it!"
 r "Ahh! Yes sir!"
 hide otus with dissolve
 play music ambience volume 0.15
-
 ##### ROOM 2 HUB #####
 $roommanager.returnfrominteraction(roommanager.currentroom)
 ##### ROOM 2 HUB #####
 
 
-
+##### Powerup Event #####
 label powerup_event:
 show sprocko happy:
     zoomnorm
     ease 0.5 xalign -0.55
+stop music fadeout 1.0
+pause 1.0
+play music floatingby volume 0.22
 s "EVERYONE! Gather around please!"
 show marnie normal behind sprocko with dissolve:
     zoomnorm
@@ -473,50 +477,60 @@ show gelato normal behind marnie with dissolve:
 show otus normal with dissolve:
     zoomnorm
     xalign 1.4
-
 m "Looks like you're running a cord from the station back to the ship."
 show gelato at wiggle
 g "Oh so that was the plan..."
-s "Correct! Such a solution is what you call GENIUS!"
+s "Correct! Such a elegant solution is what you would call GENIUS!"
 o "Good work Sprocko."
-o "Once we get the station up we should have a much easier time getting to that core."
+o "Once we get the station's power up we should have a much easier time getting to that core."
 show sprocko normal at wiggle
 s "OK! Let me adjust a few setting here..."
 show sprocko happy at hop
+stop music fadeout 1.5
 s "POWER TRANSFER ACTIVATED!"
-# powerup noise
 show bgblack2 with dissolve
+play sound2 pop
 $ power = True
+pause 0.75
 $roommanager.intertoggle(ai_rm2)
 hide bgblack2 with dissolve
 s "Gahahahahaha! I did it!"
 show marnie happy at sway
-m "I guess that this wasn't such a bad idea."
-# shake noise
+m "I guess going here wasn't such a bad idea after all."
+play sound shake volume 0.7
 show gelato shocked
 show marnie shocked
 show sprocko shocked
 show otus unhappy with vpunch
+pause 1.5
+play music spacedout volume 0.4
 o "Whoa what was that?"
-# shake noise
+play sound shake volume 0.8
 show sprocko unhappy with vpunch
+pause 1.0
 o "Sprocko?"
-m "Please tell me that was nothing."
+m "Please tell me the station didn't just shake."
 show gelato at wiggle
 g "It was probably just the wind."
 r "I don't think there's wind up here..."
-# chime noise
+play sound2 outage volume 0.8
+show bgblack with dissolve:
+    alpha 0.4
 show sprocko shocked at sulk
 s "{size=-06}Uh oh...{/size}"
+hide bgblack with disnowait
+m "What was that?"
 s "The Clover... It just lost power..."
 show marnie unhappy at hop
 m "The Clover lost power?! {size=+06}You have got to be kidding me!{/size}"
+play sound shake volume 0.8
 show otus with vpunch
-o "Also I think the station is now moving on its own..."
-qq "Actually the station only disabled its geostationary rockets."
+pause 1.0
+g "I think the station is starting to move on its own..."
+qq "Actually the station only disabled its geostationary thrusters."
 show gelato at wiggle
 g "That's like the same thing isn't it?"
-qq "Well no, it just means that the station's orbit is no longer stable and it is the gravity of the planet below us making the station move."
+qq "Well no, it just means that the station's orbit is no longer stable. It is the gravity of the planet below that is making the station move."
 o "Hold on! Who is speaking right now?"
 
 show ai normal with dissolve:
@@ -536,16 +550,17 @@ show sprocko shocked:
     ease 0.1 yoffset 30
     ease 0.1 yoffset 0
 
-ai "Hello. I am the caretaker of this space station."
+ai "Hello. I am the Caretaker of this space station."
 show sprocko unhappy:
     ease 0.9 xalign -0.75
 show gelato at hop
-g "Gah! Who is that!"
-show marnie at sway
-m "OK now I'm creeped out..."
-ai "Once again, I am the caretaker of this space station."
+g "Gah! Who is that?!"
+show marnie at hop
+m "Its some kind of creepy AI!"
+ai "Once again, I am the Caretaker of this space station."
 m "I thought this place was abandoned..."
-ai "Abandoned? No it is clear that you ruffians have illegally boarded the station and made a mess of things."
+ai "Abandoned? No it is clear that you ruffians have illegally boarded this station."
+ai "Not only that but you have fooled around with the power systems and made a huge mess of things."
 show ai unhappy
 ai "It will take me half a cycle to clean all of this up!"
 o "That's not what happened! We found the station like this... In fact we are well within our rights to salvage this whole place if we want to!"
@@ -554,48 +569,59 @@ ai "B-Barbarians! The lot of you!"
 show ai normal
 ai "I am going to ask you all kindly, to leave."
 show sprocko shocked at wiggle
-s "But the Clover has been drained of all it's POWER!"
+s "But the Clover has been DRAINED of all it's power!"
+s "We can't leave!"
 ai "Is that so? Quite the predicament isn't it..."
-# shake noise
+play sound shake volume 0.8
 show marnie unhappy with vpunch
-m "Umm Guys! There's that other problem with the station losing it's orbit!"
+pause 1.0
+m "Umm, guys! There's that other problem with the station losing its orbit!"
 m "You know what that means right?"
-o "We're going to burn up and crash into the planet like a bunch of dumb pleffloyds?"
+o "We're going to burn up and crash into the planet like a bunch of dumb pleffynoids?"
 ai "Quite the predicament indeed..."
 ai "Perhaps my master can help solve this problem..."
-# radio noise
+play sound2 beepon volume 0.8
 show ai at shake
 ai "..."
 show ai at normalize
 ai "Hmmmmm... He doesn't seem to be responding. How odd."
-o "I don't think your master is on this station."
+o "I doubt your master is still on this station..."
 show ai happy
-ai "Nonsense, he just put me into the charging station not even a deca cycle ago!"
+ai "Nonsense, he just put me into the charging station not even a milli cycle ago!"
 show otus normal at wiggle
 o "I think we're talking to an AI with a few screws loose here!"
 show ai unhappy
 ai "How rude."
 show gelato normal at wiggle
-g "Mr. Caretaker sir. Maybe you can help us get power back to our ship? We'll help look for your master."
+g "Mr. Caretaker sir. Maybe you can help us get power back to our ship? We'll help you look for your master."
 show ai normal
 ai "I know where the master is. He is in the reactor core doing his research as always."
 show otus happy
-o "Fantastic all we have to do is hop on the elevator and go. What are we even wasting time on this stinking clampooter for?"
+o "Fantastic all we have to do is hop on the elevator and go to the reactor. Why are we even wasting time on this stinking clankyfooter for?"
 ai "I'm sorry but that area is off limits. Only the master is allowed there."
 show otus unhappy
 show gelato unhappy
 show marnie shocked at sway
-m "Can't you let us up?! it's an emergency!"
+m "Can't you let us up?! It's an emergency!"
 ai "Even if I could I would need the elevator codes..."
 ai "And I can't seem to recall them... Maybe my memory circuit has been damaged..."
 show sprocko unhappy
 s "Talking to this THING,{w=0.25} is useless!"
-# shake noise
+play sound shake
 show otus with vpunch
-ai "Well if you lot are all set I will do some tidying up before we all crash horribly and die."
+pause 1.0
+ai "Well if you lot are all set, I need to do some tidying up before we all crash horribly and die."
 hide ai with dissolve
-
-show marnie unhappy at sulk
+pause 0.25
+show sprocko:
+    ease 0.5 xalign -0.55
+show marnie unhappy:
+    ease 1.0 xalign 0.1
+show gelato:
+    ease 0.75 xalign 0.55
+show otus:
+    ease 1.25 xalign 1.4
+pause 0.25
 m "This can't be happening..."
 show gelato unhappy at sulk
 g "I haven't even visited the Earth yet..."
@@ -609,10 +635,10 @@ show marnie shocked at wiggle
 m "Captain we need a plan!"
 g "We can only power the ship up with access to the reactor core."
 m "And we need the AI to either recall the elevator codes or get them working on our own."
-
+stop sound fadeout 0.5
 menu(screen ='choice'):
     "We should repair the AI":
-        r "We could search the rest of the station and maybe find parts to repair this AI."
+        r "We could search the rest of the station and maybe find parts to repair this Caretaker AI."
         r "Then we can convince it to let us up or something..."
         show otus normal at wiggle
     "We should find the codes":
@@ -622,7 +648,7 @@ menu(screen ='choice'):
 o "That's not a terrible plan."
 show sprocko normal
 show gelato normal
-show marnie normal
+show marnie normal at wiggle
 m "We should have access to the rest of the station now that the power is back on."
 show gelato at wiggle
 g "The Rookie is right! We can't just sit here all day..."
@@ -632,6 +658,9 @@ o "The worse that can happen now is that we run out of time and..."
 show sprocko unhappy at sulk
 show marnie unhappy at sulk
 show gelato unhappy at sulk
+pause 0.75
+show otus unhappy
+o "Hey! Why are you all sulking?"
 m "..."
 s "..."
 g "..."
@@ -641,8 +670,8 @@ m "I don't want to say I told you so but..."
 m "..."
 hide marnie with dissolve
 show sprocko unhappy at sulk
-s "I am an embarrassment..."
-s "How did I not know the ship would be drained leaving us all stranded?"
+s "{size=-6}I am an embarrassment...{/size}"
+s "How did I not know the Clover would be drained, leaving us all stranded?"
 show sprocko shocked
 s "I MUST redeem myself!"
 hide sprocko with dissolve
@@ -651,7 +680,7 @@ g "Don't worry Captain we'll figure it out..."
 show gelato unhappy
 g "And if we don't..."
 show gelato normal at hop
-g "The it has been an honor serving with you!"
+g "Then it has been an honor serving with you!"
 hide gelato with dissolve
 show otus unhappy:
     ease 0.4 xalign 0.5
@@ -660,33 +689,33 @@ r "Ahh! Yes Captain?"
 o "I know that things don't look too good..."
 o "But..."
 show otus happy at hop
+stop music fadeout 1.0
 o "This is what adventure is made of!"
 o "I know we can make it out of here!"
 o "Go and help the others! See what they need!"
 show otus at hop
 o "This is the perfect chance to prove yourself! Now get to it!"
 r "Ahh! Yes sir!"
+play music ambience volume 0.15
 hide otus with dissolve
 $crewstatus = 1
+# $RM3_lab.locked = 0
+# $RM4_con.locked = 0
+# $RM5_bar.locked = 0
 $roommanager.intertoggle_on(ai_rm2)
-$RM3_lab.locked = 0
-$RM4_con.locked = 0
-$RM5_bar.locked = 0
-$roommanager.intertoggle(sprocko_rm2)
-$roommanager.intertoggle(sprocko_rm3)
-$roommanager.intertoggle(marnie_rm2)
-$roommanager.intertoggle(marnie_rm4)
-$roommanager.intertoggle(gelato_rm2)
-$roommanager.intertoggle(gelato_rm5)
-
-
-############## DRAFT ##############
-
-##### ROOM 1 BRIDGE #####
-
+# $roommanager.intertoggle(sprocko_rm2)
+# $roommanager.intertoggle(sprocko_rm3)
+# $roommanager.intertoggle(marnie_rm2)
+# $roommanager.intertoggle(marnie_rm4)
+# $roommanager.intertoggle(gelato_rm2)
+# $roommanager.intertoggle(gelato_rm5)
 $roommanager.returnfrominteraction(roommanager.currentroom)
 
-##### ROOM 1 BRIDGE #####
+
+##### ROOM 3 LAB #####
+label introlab_event:
+##### ROOM 3 LAB #####
+
 
 
 

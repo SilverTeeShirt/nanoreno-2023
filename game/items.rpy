@@ -1,6 +1,13 @@
 ###### Item Interactions
 
 #bootkey
+label itembootkeydesc:
+    if bootkeyclean == False:
+        dd "A stinky key found in a stinky boot."
+    else:
+        dd "A recently cleaned key found in a stinky boot."
+    jump invscreensetup
+
 label item_bootkeysolution:
     if bootkey1use == False:
         $bootkey1use = True
@@ -51,12 +58,8 @@ label item_bootkeygel:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
-label itembootkeydesc:
 
-    dd "A key found in a stinky boot."
-    jump invscreensetup
 
-   
 
 # OLD CODE USE FOR REFERENCE##################################
 # label rm0_bootkeygel:
@@ -100,12 +103,31 @@ label itembootkeydesc:
 #     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
+#Step 2 for item description: create label with the same name you put in the definition of the Item, put what you want to happen when you look at the description there.
+
+# label itemkeysetdesc:
+#     dd "A set of locker keys."
+
+    #Step 3: we need to jump to somewhere else to avoid the game auto-closing.
+    #If we are just supposed to return to the inventory screen, use the following line.
+
+    # jump invscreensetup
+
+    # if instead something happens that requires to do other stuff (change rooms, reset the room like after conversations, add stuff to lists, etc,
+    # the same code you would in those cases applies. )
+
+
+
 
 #keyset
+
+label itemkeysetdesc:
+    dd "A set of keys."
+    jump invscreensetup
+
 label item_keysetsolution1:
     dd "You'll need a different key to open the other locker."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-
 label item_keysetsolution2:
     if keyset1use == False:
         $keyset1use = True
@@ -130,25 +152,17 @@ label item_keysetgel:
     g "Just don't lose them..."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
-#Step 2: create label with the same name you put in the definition of the Item, put what you want to happen when you look at the description there.
-label itemkeysetdesc:
-
-    dd "A set of locker keys."
-
-    #Step 3: we need to jump to somewhere else to avoid the game auto-closing. 
-
-    #If we are just supposed to return to the inventory screen, use the following line.
-    jump invscreensetup
-    #if instead something happens that requires to do other stuff (change rooms, reset the room like after conversations, add stuff to lists, etc, 
-    # the same code you would in those cases applies. )
-
-
 
 #fittings
+label itemfittingsdesc:
+    dd "A large extendable power fitting. It can stretch great distances and carry a high density of energy."
+    jump invscreensetup
+
 label item_fittingssolution1:
     if powerplug1 == False:
         $powerplug1 = True
         $bridgecord_on = True
+        play sound insert
         dd "You plug in the Extendable Power Fittings into the ventilation power port."
         if powerplug2 == True:
             dd "You've connected the Extendable Power Fittings to both the ship and the station."
@@ -165,6 +179,7 @@ label item_fittingssolution2:
     if powerplug2 == False:
         $powerplug2 = True
         $hubcord_on = True
+        play sound insert
         dd "You plug in the Extendable Power Fittings into the hub connector."
         if powerplug1 == True:
             dd "You've connected the Extendable Power Fittings to both the ship and the station."
@@ -187,51 +202,49 @@ label item_fittingsgel:
     g "That's the Extendable Power Fittings alright. It's super stretchy and should be able to reach however far you'll need."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
-label itemfittingsdesc:
-    
-    dd "A large extendable power fitting. It can stretch great distances and carry a high density of energy."
-
-    jump invscreensetup
-
-
 
 
 #datapad
+label itemdatapaddesc:
+    dd "A Universal Datapad."
+    jump invscreensetup
+
 label item_datapadsolution1:
-    dd "Downloaded data."
+    dd "Data has been downloaded."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_datapadsolution2:
-    dd "Downloaded data."
+    dd "Data has been downloaded."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_datapadsolution3:
-    dd "Downloaded data."
+    dd "Data has been downloaded."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_datapadsp:
-    s "datapad."
+    s "Ahhhh! A Universal Datapad!"
+    s "These things easily connect to one another and can hold vast quantities of data, UNIVERSALLY!"
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_datapadmar:
-    m "datapad."
+    m "Oh hey you found the Universal Datapad!"
+    m "I meant to give you that earlier but I just couldn't find it..."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_datapadgel:
-    g "datapad."
+    g "Oh a Universal Datapad."
+    g "Everyone should have one. You can message each other, store lots of data, and even play games on them!"
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_datapadot:
-    o "datapad."
+    o "Universal Datapads have been around for hundreds of cycles or so."
+    o "They are very useful. You should hang on to that."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_datapadai:
-    ai "datapad."
+    ai "Ahh yes a Universal Datapad."
+    ai "Master has a whole closet full of them. They are so easily misplaced..."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
-label itemdatapaddesc:
 
-    dd "A Universal Datapad."
-
-    jump invscreensetup
 
 # Nothing to say about Item
 label item_NAsp:
     s "What do you want me to do with that?"
-    s "Sorry I'm too busy trying to do important THINGS!"
+    s "Sorry I'm too busy trying to do important, THINGS!"
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_NAmar:
     m "You want me to take a look at this thing?"
@@ -247,5 +260,5 @@ label item_NAot:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_NAai:
     ai "That is certainly something."
-    ai "I'm positive you can do something with it somewhere else."
+    ai "I'm positive you can do something with it somewhere far away from me."
     $roommanager.returnfrominteraction(roommanager.currentroom)

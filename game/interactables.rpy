@@ -40,7 +40,7 @@ label shoe1look:
         show item_key1 with dissolve:
             xalign 0.5
             yalign 0.5
-        item "Received \"Stinky Boot Key\""
+        item "Received \"Boot Key\""
         hide item_key1 with dissolve
         $inventory.items.append(item_bootkey)
         $renpy.block_rollback()
@@ -272,9 +272,10 @@ label rm2_doorlook:
         dd "With the power restored you can now travel to other parts of the station."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label logolook:
-    dd "This logo looks vaguely familiar to you."
+    dd "You feel like you have seen this logo before."
     dd "You recall seeing something like this in your history classes."
     dd "Or was it gym class?"
+    $logo = True
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm2_elevatorlook:
     if power == False:
