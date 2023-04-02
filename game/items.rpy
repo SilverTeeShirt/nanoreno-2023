@@ -50,6 +50,14 @@ label item_bootkeygel:
         g "Hey one of the keys I was missing! I was wondering where that went."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
+
+label itembootkeydesc:
+
+    dd "A key found in a stinky boot."
+    jump invscreensetup
+
+   
+
 # OLD CODE USE FOR REFERENCE##################################
 # label rm0_bootkeygel:
 #     g "Hi, that's my key, I was wondering where it went."
@@ -97,6 +105,7 @@ label item_bootkeygel:
 label item_keysetsolution1:
     dd "You'll need a different key to open the other locker."
     $roommanager.returnfrominteraction(roommanager.currentroom)
+
 label item_keysetsolution2:
     if keyset1use == False:
         $keyset1use = True
@@ -120,6 +129,11 @@ label item_keysetgel:
     g "That's the key set I tend to carry around. Maybe you can handle that job from now on!"
     g "Just don't lose them..."
     $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label itemkeysetdesc:
+
+    dd "A set of locker keys."
+    jump invscreensetup
 
 
 
@@ -166,6 +180,13 @@ label item_fittingsgel:
     g "That's the Extendable Power Fittings alright. It's super stretchy and should be able to reach however far you'll need."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
+label itemfittingsdesc:
+    
+    dd "A large extendable power fitting. It can stretch great distances and carry a high density of energy."
+
+    jump invscreensetup
+
+
 
 
 #datapad
@@ -193,6 +214,12 @@ label item_datapadot:
 label item_datapadai:
     ai "datapad."
     $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label itemdatapaddesc:
+
+    dd "A Universal Datapad."
+
+    jump invscreensetup
 
 # Nothing to say about Item
 label item_NAsp:

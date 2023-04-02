@@ -76,6 +76,8 @@ init python:
             self.setupinterforroom(currroom)
             self.changeinteractionlevel(0)
             self.setupplayerUI()
+        
+        
 
 
         def changeinteractionlevel(self,newilv):
@@ -159,6 +161,13 @@ init python:
 
             if (self.activeitem == itemr):
                 self.activeitem = ""
+        
+        def returnfromdescription(self, roommanagerref):
+
+            self.activeitem = ""
+            invref = self
+            renpy.show_screen("invscreen",None,invref,roommanagerref)
+
 
 
 
@@ -231,7 +240,9 @@ label dragdroplab:
     $inventory.activeitem.interpretdrop(dropn,roommanager)
 
 
+label invscreensetup:
 
+    call screen invscreen(inventory,roommanager)
 
 
 
@@ -374,7 +385,7 @@ screen invscreen(inventoryref,roommanagerref):
     textbutton "No Item Selected":
         xalign 0.5
         ypos 900
-        action [Hide("invscreen"),Function(localrmanref.changeinteractionlevel,0),Show("makeplayerUI",None,localrmanref)]
+        action NullAction()
 
 
     hbox:
@@ -393,11 +404,42 @@ screen invscreen(inventoryref,roommanagerref):
 
                 auto gitem.imageref
 
-                action [Hide("invscreen"),Function(localinventoryref.setactiveitem,gitem), Jump("dragdroplab")]
+                #action [Hide("invscreen"),Function(localinventoryref.setactiveitem,gitem), Jump("dragdroplab")]
 
-                alternate [Hide("invscreen"), Show("itemdescscreen",None,gitem.description,localinventoryref,localrmanref)]
+                action [Function(localinventoryref.setactiveitem,gitem),Show("invinterscreen",None,inventoryref,roommanagerref)]
 
 
+                #alternate [Hide("invscreen"), Jump(gitem.description)]
+
+
+screen invinterscreen(inventoryref,roommanagerref):
+
+    default selitem = inventoryref.activeitem
+
+    modal True
+
+    imagebutton:
+        xalign 0.5
+        ypos 950
+        auto "gamesys/BCK_%s.png"
+        action [Hide("invinterscreen")]
+
+    hbox:
+        xalign 0.5
+        yalign 0.7
+
+        spacing 40
+
+        frame:
+            textbutton "Use" action [Hide("invinterscreen"), Hide("invscreen"),Jump("dragdroplab")]
+
+        frame:
+            textbutton "Examine" action [Hide("invinterscreen"),Jump(selitem.description)]
+
+
+        
+
+            
 
 
 screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
@@ -425,7 +467,7 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
     textbutton "Selected Item: use drag and drop":
         xalign 0.5
         ypos 900
-        action [Hide("dragdropscreen"),Function(localrmanref.changeinteractionlevel,1),Show("invscreen",None,localinvenref,localrmanref)]
+        action NullAction()
 
     draggroup:
 
@@ -457,16 +499,6 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
 
 
 
-screen itemdescscreen(itemdesc, inventoryref, roommanagerref):
 
-    modal True
 
-    default localrmanref = roommanagerref
-    default inventoryreference = inventoryref
 
-    frame:
-        xalign 0.5
-        yalign 0.5
-        xpadding 50
-        ypadding 30
-        textbutton "[itemdesc]" action [Hide("itemdescscreen"), Show("invscreen",None, inventoryreference, localrmanref)]

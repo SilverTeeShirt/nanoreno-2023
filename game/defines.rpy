@@ -150,15 +150,15 @@ define RM6_core = Room("Core TEST",6,"bg_6core_room",[memento,rm6_door,jarbot,ja
 
 # define item_keyset = Item("Key Set",0,"item/item_keyset_%s.png", "A set of locker keys with a symbols on them.",["locker1","locker2"], ["item_keysetsolution1","item_keysetsolution2"], "item/item_keyset_idle.png",["item_NAsp","item_NAmar","item_NAgel","item_NAot","item_NAai"] )
 
-define item_bootkey = Item("Boot Key",0,"item/item_key1_%s.png","A key found in a stinky boot.", ["locker1","locker2","cleaningmirror"],["item_bootkeysolution","item_bootkeysolution2","item_bootkeysolution3"],"item/item_key1_idle.png",["item_NAsp","item_bootkeymar","item_bootkeygel","item_NAot","item_NAai"])
+define item_bootkey = Item("Boot Key",0,"item/item_key1_%s.png","itembootkeydesc", ["locker1","locker2","cleaningmirror"],["item_bootkeysolution","item_bootkeysolution2","item_bootkeysolution3"],"item/item_key1_idle.png",["item_NAsp","item_bootkeymar","item_bootkeygel","item_NAot","item_NAai"])
 
 # define rm0_food = Item("Food Bar",1,"item/item_food1_%s.png", "A nasty looking food bar. You could swear it's squirming in your hand.",[], [], "item/item_food1_idle.png",["rm0_foodsp","rm0_foodmar","rm0_foodgel","rm0_foodot","item_NAai"] )
 
-define item_datapad = Item("Universal Datapad",0,"item/item_datapad_%s.png", "A Universal Datapad.",[], [], "item/item_datapad_idle.png",["item_datapadsp","item_datapadmar","item_datapadgel","item_datapadot","item_datapadai"] )
+define item_datapad = Item("Universal Datapad",0,"item/item_datapad_%s.png", "itemdatapaddesc",[], [], "item/item_datapad_idle.png",["item_datapadsp","item_datapadmar","item_datapadgel","item_datapadot","item_datapadai"] )
 
-define item_fittings = Item("Expandable Power Fittings",0,"item/item_fittings_%s.png", "A large extendable power fitting. It can stretch great distances and carry a high density of energy.",["vents","rm2_powerconnector"], ["item_fittingssolution1","item_fittingssolution2"], "item/item_fittings_idle.png",["item_fittingssp","item_NAmar","item_fittingsgel","item_NAot","item_NAai"] )
+define item_fittings = Item("Expandable Power Fittings",0,"item/item_fittings_%s.png", "itemfittingsdesc",["vents","rm2_powerconnector"], ["item_fittingssolution1","item_fittingssolution2"], "item/item_fittings_idle.png",["item_fittingssp","item_NAmar","item_fittingsgel","item_NAot","item_NAai"] )
 
-define item_keyset = Item("Key Set",0,"item/item_keyset_%s.png", "A set of locker keys.",["locker1","locker2"], ["item_keysetsolution1","item_keysetsolution2"], "item/item_keyset_idle.png",["item_NAsp","item_keysetmar","item_keysetgel","item_NAot","item_NAai"] )
+define item_keyset = Item("Key Set",0,"item/item_keyset_%s.png","itemkeysetdesc",["locker1","locker2"], ["item_keysetsolution1","item_keysetsolution2"], "item/item_keyset_idle.png",["item_NAsp","item_keysetmar","item_keysetgel","item_NAot","item_NAai"] )
 
 
 
