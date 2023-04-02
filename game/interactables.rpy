@@ -258,12 +258,12 @@ label rm2_tablelook:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label chargerlook:
     if power == False:
-        dd "This pod here is some sort of charger."
-        dd "It seems to house a large unit and it is shaped almost like a closet."
+        dd "This pod here is some sort of charging station."
+        dd "It seems to house a large machine in here."
         dd "Whatever is in there is probably completely out of power."
     else:
-        dd "This is the Caretaker's charging pod."
-        dd "It seems that powering up the station powered up the servobot aswell."
+        dd "This is the Caretaker's charging station."
+        dd "It seems that powering up the station powered up the servobot as well."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm2_doorlook:
     if power == False:
