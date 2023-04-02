@@ -16,8 +16,13 @@
 
 label start:
 
+#TEST BLOCK
 ##rollback messes with item collecting
 #$config.rollback_enabled = False
+
+#$inventory.items.append(item_fittings)
+
+#TEST BLOCK
 
 $roommanager.setuproominstant(0)
 stop music fadeout 1.0
@@ -156,6 +161,7 @@ $roommanager.returnfrominteraction(roommanager.currentroom)
 ##### ROOM 0 COLD SLEEP #####
 
 ##### BRIDGE #####
+
 label introbridge:
 stop music fadeout 1.0
 scene bg_1bridge_room with fade
@@ -349,6 +355,7 @@ pause 1.25
 $roommanager.addeventstoroom(2,"introhub")
 $roommanager.setuproominstant(2)
 $roommanager.checkroomevents(2)
+
 ##### HUB #####
 
 label introhub:
@@ -447,194 +454,238 @@ hide otus with dissolve
 play music ambience volume 0.15
 
 ##### ROOM 2 HUB #####
-#$roommanager.setuproom(2)
 $roommanager.returnfrominteraction(roommanager.currentroom)
 ##### ROOM 2 HUB #####
 
 
 
-
 label powerup_event:
+show sprocko happy:
+    zoomnorm
+    ease 0.5 xalign -0.55
+s "EVERYONE! Gather around please!"
+show marnie normal behind sprocko with dissolve:
+    zoomnorm
+    xalign 0.1
+show gelato normal behind marnie with dissolve:
+    zoomnorm
+    xalign 0.55
+show otus normal with dissolve:
+    zoomnorm
+    xalign 1.4
 
-############## DRAFT ##############
-
-dd "after they connect the Clover to the Station they power up the Station."
-
-dd "DRAFT INCOMING."
-
-m "So we’re just going to… Slice this open then?"
-s "That’s the plan! Just let me finish getting it working…"
-m "It just seems that, y’know, breaking into-"
-g "Woah, woah, who said anything about breaking into? We’re just cutting into, get me?"
-g "Hey Rookie, who are those guys your people have with the small knives who save lives?"
-r "...Surgeons?"
-g "Yeah, that’s the one! Would you say they ‘break into’ people bodies to fix them?"
-r "No, because that would be a really weird thing to-"
-g "Exactly, Marnie, it would be weird to say."
-m "Point is, a place all sealed up like this, with no clear cause why it’s empty…"
-m "Just seems like a bad idea, is all."
-o "Marnie, usually I’d agree with you, but the potential…"
-
-m "Fine, but if this all goes horribly wrong and we all die, I get bragging rights."
-g "Aw cool your jets, Marnie! What could possibly go wrong?"
-s "I’ve managed to slice through the door! It was simply no match for my brain power!"
-o "Okay! Everyone head in!"
-
-
-
-# strange notification sound
-
-o "What was that sound?"
-s "!"
-o "__Tech? What is it?"
-
-qq "Excuse me."
-g "what is we just blow it up?"
-
-s "What? Who said that?"
-
-m "I knew this was going to go badly..."
+m "Looks like you're running a cord from the station back to the ship."
+show gelato at wiggle
+g "Oh so that was the plan..."
+s "Correct! Such a solution is what you call GENIUS!"
+o "Good work Sprocko."
+o "Once we get the station up we should have a much easier time getting to that core."
+show sprocko normal at wiggle
+s "OK! Let me adjust a few setting here..."
+show sprocko happy at hop
+s "POWER TRANSFER ACTIVATED!"
+# powerup noise
+show bgblack2 with dissolve
+$ power = True
+$roommanager.intertoggle(ai_rm2)
+hide bgblack2 with dissolve
+s "Gahahahahaha! I did it!"
+show marnie happy at sway
+m "I guess that this wasn't such a bad idea."
+# shake noise
+show gelato shocked
+show marnie shocked
+show sprocko shocked
+show otus unhappy with vpunch
+o "Whoa what was that?"
+# shake noise
+show sprocko unhappy with vpunch
+o "Sprocko?"
+m "Please tell me that was nothing."
+show gelato at wiggle
+g "It was probably just the wind."
+r "I don't think there's wind up here..."
+# chime noise
+show sprocko shocked at sulk
+s "{size=-06}Uh oh...{/size}"
+s "The Clover... It just lost power..."
+show marnie unhappy at hop
+m "The Clover lost power?! {size=+06}You have got to be kidding me!{/size}"
+show otus with vpunch
+o "Also I think the station is now moving on its own..."
+qq "Actually the station only disabled its geostationary rockets."
+show gelato at wiggle
+g "That's like the same thing isn't it?"
+qq "Well no, it just means that the station's orbit is no longer stable and it is the gravity of the planet below us making the station move."
+o "Hold on! Who is speaking right now?"
 
 show ai normal with dissolve:
     zoomnorm
     xalign 1.75
 show otus:
     ease 0.2 xalign 1.15
-show gelato:
+show gelato shocked:
     ease 0.1 xalign 0.4
     ease 0.1 yoffset -30
     ease 0.1 yoffset 0
-show marnie:
+show marnie shocked:
     ease 0.2 xalign -0.15
 pause 0.05
-show sprocko:
+show sprocko shocked:
     ease 0.2 xalign -1.1
     ease 0.1 yoffset 30
     ease 0.1 yoffset 0
 
-ai "Hello. This is my space station. Please leave."
+ai "Hello. I am the caretaker of this space station."
 show sprocko unhappy:
     ease 0.9 xalign -0.75
-g "Gah! What was that!"
-ai "That doesn’t matter. Please leave."
-o "Who the pleft do you think you are?"
-ai "I am the caretaker of this space station. I have asked you once to leave. Please do so."
-
-s "Oh, it is much more than that, __Grouch… It’s beautiful!"
-g "__Tech! Don’t compliment things that threaten us!"
-s "I wouldn’t say it’s threatening us-"
-ai "If you do not leave, I will be forced to take drastic measures…"
-r "Drastic measures?"
-o "What kind of drastic measures?"
-ai "Keeping you in the dark will help you make the right decision and leave."
-s "It’s bluffing."
-o "__Tech, you sure?"
-s "No doubts. My scanner says no weapon signatures, no explosives and no personal on board."
-s "At least, nothing automated."
-o "Right, you heard __Tech, crew. The worst that can happen is that we can get annoyed to death."
+show gelato at hop
+g "Gah! Who is that!"
+show marnie at sway
+m "OK now I'm creeped out..."
+ai "Once again, I am the caretaker of this space station."
+m "I thought this place was abandoned..."
+ai "Abandoned? No it is clear that you ruffians have illegally boarded the station and made a mess of things."
+show ai unhappy
+ai "It will take me half a cycle to clean all of this up!"
+o "That's not what happened! We found the station like this... In fact we are well within our rights to salvage this whole place if we want to!"
+show ai at wiggle
+ai "B-Barbarians! The lot of you!"
+show ai normal
+ai "I am going to ask you all kindly, to leave."
+show sprocko shocked at wiggle
+s "But the Clover has been drained of all it's POWER!"
+ai "Is that so? Quite the predicament isn't it..."
+# shake noise
+show marnie unhappy with vpunch
+m "Umm Guys! There's that other problem with the station losing it's orbit!"
+m "You know what that means right?"
+o "We're going to burn up and crash into the planet like a bunch of dumb pleffloyds?"
+ai "Quite the predicament indeed..."
+ai "Perhaps my master can help solve this problem..."
+# radio noise
+show ai at shake
 ai "..."
-r "Looks like you’re righ-"
-
-show bgblack with dissolveslow:
-    alpha 0.5
-dd "Lights dim"
-
-m "What the pleft was that?"
-s "Uh oh…"
-o "Tech, what’s going on?"
-s "The Clover, it’s… It’s dead!"
-o "What?"
-s "I mean, the generator! It’s dead, it’s been drained of all power!"
-g "I- That’s got to be a coincidence or something, right? I mean, what could drain the power that quickly?"
-ai "No coincidence. Merely a show of power. Heh, power…"
-m "What?!"
-ai "Uh, just a pun. Power being a word that means both energy and strength. I found it funny."
-s "You found it funny?"
-g "Yeah, that was an awful joke."
-g "That was like a, Great Grandad joke, eh Rookie?"
-r "What?"
-s "That’s not the point, __Goof. Hey, uh… Sorry, what do I call you?"
-ai "..."
-o "What are you angling at here, __Tech?"
-s "Just… Let me try something. So, your name?"
-ai "You may call me… Zates."
-g "Zates? Why does that name sound familiar…"
-s "__Goof, you’re missing the point! It has a name, a sense of humour."
-
-#ai looks nervous
-
-s "I think we’re talking to a Sentient level AI here!"
-
-#Everyone looks shocked
-
-m "For real, __Tech?"
-s "Yeah! And if th- person is meeting us at the door, then-"
-o "What’s being kept inside must be worth all the gredits in the universe…"
-ai "What?"
-m "Cap, I know I had my doubts about this, but if that’s the case, we need to clear this place out!"
-ai "Hold on, what?"
-o "Agreed. I think this place is worth paying a fine for a late delivery!"
-g "Hell, we should just trash the stuff in the hold and take as much from this place!"
-ai "Take as much… Are you serious?"
-r "Um, guys…"
-m "I agree, the salvage from here is worth much more than our current contract…"
-s "I really want to get my PTK on the data centre for this guy! Or the engine! Or pretty much anything in here!"
-ai "If you dare lay a single metal finger -"
-r "Guys?"
-g "This place is giving massive human vibes, I wonder…"
-o "Hey __Tech, can you power up the Rusty Clover with enough time?"
-s "You kidding me? All I need to do is find the engine room and find a spare Zetacite cell."
-ai "The engi- No. No more."
-r "Guys!"
-
-# Alarms start sounding
-
-m "What the chirt was that?"
-o "Everyone stay calm-"
-ai "I gave you plenty of chances. You could have left at any point!"
-s "Uh-oh…"
-
-#screen shake
-
-g "Woah, did you guys feel that?"
-s "Yeah, that was the geostationary engines turning off."
-o "Oh brip."
-s "Yeah. The station is falling out of orbit and is going to…"
-ai "Crash. Horribly. Killing all of you."
-g "What the hell, you psychopath! You’re going to kill us all, including yourself!"
-ai "Better that then allow you squiglybeaks to strip this station down!"
-ai "Now, if you allow yourselves to die quietly to die with dignity, I must go."
-r "Woah, where the hell are you going?"
-ai "Shh! Like I said, please die quietly."
-
+show ai at normalize
+ai "Hmmmmm... He doesn't seem to be responding. How odd."
+o "I don't think your master is on this station."
+show ai happy
+ai "Nonsense, he just put me into the charging station not even a deca cycle ago!"
+show otus normal at wiggle
+o "I think we're talking to an AI with a few screws loose here!"
+show ai unhappy
+ai "How rude."
+show gelato normal at wiggle
+g "Mr. Caretaker sir. Maybe you can help us get power back to our ship? We'll help look for your master."
+show ai normal
+ai "I know where the master is. He is in the reactor core doing his research as always."
+show otus happy
+o "Fantastic all we have to do is hop on the elevator and go. What are we even wasting time on this stinking clampooter for?"
+ai "I'm sorry but that area is off limits. Only the master is allowed there."
+show otus unhappy
+show gelato unhappy
+show marnie shocked at sway
+m "Can't you let us up?! it's an emergency!"
+ai "Even if I could I would need the elevator codes..."
+ai "And I can't seem to recall them... Maybe my memory circuit has been damaged..."
+show sprocko unhappy
+s "Talking to this THING,{w=0.25} is useless!"
+# shake noise
+show otus with vpunch
+ai "Well if you lot are all set I will do some tidying up before we all crash horribly and die."
 hide ai with dissolve
 
-r "Oh my god, we’re going to die!"
-m "I knew this was a stupid risk!"
-g "We’re going to die, and I’ve never even been to Earth!"
-s "I… I…"
-o "Everyone, shut up!"
+show marnie unhappy at sulk
+m "This can't be happening..."
+show gelato unhappy at sulk
+g "I haven't even visited the Earth yet..."
+show otus normal
 o "We’ve been in sticky situations before, and we’ve always found a way out."
+show marnie at hop
 m "Only broken airlocks or collapsing structures, nothing as bad as this!"
 o "Well, if you merge them all together, it’s kind of as big as this, right?"
-o "Anyway, not the point. That software-head expects us to sit back and die?"
-o "__Tech,you mentioned a zetacite cell in the engine room?"
-s "Oh! Uh, through those doors at the end of the room!"
-o "Then we just need to bust open the doors and make our way to that engine room!"
-m "Either we find a way to stop the ship from crashing or grab a cell, clever…"
-s "Uh, one problem. Those doors are made up of Diamondic Titanium."
-g "Wow, that’s like 10 magnitudes harder than diamond!"
-o "Doesn’t matter. Everyone split up, and see if you can find a way through these doors."
-r "How?"
-o "Try anything. Hacking them, blowing them up, finding some fancy technology here, anything!"
+show otus unhappy
+show marnie shocked at wiggle
+m "Captain we need a plan!"
+g "We can only power the ship up with access to the reactor core."
+m "And we need the AI to either recall the elevator codes or get them working on our own."
 
+menu(screen ='choice'):
+    "We should repair the AI":
+        r "We could search the rest of the station and maybe find parts to repair this AI."
+        r "Then we can convince it to let us up or something..."
+        show otus normal at wiggle
+    "We should find the codes":
+        r "We could search the rest of the station for the elevator codes directly."
+        r "Then we can hop on the elevator with or without that AI's permission."
+        show otus normal at wiggle
+o "That's not a terrible plan."
+show sprocko normal
+show gelato normal
+show marnie normal
+m "We should have access to the rest of the station now that the power is back on."
+show gelato at wiggle
+g "The Rookie is right! We can't just sit here all day..."
+o "It's decided."
+o "We split up and search the station for whatever can help us."
+o "The worse that can happen now is that we run out of time and..."
+show sprocko unhappy at sulk
+show marnie unhappy at sulk
+show gelato unhappy at sulk
+m "..."
+s "..."
+g "..."
+m "Well I guess we have no other choice."
+show marnie normal at sway
+m "I don't want to say I told you so but..."
+m "..."
+hide marnie with dissolve
+show sprocko unhappy at sulk
+s "I am an embarrassment..."
+s "How did I not know the ship would be drained leaving us all stranded?"
+show sprocko shocked
+s "I MUST redeem myself!"
+hide sprocko with dissolve
+show gelato normal at wiggle
+g "Don't worry Captain we'll figure it out..."
+show gelato unhappy
+g "And if we don't..."
+show gelato normal at hop
+g "The it has been an honor serving with you!"
+hide gelato with dissolve
+show otus unhappy:
+    ease 0.4 xalign 0.5
+o "{size=+06}Rookie!{/size}"
+r "Ahh! Yes Captain?"
+o "I know that things don't look too good..."
+o "But..."
+show otus happy at hop
+o "This is what adventure is made of!"
+o "I know we can make it out of here!"
+o "Go and help the others! See what they need!"
+show otus at hop
+o "This is the perfect chance to prove yourself! Now get to it!"
+r "Ahh! Yes sir!"
+hide otus with dissolve
+$crewstatus = 1
+$roommanager.intertoggle_on(ai_rm2)
+$RM3_lab.locked = 0
+$RM4_con.locked = 0
+$RM5_bar.locked = 0
+$roommanager.intertoggle(sprocko_rm2)
+$roommanager.intertoggle(sprocko_rm3)
+$roommanager.intertoggle(marnie_rm2)
+$roommanager.intertoggle(marnie_rm4)
+$roommanager.intertoggle(gelato_rm2)
+$roommanager.intertoggle(gelato_rm5)
 
-o "I’m going to explore this area and see what I can find. I may have an idea..."
 
 ############## DRAFT ##############
 
 ##### ROOM 1 BRIDGE #####
-$roommanager.setuproom(2)
+
+$roommanager.returnfrominteraction(roommanager.currentroom)
+
 ##### ROOM 1 BRIDGE #####
 
 

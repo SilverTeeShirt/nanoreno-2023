@@ -24,9 +24,9 @@ transform hop:
     ease 0.1 yoffset -30
     ease 0.1 yoffset 0
 transform sway:
-    ease 0.2 xoffset -10
-    ease 0.2 xoffset 20
-    ease 0.2 xoffset 0
+    ease 0.25 xoffset -15
+    ease 0.3 xoffset 20
+    ease 0.25 xoffset 0
 transform shake:
     linear 0.05 xoffset -10
     linear 0.05 xoffset 10

@@ -334,17 +334,16 @@ screen navscreen(roommanagerref):
                     #take it away later
                     action [Hide("navscreen"),Hide("makeinteractables"),Function(localrmanref.checkroomevents,ri.idnum)]
             else:
-
                 imagebutton:
 
                     xalign 0.5
                     yalign 0.5
 
-                    # if (ri.discovered == 0):
-                    #     auto ri.navicon
-                    # else:
-                    #     #auto "iconunknown_%s.png"
-                    auto "navic/navX_%s.png"
+                    if (ri.discovered == 0):
+                        auto ri.navicon
+                    else:
+                        auto "navic/locksized_%s.png"
+                    # auto "navic/navX_%s.png"
                     #take it away later
                     action [NullAction()]
 

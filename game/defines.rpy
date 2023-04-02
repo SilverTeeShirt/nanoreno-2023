@@ -18,7 +18,7 @@ define item = Character(None, what_italic=True, what_style="centered_text", what
 ###################rm_0 cold sleep locker
 define rm0_shower= ImageInteractable("",1,1775,180,0,[0],[0],"","showerlook","inter/inter150x650_%s.png","inter/inter150x650_idle.png")
 define rm0_gloves= ImageInteractable("",1,1490,350,0,[0],[0],"","gloveslook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
-define rm0_mirror= ImageInteractable("",1,1619,290,0,[0],[0],"","mirrorlook","inter/inter150x300_%s.png","inter/inter150x300_idle.png")
+define rm0_mirror= ImageInteractable("cleaningmirror",1,1619,290,0,[0],[0],"","mirrorlook","inter/inter150x300_%s.png","inter/inter150x300_idle.png")
 define rm0_shoe= ImageInteractable("",1,1300,715,0,[0],[0],"","shoe1look","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 define rm0_locker1= ImageInteractable("locker1",1,1200,333,0,[0],[0],"","locker1look","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
 define rm0_locker2= ImageInteractable("locker2",1,740,333,0,[0],[0],"","locker2look","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
@@ -41,7 +41,7 @@ define rm1_capscreen= ImageInteractable("",1,1570,520,0,[0],[0],"","capscreenloo
 define rm1_idol= ImageInteractable("",1,1450,450,0,[0],[0],"","idollook","inter/inter_%s.png","inter/inter_idle.png")
 define rm1_readout= ImageInteractable("",1,1425,580,0,[0],[0],"","rm1_readoutlook","inter/inter_%s.png","inter/inter_idle.png")
 define rm1_mainscreen= ImageInteractable("",1,1760,140,0,[0],[0],"","rm1_mainscreenlook","inter/inter150x150_%s.png","inter/inter150x150_idle.png")
-define rm1_vents= ImageInteractable("vents",1,170,320,0,[0],[0],"","rm1_ventslook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
+define rm1_vents= ImageInteractable("vents",1,160,320,0,[0],[0],"","rm1_ventslook","inter/inter350x300_%s.png","inter/inter350x300_idle.png")
 define rm1_vbutton= ImageInteractable("",1,103,526,0,[0],[0],"","rm1_vbuttonlook","inter/inter_%s.png","inter/inter_idle.png")
 define rm1_wires= ImageInteractable("",1,490,0,0,[0],[0],"","rm1_wireslook","inter/inter300x300_%s.png","inter/inter300x300_idle.png")
 define rm1_datafood= ImageInteractable("",1,600,340,0,[0],[0],"","rm1_datafoodlook","inter/inter150x300_%s.png","inter/inter150x300_idle.png")
@@ -148,13 +148,17 @@ define RM6_core = Room("Core TEST",6,"bg_6core_room",[memento,rm6_door,jarbot,ja
 
 #####items######
 
-define rm0_lockerkey = Item("Boot Key",0,"item/item_key1_%s.png","Too small key found in a boot. It has a with a diamond symbol in it.", ["locker1"],["rm0_lockersolution"],"item/item_key1_idle.png",["rm0_lockerkeycommsp","rm0_lockerkeycommmar","rm0_lockerkeycomgel","rm0_lockerkeycommot","item_NAai"])
+# define item_keyset = Item("Key Set",0,"item/item_keyset_%s.png", "A set of locker keys with a symbols on them.",["locker1","locker2"], ["item_keysetsolution1","item_keysetsolution2"], "item/item_keyset_idle.png",["item_NAsp","item_NAmar","item_NAgel","item_NAot","item_NAai"] )
 
-define rm0_food = Item("Food Bar",1,"item/item_food1_%s.png", "A nasty looking food bar. You could swear it's squirming in your hand.",[], [], "item/item_food1_idle.png",["rm0_foodcommsp","rm0_foodcommmar","rm0_foodcomgel","rm0_foodcommot","item_NAai"] )
+define item_bootkey = Item("Boot Key",0,"item/item_key1_%s.png","A key found in a stinky boot.", ["locker1","locker2","cleaningmirror"],["item_bootkeysolution","item_bootkeysolution2","item_bootkeysolution3"],"item/item_key1_idle.png",["item_NAsp","item_bootkeymar","item_bootkeygel","item_NAot","item_NAai"])
 
-define item_powerfittings = Item("Expandable Power Fittings",0,"item/item_fittings_%s.png", "A large extendable power fitting. It can stretch great distances and carry a high density of energy.",["locker1","locker2"], ["item_fittingssolution1","item_fittingssolution2"], "item/item_fittings_idle.png",["item_fittingscommsp","item_NAmar","item_fittingscommgel","item_NAot","item_NAai"] )
+# define rm0_food = Item("Food Bar",1,"item/item_food1_%s.png", "A nasty looking food bar. You could swear it's squirming in your hand.",[], [], "item/item_food1_idle.png",["rm0_foodsp","rm0_foodmar","rm0_foodgel","rm0_foodot","item_NAai"] )
 
-define item_keyset = Item("Key Set",0,"item/item_keyset_%s.png", "A set of locker keys with a symbols on them.",["locker1","locker2"], ["item_keysetsolution1","item_keysetsolution2"], "item/item_keyset_idle.png",["item_NAsp","item_NAmar","item_NAgel","item_NAot","item_NAai"] )
+define item_datapad = Item("Universal Datapad",0,"item/item_datapad_%s.png", "A Universal Datapad.",[], [], "item/item_datapad_idle.png",["item_datapadsp","item_datapadmar","item_datapadgel","item_datapadot","item_datapadai"] )
+
+define item_fittings = Item("Expandable Power Fittings",0,"item/item_fittings_%s.png", "A large extendable power fitting. It can stretch great distances and carry a high density of energy.",["vents","rm2_powerconnector"], ["item_fittingssolution1","item_fittingssolution2"], "item/item_fittings_idle.png",["item_fittingssp","item_NAmar","item_fittingsgel","item_NAot","item_NAai"] )
+
+define item_keyset = Item("Key Set",0,"item/item_keyset_%s.png", "A set of locker keys.",["locker1","locker2"], ["item_keysetsolution1","item_keysetsolution2"], "item/item_keyset_idle.png",["item_NAsp","item_keysetmar","item_keysetgel","item_NAot","item_NAai"] )
 
 
 

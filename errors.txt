@@ -2,17 +2,9 @@
 errors listed below, and try again.
 
 
-The label item_fittingscommsp is defined twice, at File "game/items.rpy", line 91:
-label item_fittingscommsp:
-and File "game/items.rpy", line 112:
-label item_fittingscommsp:
-
-
-The label item_fittingscomgel is defined twice, at File "game/items.rpy", line 96:
-label item_fittingscomgel:
-and File "game/items.rpy", line 117:
-label item_fittingscomgel:
-
+File "game/script.rpy", line 619: expected menuitem
+    show sprocko normal
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sat Apr  1 21:00:33 2023
+Sun Apr  2 09:52:55 2023

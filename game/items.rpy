@@ -1,110 +1,200 @@
 ###### Item Interactions
 
-######object description and result labels, move to own screen later?############
-##rm0_lockerkey
-
-
 #bootkey
-label rm0_lockersolution:
-    dd "Unlock the locker with the diamond symbol opened."
-    dd "You place the key back to where you found it."
-    show item_food1 with dissolve:
-        xalign 0.5
-        yalign 0.5
-    item "Received \"Food Bar\""
-    item "Lost \"Small Key\""
-    hide item_food1 with dissolve
-    $inventory.items.append(rm0_food)
-    $inventory.removeitem(rm0_lockerkey)
-    $renpy.block_rollback()
+label item_bootkeysolution:
+    if bootkey1use == False:
+        $bootkey1use = True
+        dd "You open the locker and rummage through it."
+        show item_datapad with dissolve:
+            xalign 0.5
+            yalign 0.5
+        item "Received \"Universal Datapad\""
+        hide item_datapad with dissolve
+        $inventory.items.append(item_datapad)
+        $renpy.block_rollback()
+    else:
+        dd "You've already rummaged through this locker."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm0_lockerkeycommsp:
-    s "Hi, that's a key, a bit too analog for my taste."
+label item_bootkeysolution2:
+    dd "The key doesn't work on this set of lockers."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm0_lockerkeycommmar:
-    m "Hi, that's a key, I think it might open one of the lockers?"
-
-    $rm0_lockerkey.targetinter.append("locker1")
-
-    $rm0_lockerkey.solutionlabs.append("rm0_lockersolution")
-
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm0_lockerkeycomgel:
-    g "Hi, that's my key, I was wondering where it went."
-
-    $rm0_food.targetinter.append("Gelato")
-
-    $rm0_food.solutionlabs.append("rm0_foodsolution")
-
-    $rm0_lockerkey.targetinter.append("locker1")
-
-    $rm0_lockerkey.solutionlabs.append("rm0_lockersolution")
-
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm0_lockerkeycommot:
-    o "Hi, that's a key, I am not sure it's yours rookie."
+label item_bootkeysolution3:
+    if bootkeyclean == False and power == False:
+        $bootkeyclean = True
+        play sound sonicshower
+        dd "You blast the key with the sonic gun."
+        dd "Not a single hint of boot stank is on it anymore."
+    elif bootkeyclean == False and power == True:
+        dd "Since the ship doesn't have any power you'll have to deal with this stinky key as is."
+    else:
+        dd "The key is already clean and shiny."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
-
-#food
-label rm0_foodsolution:
-    dd "With a single gulp, Gelato ingests the food bar. Wrapper and all."
-    g "That really hit the spot!"
-    $inventory.removeitem(rm0_food)
-    $renpy.block_rollback()
+label item_bootkeymar:
+    if bootkeyclean == False and shower == False:
+        m "What is that awful smell?"
+        m "..."
+        m "Is that you Rookie?"
+        m "You really are just a stinky person aren't you?"
+    elif bootkeyclean == False:
+        m "Why are you showing me this stinky key?"
+        m "Well it should open one of the lockers in the cold sleep room."
+    else:
+        m "That key should open one of the lockers in the cold sleep room."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm0_foodcommsp:
-    s "I think I ate a few of those back in high school... I think it's Gelato's"
-
-    $rm0_food.targetinter.append("Gelato")
-
-    $rm0_food.solutionlabs.append("rm0_foodsolution")
-
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm0_foodcommmar:
-    m "Oh wow that... that looks bad. No thanks."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm0_foodcomgel:
-    g "Oh hey, if it isn't my food bar, thanks buddy!"
-    jump rm0_foodsolution
-label rm0_foodcommot:
-    o "A special nutrition bar. Not compatible with my species."
+label item_bootkeygel:
+    if bootkeyclean == False:
+        g "Hey one of the keys I was missing! I was wondering where that went."
+        g "It smells a tad funky..."
+    else:
+        g "Hey one of the keys I was missing! I was wondering where that went."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
+# OLD CODE USE FOR REFERENCE##################################
+# label rm0_bootkeygel:
+#     g "Hi, that's my key, I was wondering where it went."
+#
+#     $rm0_food.targetinter.append("Gelato")
+#
+#     $rm0_food.solutionlabs.append("rm0_foodsolution")
+#
+#     $rm0_bootkey.targetinter.append("locker1")
+#
+#     $rm0_bootkey.solutionlabs.append("rm0_lockersolution")
+#
+#     $roommanager.returnfrominteraction(roommanager.currentroom)
 
-#fittings
-label item_fittingssolution1:
-    dd "You plug in the Extendable Power Fittings."
-    $powerplug1 = True
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-label item_fittingssolution2:
-    dd "You plug in the Extendable Power Fittings."
-    $powerplug2 = True
-    $roommanager.returnfrominteraction(roommanager.currentroom)
+#     $inventory.removeitem(item_fittings)
+
+# #food
+# label rm0_foodsolution:
+#     dd "With a single gulp, Gelato ingests the food bar. Wrapper and all."
+#     g "That really hit the spot!"
+#     $inventory.removeitem(rm0_food)
+#     $renpy.block_rollback()
+#     $roommanager.returnfrominteraction(roommanager.currentroom)
+# label rm0_foodmsp:
+#     s "I think I ate a few of those back in high school... I think it's Gelato's"
+#
+#     $rm0_food.targetinter.append("Gelato")
+#
+#     $rm0_food.solutionlabs.append("rm0_foodsolution")
+#
+#     $roommanager.returnfrominteraction(roommanager.currentroom)
+# label rm0_foodmar:
+#     m "Oh wow that... that looks bad. No thanks."
+#     $roommanager.returnfrominteraction(roommanager.currentroom)
+# label rm0_foodgel:
+#     g "Oh hey, if it isn't my food bar, thanks buddy!"
+#     jump rm0_foodsolution
+# label rm0_foodmot:
+#     o "A special nutrition bar. Not compatible with my species."
+#     $roommanager.returnfrominteraction(roommanager.currentroom)
+
 
 
 #keyset
 label item_keysetsolution1:
-    if keyset1 == False:
-        dd "You used the key of the locker with the symbols on them."
-
-    else:
-        $roommanager.returnfrominteraction(roommanager.currentroom)
+    dd "You'll need a different key to open the other locker."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_keysetsolution2:
-    dd "You plug in the Extendable Power Fittings."
+    if keyset1use == False:
+        $keyset1use = True
+        dd "You open the locker and rummage through it."
+        show item_fittings with dissolve:
+            xalign 0.5
+            yalign 0.5
+        item "Received \"Extendable Power Fittings\""
+        hide item_fittings with dissolve
+        $subjectfittings = False
+        $inventory.items.append(item_fittings)
+        $renpy.block_rollback()
+    else:
+        dd "You've already rummaged through these lockers."
+        $roommanager.returnfrominteraction(roommanager.currentroom)
     $roommanager.returnfrominteraction(roommanager.currentroom)
-label item_fittingscommsp:
-    s "Yes that is the Extendable Power Fittings! Good job!"
-    s "Now plug it DIRECTLY into the ship and this hub connector!"
-    s "Talk to me when you've figured it out."
+label item_keysetmar:
+    m "That key set should open up the lockers in the cold sleep room."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-label item_fittingscomgel:
-    g "That's the Extendable Power Fittings alright. It's Super stretchy and should be able to reach however far you need."
+label item_keysetgel:
+    g "That's the key set I tend to carry around. Maybe you can handle that job from now on!"
+    g "Just don't lose them..."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+
+
+#fittings
+label item_fittingssolution1:
+    if powerplug1 == False:
+        $powerplug1 = True
+        $bridgecord_on = True
+        dd "You plug in the Extendable Power Fittings into the ventilation power port."
+        if powerplug2 == True:
+            dd "You've connected the Extendable Power Fittings to both the ship and the station."
+            $ stalk2 = True
+            $inventory.removeitem(item_fittings)
+        else:
+            dd "You'll need to connect the other end."
+            $roommanager.returnfrominteraction(roommanager.currentroom)
+        $roommanager.returnfrominteraction(roommanager.currentroom)
+    else:
+        dd "You should connect this somewhere else."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label item_fittingssolution2:
+    if powerplug2 == False:
+        $powerplug2 = True
+        $hubcord_on = True
+        dd "You plug in the Extendable Power Fittings into the hub connector."
+        if powerplug1 == True:
+            dd "You've connected the Extendable Power Fittings to both the ship and the station."
+            $ stalk2 = True
+            $inventory.removeitem(item_fittings)
+        else:
+            dd "You'll need to connect the other end."
+            $roommanager.returnfrominteraction(roommanager.currentroom)
+        $roommanager.returnfrominteraction(roommanager.currentroom)
+    else:
+        dd "You should connect this somewhere else."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+label item_fittingssp:
+    s "Yes! That is the Extendable Power Fittings!"
+    s "Now plug it DIRECTLY into the Clover and this hub connector!"
+    s "Talk to me when you've figured it out!"
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label item_fittingsgel:
+    g "That's the Extendable Power Fittings alright. It's super stretchy and should be able to reach however far you'll need."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+
+
+#datapad
+label item_datapadsolution1:
+    dd "Downloaded data."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label item_datapadsolution2:
+    dd "Downloaded data."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label item_datapadsolution3:
+    dd "Downloaded data."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label item_datapadsp:
+    s "datapad."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label item_datapadmar:
+    m "datapad."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label item_datapadgel:
+    g "datapad."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label item_datapadot:
+    o "datapad."
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label item_datapadai:
+    ai "datapad."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 # Nothing to say about Item
-
 label item_NAsp:
     s "What do you want me to do with that?"
     s "Sorry I'm too busy trying to do important THINGS!"

@@ -28,7 +28,10 @@ label gloveslook:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label mirrorlook:
     dd "This cleaning station contains a sonic pulse gun and other similar cleaning devices."
-    dd "Useful for when you need to clean off gear or those more delicate parts of your body."
+    if power == False:
+        dd "Useful for when you need to clean off gear or those more delicate parts of your body."
+    if power == True:
+        dd "Too bad there is no power."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label shoe1look:
     dd "An oversized work boot sits awkwardly against the wall."
@@ -37,9 +40,9 @@ label shoe1look:
         show item_key1 with dissolve:
             xalign 0.5
             yalign 0.5
-        item "Received \"Boot Key\""
+        item "Received \"Stinky Boot Key\""
         hide item_key1 with dissolve
-        $inventory.items.append(rm0_lockerkey)
+        $inventory.items.append(item_bootkey)
         $renpy.block_rollback()
         $rm0_shoe.interprogress = 1
     else:
@@ -47,11 +50,9 @@ label shoe1look:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker1look:
     dd "These lockers are mainly used to store equipment and sometimes personal items."
-    dd "This set of lockers have a dimond and circle symbol on them."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label locker2look:
     dd "These lockers are mainly used to store equipment and sometimes personal items."
-    dd "This set of lockers have a square and triangle symbol on them."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label gastanklook:
     dd "The Cold Sleep pods use a mixture of volatiles and chemicals along with a weak pulse of electricity."
@@ -142,48 +143,93 @@ label mainwindowlook:
     show CG1docked with dissolve
     dd "The ship is docked to the station and you have a nice view of the planet below."
     dd "The large green planet doesn't seem to hold any life. Just large swirls of noxious gas and planet wide storms."
-    dd "Looking ahead you can see the edges of the Milkyway Galaxy. This sector also has a nice view of the Pepperoni Constellation."
-    dd "Can you see it? It looks like a slice of pizza."
+    if power == True:
+        dd "You seem to be drifting closer and closer to the planet."
+    else:
+        dd "Looking ahead you can see the edges of the Milkyway Galaxy."
+        dd "This sector also has a nice view of the Pepperoni Constellation."
+        dd "Can you see it? It looks like a slice of pizza."
     hide CG1docked with dissolve
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label radtoplook:
-    dd "This radiator helps circulate the air."
-
+    if powerplug1 == False:
+        dd "This large component helps purify and recycle the air."
+        dd "It's a bit tricky to make the air breathable for such a diverse crew."
+    else:
+        dd "The ventilation system is down so no air can be recycled at the moment."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label radbotlook:
-    dd "Hot or cool air is pumped out of this unit."
-    dd "It's a bit tricky to maintain a comfortable temperature for the diverse crew."
+    if powerplug1 == False:
+        dd "Hot or cool air is pumped out of this unit."
+        dd "It's a challenge to create a comfortable temperature for such a diverse crew."
+    else:
+        dd "No air is being pumped out of this unit while the ventilation system is offline."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label navseatlook:
-    dd "Navigator seat."
+    dd "This is the Navigator's seat."
+    dd "Marnie usually sits there but sometimes Gelato will help out."
+    dd "You are amazed by all the knobs, dials, and levers that the navigator has set for the ship to stay on course."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label capchairlook:
-    dd "small chair for Captain Otus. It even has a small cup holder."
+    dd "This tiny powered chair is reserved for Captain Otus."
+    dd "The back arm would lift up and take the Captain out of his Practical Suit."
+    dd "It has everything he needs to command the ship."
+    dd "It even has a tiny cup holder."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label capscreenlook:
-    dd "captain's screen."
+    if power == False:
+        dd "The Captain's screen is quite large."
+        dd "It has a readout of the station and the planet below."
+        dd "There are private messages too."
+        dd "You decide not to invade someone else's privacy."
+    else:
+        dd "The Captain's screen is blank."
+        dd "There is no power."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label idollook:
-    dd "small idol, might be lucky travels through space or the world destroyer."
+    dd "That small purple idol was placed there by Marnie."
+    dd "It's creepy and cute at the same time."
+    $idol = True
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_readoutlook:
-    dd "data on area."
+    if power == False:
+        dd "The panel is full of warnings and messages about what is damaged or missing on the ship."
+        dd "Not having any functional escape pods makes you a bit worried."
+        $escapepods = True
+    else:
+        dd "Not having any power on the ship makes you a bit worried."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_mainscreenlook:
-    dd "main screen visualizer, displays images on the window."
+    dd "That is the main screen visualizer."
+    dd "It projects an image right onto the main window."
+    dd "It's seldom used but when everyone on the bridge needs to see something it gets turned on."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_ventslook:
-    dd "vents are dusty and crooked."
+    dd "These air vents are quite dirty and slightly crooked."
+    if powerplug1 == False:
+        dd "Air is constantly being drawn in and then pumped out through the devices below."
+    else:
+        dd "The normally loud droning of the vents now are silent."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_vbuttonlook:
-    dd "does stuff with vents maybe for puzzle."
+    dd "This is the temperature control panel."
+    dd "You have been told over and over never to touch it."
+    dd "Sometimes you change it when no one is looking."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_wireslook:
-    dd "exposed wires being used to hold up more wires and tubes. Doesn't look safe."
+    dd "These exposed wires being used to hold up even more exposed wires and tubes."
+    dd "You are quite certain numerous safety protocols are being violated."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_datafoodlook:
-    dd "A display of the ship's status. It is blinking and looks worrying."
-    dd "Also there's a nutrition dispenser here... Dunno why its connected to the data screen."
+    if power == False:
+        dd "The display shows the ship's profile."
+        dd "It is designated as the C1014V-163, or more commonly called the Rusty Clover."
+        dd "And for some reason there's a nutrition dispenser below."
+        dd "The Tryhydrate Gruul it pumps out is nasty."
+    else:
+        dd "Normally the ship's profile is displayed here."
+        dd "But without power you will never know where the salvaging arm is manufactured."
+        dd "Unfortunately the Tryhydrate Gruul pump still works."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
@@ -192,37 +238,78 @@ label rm1_datafoodlook:
 ###### rm_2 hub ######
 ###### ######## ######
 label skyartlook:
-    dd "art."
+    dd "This fabulous piece of art shows some of the more important core worlds."
+    dd "The swirling panel it hangs from represents how the Star Paths connect them all."
+    $coreworlds = True
+    $starpaths = True
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm2_trashlook:
-    dd "trash messy."
+    dd "It seems like many objects have fallen and shattered on the ground ."
+    dd "The opulent yet messy state of the station gives you an eerie feeling."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm2_tablelook:
-    dd "table dead plants long time."
+    dd "This side table has an old clock and a shriveled plant on it."
+    dd "It looks like that plant hasn't received any water in ages."
+    dd "At the end of the table there are a few fancy glasses."
+    if power == False:
+        dd "The dried out residue at the bottom reaffirms the notion that the station is indeed abandoned."
+    else:
+        dd "Maybe the Caretaker can go fetch you some beverages while you explore the place."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label chargerlook:
-    dd "some kind of charger."
+    if power == False:
+        dd "This pod here is some sort of charger."
+        dd "It seems to house a large unit and it is shaped almost like a closet."
+        dd "Whatever is in there is probably completely out of power."
+    else:
+        dd "This is the Caretaker's charging pod."
+        dd "It seems that powering up the station powered up the servobot aswell."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm2_doorlook:
-    dd "locked then not locked."
+    if power == False:
+        dd "Without power is seems that these doors can not be opened."
+    else:
+        dd "With the power restored you can now travel to other parts of the station."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label logolook:
-    dd "logo looks like hand catching something."
+    dd "This logo looks vaguely familiar to you."
+    dd "You recall seeing something like this in your history classes."
+    dd "Or was it gym class?"
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm2_elevatorlook:
-    dd "lotsa text and stuff here about elevator."
+    if power == False:
+        dd "The main elevator seems to lead directly to the reactor core."
+        dd "Unfortunately there is no power for the elevator at the moment."
+        dd "And judging by the material it is not something your crew can easily cut through."
+    else:
+        dd "The main elevator seems to lead directly to the reactor core."
+        dd "Even with the power on you will need help from either the AI or get the elevator codes."
+        dd "And judging by the material it is not something your crew can cut through in time."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm2_lightlook:
-    dd "weird lights. feels like they are watching you when on."
+    if power == False:
+        dd "These lamps are all over the place."
+        dd "But with no power the whole area is quite dark."
+    else:
+        dd "With all the lamps now powered on the room is much more bright."
+        dd "However you now feel uneasy."
+        dd "You can't seem to shake the feeling that you are being watched."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm2_bigdoorlook:
-    dd "big security storage area. need biometric data to open."
+    dd "The large security storage locker looms over you."
+    dd "It is far more impressive then the ones in the ship."
+    dd "It even needs biometric data to open."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label planetmodellook:
-    dd "looks familiar if sprocko in room."
+    dd "This particular world looks familiar to you."
+    dd "You believe it is a model of Kobomba, home of the famous Kobomba Academy of Technology and Sciences."
+    $academy = True
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm2_powermaillook:
-    dd "DA MAIL power connect to this."
+    dd "This hub connecter is part of a pocket dimension delivery system."
+    dd "Many far off planets and space stations use these to send small parcels and messages long distances."
+    if power == False:
+        dd "It seems to be connected directly to the stations power source."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
