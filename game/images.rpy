@@ -342,10 +342,11 @@ image jarman_image = ConditionSwitch(
     "corejarman_on", "jarmanactive",
     "True", "no_img")
 
-## Images Characters
+######################### ######### ####################
+######################## CHARACTERS########################
+######################### ######### ####################
 
 ## AI
-
 image ai normal = LiveComposite(
     (1920, 1750),
     (0, 0), "/char/ai/CaretakerNeutral.png"
@@ -376,69 +377,8 @@ image ai happye = LiveComposite(
     (0, 0), "/char/ai/CaretakerHappyEvil.png"
     )
 
-## Marnie
-
-image marnie normal = LiveComposite(
-    (1920, 1750),
-    (0, 0), "/char/mar/MarnieNeutral.png",
-    )
-
-image marnie unhappy = LiveComposite(
-    (1920, 1750),
-    (0, 0), "/char/mar/MarnieUnhappy.png",
-    )
-
-image marnie happy = LiveComposite(
-    (1920, 1750),
-    (0, 0), "/char/mar/MarnieHappy.png",
-    )
-
-image marnie shocked = LiveComposite(
-    (1920, 1750),
-    (0, 0), "/char/mar/MarnieShocked.png",
-    )
-
-## Otus
-
-image otus normal = LiveComposite(
-    (1920, 1750),
-    (0, 0), "/char/otus/OtusNeutral.png",
-    )
-
-image otus unhappy = LiveComposite(
-    (1920, 1750),
-    (0, 0), "/char/otus/OtusUnhappy.png",
-    )
-
-image otus happy = LiveComposite(
-    (1920, 1750),
-    (0, 0), "/char/otus/OtusHappy.png",
-    )
-
-## Gelato
-
-image gelato normal = LiveComposite(
-    (1920, 1750),
-    (0, 0), "/char/gel/GelatoNeutral.png",
-    )
-
-image gelato unhappy = LiveComposite(
-    (1920, 1750),
-    (0, 0), "/char/gel/GelatoUnhappy.png",
-    )
-
-image gelato happy = LiveComposite(
-    (1920, 1750),
-    (0, 0), "/char/gel/GelatoHappy.png",
-    )
-
-image gelato shocked = LiveComposite(
-    (1920, 1750),
-    (0, 0), "/char/gel/GelatoShocked.png",
-    )
 
 ## Sprocko
-
 image sprocko normal = LiveComposite(
     (1920, 1750),
     (0, 0), "/char/spro/SprockoNeutral.png",
@@ -460,11 +400,62 @@ image sprocko shocked = LiveComposite(
     )
 
 
+## Marnie
+image marnie normal = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/mar/MarnieNeutral.png",
+    )
+
+image marnie unhappy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/mar/MarnieUnhappy.png",
+    )
+
+image marnie happy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/mar/MarnieHappy.png",
+    )
+
+image marnie shocked = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/mar/MarnieShocked.png",
+    )
 
 
+## Gelato
+image gelato normal = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/gel/GelatoNeutral.png",
+    )
 
-## ITEMS
+image gelato unhappy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/gel/GelatoUnhappy.png",
+    )
 
-image small_item_key1:
-    "item/item_key1.png"
-    zoom .25
+image gelato happy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/gel/GelatoHappy.png",
+    )
+
+image gelato shocked = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/gel/GelatoShocked.png",
+    )
+
+
+## Otus
+image otus normal = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/otus/OtusNeutral.png",
+    )
+
+image otus unhappy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/otus/OtusUnhappy.png",
+    )
+
+image otus happy = LiveComposite(
+    (1920, 1750),
+    (0, 0), "/char/otus/OtusHappy.png",
+    )

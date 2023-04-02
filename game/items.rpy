@@ -3,6 +3,8 @@
 ######object description and result labels, move to own screen later?############
 ##rm0_lockerkey
 
+
+#bootkey
 label rm0_lockersolution:
     dd "Unlock the locker with the diamond symbol opened."
     dd "You place the key back to where you found it."
@@ -22,13 +24,10 @@ label rm0_lockerkeycommsp:
 label rm0_lockerkeycommmar:
     m "Hi, that's a key, I think it might open one of the lockers?"
 
-    $rm0_lockerkey.targetinter.append("locker1") 
+    $rm0_lockerkey.targetinter.append("locker1")
 
     $rm0_lockerkey.solutionlabs.append("rm0_lockersolution")
 
-    $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm0_lockerkeycommot:
-    o "Hi, that's a key, I am not sure it's yours rookie."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_lockerkeycomgel:
     g "Hi, that's my key, I was wondering where it went."
@@ -37,17 +36,17 @@ label rm0_lockerkeycomgel:
 
     $rm0_food.solutionlabs.append("rm0_foodsolution")
 
-    $rm0_lockerkey.targetinter.append("locker1") 
+    $rm0_lockerkey.targetinter.append("locker1")
 
     $rm0_lockerkey.solutionlabs.append("rm0_lockersolution")
 
     $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm0_lockerkeycomai:
-    ai "A key. Now go away."
+label rm0_lockerkeycommot:
+    o "Hi, that's a key, I am not sure it's yours rookie."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
-
+#food
 label rm0_foodsolution:
     dd "With a single gulp, Gelato ingests the food bar. Wrapper and all."
     g "That really hit the spot!"
@@ -60,26 +59,40 @@ label rm0_foodcommsp:
     $rm0_food.targetinter.append("Gelato")
 
     $rm0_food.solutionlabs.append("rm0_foodsolution")
-    
+
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_foodcommmar:
     m "Oh wow that... that looks bad. No thanks."
     $roommanager.returnfrominteraction(roommanager.currentroom)
-label rm0_foodcommot:
-    o "A special nutrition bar. Not compatible with my species."
-    $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_foodcomgel:
     g "Oh hey, if it isn't my food bar, thanks buddy!"
     jump rm0_foodsolution
-label rm0_foodcomai:
-    ai "Egads, what ghastly manner of food is that?"
+label rm0_foodcommot:
+    o "A special nutrition bar. Not compatible with my species."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
-
-label item_fittingssolution:
+#fittings
+label item_fittingssolution1:
     dd "You plug in the Extendable Power Fittings."
     $powerplug1 = True
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label item_fittingssolution2:
+    dd "You plug in the Extendable Power Fittings."
+    $powerplug2 = True
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+
+
+#keyset
+label item_keysetsolution1:
+    if keyset1 == False:
+        dd "You used the key of the locker with the symbols on them."
+
+    else:
+        $roommanager.returnfrominteraction(roommanager.currentroom)
+    $roommanager.returnfrominteraction(roommanager.currentroom)
+label item_keysetsolution2:
+    dd "You plug in the Extendable Power Fittings."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_fittingscommsp:
     s "Yes that is the Extendable Power Fittings! Good job!"
@@ -90,20 +103,19 @@ label item_fittingscomgel:
     g "That's the Extendable Power Fittings alright. It's Super stretchy and should be able to reach however far you need."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
-
 # Nothing to say about Item
 
 label item_NAsp:
     s "What do you want me to do with that?"
-    s "Sorry I'm too busy trying to do THINGS!"
+    s "Sorry I'm too busy trying to do important THINGS!"
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_NAmar:
-    m "Sorry what is that?"
-    m "I guess it's nice..."
+    m "You want me to take a look at this thing?"
+    m "I'm not sure what it's for... Maybe the others can help you."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_NAgel:
-    g "Very cool, but I'm not sure what it is..."
-    g "Is that from Earth or something?"
+    g "Very cool! But um... I'm not sure what that is."
+    g "Maybe it's something from Earth? I should look into it more..."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label item_NAot:
     o "Rookie sometimes I don't know why I hired you."

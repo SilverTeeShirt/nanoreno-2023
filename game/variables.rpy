@@ -3,9 +3,14 @@
 default shower = False
 default power = False
 
+## items
+default keyset1 = False
+default keyset2 = False
 default powerplug1 = False
 default powerplug2 = False
 
+
+## talking
 default stalk1 = False
 default stalk2 = False
 default stalk3 = False
@@ -46,8 +51,8 @@ default aitalk5 = False
 default aitalk6 = False
 default aistatus = 0
 
-## on and off
 
+## on and off
 default coldwindow_on = False
 default bridgecord_on = False
 default hubcord_on = False
@@ -56,7 +61,3 @@ default conbird_off = False
 default water_on = False
 
 default corejarman_on = False
-
-## items
-# $rm0_food.targetinter = "Gelato"
-# $rm0_lockerkey.targetinter = "locker1"

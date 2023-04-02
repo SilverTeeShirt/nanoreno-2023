@@ -3,7 +3,6 @@
 ###### ###################### ######
 ###### rm_0 cold sleep locker ######
 ###### ###################### ######
-
 label showerlook:
     dd "A narrow sonic shower sits uncomfortably in the corner the room."
     if shower == True:
@@ -138,7 +137,6 @@ label scrathesslook:
 ###### ########### ######
 ###### rm_1 bridge ######
 ###### ########### ######
-
 label mainwindowlook:
     dd "You take a look out the main window."
     show CG1docked with dissolve
@@ -193,7 +191,6 @@ label rm1_datafoodlook:
 ###### ######## ######
 ###### rm_2 hub ######
 ###### ######## ######
-
 label skyartlook:
     dd "art."
     $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -233,7 +230,6 @@ label rm2_powermaillook:
 ###### ######## ######
 ###### rm_3 lab ######
 ###### ######## ######
-
 label rm3_ceilinglook:
     dd "tubes and stuff must connect to other rooms."
     $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -276,7 +272,6 @@ label chembanklook:
 ###### ################# ######
 ###### rm_4 conservatory ######
 ###### ################# ######
-
 label hangingplantslook:
     dd "hanging plants."
     $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -318,7 +313,6 @@ label birdlook:
 ###### ######## ######
 ###### rm_5 bar ######
 ###### ######## ######
-
 label boothlook:
     dd "nice looking booth soft velvety material."
     $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -361,7 +355,6 @@ label rm5_datapadlook:
 ###### ######## ######
 ###### rm_6 core ######
 ###### ######## ######
-
 label mementolook:
     dd "Sebastian's sentimental things."
     $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -445,334 +438,3 @@ style computertalk_button is default:
     properties gui.button_properties("choice_button")
 style computertalk_button_text is default:
     properties gui.button_text_properties("choice_button")
-
-
-
-######################### #### ###############################
-######################### TALK ###############################
-######################### #### ###############################
-
-screen talk(items):
-    style_prefix "choicetalk"
-    frame:
-        vbox:
-            for i in items:
-                textbutton i.caption action i.action
-style choicetalk_frame is gui_frame
-style choicetalk_frame:
-    background Frame([ "gui/confirm_frame.png", "gui/frame.png"], gui.confirm_frame_borders, tile=gui.frame_tile)
-    padding gui.confirm_frame_borders.padding
-    xalign .75
-    yalign .5
-    spacing gui.choice_spacing
-style choicetalk_button is default:
-    properties gui.button_properties("choice_button")
-style choicetalk_button_text is default:
-    properties gui.button_text_properties("choice_button")
-
-
-
-######################### ######### ###############################
-######################## Characters ##############################
-######################### ######### ###############################
-
-######################## Marnie ########################
-label marnietalk:
-    show marnie normal with dissolve:
-        zoomnorm
-        left
-    m "Hey what's up?"
-    label marnietalking:
-    menu(screen ='talk'):
-        "Need help?":
-            r "Do you need help?"
-            m "No I'm all set."
-            jump marnietalking
-        "BELOW IS TESTING":
-            r "Test?"
-            m "Yup."
-            jump marnietalking
-        "Advice":
-            r "Can I get advice?"
-            m "Nah."
-            jump marnietalking
-        "Explore":
-            r "Can you explore the other room?"
-            m "Sure thing."
-            hide marnie with dissolve
-            $roommanager.intertoggle(marnie_rm2)
-            $roommanager.intertoggle(marnie_rm4)
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-        "Toggle bird":
-            r "Can  u toggle?"
-            m "Sure..."
-            hide marnie with dissolve
-            if conbird_off == False:
-                $ conbird_off = True
-            else:
-                $ conbird_off = False
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-        "Toggle vines":
-            r "Can u vines??"
-            m "Sure..."
-            hide marnie with dissolve
-            if convine_off == False:
-                $ convine_off = True
-            else:
-                $ convine_off = False
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-        "Back":
-            hide marnie with dissolve
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-
-
-
-######################## Sprocko ########################
-label sprockotalk:
-    show sprocko normal with dissolve:
-        zoomnorm
-        left
-    s "What's going on Rookie?"
-    label sprockotalking:
-    menu(screen ='talk'):
-        "Power up station" if sstatus == 0:
-            if stalk1 == False:
-                $ stalk1 = True
-                r "You said you had an idea about getting power to the station?"
-                s "Well, it's OBVIOUS, isn't it?"
-                menu(screen ='choice'):
-                    "Yeah!":
-                        r "Y-Yeah, of course it is!"
-                        show sprocko happy at wiggle
-                        s "GOOD! Glad that SOMEONE here is on the same wavelength as me!"
-                        r "T-Totally"
-                        s "..."
-                        r "..."
-                        show sprocko unhappy at sulk
-                        s "So...?"
-                        r "Oh, uh, I'll go and...?"
-                        show sprocko shocked at hop
-                        s "You don't know what you're doing, do you?!"
-                        r "..."
-                    "Not really":
-                        r "Sorry I don't really follow."
-                        show sprocko unhappy
-                        s "I had high hopes for you Rookie."
-                        s "But now you are..."
-                        show sprocko shocked at hop
-                        s "DISAPOINTING!"
-                        r "S-Sorry..."
-                show sprocko unhappy
-                s "Listen ROOKIE! All we need to do is plug the Clover straight into this station's hub connector."
-                r "How is our ship going to power this whole station?"
-                show sprocko shocked at hop
-                s "Do I have to explain EVERYTHING?!"
-                show sprocko unhappy
-                s "So, the station already has power. That much is obvious."
-                s "But it's been thrown out of sync, hence all the... {size=-06}Spookiness.{/size}"
-                show sprocko normal
-                s "We connect the Clover. The power gets synchronized and {w=0.25}{nw}"
-                show sprocko normal with vpunchnowait
-                s "{cps=0}We connect the Clover. The power gets synchronized and {/cps}BOOM!"
-                r "Ahh!"
-                s "Well, not boom. That CLEARLY won't happen...{w=0.25} Probably..."
-                show sprocko happy
-                s "That should provide the station access to it's own power source again."
-                r "Great! Let's start by doing that then!"
-                s "Just find me the expandable power fittings and we can!"
-                r "Sure! Umm... Where are they again?"
-                show sprocko unhappy
-                s "What must it be like being trapped in a mind like that..."
-                r "Hey!"
-                show sprocko normal
-                s "They'll be somewhere IN the Clover. Ask the others if you need help!"
-                show sprocko happy
-                s "Now leave me alone. I must adjust these...{w=0.25} CAPACITORS!"
-                hide sprocko
-                $ powertalk = True
-                $roommanager.returnfrominteraction(roommanager.currentroom)
-            else:
-                r "How do we power up the station again?"
-                s "Just plug the ship STRIAGHT into this hub connector!"
-                s "Find and connect the power fittings to both the ship and the station!"
-                r "Got it!"
-            jump sprockotalking
-        "BELOW IS TESTING":
-            r "Can I get advice?"
-            s "Go away!"
-            jump sprockotalking
-        "Explore":
-            r "Can you explore the other room?"
-            s "Sure thing."
-            hide sprocko with dissolve
-            $roommanager.intertoggle(sprocko_rm2)
-            $roommanager.intertoggle(sprocko_rm3)
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-        "Go away":
-            r "I want you to vanish from everywhere."
-            s "Sure thing."
-            hide sprocko with dissolve
-            $roommanager.intertoggle_off(sprocko_rm2)
-            $roommanager.intertoggle_off(sprocko_rm3)
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-        "Power up station TEST" if power == False:
-            r "Can you turn up the power? "
-            s "Sure thing but this will shut off the ship!"
-            hide sprocko with dissolve
-            $ power = True
-            $roommanager.intertoggle(ai_rm2)
-            $roommanager.setuproom(2)
-        "Power down station TEST" if power == True:
-            r "Can you cut off the power?"
-            s "Um ok."
-            hide sprocko with dissolve
-            $ power = False
-            $roommanager.intertoggle(ai_rm2)
-            $roommanager.setuproom(2)
-        "Toggle water":
-            r "Can togglewater?"
-            s "sure thing Rookie."
-            hide sprocko with dissolve
-            if water_on == False:
-                $ water_on = True
-            else:
-                $ water_on = False
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-        "Back":
-            hide sprocko with dissolve
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-
-
-######################## Gelato ########################
-label gelatotalk:
-    show gelato normal with dissolve:
-        zoomnorm
-        left
-    g "What's going on human Rookie?"
-    label gelatotalking:
-    menu(screen ='talk'):
-        "Power up station" if gstatus == 0:
-            if stalk1 == False:
-                r "What to do about power."
-                g "No idea!! talk to Sprocko!"
-                jump gelatotalking
-            elif gtalk1 == False:
-                g "Take hit set of keys!"
-                show item_keyset with dissolve:
-                    xalign 0.5
-                    yalign 0.5
-                item "Received \"Key Set\""
-                hide item_keyset with dissolve
-                $inventory.items.append(item_keyset)
-                $renpy.block_rollback()
-                $ gtalk1 = True
-                jump gelatotalking
-            g "use that to get item power extender!"
-            jump gelatotalking
-        "Need help?":
-            r "Do you need help?"
-            g "Nope it's all good."
-            jump gelatotalking
-        "BELOW IS TESTING":
-            r "Test?"
-            g "Yup."
-            jump gelatotalking
-        "Advice":
-            r "Can I get advice?"
-            g "Apple a day keeps the donkeys away... I think..."
-            jump gelatotalking
-        "Explore":
-            r "Can you explore the other room?"
-            g "Sure thing."
-            hide gelato with dissolve
-            $roommanager.intertoggle(gelato_rm2)
-            $roommanager.intertoggle(gelato_rm5)
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-        "Back":
-            hide gelato with dissolve
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-
-# "The station":
-#     r "What can you tell me about the station?"
-#     g "Well It's a human station for sure."
-#     g "If you look, everything is proportional to you guys. The stairs, the table, even the doors."
-#     g "But mainly it's the air!"
-#     r "The air?"
-#     g "Yeah its the perfect mixture of oxygen, nitrogen, elements. A Perfect replicata of Earth air and ideal for humans."
-#     g "You see we Troaderlites are very sensitive to air qaulitiy since we often times breath through our skin."
-#     g "When at rest we don't even need to use our lungs!"
-#
-# "Troaderlites":
-#     r "What can you tell me about Troaderlites in general?"
-#     g "Well... You know we aren't the most liked species in the galaxy..."
-#     g "Because of that war and everything..."
-#     g "It's tough sometimes but I try to manage."
-#     g "I'm thankful Captain Otus took me onto his crew. It's just so much fun!"
-#     g "Sorry... I didn't really answer your question..."
-
-
-
-######################## Otus ########################
-label otustalk:
-    show otus normal with dissolve:
-        zoomnorm
-        left
-    o "Huh? What is it?"
-    label otustalking:
-    menu(screen ='talk'):
-        "Need help?":
-            r "Do you need help?"
-            o "Not from you."
-            jump otustalking
-        "BELOW IS TESTING":
-            r "Test?"
-            o "Yup."
-            jump otustalking
-        "Advice":
-            r "Can I get advice?"
-            o "Be useful Rookie."
-            jump otustalking
-        "Explore":
-            r "Can you explore the other room?"
-            o "Sure thing."
-            hide otus with dissolve
-            $roommanager.intertoggle(otus_rm2)
-            $roommanager.intertoggle(otus_rm6)
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-        "Back":
-            hide ai with dissolve
-            $roommanager.returnfrominteraction(roommanager.currentroom)
-
-
-
-######################## Caretaker AI ########################
-label aitalk:
-    show ai normal with dissolve:
-        zoomnorm
-        left
-    ai "You are unwelcome."
-    label aitalking:
-    menu(screen ='talk'):
-        "BELOW IS TESTING":
-            r "Test?"
-            ai "Yup."
-            jump aitalking
-        "Need help?":
-            r "Do you need help?"
-            ai "Do not disturb my master."
-            jump aitalking
-        "Be evil or weird":
-            r "you werid now?"
-            ai "Please leave this station."
-            show ai happye with hop
-            ai "OR DONT!"
-            show ai normal with wiggle
-            ai "Sorry I don't know whats going on."
-            show ai unhappye with hop
-            ai "GAHHHHHH!"
-            show ai unhappy with wiggle
-            ai "Sometimes I get like this..."
-            jump aitalking
-        "Back":
-            hide ai with dissolve
-            $roommanager.returnfrominteraction(roommanager.currentroom)

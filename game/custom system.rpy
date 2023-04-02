@@ -133,7 +133,7 @@ init python:
             super().__init__(name,intertype,horposition,verposition,interprogress,interrangelayer,interrangequest,fltext,labelref)
             self.imageref = imageref
             self.menuimageref = menuimageref
-           
+
 
 
     class TextInteractable(Interactable):
@@ -174,10 +174,10 @@ init python:
             self.solutionlabs = solutionlabs
             self.dragimg = dragimg
             self.comments = comments
-        
+
         def interpretdrop(self,drpnm,rmmanagerref):
 
-            commenters = ["Sprocko","Marnie","Captain Otus","Gelato","The Caretaker"]
+            commenters = ["Sprocko","Marnie","Gelato","Captain Otus","The Caretaker"]
 
             if drpnm in self.targetinter:
 
@@ -190,19 +190,19 @@ init python:
                 commnum = commenters.index(drpnm)
 
                 renpy.jump(self.comments[commnum])
-            
+
             else:
                 renpy.jump("dragdroplab")
-            
-            
 
-    
+
+
+
 
 
 
     def dropcheck(drags,drop):
-        
-        if not drop: 
+
+        if not drop:
             return
 
         store.dragn = drags[0].drag_name
@@ -211,8 +211,8 @@ init python:
         return True
 
 
-            
-        
+
+
 
 
 
@@ -220,7 +220,7 @@ init python:
 
 label dragdroplab:
 
-    
+
     default dragn = None
 
     default dropn = None
@@ -451,7 +451,7 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
                     draggable False
                     droppable True
 
- 
+
 
 
 
