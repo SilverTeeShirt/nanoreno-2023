@@ -21,15 +21,26 @@ label rm0_lockerkeycommsp:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_lockerkeycommmar:
     m "Hi, that's a key, I think it might open one of the lockers?"
-    $rm0_lockerkey.targetinter = "locker1"
+
+    $rm0_lockerkey.targetinter.append("locker1") 
+
+    $rm0_lockerkey.solutionlabs.append("rm0_lockersolution")
+
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_lockerkeycommot:
     o "Hi, that's a key, I am not sure it's yours rookie."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_lockerkeycomgel:
     g "Hi, that's my key, I was wondering where it went."
-    $rm0_food.targetinter = "Gelato"
-    $rm0_lockerkey.targetinter = "locker1"
+
+    $rm0_food.targetinter.append("Gelato")
+
+    $rm0_food.solutionlabs.append("rm0_foodsolution")
+
+    $rm0_lockerkey.targetinter.append("locker1") 
+
+    $rm0_lockerkey.solutionlabs.append("rm0_lockersolution")
+
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_lockerkeycomai:
     ai "A key. Now go away."
@@ -45,7 +56,11 @@ label rm0_foodsolution:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_foodcommsp:
     s "I think I ate a few of those back in high school... I think it's Gelato's"
-    $rm0_food.targetinter = "Gelato"
+
+    $rm0_food.targetinter.append("Gelato")
+
+    $rm0_food.solutionlabs.append("rm0_foodsolution")
+    
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_foodcommmar:
     m "Oh wow that... that looks bad. No thanks."

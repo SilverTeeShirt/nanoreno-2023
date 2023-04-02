@@ -129,11 +129,11 @@ init python:
             self.labelref = labelref
 
     class ImageInteractable(Interactable):
-        def __init__(self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,labelref,imageref,menuimageref,characode):
+        def __init__(self,name,intertype,horposition,verposition,interprogress,interrangequest,interrangelayer,fltext,labelref,imageref,menuimageref):
             super().__init__(name,intertype,horposition,verposition,interprogress,interrangelayer,interrangequest,fltext,labelref)
             self.imageref = imageref
             self.menuimageref = menuimageref
-            self.characode = characode
+           
 
 
     class TextInteractable(Interactable):
@@ -165,93 +165,54 @@ init python:
 
 
     class Item():
-        def __init__(self,name,idnum,imageref,description,targetinter,solutionlab,dragimg,comments):
+        def __init__(self,name,idnum,imageref,description,targetinter,solutionlabs,dragimg,comments):
             self.name = name
             self.idnum = idnum
             self.imageref = imageref
             self.description = description
             self.targetinter = targetinter
-            self.solutionlab = solutionlab
+            self.solutionlabs = solutionlabs
             self.dragimg = dragimg
             self.comments = comments
+        
+        def interpretdrop(self,drpnm,rmmanagerref):
 
-        def interpretoutcome(self,outcomeval,rmman):
-            if outcomeval == 0:
+            commenters = ["Sprocko","Marnie","Captain Otus","Gelato","The Caretaker"]
 
-                renpy.jump(self.solutionlab)
+            if drpnm in self.targetinter:
 
-            if outcomeval == 6:
+                solnum = self.targetinter.index(drpnm)
 
+                renpy.jump(self.solutionlabs[solnum])
+
+            elif drpnm in commenters:
+
+                commnum = commenters.index(drpnm)
+
+                renpy.jump(self.comments[commnum])
+            
+            else:
                 renpy.jump("dragdroplab")
+            
+            
 
-            if outcomeval == 1:
-
-                renpy.jump(self.comments[0])
-
-            if outcomeval ==2:
-
-                renpy.jump(self.comments[1])
-
-            if outcomeval ==3:
-
-                renpy.jump(self.comments[2])
-
-            if outcomeval ==4:
-
-                renpy.jump(self.comments[3])
-
-            if outcomeval ==5:
-
-                renpy.jump(self.comments[4])
+    
 
 
-    def dropcheckcorr(drags,drop):
 
-        store.dropoutcome = 0
+    def dropcheck(drags,drop):
+        
+        if not drop: 
+            return
+
+        store.dragn = drags[0].drag_name
+        store.dropn = drop.drag_name
 
         return True
 
-    # def dropcheckcorr2(drags,drop):
-    #
-    #     store.dropoutcome = 7
-    #
-    #     return True
 
-    def dropcheckwrong(drags,drop):
-
-        store.dropoutcome = 6
-
-        return True
-
-    def dropchecksp(drags,drop):
-
-        store.dropoutcome = 1;
-
-        return True
-
-    def dropcheckmar(drags,drop):
-
-        store.dropoutcome = 2;
-
-        return True
-
-    def dropcheckot(drags,drop):
-
-        store.dropoutcome = 3;
-
-        return True
-
-    def dropcheckgel(drags,drop):
-
-        store.dropoutcome = 4;
-
-        return True
-
-    def dropcheckai(drags,drop):
-
-        store.dropoutcome = 5;
-
-        return True
+            
+        
 
 
 
@@ -259,14 +220,15 @@ init python:
 
 label dragdroplab:
 
+    
+    default dragn = None
 
-    default dropoutcome = 99
+    default dropn = None
+
 
     call screen dragdropscreen(inventory,roommanager,inventory.activeitem)
 
-
-
-    $inventory.activeitem.interpretoutcome(dropoutcome,roommanager)
+    $inventory.activeitem.interpretdrop(dropn,roommanager)
 
 
 
@@ -475,81 +437,21 @@ screen dragdropscreen(inventoryref,roommanagerref,itemtodrag):
             child itemtodrag.dragimg
             draggable True
             droppable False
+            dragged dropcheck
 
         for intloc in interactablesonscreen:
 
             if (intloc.intertype != 3):
 
-                if (intloc.name == locitemtodrag.targetinter):
+                drag:
+                    drag_name intloc.name
+                    xpos intloc.horposition
+                    ypos intloc.verposition
+                    child intloc.menuimageref
+                    draggable False
+                    droppable True
 
-                    drag:
-                        drag_name "[intloc.name]"
-                        xpos intloc.horposition
-                        ypos intloc.verposition
-                        child intloc.menuimageref
-                        draggable False
-                        droppable True
-                        dropped dropcheckcorr
-                else:
-                    if (intloc.characode == 0):
-                        drag:
-                            drag_name "[intloc.name]"
-                            xpos intloc.horposition
-                            ypos intloc.verposition
-                            child intloc.menuimageref
-                            draggable False
-                            droppable True
-                            dropped dropcheckwrong
-
-                    if (intloc.characode == 1):
-                        drag:
-                            drag_name "[intloc.name]"
-                            xpos intloc.horposition
-                            ypos intloc.verposition
-                            child intloc.menuimageref
-                            draggable False
-                            droppable True
-                            dropped dropchecksp
-
-                    if (intloc.characode == 2):
-                        drag:
-                            drag_name "[intloc.name]"
-                            xpos intloc.horposition
-                            ypos intloc.verposition
-                            child intloc.menuimageref
-                            draggable False
-                            droppable True
-                            dropped dropcheckmar
-
-                    if (intloc.characode == 3):
-                        drag:
-                            drag_name "[intloc.name]"
-                            xpos intloc.horposition
-                            ypos intloc.verposition
-                            child intloc.menuimageref
-                            draggable False
-                            droppable True
-                            dropped dropcheckot
-
-                    if (intloc.characode == 4):
-                        drag:
-                            drag_name "[intloc.name]"
-                            xpos intloc.horposition
-                            ypos intloc.verposition
-                            child intloc.menuimageref
-                            draggable False
-                            droppable True
-                            dropped dropcheckgel
-
-                    if (intloc.characode == 5):
-                        drag:
-                            drag_name "[intloc.name]"
-                            xpos intloc.horposition
-                            ypos intloc.verposition
-                            child intloc.menuimageref
-                            draggable False
-                            droppable True
-                            dropped dropcheckai
+ 
 
 
 
