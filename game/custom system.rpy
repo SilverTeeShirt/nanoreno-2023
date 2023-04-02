@@ -406,7 +406,7 @@ screen invscreen(inventoryref,roommanagerref):
 
                 #action [Hide("invscreen"),Function(localinventoryref.setactiveitem,gitem), Jump("dragdroplab")]
 
-                action [Function(localinventoryref.setactiveitem,gitem),Show("invinterscreen",None,inventoryref,roommanagerref)]
+                action [Function(localinventoryref.setactiveitem,gitem), Hide("invscreen"),Show("invinterscreen",None,inventoryref,roommanagerref)]
 
 
                 #alternate [Hide("invscreen"), Jump(gitem.description)]
@@ -418,11 +418,15 @@ screen invinterscreen(inventoryref,roommanagerref):
 
     modal True
 
+    image selitem.dragimg xalign 0.5 ypos 800
+        
+       
+
     imagebutton:
         xalign 0.5
         ypos 950
         auto "gamesys/BCK_%s.png"
-        action [Hide("invinterscreen")]
+        action [Hide("invinterscreen"),Jump("invscreensetup")]
 
     hbox:
         xalign 0.5
@@ -431,7 +435,7 @@ screen invinterscreen(inventoryref,roommanagerref):
         spacing 40
 
         frame:
-            textbutton "Use" action [Hide("invinterscreen"), Hide("invscreen"),Jump("dragdroplab")]
+            textbutton "Use" action [Hide("invinterscreen"),Jump("dragdroplab")]
 
         frame:
             textbutton "Examine" action [Hide("invinterscreen"),Jump(selitem.description)]

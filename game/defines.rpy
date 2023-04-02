@@ -158,6 +158,7 @@ define item_datapad = Item("Universal Datapad",0,"item/item_datapad_%s.png", "it
 
 define item_fittings = Item("Expandable Power Fittings",0,"item/item_fittings_%s.png", "itemfittingsdesc",["vents","rm2_powerconnector"], ["item_fittingssolution1","item_fittingssolution2"], "item/item_fittings_idle.png",["item_fittingssp","item_NAmar","item_fittingsgel","item_NAot","item_NAai"] )
 
+#Step 1: in position 4 when defining an item, put the name of the label you wanna use for the description, between ""
 define item_keyset = Item("Key Set",0,"item/item_keyset_%s.png","itemkeysetdesc",["locker1","locker2"], ["item_keysetsolution1","item_keysetsolution2"], "item/item_keyset_idle.png",["item_NAsp","item_keysetmar","item_keysetgel","item_NAot","item_NAai"] )
 
 

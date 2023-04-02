@@ -130,10 +130,17 @@ label item_keysetgel:
     g "Just don't lose them..."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
+#Step 2: create label with the same name you put in the definition of the Item, put what you want to happen when you look at the description there.
 label itemkeysetdesc:
 
     dd "A set of locker keys."
+
+    #Step 3: we need to jump to somewhere else to avoid the game auto-closing. 
+
+    #If we are just supposed to return to the inventory screen, use the following line.
     jump invscreensetup
+    #if instead something happens that requires to do other stuff (change rooms, reset the room like after conversations, add stuff to lists, etc, 
+    # the same code you would in those cases applies. )
 
 
 

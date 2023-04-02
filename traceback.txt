@@ -11,15 +11,11 @@ While running game code:
     screen invinterscreen(inventoryref,roommanagerref):
   File "game/custom system.rpy", line 415, in execute
     screen invinterscreen(inventoryref,roommanagerref):
-  File "game/custom system.rpy", line 419, in execute
-    hbox:
-  File "game/custom system.rpy", line 428, in execute
-    frame:
-  File "game/custom system.rpy", line 429, in execute
-    textbutton "Examine"  [Hide("invinterscreen"), Hide("invscreen"),Jump(inventoryref.activeitem.description)]
-  File "game/custom system.rpy", line 429, in <module>
-    textbutton "Examine"  [Hide("invinterscreen"), Hide("invscreen"),Jump(inventoryref.activeitem.description)]
-TypeError: string indices must be integers
+  File "game/custom system.rpy", line 421, in execute
+    image selitem.dragimage xalign 0.5 ypos 800
+  File "game/custom system.rpy", line 421, in <module>
+    image selitem.dragimage xalign 0.5 ypos 800
+AttributeError: 'Item' object has no attribute 'dragimage'
 
 -- Full Traceback ------------------------------------------------------------
 
@@ -62,17 +58,13 @@ Full traceback:
     screen invinterscreen(inventoryref,roommanagerref):
   File "game/custom system.rpy", line 415, in execute
     screen invinterscreen(inventoryref,roommanagerref):
-  File "game/custom system.rpy", line 419, in execute
-    hbox:
-  File "game/custom system.rpy", line 428, in execute
-    frame:
-  File "game/custom system.rpy", line 429, in execute
-    textbutton "Examine"  [Hide("invinterscreen"), Hide("invscreen"),Jump(inventoryref.activeitem.description)]
-  File "game/custom system.rpy", line 429, in <module>
-    textbutton "Examine"  [Hide("invinterscreen"), Hide("invscreen"),Jump(inventoryref.activeitem.description)]
-TypeError: string indices must be integers
+  File "game/custom system.rpy", line 421, in execute
+    image selitem.dragimage xalign 0.5 ypos 800
+  File "game/custom system.rpy", line 421, in <module>
+    image selitem.dragimage xalign 0.5 ypos 800
+AttributeError: 'Item' object has no attribute 'dragimage'
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.3.22090809
 Space Breakers 0.1
-Sun Apr  2 20:04:39 2023
+Sun Apr  2 20:32:00 2023
