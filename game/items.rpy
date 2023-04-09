@@ -239,6 +239,51 @@ label item_datapadai:
     ai "Master has a whole closet full of them. They are so easily misplaced..."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
+# Text Logs
+# Cosmic Receipt
+#
+# 100 x Beryllium containment collectors - 5,999,999 credits
+# 5 x Crates of thera-magnetic microfilament - 2,999 credits
+# 666 x Metamorality dampeners - 4,444 credits
+# 1 x Complete Collection of 'Childrens Library for Little Genuises' - 9,999 credits
+#
+# Please note - The following item was removed. The reason given was "Waste of Money"
+#
+# 1 x Teddy Bear - 5 credits
+#
+#
+# To-Do List
+# To-do list -
+# 	Have The Caretaker perform a maintenance sweep of the ship.
+# 	Install the latest trophy in the bar
+# 	Have The Caretaker check the Zeta shielding to prevent detection.
+# 	Check on the lab tests on the Bio Duplicator, should be working now
+# 	Have The Caretaker read to Samantha, Newton's 'Philosophiae Naturalis Principia Mathematica'
+# 	Walk in the garden for a while
+# 	Perform maintenance on The Caretaker to make sure they don't gain too much sentience.
+#
+#
+# Diary 1
+#
+# Hello Diary. Dad wants me to start writing in you, because uhh…
+# Actually, I don't know why. He said something about personality assessment?
+# But surely he was kidding, right? I mean, I'm still just a kid!
+# CT said that it was probably alright, and I can trust them, at least.
+# Urgh, this entry was a bit of a bust. Hopefully I can come up with something better tomorrow.
+#
+#
+# Diary 2
+#
+# Hello Diary. Guess what? It's my birthday!
+# It's been a great day, I only had to do half of my chores (CT took care of the rest of them!).
+# I went for a walk in the garden and reread some classics.
+# I also spent
+# I've been alive for 15 years, all of them spent on the space station.
+# Diary 4
+#
+# Hello Diary. Today sucks.
+# Dad found out I had hacked a key for the bar and had been sneaking drinks.
+
 
 
 # Nothing to say about Item

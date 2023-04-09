@@ -2,9 +2,7 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 518: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
-    alpha 0.85
-    ^
+File "game/talking.rpy", line 363: Tab characters are not allowed in Ren'Py scripts.
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sun Apr  2 17:43:32 2023
+Sat Apr  8 14:48:15 2023

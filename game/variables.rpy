@@ -14,17 +14,26 @@ default powerplug2 = False
 
 ## subjects
 default coldsleeppod4 = False
-default subjectfittings = False
-default vents = False
+default starsickness = False
+default starpaths = False
+
 default idol = False
 default escapepods = False
+default gruul = False
+
+default subjectfittings = False
 default coreworlds = False
 default academy = False
-default starpaths = False
 default logo = False
 
+default servobotparts = False
+
+default squigglybeak = False
+
+
+
 default moopon = False
-default moomoopia = False
+default planetmoomoopia = False
 default troaderlite = False
 default blobbluin = False
 default felletian = False
@@ -41,9 +50,9 @@ default subjectotus = False
 ## talking
 default crewstatus = 0
 
-default stalk1 = False
-default stalk2 = False
-default stalk3 = False
+default stalk1 = False#
+default stalk2 = False#
+default stalk3 = False#
 default stalk4 = False
 default stalk5 = False
 default stalk6 = False
@@ -59,7 +68,7 @@ default mtalk6 = False
 
 default gtalk1 = False
 default gtalk2 = False
-default gtalk3 = False
+default gtalk3 = False#
 default gtalk4 = False
 default gtalk5 = False
 default gtalk6 = False

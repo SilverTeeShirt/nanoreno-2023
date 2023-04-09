@@ -197,6 +197,7 @@ init python:
     build.classify('game/**.rpy', 'scriptsarchive')
     build.classify('game/**.rpyc', 'scriptsarchive')
     build.classify('game/**.ttf', 'scriptsarchive')
+    build.classify('game/**.otf', 'scriptsarchive')  
     build.classify('game/**.ogg', 'audioarchive')
     build.classify('game/**.mp3', 'audioarchive')
 

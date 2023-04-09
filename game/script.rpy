@@ -622,7 +622,7 @@ show gelato:
 show otus:
     ease 1.25 xalign 1.4
 pause 0.25
-m "This can't be happening..."
+s "This can't be happening..."
 show gelato unhappy at sulk
 g "I haven't even visited the Earth yet..."
 show otus normal
@@ -634,7 +634,7 @@ show otus unhappy
 show marnie shocked at wiggle
 m "Captain we need a plan!"
 g "We can only power the ship up with access to the reactor core."
-m "And we need the AI to either recall the elevator codes or get them working on our own."
+s "That DUMB AI needs to recall the elevator codes or WE get them working on our own!"
 stop sound fadeout 0.5
 menu(screen ='choice'):
     "We should repair the AI":
@@ -699,23 +699,178 @@ r "Ahh! Yes sir!"
 play music ambience volume 0.15
 hide otus with dissolve
 $crewstatus = 1
-# $RM3_lab.locked = 0
-# $RM4_con.locked = 0
-# $RM5_bar.locked = 0
+
+$roommanager.addeventstoroom(3,"introlab_event")
+$roommanager.addeventstoroom(4,"introcon_event")
+$roommanager.addeventstoroom(5,"introbar_event")
+
+$RM3_lab.locked = 0
+$RM4_con.locked = 0
+$RM5_bar.locked = 0
+
 $roommanager.intertoggle_on(ai_rm2)
-# $roommanager.intertoggle(sprocko_rm2)
-# $roommanager.intertoggle(sprocko_rm3)
-# $roommanager.intertoggle(marnie_rm2)
-# $roommanager.intertoggle(marnie_rm4)
-# $roommanager.intertoggle(gelato_rm2)
-# $roommanager.intertoggle(gelato_rm5)
+$roommanager.intertoggle(sprocko_rm2)
+$roommanager.intertoggle(sprocko_rm3)
+$roommanager.intertoggle(marnie_rm2)
+$roommanager.intertoggle(marnie_rm4)
+$roommanager.intertoggle(gelato_rm2)
+$roommanager.intertoggle(gelato_rm5)
 $roommanager.returnfrominteraction(roommanager.currentroom)
+
 
 
 ##### ROOM 3 LAB #####
 label introlab_event:
 ##### ROOM 3 LAB #####
+scene bg_3lab_room with fade
+$RM3_lab.discovered = 0
+dd "At the far end of the station you see a dimly lit room."
+dd "There are tubes, machines, and computers systems everywhere."
+dd "You also see Sprocko frantically dashing around the room muttering to himself."
+show sprocko unhappy with dissolve:
+    zoomnorm
+    xalign 0.5
+s "If ONLY I can get this thing working..."
+show sprocko:
+    ease 1.0 xalign 1.25
+s "Maybe if I put that there..."
+show sprocko:
+    ease 1.0 xalign 0.15
+s "Twist this component like that..."
+show sprocko happy :
+    ease 1.0 xalign 0.5
+s "Gahahah!!! I think I got it!"
+show sprocko at wiggle
+s "One more connection here and..."
+play sound pop volume 0.7
+pause 0.15
+show sprocko normal at hop
+s "Well... That's not EXACTLY what I wanted..."
+r "Uhh, hey Sprocko."
+s "Oh hey Rookie! Sorry, were you standing there this whole time?"
+s "I was distracted by this lab! Isn't it INCREDIBLE?"
+menu(screen ='choice'):
+    "I can't tell...":
+        r "Honestly, I don't even know what I am looking at in here..."
+        r "All labs just kind of look the same to me."
+        s "Ho-ho! You could not BE more wrong!"
+        s "If my old lab was even half as well stocked as this! Then I'd still be back there!"
+    "It looks expensive":
+        r "It looks pretty expensive, I gotta admit!"
+        s "Oh yeah, just one table here probably cost more than the entirety of my old lab!"
+r "Your old lab?"
+show sprocko normal
+s "Yeah, back in the Kobomba Academy of Technology and Sciences."
+s "Well, technically, it was a shared lab. But I definitely spent more time in it than anyone else in the academy!"
+r "Sounds.. Prestigious?"
+s "Absolutely! I was the first in my family to learn there! Heck, I was the first to go into space..."
+r "Wow, they must be proud!"
+show sprocko unhappy at sulk
+s "Yeah, they should be..."
+show sprocko happy
+s "Anyway, who cares about that! Look at all this stuff!"
+s "Oh, was there something you wanted to talk with me about?"
+hide sprocko with dissolve
+$roommanager.setuproominstant(3)
+$roommanager.returnfrominteraction(roommanager.currentroom)
 
+
+
+##### ROOM 4 CONSERVATORY #####
+label introcon_event:
+##### ROOM 4 CONSERVATORY #####
+scene bg_4con_room with fade
+$RM4_con.discovered = 0
+r "Woah, I didn't expect to see this much greenery on this station..."
+show marnie normal with dissolve:
+    zoomnorm
+    xalign 0.5
+m "..."
+r "Are you okay?"
+show marnie shocked
+m "Oh, it's just you, Rookie. Sorry, I was just... Taking it all in."
+m "Remind me, your people have green plants, right?"
+r "Oh, yeah! Most of them are green. Well, mainly the leaves."
+r "It was a bit of a shock the first time I saw trees of purple!"
+r "What about you?"
+show marnie unhappy
+m "I don't know, I'm afraid. None of the trees on Fellackter have leaves anymore."
+r "Oh…"
+m "I've seen pictures here and there, but our imaging was all monochrome, no colour."
+m "I'd ask someone, but I've never met anyone older than me from Fellackter."
+dd "You've never really seen Marnie like this before, she's usually more directed."
+menu(screen ='choice'):
+    "Share a similar experience with her":
+        r "When I was younger, there was this old man. Just… Around, being nice."
+        r "I spoke to him a couple of times. Just about stupid things, like sports or games."
+        r "Then one day, he was gone. And I hadn't ever asked him his name."
+        m "..."
+        r "Sorry, I know it's completely different, the scale of it, I shouldn't ha-"
+        show marnie happy
+        m "It's okay, Rookie. I get what you're doing. And I appreciate it."
+        r "Oh thank god..."
+    "Try to be optimistic":
+        r "The trees, on Fellackter, maybe they could bloom again one day?"
+        m "Bloom?"
+        r "Yeah, like grow leaves again. Then you could see what color they are!"
+        m "Yeah... If they haven't been irradiated."
+        r "!"
+        m "I'm joking, Rookie. God, you must be the most innocent person I've ever met!"
+        r "Oh, sorry-"
+        show marnie happy
+        m "No, it's nice. You remind me of my brother."
+        r "Oh! Uh, which one?"
+        m "The youngest one."
+        r "Oh..."
+m "You are right. Lot of green in here. It's nice."
+m "I wouldn't mind if the leaves of my trees were green."
+m "Anyway, what do we need to work on next?"
+hide marnie with dissolve
+$roommanager.setuproominstant(4)
+$roommanager.returnfrominteraction(roommanager.currentroom)
+
+
+
+##### ROOM 5 BAR #####
+label introbar_event:
+##### ROOM 5 BAR #####
+scene bg_5bar_room with fade
+$RM5_bar.discovered = 0
+show gelato happy with dissolve:
+    zoomnorm
+    xalign 0.5
+g "Yoo! Hey Rookie, look at this! The bar, the hunting trophies, Isn't it all amazing?"
+menu(screen ='choice'):
+    "Yeah, I guess it is!":
+        r "Yeah, it is pretty cool, I guess!"
+        r "I don't recognize half these skeletons."
+        r "Or for that matter, most of these liquor brands…"
+    "It's gross...":
+        r "Actually, these trophies are pretty gross…"
+        show gelato unhappy
+        g "What? It's just like, part of the ambiance, y'know?"
+        r "I just don't like the idea of killing creatures for sport. It's barbaric."
+        g "Oh, yeah. I guess I didn't think of it like that. Sorry."
+        r "It's fine. What about this alcohol, I barely recognize any of it…"
+show gelato normal
+g "Yeah, this stuff is like, super exclusive. Like, brewed-for-hundreds-of-cycles exclusive, it must have cost a lot."
+r "How expensive?"
+g "Well that small bottle there? Costs about the same as a decent B-Class space cruiser."
+r "W- What? How can it cost so much?!"
+show gelato happy
+g "The rich are a different people. I used to help my mum transport goods before she retired."
+g "Occasionally we'd take something for a wealthy client, when they were desperate."
+g "The stuff they'd buy? Wild. Statues, art, rare pets, rarer meats…"
+show gelato normal
+g "And they'd never use them. It was all about the fact they had them, could touch them whenever they wanted…"
+r "Wow, I never knew that, Gelato."
+g "Hah, yeah. They never tipped, either. But at least they had cool stuff to look at."
+g "Mum always said that as well. It would be nice if I could buy her something like that one day…"
+r "..."
+g "Oh! So, what did you want to talk about?"
+hide gelato with dissolve
+$roommanager.setuproominstant(5)
+$roommanager.returnfrominteraction(roommanager.currentroom)
 
 
 

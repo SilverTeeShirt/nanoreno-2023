@@ -89,6 +89,7 @@ label rm0_wbuttonlook:
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_noteslook:
     dd "The note says \"Do not use! Out of Order!\" written in Galactic Script."
+    $ coldsleeppod4 = True
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm0_terminallook:
     if power == False:
@@ -111,12 +112,16 @@ label rm0_terminallook:
                     "Pod 4":
                         c "Status: Critical Failure. Settings: Human. Power: Overloaded."
                         c "Note: Chemical mixture system offline. Pod lock disengaged. Maintenance cycle past due."
+                        $ coldsleeppod4 = True
                         jump rm0_terminallook1
             "Data Log":
                 c "If anyone is experiencing any symptoms of Starsickness please use an available Cold Sleep pod within the milli cycle. -M"
                 c "Do not store Beverages in the Cold Sleep pods! Please use the Lockers for personal items! -M"
                 c "Make sure to put the Rookie in pod 4. That one is already set for humans. They don't handle the Star Paths very well and can get some serious Starsickness. -CO"
                 c "DO NOT PUT THE ROOKIE IN POD 4!!! -M"
+                $ starsickness = True
+                $ starpaths = True
+                $ coldsleeppod4 = True
                 jump rm0_terminallook1
             "Back":
                 $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -131,6 +136,7 @@ label sleeppodlook:
 label scrathesslook:
     dd "This Cold Sleep pod is pretty banged up."
     dd "There are heavy scratches and marks all over the inside of this pod."
+    $ coldsleeppod4 = True
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
@@ -217,19 +223,21 @@ label rm1_vbuttonlook:
     dd "Sometimes you change it when no one is looking."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_wireslook:
-    dd "These exposed wires being used to hold up even more exposed wires and tubes."
+    dd "These exposed wires are being used to hold up tubes and even more exposed wires."
     dd "You are quite certain numerous safety protocols are being violated."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm1_datafoodlook:
     if power == False:
         dd "The display shows the ship's profile."
-        dd "It is designated as the C1014V-163, or more commonly called the Rusty Clover."
+        dd "It is designated as the C1014V-163, or more commonly known as the \"Rusty Clover\"."
         dd "And for some reason there's a nutrition dispenser below."
-        dd "The Tryhydrate Gruul it pumps out is nasty."
+        dd "The Tryhydrate Gruul it pumps out quite is nasty."
     else:
         dd "Normally the ship's profile is displayed here."
         dd "But without power you will never know where the salvaging arm is manufactured."
         dd "Unfortunately the Tryhydrate Gruul pump still works."
+    dd "If you have a container for it, you can gather a not so yummy meal."
+    $ gruul = True
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
@@ -319,40 +327,63 @@ label rm2_powermaillook:
 ###### rm_3 lab ######
 ###### ######## ######
 label rm3_ceilinglook:
-    dd "tubes and stuff must connect to other rooms."
+    dd "Up above you see a series of tubes, lights, and connectors."
+    dd "The tubes seem to link up to other locations in the station."
+    dd "The dim lights set a serious work mood in here."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm3_windowlook:
-    dd "window."
+    dd "You peer out the window and see the stars floating by."
+    dd "The station is constantly rotating while orbiting the planet."
+    dd "Each rotation and each orbit brings the planet below closer and closer."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label partsheadlook:
-    dd "head of servobot old."
+    $ servobotparts = True
+    dd "On the work bench you see the head of an old servobot."
+    dd "It is similar to the Caretaker but in much worse shape."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label partsarmlook:
-    dd "arm of servobot or something."
+    $ servobotparts = True
+    dd "At the edge of the work bench you see parts of an old servobot."
+    dd "These parts look like they have been assembled and reassembled over and over again."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label raydishlook:
-    dd "galvanizing ray. great but old technology."
+    dd "This is an old galvanizing ray."
+    dd "Often used in the manufacturing of machines built in space."
+    dd "It galvanizes and shields materials to better survive the harsh cosmic rays."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label constructorlook:
-    dd "very fancy constructor to create and repair machinery."
+    $ servobotparts = True
+    dd "This series of constructors are used to create and repair machinery."
+    dd "You assume that the Caretaker must have been built here."
+    if water_on == False:
+        dd "It doesn't seem to be working at the moment."
+    else:
+        dd "With the fluid pressure systems activated, this constructor is now working."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label fluidtankslook:
-    dd "fluids are building up in tank, empty then fill later."
+    if water_on == False:
+        dd "This fluid tank is empty."
+        dd "The lab will need additional fluid pressure to use it's more heavy machinery."
+    else:
+        dd "This fluid tank is completely filled."
+        dd "The lab should have enough fluid pressure to activate all the heavy machinery."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label biodevicelook:
-    dd "simple bio encoder device. maybe useful for puzzle."
+    dd "A simple bio coder device."
+    dd "This device can sample and reproduce useful biometric data."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm3_datapadlook:
-    dd "download data to read later. About Sebastain."
+    dd "This is a Universal Datapad. It is quite ubiquitous throughout the galaxy."
+    dd "Even an older model like this one is still very capable."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm3_safelook:
-    dd "need code to open."
+    dd "This safe is sealed with a simple code lock. You will need to figure out that code to put in to open it."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label rm3_computerlook:
-    dd "computer with data you can read about station and the puzzle hints."
+    dd "A computer with data you can read about station and the puzzle hints."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label chembanklook:
-    dd "filled with chem or not. player must add chem ingredients."
+    dd "This chem bank can be filled with any kind of chemical, organics, or volatiles."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 
 
@@ -367,6 +398,7 @@ label gardenlook:
     dd "garden."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label scarecrowlook:
+    $ servobotparts = True
     dd "scarecrow, looks like old servobot."
     $roommanager.returnfrominteraction(roommanager.currentroom)
 label watertanklook:
