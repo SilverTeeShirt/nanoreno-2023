@@ -39,6 +39,7 @@ default blobbluin = False
 default felletian = False
 default planetfellackter = False
 
+default galgov = False
 default greatgalacticwar = False
 
 default subjectsprocko = False
@@ -58,7 +59,7 @@ default stalk5 = False
 default stalk6 = False
 
 
-default mtalk1 = False
+default mtalk1 = False#
 default mtalk2 = False
 default mtalk3 = False
 default mtalk4 = False
@@ -66,7 +67,7 @@ default mtalk5 = False
 default mtalk6 = False
 
 
-default gtalk1 = False
+default gtalk1 = False#
 default gtalk2 = False
 default gtalk3 = False#
 default gtalk4 = False

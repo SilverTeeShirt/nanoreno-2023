@@ -1,51 +1,51 @@
-Sat Apr  8 14:48:49 2023
-Windows-10-10.0.19044
+Sat Sep 16 19:13:33 2023
+Windows-10-10.0.19045
 Ren'Py 8.0.3.22090809
  
 
 Bootstrap to the start of init.init took 0.06s
 Early init took 0.00s
-Loader init took 0.04s
-Loading error handling took 0.04s
-Loading script took 0.52s
-Loading save slot metadata. took 0.04s
-Loading persistent took 0.00s
+Loader init took 0.11s
+Loading error handling took 0.08s
+Loading script took 1.47s
+Loading save slot metadata. took 0.17s
+Loading persistent took 0.02s
 Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Users\\Tony\\Desktop\\renpy-8.0.3-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
-Running init code took 0.09s
-Loading analysis data took 0.03s
+Running init code took 0.20s
+Loading analysis data took 0.04s
 Analyze and compile ATL took 0.01s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\Tony\\AppData\\Roaming/RenPy/backups\\nanoreno-2023':
-Dump and make backups. took 0.11s
+Dump and make backups. took 0.09s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
+Initial gc. took 0.05s
+DPI scale factor: 1.500000
 nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Creating interface object took 0.41s
+nvdrs: b"Couldn't load nvlib." (can be ignored)
+Creating interface object took 0.00s
 Cleaning stores took 0.00s
 Init translation took 0.05s
-Build styles took 0.01s
-Load screen analysis took 0.00s
+Build styles took 0.00s
+Load screen analysis took 0.01s
 Analyze screens took 0.01s
-Save screen analysis took 0.02s
-Prepare screens took 0.06s
-Save pyanalysis. took 0.02s
-Save bytecode. took 0.04s
+Save screen analysis took 0.03s
+Prepare screens took 0.18s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.06s
 Running _start took 0.00s
 Performance test:
-Interface start took 0.12s
+Interface start took 0.11s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 1920, 1080)
+primary display bounds: (0, 0, 2560, 1440)
 swap interval: 1 frames
 Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 516.94'
+Vendor: "b'Intel'"
+Renderer: b'Intel(R) HD Graphics 520'
+Version: b'4.6.0 - Build 31.0.101.2112'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1237, 696) drawable=(1237, 696)
+Screen sizes: virtual=(1920, 1080) physical=(1856, 1044) drawable=(1856, 1044)
 Maximum texture size: 4096x4096
-controller: '030000005e0400008e02000000007200' 'Xbox 360 Controller' 1
-controller: '030000005e0400008e02000000007200' 'Xbox 360 Controller' 1
+Screen sizes: virtual=(1920, 1080) physical=(2560, 1406) drawable=(2560, 1406)
+Maximum texture size: 4096x4096

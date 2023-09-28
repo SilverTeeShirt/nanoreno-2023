@@ -228,10 +228,10 @@ g "Maybe it's something really{w=0.25} {size=-06}really small...{/size}"
 m "We're on a tight schedule Captain! If we're late by a even a single micro cycle, we'll take a huge penalty!"
 show otus unhappy at sway
 o "Hey! Quit being such a squigglybeak!"
-o "I’ve been scrapping ships longer than your people have been flying them!"
+o "I've been scrapping ships longer than your people have been flying them!"
 o "I know what I'm doing!"
 show otus happy
-o "And trust me! I think you’ll all want to be part of this!"
+o "And trust me! I think you'll all want to be part of this!"
 show sprocko happy with dissolve:
     zoomnorm
     xalign -0.575
@@ -274,8 +274,8 @@ s "I quintuple checked it while YOU were all on ice."
 show sprocko happy at hop
 s "My calculations are PERFECT!"
 show marnie unhappy at sulk
-m "I don't like this... It's some sort of super secret, galactic government trick or something."
-m "We step one foot on that thing, and {size=+06}BAM!{/size}{w=0.25} We’re sent to prison in a pocket dimension and never seen again!"
+m "I don't like this... It's some sort of super secret, Galactic Government trick or something."
+m "We step one foot on that thing, and {size=+06}BAM!{/size}{w=0.25} We're sent to prison in a pocket dimension and never seen again!"
 show sprocko unhappy
 s "I checked ALL the flight charts and no one's been in this sector for AGES!"
 show sprocko shocked
@@ -409,7 +409,7 @@ menu(screen ='choice'):
         g "{size=-06} Maybe you can teach me human stick ball...{/size}"
 
 show marnie shocked
-m "C’mon, Gelato, take this seriously."
+m "C'mon, Gelato, take this seriously."
 show sprocko happy with dissolve :
     zoomnorm
     xalign -0.55
@@ -626,10 +626,10 @@ s "This can't be happening..."
 show gelato unhappy at sulk
 g "I haven't even visited the Earth yet..."
 show otus normal
-o "We’ve been in sticky situations before, and we’ve always found a way out."
+o "We've been in sticky situations before, and we've always found a way out."
 show marnie at hop
 m "Only broken airlocks or collapsing structures, nothing as bad as this!"
-o "Well, if you merge them all together, it’s kind of as big as this, right?"
+o "Well, if you merge them all together, it's kind of as big as this, right?"
 show otus unhappy
 show marnie shocked at wiggle
 m "Captain we need a plan!"
@@ -726,7 +726,7 @@ scene bg_3lab_room with fade
 $RM3_lab.discovered = 0
 dd "At the far end of the station you see a dimly lit room."
 dd "There are tubes, machines, and computers systems everywhere."
-dd "You also see Sprocko frantically dashing around the room muttering to himself."
+dd "You also see Sprocko frantically dashing back and forth muttering to himself."
 show sprocko unhappy with dissolve:
     zoomnorm
     xalign 0.5
@@ -736,17 +736,17 @@ show sprocko:
 s "Maybe if I put that there..."
 show sprocko:
     ease 1.0 xalign 0.15
-s "Twist this component like that..."
+s "Twist this like that..."
 show sprocko happy :
     ease 1.0 xalign 0.5
 s "Gahahah!!! I think I got it!"
 show sprocko at wiggle
 s "One more connection here and..."
-play sound pop volume 0.7
+play sound pop volume 0.8
 pause 0.15
 show sprocko normal at hop
-s "Well... That's not EXACTLY what I wanted..."
-r "Uhh, hey Sprocko."
+s "Well... That's not exactly what I wanted..."
+r "Hey Sprocko."
 s "Oh hey Rookie! Sorry, were you standing there this whole time?"
 s "I was distracted by this lab! Isn't it INCREDIBLE?"
 menu(screen ='choice'):
@@ -756,20 +756,19 @@ menu(screen ='choice'):
         s "Ho-ho! You could not BE more wrong!"
         s "If my old lab was even half as well stocked as this! Then I'd still be back there!"
     "It looks expensive":
-        r "It looks pretty expensive, I gotta admit!"
+        r "It looks pretty expensive!"
         s "Oh yeah, just one table here probably cost more than the entirety of my old lab!"
-r "Your old lab?"
 show sprocko normal
-s "Yeah, back in the Kobomba Academy of Technology and Sciences."
+s "Back in the Kobomba Academy of Technology and Sciences."
 s "Well, technically, it was a shared lab. But I definitely spent more time in it than anyone else in the academy!"
 r "Sounds.. Prestigious?"
-s "Absolutely! I was the first in my family to learn there! Heck, I was the first to go into space..."
+s "Absolutely! I was the first on my entire planet to attend the academy! Heck, I was one of the first to even go into space..."
 r "Wow, they must be proud!"
 show sprocko unhappy at sulk
 s "Yeah, they should be..."
 show sprocko happy
 s "Anyway, who cares about that! Look at all this stuff!"
-s "Oh, was there something you wanted to talk with me about?"
+s "Please ask if you need help with anything."
 hide sprocko with dissolve
 $roommanager.setuproominstant(3)
 $roommanager.returnfrominteraction(roommanager.currentroom)
@@ -795,13 +794,13 @@ r "It was a bit of a shock the first time I saw trees of purple!"
 r "What about you?"
 show marnie unhappy
 m "I don't know, I'm afraid. None of the trees on Fellackter have leaves anymore."
-r "Oh…"
-m "I've seen pictures here and there, but our imaging was all monochrome, no colour."
+r "Oh..."
+m "I've seen pictures here and there, but our imaging was all monochrome, no color."
 m "I'd ask someone, but I've never met anyone older than me from Fellackter."
 dd "You've never really seen Marnie like this before, she's usually more directed."
 menu(screen ='choice'):
     "Share a similar experience with her":
-        r "When I was younger, there was this old man. Just… Around, being nice."
+        r "When I was younger, there was this old man. Just... Around, being nice."
         r "I spoke to him a couple of times. Just about stupid things, like sports or games."
         r "Then one day, he was gone. And I hadn't ever asked him his name."
         m "..."
@@ -844,14 +843,14 @@ menu(screen ='choice'):
     "Yeah, I guess it is!":
         r "Yeah, it is pretty cool, I guess!"
         r "I don't recognize half these skeletons."
-        r "Or for that matter, most of these liquor brands…"
+        r "Or for that matter, most of these liquor brands..."
     "It's gross...":
-        r "Actually, these trophies are pretty gross…"
+        r "Actually, these trophies are pretty gross..."
         show gelato unhappy
         g "What? It's just like, part of the ambiance, y'know?"
         r "I just don't like the idea of killing creatures for sport. It's barbaric."
         g "Oh, yeah. I guess I didn't think of it like that. Sorry."
-        r "It's fine. What about this alcohol, I barely recognize any of it…"
+        r "It's fine. What about this alcohol, I barely recognize any of it..."
 show gelato normal
 g "Yeah, this stuff is like, super exclusive. Like, brewed-for-hundreds-of-cycles exclusive, it must have cost a lot."
 r "How expensive?"
@@ -860,12 +859,12 @@ r "W- What? How can it cost so much?!"
 show gelato happy
 g "The rich are a different people. I used to help my mum transport goods before she retired."
 g "Occasionally we'd take something for a wealthy client, when they were desperate."
-g "The stuff they'd buy? Wild. Statues, art, rare pets, rarer meats…"
+g "The stuff they'd buy? Wild. Statues, art, rare pets, rarer meats..."
 show gelato normal
-g "And they'd never use them. It was all about the fact they had them, could touch them whenever they wanted…"
+g "And they'd never use them. It was all about the fact they had them, could touch them whenever they wanted..."
 r "Wow, I never knew that, Gelato."
 g "Hah, yeah. They never tipped, either. But at least they had cool stuff to look at."
-g "Mum always said that as well. It would be nice if I could buy her something like that one day…"
+g "Mum always said that as well. It would be nice if I could buy her something like that one day..."
 r "..."
 g "Oh! So, what did you want to talk about?"
 hide gelato with dissolve

@@ -121,11 +121,11 @@ label sprockotalk:
             $ stalk3 = True
             r "Have you actually tried to find anything to help us yet?"
             show s neutral
-            s "What? Of course I have! I'm just… Cataloguing everything, first!"
+            s "What? Of course I have! I'm just... Cataloguing everything, first!"
             r "That sounds like you're touching everything to work out what it does."
             show s happy
             s "Yeah, but scientifically!"
-            r "Hmm… How many have you done?"
+            r "Hmm... How many have you done?"
             show s unhappy
             s "Well, five?"
             r "Five!? There's like hundreds in here!"
@@ -155,14 +155,14 @@ label sprockotalk:
                     r "Because you're the smartest being I've ever met!"
                     show s shocked
                     r "Because I don't know how to use anything in here without breaking it!"
-                    s "True, but…"
+                    s "True, but..."
                     r "Because if anyone can help us escape a crashing space station, it's you!"
                     r "So please, please can you try to focus so we can all survive and get out of here!"
                     s "..."
             s "You're right. I need to focus on what can help us here and now."
             r "Thank you, Sprocko. I'm glad you finally-"
-            s "After all, my arms can probably grab most of these tools if we need to run later…"
-            r "Urgh… Just let me know if you need help with anything."
+            s "After all, my arms can probably grab most of these tools if we need to run later..."
+            r "Urgh... Just let me know if you need help with anything."
             jump sprockotalking
 
         "Escape pods" if escapepods == True:
@@ -262,10 +262,18 @@ label marnietalk:
             jump marnietalking
 
         "Coreworlds" if coreworlds == True:
+            r "Hey Marnie? What do you know about the coreworlds?"
+            m "The coreworlds? The're the main worlds of the Galactic Government."
+            m "Each of the planets that make up the core worlds are ."
+            $galgov = True
+            $mtalk1 = True
+            jump marnietalking
+
+        "Coreworlds" if crewstatus == 1 and if mtalk1 == True:
             r "Hey Marnie? coreworlds?"
             m "wish I could get my family to move there."
-            #$marniefamily = True
-            jump sprockotalking
+            $mtalk1 = True
+            jump marnietalking
 
         "Back":
             hide marnie with dissolve
@@ -377,15 +385,15 @@ label gelatotalk:
             g "To be honest with you, Rookie, I'm spending a lot of energy on not freaking out right now!"
             show gelato unhappy
             g "Mostly just trying not to think about how I could die here so I can keep on helping!"
-            r "Oh yeah, that makes sense…"
+            r "Oh yeah, that makes sense..."
             g "What about you? Have you been in a life and death situation?"
             "Yes"
             r "Yeah, this isn't the first time my life has been on the line."
-            r "I'd rather not talk about it though…"
-            g "Oh, yeah, that's fair. Uh, sorry for bringing it up…"
-            r "I get it, though. The fear… It's a lot, it can mess you up."
+            r "I'd rather not talk about it though..."
+            g "Oh, yeah, that's fair. Uh, sorry for bringing it up..."
+            r "I get it, though. The fear... It's a lot, it can mess you up."
             r "But I was needed, and we need everyone right now."
-            g "Hah, no one needs me. I'm just some goof who makes jokes…"
+            g "Hah, no one needs me. I'm just some goof who makes jokes..."
             r "We need that right now. We need someone to lift our spirits."
             g "..."
             "No"
@@ -402,15 +410,17 @@ label gelatotalk:
                     r "Once all this is over, I'm probably going to collapse into a mess and have a panic attack or something."
                     r "But the point is, I'm going to make it to that point. We're going to make it to that point. Together."
                 "I don't know":
-                    r "I… I don't know. I just keep on pushing through, I guess?"
+                    r "I... I don't know. I just keep on pushing through, I guess?"
                     g "Huh. Maybe it's a human thing. My mum was the same way."
                     r "Maybe. What would she do right now?"
-                    g "She… She would say that we can survive, but only if we all work together."
+                    g "She... She would say that we can survive, but only if we all work together."
                     r "Maybe you should focus on listening to her?"
             show gelato happy
-            g "Yeah… Yeah, you're right, Rookie! Thanks for the pep talk!"
+            g "Yeah... Yeah, you're right, Rookie! Thanks for the pep talk!"
             g "Right, I'm going to keep on investigating! You see what else you can find here!"
             g "Maybe you'll recognize one of these weird human things?"
+            jump gelatotalking
+
 
         "The logo" if logo == True and crewstatus == 0:
             r "Gelato you ever seen a logo like that?"
@@ -420,7 +430,7 @@ label gelatotalk:
             g "That's the Yummo Grabbo That Candy Corp logo!"
             show gelato normal at wiggle
             g "Although the orb looking part should be more candy like..."
-            g "And the hand looking parts should be tentacles..."
+            g "And the hand looking parts should be tentaclelier..."
             show gelato happy at wiggle
             g "It must be an older design!"
             jump gelatotalking
