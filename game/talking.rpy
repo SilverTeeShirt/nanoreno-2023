@@ -117,53 +117,53 @@ label sprockotalk:
             s "The reactor core must be MARVELOUS!"
             jump sprockotalking
 
-        "Ideas" if crewstatus == 1 and stalk3 == False:
-            $ stalk3 = True
-            r "Have you actually tried to find anything to help us yet?"
-            show s neutral
-            s "What? Of course I have! I'm just... Cataloguing everything, first!"
-            r "That sounds like you're touching everything to work out what it does."
-            show s happy
-            s "Yeah, but scientifically!"
-            r "Hmm... How many have you done?"
-            show s unhappy
-            s "Well, five?"
-            r "Five!? There's like hundreds in here!"
-            show s shocked
-            s "Well, it's a very involved process! First I have to find out what it does."
-            s "Then I try to work out how it does it, and how I can do it better!"
-            r "What!? We don't have time for all that, we're crashing!"
-            show s shocked
-            s "I'm fully aware we're crashing, which is why I have to be so careful!"
-            s "If I can't save all of these, I need to make sure I take the most useful devices!"
-            r "Grr, we won't have time for that! You should be helping the most out right now!"
-            show s neutral
-            s "Oh, and why's that?"
-            menu(screen ='choice'):
-                "Because this is your fault!":
-                    r "Because if you hadn't connected our ship to the power source, we wouldn't be in this mess right now!"
-                    show s shocked
-                    s "Hey, that's not my fault! The odds of that happening were like, 30% tops!"
-                    r "Wh- Wait, was there a way of doing it that was safer?"
-                    show s neutral
-                    s "Well, yeah, but it would have taken a lot longer!"
-                    r "This is exactly what I mean! You put is in danger, and now you need to help us get out!"
-                    r "Because let's be honest here, we can't do this without you. So please, focus and help us out!"
-                    show s unhappy
-                    s "..."
-                "Because you're so smart!":
-                    r "Because you're the smartest being I've ever met!"
-                    show s shocked
-                    r "Because I don't know how to use anything in here without breaking it!"
-                    s "True, but..."
-                    r "Because if anyone can help us escape a crashing space station, it's you!"
-                    r "So please, please can you try to focus so we can all survive and get out of here!"
-                    s "..."
-            s "You're right. I need to focus on what can help us here and now."
-            r "Thank you, Sprocko. I'm glad you finally-"
-            s "After all, my arms can probably grab most of these tools if we need to run later..."
-            r "Urgh... Just let me know if you need help with anything."
-            jump sprockotalking
+        # "Ideas" if crewstatus == 1 and stalk3 == False:
+        #     $ stalk3 = True
+        #     r "Have you actually tried to find anything to help us yet?"
+        #     show s neutral
+        #     s "What? Of course I have! I'm just... Cataloguing everything, first!"
+        #     r "That sounds like you're touching everything to work out what it does."
+        #     show s happy
+        #     s "Yeah, but scientifically!"
+        #     r "Hmm... How many have you done?"
+        #     show s unhappy
+        #     s "Well, five?"
+        #     r "Five!? There's like hundreds in here!"
+        #     show s shocked
+        #     s "Well, it's a very involved process! First I have to find out what it does."
+        #     s "Then I try to work out how it does it, and how I can do it better!"
+        #     r "What!? We don't have time for all that, we're crashing!"
+        #     show s shocked
+        #     s "I'm fully aware we're crashing, which is why I have to be so careful!"
+        #     s "If I can't save all of these, I need to make sure I take the most useful devices!"
+        #     r "Grr, we won't have time for that! You should be helping the most out right now!"
+        #     show s neutral
+        #     s "Oh, and why's that?"
+        #     menu(screen ='choice'):
+        #         "Because this is your fault!":
+        #             r "Because if you hadn't connected our ship to the power source, we wouldn't be in this mess right now!"
+        #             show s shocked
+        #             s "Hey, that's not my fault! The odds of that happening were like, 30% tops!"
+        #             r "Wh- Wait, was there a way of doing it that was safer?"
+        #             show s neutral
+        #             s "Well, yeah, but it would have taken a lot longer!"
+        #             r "This is exactly what I mean! You put is in danger, and now you need to help us get out!"
+        #             r "Because let's be honest here, we can't do this without you. So please, focus and help us out!"
+        #             show s unhappy
+        #             s "..."
+        #         "Because you're so smart!":
+        #             r "Because you're the smartest being I've ever met!"
+        #             show s shocked
+        #             r "Because I don't know how to use anything in here without breaking it!"
+        #             s "True, but..."
+        #             r "Because if anyone can help us escape a crashing space station, it's you!"
+        #             r "So please, please can you try to focus so we can all survive and get out of here!"
+        #             s "..."
+        #     s "You're right. I need to focus on what can help us here and now."
+        #     r "Thank you, Sprocko. I'm glad you finally-"
+        #     s "After all, my arms can probably grab most of these tools if we need to run later..."
+        #     r "Urgh... Just let me know if you need help with anything."
+        #     jump sprockotalking
 
         "Escape pods" if escapepods == True:
             r "Hey Sprocko... About the escape pods..."
@@ -269,7 +269,7 @@ label marnietalk:
             $mtalk1 = True
             jump marnietalking
 
-        "Coreworlds" if crewstatus == 1 and if mtalk1 == True:
+        "Coreworlds" if crewstatus == 1 and mtalk1 == True:
             r "Hey Marnie? coreworlds?"
             m "wish I could get my family to move there."
             $mtalk1 = True
@@ -455,7 +455,7 @@ label otustalk:
         "Powering up the station" if crewstatus == 0:
             r "Captain Otus, how do you think we should power up the station?"
             o "Hmmmmm... Sprocko usually has some pretty good ideas."
-            o "Marnie is also pretty good at making sure Sprocko's Ideas don't kill us."
+            o "Marnie is also pretty good at making sure Sprocko's ideas don't kill us."
             o "See if one of them can come up with something."
             jump otustalking
 

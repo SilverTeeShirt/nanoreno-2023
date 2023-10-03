@@ -3,32 +3,42 @@
 While running game code:
   File "game/custom system.rpy", line 251, in script call
     call screen makeplayerUI(roommanager)
-  File "game/script.rpy", line 766, in script
-    show sprocko unhappy with sway
-Exception: Parameter 'old_widget' is not known by ATL Transform.
+  File "game/custom system.rpy", line 251, in script call
+    call screen makeplayerUI(roommanager)
+  File "game/custom system.rpy", line 251, in script call
+    call screen makeplayerUI(roommanager)
+  [Previous line repeated 1 more time]
+  File "game/talking.rpy", line 216, in script
+    menu(screen ='talk'):
+SyntaxError: invalid syntax (game/talking.rpy, line 272)
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
   File "game/custom system.rpy", line 251, in script call
     call screen makeplayerUI(roommanager)
-  File "game/script.rpy", line 766, in script
-    show sprocko unhappy with sway
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\ast.py", line 1658, in execute
-    renpy.exports.with_statement(trans, paired=paired)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\exports.py", line 1657, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 2798, in do_with
-    return self.interact(trans_pause=True,
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\display\core.py", line 3752, in interact_core
-    trans = self.ongoing_transition[None](
-  File "C:\Users\Tony\Desktop\renpy-8.0.3-sdk\renpy\atl.py", line 467, in __call__
-    raise Exception('Parameter %r is not known by ATL Transform.' % k)
-Exception: Parameter 'old_widget' is not known by ATL Transform.
+  File "game/custom system.rpy", line 251, in script call
+    call screen makeplayerUI(roommanager)
+  File "game/custom system.rpy", line 251, in script call
+    call screen makeplayerUI(roommanager)
+  [Previous line repeated 1 more time]
+  File "game/talking.rpy", line 216, in script
+    menu(screen ='talk'):
+  File "C:\Users\Tony\Desktop\renpy-8.1.3-sdk\renpy\ast.py", line 1922, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "C:\Users\Tony\Desktop\renpy-8.1.3-sdk\renpy\exports.py", line 1072, in menu
+    condition = renpy.python.py_eval(condition)
+  File "C:\Users\Tony\Desktop\renpy-8.1.3-sdk\renpy\python.py", line 1151, in py_eval
+    code = py_compile(code, 'eval')
+  File "C:\Users\Tony\Desktop\renpy-8.1.3-sdk\renpy\python.py", line 1088, in py_compile
+    raise e
+  File "C:\Users\Tony\Desktop\renpy-8.1.3-sdk\renpy\python.py", line 1034, in py_compile
+    raise orig_e
+  File "C:\Users\Tony\Desktop\renpy-8.1.3-sdk\renpy\python.py", line 1027, in py_compile
+    tree = compile(source, filename, py_mode, ast.PyCF_ONLY_AST | flags, 1)
+SyntaxError: invalid syntax (game/talking.rpy, line 272)
 
-Windows-10-10.0.19044 AMD64
-Ren'Py 8.0.3.22090809
+Windows-10-10.0.19045 AMD64
+Ren'Py 8.1.3.23091805
 Space Breakers 0.5
-Sat Apr  8 11:33:05 2023
+Sat Sep 30 14:32:54 2023

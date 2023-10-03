@@ -347,115 +347,115 @@ image jarman_image = ConditionSwitch(
 ######################### ######### ####################
 
 ## AI
-image ai normal = LiveComposite(
+image ai normal = Composite(
     (1920, 1750),
     (0, 0), "/char/ai/CaretakerNeutral.png"
     )
 
-image ai unhappy = LiveComposite(
+image ai unhappy = Composite(
     (1920, 1750),
     (0, 0), "/char/ai/CaretakerUnhappy.png"
     )
 
-image ai happy = LiveComposite(
+image ai happy = Composite(
     (1920, 1750),
     (0, 0), "/char/ai/CaretakerHappy.png"
     )
 
-image ai normale = LiveComposite(
+image ai normale = Composite(
     (1920, 1750),
     (0, 0), "/char/ai/CaretakerNeutralEvil.png"
     )
 
-image ai unhappye = LiveComposite(
+image ai unhappye = Composite(
     (1920, 1750),
     (0, 0), "/char/ai/CaretakerUnhappyEvil.png"
     )
 
-image ai happye = LiveComposite(
+image ai happye = Composite(
     (1920, 1750),
     (0, 0), "/char/ai/CaretakerHappyEvil.png"
     )
 
 
 ## Sprocko
-image sprocko normal = LiveComposite(
+image sprocko normal = Composite(
     (1920, 1750),
     (0, 0), "/char/spro/SprockoNeutral.png",
     )
 
-image sprocko unhappy = LiveComposite(
+image sprocko unhappy = Composite(
     (1920, 1750),
     (0, 0), "/char/spro/SprockoUnhappy.png",
     )
 
-image sprocko happy = LiveComposite(
+image sprocko happy = Composite(
     (1920, 1750),
     (0, 0), "/char/spro/SprockoHappy.png",
     )
 
-image sprocko shocked = LiveComposite(
+image sprocko shocked = Composite(
     (1920, 1750),
     (0, 0), "/char/spro/SprockoShocked.png",
     )
 
 
 ## Marnie
-image marnie normal = LiveComposite(
+image marnie normal = Composite(
     (1920, 1750),
     (0, 0), "/char/mar/MarnieNeutral.png",
     )
 
-image marnie unhappy = LiveComposite(
+image marnie unhappy = Composite(
     (1920, 1750),
     (0, 0), "/char/mar/MarnieUnhappy.png",
     )
 
-image marnie happy = LiveComposite(
+image marnie happy = Composite(
     (1920, 1750),
     (0, 0), "/char/mar/MarnieHappy.png",
     )
 
-image marnie shocked = LiveComposite(
+image marnie shocked = Composite(
     (1920, 1750),
     (0, 0), "/char/mar/MarnieShocked.png",
     )
 
 
 ## Gelato
-image gelato normal = LiveComposite(
+image gelato normal = Composite(
     (1920, 1750),
     (0, 0), "/char/gel/GelatoNeutral.png",
     )
 
-image gelato unhappy = LiveComposite(
+image gelato unhappy = Composite(
     (1920, 1750),
     (0, 0), "/char/gel/GelatoUnhappy.png",
     )
 
-image gelato happy = LiveComposite(
+image gelato happy = Composite(
     (1920, 1750),
     (0, 0), "/char/gel/GelatoHappy.png",
     )
 
-image gelato shocked = LiveComposite(
+image gelato shocked = Composite(
     (1920, 1750),
     (0, 0), "/char/gel/GelatoShocked.png",
     )
 
 
 ## Otus
-image otus normal = LiveComposite(
+image otus normal = Composite(
     (1920, 1750),
     (0, 0), "/char/otus/OtusNeutral.png",
     )
 
-image otus unhappy = LiveComposite(
+image otus unhappy = Composite(
     (1920, 1750),
     (0, 0), "/char/otus/OtusUnhappy.png",
     )
 
-image otus happy = LiveComposite(
+image otus happy = Composite(
     (1920, 1750),
     (0, 0), "/char/otus/OtusHappy.png",
     )
